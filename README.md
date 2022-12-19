@@ -29,7 +29,7 @@ I used Amazon EC2 instead of Heroku or Render.
 
 The most common user flow is this:
 
-A user lands on the homepage, uses the search bar, sees a list of products, inspects a product, adds it to their cart, registers for an account, purchases the product, and eventually leaves a review.
+A user lands on the homepage, uses the search bar, sees a list of products, inspects a product, adds it to their cart, registers for an account, adds a physical address, orders the product, and eventually leaves a review.
 
 The following are screenshots of this user flow:
 
@@ -42,6 +42,8 @@ The following are screenshots of this user flow:
 #### Adds it to their cart
 
 #### Registers for an account
+
+#### Adds a physical address
 
 #### Purchases the product
 
