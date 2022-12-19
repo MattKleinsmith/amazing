@@ -23,6 +23,8 @@ It was built using this stack:
 <br/>
 ![AWS](https://img.shields.io/badge/Amazon_AWS⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀-%23232f3e.svg?style=for-the-badge&logo=amazonaws&logoColor=ec912d)
 
+I used Amazon EC2 instead of Heroku or Render.
+
 ## Features
 
 The most common user flow is this:
