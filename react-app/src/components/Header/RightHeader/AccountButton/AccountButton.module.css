@@ -1,0 +1,25 @@
+.wrapper {
+    border: none;
+    cursor: pointer;
+    color: white;
+    padding-left: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 125px;
+}
+
+.wrapper:hover {
+    border: 1px solid white;
+}
+
+.row1 {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.row2 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.arrow {}

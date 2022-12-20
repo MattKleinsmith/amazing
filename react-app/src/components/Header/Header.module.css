@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     padding: 10px 20px;
+    background-color: #131921;
 }
 
 .header {

@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import { restoreUser } from "./store/session";
-import { getProducts } from "./store/products";
 
 import Header from "./components/Header/Header";
 import AppRoutes from "./AppRoutes";

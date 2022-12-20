@@ -1,0 +1,39 @@
+.cartButton {
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px 12px;
+    border-radius: 50%;
+}
+
+.cartButton i {
+    color: white;
+}
+
+.row {
+    display: flex;
+}
+
+.label {
+    align-self: flex-end;
+
+    margin-bottom: -2.5px;
+
+    font-size: 15px;
+    color: white;
+    font-weight: 700;
+}
+
+.cartButton:hover {
+    box-shadow: 0px 2px 5px rgb(217, 217, 217);
+    background-color: #f4f4f4;
+}
+
+.quantity {
+    position: absolute;
+    margin-left: 18.5px;
+    margin-top: -8px;
+
+    font-weight: 700;
+    color: #f08804;
+}

@@ -1,4 +1,4 @@
-import { NavLink, useParams, useSearchParams } from "react-router-dom";
+import { NavLink, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 
 import styles from "./SearchResults.module.css";
@@ -6,9 +6,9 @@ import SearchResultsItem from "./SearchResultItem/SearchResultsItem";
 import { useEffect } from "react";
 import { getProductsByKeywords } from "../../store/products";
 
-export default function SearchResults({ isHomepage = false }) {
+export default function SearchResults() {
     const dispatch = useDispatch();
-    const [searchParams, setSearchParams] = useSearchParams();
+    const searchParams = useSearchParams()[0];
     console.log("SearchResults - searchParams", searchParams.get("k"));
 
     useEffect(() => {
