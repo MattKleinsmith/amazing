@@ -57,8 +57,9 @@ export default function AccountDropdown({ delay, setShowMenu }) {
             </div>
 
         </div>
-        <div className={styles.background}>
 
-        </div>
+        <img className={styles.triangle} src="/images/white-arrow.png" />
+
+        <div className={styles.background} />
     </>;
 }

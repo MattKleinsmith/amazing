@@ -9,7 +9,7 @@ export default function AccountButton() {
     const [showMenu, setShowMenu] = useState(false);
     const user = useSelector(state => state.session.user);
     let timeoutId = null;
-    const TIMEOUT_DELAY = 350;
+    const TIMEOUT_DELAY = 150;
 
     useEffect(() => {
         if (!showMenu) return;
