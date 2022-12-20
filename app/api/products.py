@@ -1,7 +1,6 @@
 from flask import Blueprint, request
-from flask_login import login_required, current_user, login_user, logout_user
-from app.forms import SignupForm, validation_errors_formatter
-from app.models import db, User
+from flask_login import login_required, current_user
+from app.models import db, Product
 
 
 bp = Blueprint("products", __name__, url_prefix="/products")

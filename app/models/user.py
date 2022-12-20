@@ -4,6 +4,7 @@ from flask_login import UserMixin
 from sqlalchemy.schema import Column
 from sqlalchemy.types import Integer, DateTime, VARCHAR, TEXT
 from sqlalchemy.sql import func
+from sqlalchemy.orm import relationship
 from flask_login import UserMixin
 #  a crypto library that came with Flask
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -23,6 +24,8 @@ class User(db.Model, UserMixin):
     updated_at = Column(DateTime(timezone=True),
                         server_default=func.now(), onupdate=func.now(),
                         nullable=False)
+
+    products = relationship("Product", back_populates="seller")
 
     @property
     def password(self):
