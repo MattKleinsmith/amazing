@@ -1,0 +1,25 @@
+.wrapper {
+    height: 100px;
+
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    color: #222222;
+    gap: 0.2rem;
+}
+
+.title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+.price {
+    font-size: 1rem;
+    font-weight: 200;
+}
