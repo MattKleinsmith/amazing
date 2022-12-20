@@ -1,6 +1,7 @@
 import styles from "./FiveStars.module.css";
 
 export default function FiveStars({ rating, isBlack }) {
+    if (isNaN(Number(rating))) return;
     const fullStarNum = Math.floor(rating);
     const partialStar = rating % 1;
     const lastClass = partialStar > 0.5 ? "" : "-half";
