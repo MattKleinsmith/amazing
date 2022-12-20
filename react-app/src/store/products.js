@@ -69,26 +69,28 @@ export const deleteProduct = productId => async dispatch => {
     dispatch({ type: DELETE_PRODUCT, productId });
 };
 
-export default function productsReducer(state = {}, action) {
+export default function productsReducer(state = { all: {}, filtered: {} }, action) {
     const newState = { ...state };
     switch (action.type) {
         case GET_PRODUCTS:
             for (const product of action.products) {
-                newState[product.id] = product;
+                newState.all[product.id] = product;
             }
+            newState.filtered = action.products;
             return newState;
         case ADD_PRODUCT:
-            newState[action.product.id] = action.product;
+            newState.all[action.product.id] = action.product;
             return newState;
         case GET_PRODUCT:
-            newState[action.product.id] = action.product;
+            newState.all[action.product.id] = action.product;
             return newState;
         case ADD_IMAGE:
-            newState[action.productId].preview_image = action.product_image.url;
-            newState[action.productId].product_images.push(action.product_image);
+            newState.all[action.productId].preview_image = action.product_image.url;
+            newState.all[action.productId].product_images.push(action.product_image);
             return newState;
         case DELETE_PRODUCT:
-            delete newState[action.productId];
+            delete newState.all[action.productId];
+            delete newState.filtered[action.productId];
             return newState;
         default:
             return state;

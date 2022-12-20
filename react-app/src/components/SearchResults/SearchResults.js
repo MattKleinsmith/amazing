@@ -8,16 +8,14 @@ import { getProductsByKeywords } from "../../store/products";
 
 export default function SearchResults({ isHomepage = false }) {
     const dispatch = useDispatch();
-    const { categoryName } = useParams();
     const [searchParams, setSearchParams] = useSearchParams();
+    console.log("SearchResults - searchParams", searchParams.get("k"));
 
     useEffect(() => {
         dispatch(getProductsByKeywords(searchParams.get("k")))
-    }, [dispatch]);
+    }, [dispatch, searchParams]);
 
-    let products = useSelector(state => Object.values(state.products));
-    if (categoryName) products.reverse();
-    if (isHomepage) products = products.slice(products.length - 10);
+    const products = useSelector(state => Object.values(state.products.filtered));
 
     return (
         <div className={styles.wrapper}>
