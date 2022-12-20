@@ -7,6 +7,28 @@ from sqlalchemy.exc import IntegrityError
 bp = Blueprint("products", __name__, url_prefix="/products")
 
 
+@bp.route("",  methods=["GET"])
+def get_products():
+    terms = request.args.get("k").split("+")
+    if terms:
+        products = []
+        for term in terms:
+            products = Product.query.filter(Product.title.match(term)).all()
+            products += Product.query.filter(
+                Product.description.match(term)).all()
+        return [product.to_dict() for product in set(products)]
+    return [product.to_dict() for product in Product.query]
+
+
+@bp.route("<int:product_id>",  methods=["GET"])
+def get_product(product_id):
+    try:
+        product = Product.query.filter(Product.id == product_id).first()
+        return product.to_dict() if product else (f"Product with id {product_id} not found", 404)
+    except Exception:
+        return "500", 500
+
+
 @bp.route("",  methods=["POST"])
 @login_required
 def post_product():
@@ -23,20 +45,6 @@ def post_product():
         db.session.commit()
         return product.to_dict(), 201
     return {'errors': validation_errors_formatter(form, form.errors)}, 400
-
-
-@bp.route("",  methods=["GET"])
-def get_products():
-    return [product.to_dict() for product in Product.query]
-
-
-@bp.route("<int:product_id>",  methods=["GET"])
-def get_product(product_id):
-    try:
-        product = Product.query.filter(Product.id == product_id).first()
-        return product.to_dict() if product else (f"Product with id {product_id} not found", 404)
-    except Exception:
-        return "500", 500
 
 
 @bp.route("<int:product_id>",  methods=["PUT"])

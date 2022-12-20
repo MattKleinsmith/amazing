@@ -1,11 +1,20 @@
-import { NavLink, useParams } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { NavLink, useParams, useSearchParams } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
 
 import styles from "./SearchResults.module.css";
 import SearchResultsItem from "./SearchResultItem/SearchResultsItem";
+import { useEffect } from "react";
+import { getProductsByKeywords } from "../../store/products";
 
 export default function SearchResults({ isHomepage = false }) {
+    const dispatch = useDispatch();
     const { categoryName } = useParams();
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    useEffect(() => {
+        dispatch(getProductsByKeywords(searchParams.get("k")))
+    }, [dispatch]);
+
     let products = useSelector(state => Object.values(state.products));
     if (categoryName) products.reverse();
     if (isHomepage) products = products.slice(products.length - 10);

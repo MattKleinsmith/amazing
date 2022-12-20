@@ -12,6 +12,12 @@ export const getProducts = () => async dispatch => {
     dispatch({ type: GET_PRODUCTS, products });
 };
 
+export const getProductsByKeywords = keywords => async dispatch => {
+    const response = await csrfFetch(`/api/products?k=${keywords}`);
+    const products = await response.json();
+    dispatch({ type: GET_PRODUCTS, products });
+};
+
 export const getProduct = (productId) => async dispatch => {
     const response = await csrfFetch(`/api/products/${productId}`);
     const product = await response.json();
@@ -67,10 +73,10 @@ export default function productsReducer(state = {}, action) {
     const newState = { ...state };
     switch (action.type) {
         case GET_PRODUCTS:
-            return action.products.reduce((products, product) => {
-                products[product.id] = product;
-                return products;
-            }, {});
+            for (const product of action.products) {
+                newState[product.id] = product;
+            }
+            return newState;
         case ADD_PRODUCT:
             newState[action.product.id] = action.product;
             return newState;

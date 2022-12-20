@@ -15,7 +15,6 @@ export default function App() {
 
   useEffect(() => {
     dispatch(restoreUser());
-    dispatch(getProducts());
   }, [dispatch]);
 
   return (
