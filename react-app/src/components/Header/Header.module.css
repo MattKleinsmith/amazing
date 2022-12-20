@@ -1,0 +1,17 @@
+.headerWrapper {
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    width: 100vw;
+    max-width: 1200px;
+
+    padding-top: 10px;
+    padding-bottom: 16px;
+}
