@@ -53,20 +53,10 @@ The following are screenshots of this user flow:
 
 ### Getting started
 
-1. Start the backend server: From a terminal within the project directory, run:
+1. Paste this command into a terminal to spin up a docker container of the app:
+```
 
-    ```javascript
-    sh ./setup.sh
-    ```
-
-2. Start the frontend server: From a second terminal within the `react-app` directory, run:
-
-    ```javascript
-    npm start
-    ```
-
-3. Experience the app: From a browser, go to:
-    > http://localhost:3000
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
