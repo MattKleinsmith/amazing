@@ -8,6 +8,8 @@ import AccountDropdown from "./AccountDropdown/AccountDropdown";
 export default function AccountButton() {
     const [showMenu, setShowMenu] = useState(false);
     const user = useSelector(state => state.session.user);
+    let timeoutId = null;
+    const TIMEOUT_DELAY = 350;
 
     useEffect(() => {
         if (!showMenu) return;
@@ -16,16 +18,42 @@ export default function AccountButton() {
         return () => document.removeEventListener("click", closeMenu);
     }, [showMenu]);
 
+    const onMouseEnter = (e) => {
+        if (!timeoutId) {
+            timeoutId = setTimeout(() => {
+                const hovered = Array.from(document.querySelectorAll(":hover"));
+                if (hovered.includes(document.querySelector("#accountButton"))) {
+                    setShowMenu(true);
+                }
+                timeoutId = null;
+            }, TIMEOUT_DELAY);
+        }
+    }
+
+    const onMouseLeave = (e) => {
+        console.log("LEFT");
+        if (!timeoutId) {
+            timeoutId = setTimeout(() => {
+                const hovered = Array.from(document.querySelectorAll(":hover"));
+                if (!hovered.includes(document.querySelector("#accountButton")) &&
+                    !hovered.includes(document.querySelector("#accountDropdown"))) {
+                    setShowMenu(false);
+                }
+                timeoutId = null;
+            }, TIMEOUT_DELAY);
+        }
+    }
+
     return (
         <>
-            <div className={styles.wrapper} onClick={() => setShowMenu(true)}>
+            <div id="accountButton" className={styles.wrapper} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
                 <div className={styles.row1}>Hello, {user ? user.fullname : "Matthew"}</div>
                 <div className={styles.row2}>
                     <div className={styles.row2row1}>Account & Lists</div>
                     <img src={"/images/nav-arrow.png"} alt="▼" />
                 </div>
             </div>
-            {showMenu && <AccountDropdown />}
+            {showMenu && <AccountDropdown delay={TIMEOUT_DELAY} setShowMenu={setShowMenu} />}
         </>
     );
 }

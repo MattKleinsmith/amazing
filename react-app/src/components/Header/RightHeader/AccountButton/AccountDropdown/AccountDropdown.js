@@ -4,9 +4,10 @@ import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { signOut } from '../../../../../store/session';
 
-export default function AccountDropdown() {
+export default function AccountDropdown({ delay, setShowMenu }) {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    let timeoutId = null;
 
     const onClickSignOut = () => {
         dispatch(signOut());
@@ -14,8 +15,22 @@ export default function AccountDropdown() {
             navigate("/");
     };
 
+    const onMouseLeave = (e) => {
+        console.log("LEFT");
+        if (!timeoutId) {
+            timeoutId = setTimeout(() => {
+                const hovered = Array.from(document.querySelectorAll(":hover"));
+                if (!hovered.includes(document.querySelector("#accountButton")) &&
+                    !hovered.includes(document.querySelector("#accountDropdown"))) {
+                    setShowMenu(false);
+                }
+                timeoutId = null;
+            }, delay);
+        }
+    }
+
     return <>
-        <div className={styles.wrapper}>
+        <div id="accountDropdown" className={styles.wrapper} onMouseLeave={onMouseLeave}>
 
             <div className={styles.row}>
                 <div className={`${styles.iconWrapper}`}>

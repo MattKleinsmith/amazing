@@ -1,18 +1,14 @@
 .headerWrapper {
     display: flex;
     justify-content: center;
-    padding: 0px 20px;
     background-color: #131921;
 }
 
 .header {
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
 
     width: 100vw;
     max-width: 1200px;
-
-    margin-top: 10px;
-    padding-bottom: 16px;
+    margin: 10px 0px;
 }
