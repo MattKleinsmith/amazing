@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { signOut } from '../../../../../store/session';
 
-export default function AccountDropdown({ user, ui }) {
+export default function AccountDropdown() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 

@@ -7,7 +7,6 @@ import AccountDropdown from "./AccountDropdown/AccountDropdown";
 
 export default function AccountButton() {
     const [showMenu, setShowMenu] = useState(false);
-    const ui = useSelector(state => state.ui);
     const user = useSelector(state => state.session.user);
 
     useEffect(() => {
@@ -21,10 +20,12 @@ export default function AccountButton() {
         <>
             <div className={styles.wrapper} onClick={() => setShowMenu(true)}>
                 <div className={styles.row1}>Hello, {user ? user.fullname : "Matthew"}</div>
-                <div className={styles.row2}>Account & Lists</div>
-                <img src={"/images/nav-arrow.png"} alt="▼" />
+                <div className={styles.row2}>
+                    <div className={styles.row2row1}>Account & Lists</div>
+                    <img src={"/images/nav-arrow.png"} alt="▼" />
+                </div>
             </div>
-            {showMenu && <AccountDropdown user={user} ui={ui} />}
+            {showMenu && <AccountDropdown />}
         </>
     );
 }
