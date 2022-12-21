@@ -16,6 +16,7 @@ def restore():
 
 @bp.route("", methods=["POST"])
 def login():
+    print("yo")
     if current_user.is_authenticated:
         return {"message": "Already logged in"}, 400
 
