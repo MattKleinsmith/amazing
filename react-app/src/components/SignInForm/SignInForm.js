@@ -1,6 +1,6 @@
 import styles from './SignInForm.module.css';
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/session";
 import { NavLink } from 'react-router-dom';
 import { useRef } from 'react';
@@ -8,6 +8,9 @@ import { useEffect } from 'react';
 
 export default function SignInForm() {
     const dispatch = useDispatch();
+
+    const user = useSelector(state => state.session.user);
+    // const [isLoaded, setIsLoaded] = useState(false);
 
     const emailField = useRef();
     const [email, setEmail] = useState("");
@@ -21,17 +24,17 @@ export default function SignInForm() {
 
     const [bigError, setBigError] = useState("");
 
-    const [backendErrors, setBackendErrors] = useState([]);
+    // useEffect(() => {
+    //     setIsLoaded(true);
+    // }, []);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setBackendErrors([]);
-        return dispatch(sessionActions.signIn({ email, password }))
-            .catch(e => {
-                const backendErrors = Object.entries(e.errors).map(([errorField, errorMessage]) => `${errorField}: ${errorMessage}`);
-                setBackendErrors(backendErrors);
-            });
-    };
+    useEffect(() => {
+        // if (!isLoaded) return;
+        if (showEmailField)
+            emailField.current.focus();
+        else
+            passwordField.current.focus();
+    }, [showEmailField, showPasswordField]);
 
     const onClickContinue = () => {
         if (!email) {
@@ -51,12 +54,29 @@ export default function SignInForm() {
         setShowEmailField(false);
     }
 
-    const onClickSignIn = () => {
-        setShowPasswordField(false);
-        setShowEmailField(true);
+    const onClickSignIn = async () => {
+        if (!password) {
+            setPasswordError("Enter your password");
+            passwordField.current.focus();
+            return;
+        }
+
+        try {
+            await dispatch(sessionActions.signIn({ email, password }));
+            setShowPasswordField(false);
+            setShowEmailField(true);
+        }
+        catch (responseBody) {
+            const backendErrors = Object.entries(responseBody.errors)
+                .map(([errorField, errorMessage]) => `${errorField}: ${errorMessage}`);
+            if (backendErrors.includes("Credentials: Email and password did not match")) {
+                setBigError("Your password is incorrect");
+            }
+        }
     }
 
     const onClickChange = () => {
+        setPasswordError("");
         setShowPasswordField(false);
         setShowEmailField(true);
     }
@@ -66,17 +86,32 @@ export default function SignInForm() {
         return emailPattern.test(email);
     }
 
-    useEffect(() => {
-        if (showEmailField)
-            emailField.current.focus();
-        else
-            passwordField.current.focus();
-    }, [showEmailField, showPasswordField]);
+    const onSubmit = (e) => {
+        e.preventDefault();
+        showEmailField ? onClickContinue() : onClickSignIn();
+    }
+
+    // if (!isLoaded) {
+    //     return <>
+    //         <NavLink className={styles.logo} to="/" style={{ textDecoration: 'none' }}>
+    //             <img src="/images/logo_black.png" alt="logo_black" />
+    //         </NavLink></>
+    // }
+
+    if (user) {
+        return <div className={styles.wrapper} >
+            <NavLink className={styles.logo} to="/" style={{ textDecoration: 'none' }}>
+                <img src="/images/logo_black.png" alt="logo_black" />
+            </NavLink>
+            <div>
+                You are already logged in.
+            </div>
+        </div>
+    }
 
     return (
         <>
             <div className={styles.wrapper} >
-
 
                 <NavLink className={styles.logo} to="/" style={{ textDecoration: 'none' }}>
                     <img src="/images/logo_black.png" alt="logo_black" />
@@ -90,7 +125,7 @@ export default function SignInForm() {
                     </div>
                 </div>}
 
-                <form className={styles.form} onSubmit={handleSubmit}>
+                <form className={styles.form} onSubmit={onSubmit}>
                     <div className={styles.signinHeader}>
                         <div className={styles.signIn}>Sign in</div>
                     </div>
@@ -103,7 +138,6 @@ export default function SignInForm() {
                                 setEmail(e.target.value);
                                 setEmailError("");
                             }}
-                            required
                         />
                         {emailError && <div className={styles.errorWrapper}>
                             <div className={styles.errorIcon} />
@@ -119,12 +153,15 @@ export default function SignInForm() {
 
                     {showPasswordField && <div className={styles.fieldWrapper}>
                         <label htmlFor="signUpPassword" className={styles.fieldLabel}>Password</label>
-                        <input ref={passwordField} id="signUpPassword" className={styles.fieldInput}
+                        <input ref={passwordField} id="signUpPassword" className={`${styles.fieldInput} ${passwordError && styles.errorInput}`}
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            required
                         />
+                        {passwordError && <div className={styles.errorWrapper}>
+                            <div className={styles.errorIcon} />
+                            <div className={styles.errorText}>{passwordError}</div>
+                        </div>}
                     </div>}
 
                     {showEmailField && <div className={`${styles.continue} ${styles.noselect}`} onClick={onClickContinue}>Continue</div>}
