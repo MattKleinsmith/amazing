@@ -9,6 +9,49 @@
     margin-bottom: 12px;
 }
 
+.problemWrapper {
+    display: flex;
+
+    width: 350px;
+    margin-bottom: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    gap: 15px;
+
+    padding-right: 15px;
+    padding-left: 15px;
+
+
+    border: 1px solid #c40000;
+    border-radius: 4px;
+}
+
+.problemIcon {
+    background-image: url("../../../public/images/atlas.png");
+    background-repeat: no-repeat;
+
+    background-position: -248px -35px;
+    height: 27px;
+    width: 30px;
+}
+
+.problemRight {
+    display: flex;
+    flex-direction: column;
+}
+
+.problemTitle {
+    color: #c40000;
+    font-size: 17px;
+    line-height: 1.255;
+}
+
+.problemText {
+    font-size: 13px;
+    line-height: 19px;
+}
+
 .form {
     width: 350px;
     border: 1px solid #ddd;

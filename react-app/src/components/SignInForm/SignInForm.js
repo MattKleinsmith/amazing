@@ -45,6 +45,8 @@ export default function SignInForm() {
             return;
         }
 
+        setEmailError("");
+        setBigError("");
         setShowPasswordField(true);
         setShowEmailField(false);
     }
@@ -60,8 +62,8 @@ export default function SignInForm() {
     }
 
     const validateEmail = (email) => {
-        const re = /\S+@\S+\.\S+/;
-        return re.test(email);
+        const emailPattern = /\S+@\S+\.\S+/;
+        return emailPattern.test(email);
     }
 
     useEffect(() => {
@@ -74,9 +76,20 @@ export default function SignInForm() {
     return (
         <>
             <div className={styles.wrapper} >
+
+
                 <NavLink className={styles.logo} to="/" style={{ textDecoration: 'none' }}>
                     <img src="/images/logo_black.png" alt="logo_black" />
                 </NavLink>
+
+                {bigError && <div className={styles.problemWrapper}>
+                    <div className={styles.problemIcon} />
+                    <div className={styles.problemRight}>
+                        <div className={styles.problemTitle}>There was a problem</div>
+                        <div className={styles.problemText}>{bigError}</div>
+                    </div>
+                </div>}
+
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <div className={styles.signinHeader}>
                         <div className={styles.signIn}>Sign in</div>
