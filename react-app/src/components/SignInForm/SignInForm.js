@@ -61,12 +61,14 @@ export default function SignInForm() {
                     />
                 </label>
 
-                <div className={styles.signindiv} onClick={onClickContinue}>Continue</div>
+                <div className={`${styles.continue} ${styles.noselect}`} onClick={onClickContinue}>Continue</div>
 
                 <div type="submit" className={styles.demoButton} onClick={() => {
-                    setEmail("demo@aa.io");
+                    setEmail("email@email");
                     setPassword("password");
                 }}>Log in as demo user</div>
+
+                <div className={styles.why}>Why no work?</div>
             </form>
         </ div>
 
