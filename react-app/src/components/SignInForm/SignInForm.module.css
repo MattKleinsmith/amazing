@@ -15,3 +15,7 @@
     column-gap: 1vw;
     row-gap: 1vh;
 }
+
+.signIn {
+    font-size: 30px;
+}

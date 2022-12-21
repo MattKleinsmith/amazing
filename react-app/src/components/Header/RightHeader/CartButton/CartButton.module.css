@@ -11,6 +11,9 @@
 
 .row {
     display: flex;
+    font-size: 14px;
+    line-height: 15px;
+    font-weight: 700;
 }
 
 .label {

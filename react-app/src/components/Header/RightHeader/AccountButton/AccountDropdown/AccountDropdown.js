@@ -1,7 +1,7 @@
 import styles from "./AccountDropdown.module.css";
 
 import { useDispatch } from 'react-redux';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { signOut } from '../../../../../store/session';
 
 export default function AccountDropdown({ delay, setShowMenu }) {
@@ -52,7 +52,7 @@ export default function AccountDropdown({ delay, setShowMenu }) {
 
         </div>
 
-        <img className={styles.triangle} src="/images/white-arrow.png" />
+        <img className={styles.triangle} src="/images/white-arrow.png" alt="▲" />
 
         <div className={styles.background} />
     </>;

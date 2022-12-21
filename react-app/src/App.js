@@ -8,7 +8,6 @@ import { restoreUser } from "./store/session";
 import Header from "./components/Header/Header";
 import AppRoutes from "./AppRoutes";
 import Footer from "./components/Footer/Footer";
-import { setMousePosition } from "./store/ui";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -17,13 +16,9 @@ export default function App() {
     dispatch(restoreUser());
   }, [dispatch]);
 
-  const onMouseMove = (e) => {
-    // dispatch(updateMousePosition({ x: e.clientX, y: e.clientY }));
-  }
-
   return (
     <>
-      <div className={styles.pageContainer} onMouseMove={onMouseMove}>
+      <div className={styles.pageContainer}>
         <div className={styles.contentWrapper}>
           <Header />
           <AppRoutes />

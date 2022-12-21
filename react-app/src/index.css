@@ -1,6 +1,24 @@
+@font-face {
+    font-family: "Amazon Ember";
+    font-weight: 400;
+    src: url('~/public/fonts/AmazonEmber_Rg.ttf');
+}
+
+@font-face {
+    font-family: "Amazon Ember";
+    font-weight: 500;
+    src: url('~/public/fonts/Amazon-Ember-Medium.ttf');
+}
+
+@font-face {
+    font-family: "Amazon Ember";
+    font-weight: 700;
+    src: url('~/public/fonts/AmazonEmber_Bd.ttf');
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: "Mada", sans-serif;
+    font-family: "Amazon Ember", Arial, sans-serif;
 }

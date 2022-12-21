@@ -18,8 +18,9 @@
 }
 
 .row1 {
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 400;
 }
 
 .row2 {
@@ -31,8 +32,8 @@
     object-fit: scale-down;
 }
 
-.row2row1 {
-    font-size: 15px;
+.row2 {
+    font-size: 14px;
+    line-height: 15px;
     font-weight: 700;
-    line-height: 11px;
 }

@@ -47,7 +47,7 @@ export default function AccountButton() {
     return (
         <>
             <div id="accountButton" className={styles.wrapper} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-                <div className={styles.row1}>Hello, {user ? user.fullname : "Matthew"}</div>
+                <div className={styles.row1}>Hello, {user ? user.fullname.split(" ")[0] : "Matthew"}</div>
                 <div className={styles.row2}>
                     <div className={styles.row2row1}>Account & Lists</div>
                     <img src={"/images/nav-arrow.png"} alt="▼" />

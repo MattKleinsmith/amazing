@@ -4,7 +4,7 @@ import styles from "./Logo.module.css"
 export default function Logo() {
     return (
         <NavLink className={styles.wrapper} to="/" style={{ textDecoration: 'none' }}>
-            <img src="/images/logo_white.png" />
+            <img src="/images/logo_white.png" alt="logo_white" />
         </NavLink>
     )
 }
