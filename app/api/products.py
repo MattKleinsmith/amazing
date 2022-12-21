@@ -9,8 +9,9 @@ bp = Blueprint("products", __name__, url_prefix="/products")
 
 @bp.route("",  methods=["GET"])
 def get_products():
-    terms = request.args.get("k").split("+")
+    terms = request.args.get("k")
     if terms:
+        terms = terms.split("+")
         products = []
         for term in terms:
             products = Product.query.filter(Product.title.match(term)).all()
