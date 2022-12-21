@@ -14,9 +14,9 @@ export default function Listing() {
 
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(getProduct);
+        dispatch(getProduct(productId));
         window.scrollTo(0, 0);
-    })
+    }, [productId])
 
     if (!product) return;
 
