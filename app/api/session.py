@@ -22,8 +22,8 @@ def login():
     print("2")
     form = LoginForm()
     print("3 form", form['csrf_token'])
-    print("4 request.cookies", request.cookies['csrf_token'])
-    form['csrf_token'].data = request.cookies['csrf_token']
+    # print("4 request.cookies", request.cookies['csrf_token'])
+    # form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         user = User.query.filter(User.email == form.email.data).first()
         if not user:
