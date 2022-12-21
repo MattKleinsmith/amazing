@@ -16,11 +16,13 @@ def restore():
 
 @bp.route("", methods=["POST"])
 def login():
-    print("yo")
+    print("1")
     if current_user.is_authenticated:
         return {"message": "Already logged in"}, 400
-
+    print("2")
     form = LoginForm()
+    print("3 form", form['csrf_token'])
+    print("4 request.cookies", request.cookies['csrf_token'])
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         user = User.query.filter(User.email == form.email.data).first()
