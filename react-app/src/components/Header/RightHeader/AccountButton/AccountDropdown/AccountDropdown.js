@@ -11,8 +11,7 @@ export default function AccountDropdown({ delay, setShowMenu }) {
 
     const onClickSignOut = () => {
         dispatch(signOut());
-        if (window.location.href.includes("your"))
-            navigate("/");
+        navigate("/signin");
     };
 
     const onMouseLeave = (e) => {

@@ -2,15 +2,15 @@ import styles from './SignInForm.module.css';
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/session";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 
 export default function SignInForm() {
     const dispatch = useDispatch();
 
+    const [isLoaded, setIsLoaded] = useState(false);
     const user = useSelector(state => state.session.user);
-    // const [isLoaded, setIsLoaded] = useState(false);
 
     const emailField = useRef();
     const [email, setEmail] = useState("");
@@ -24,12 +24,14 @@ export default function SignInForm() {
 
     const [bigError, setBigError] = useState("");
 
-    // useEffect(() => {
-    //     setIsLoaded(true);
-    // }, []);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        // if (!isLoaded) return;
+        setIsLoaded(true);
+    }, []);
+
+    useEffect(() => {
+        if (!isLoaded) return;
         if (showEmailField)
             emailField.current.focus();
         else
@@ -63,8 +65,7 @@ export default function SignInForm() {
 
         try {
             await dispatch(sessionActions.signIn({ email, password }));
-            setShowPasswordField(false);
-            setShowEmailField(true);
+            navigate("/");
         }
         catch (responseBody) {
             const backendErrors = Object.entries(responseBody.errors)
@@ -91,12 +92,12 @@ export default function SignInForm() {
         showEmailField ? onClickContinue() : onClickSignIn();
     }
 
-    // if (!isLoaded) {
-    //     return <>
-    //         <NavLink className={styles.logo} to="/" style={{ textDecoration: 'none' }}>
-    //             <img src="/images/logo_black.png" alt="logo_black" />
-    //         </NavLink></>
-    // }
+    if (!isLoaded) {
+        return <>
+            <NavLink className={styles.logo} to="/" style={{ textDecoration: 'none' }}>
+                <img src="/images/logo_black.png" alt="logo_black" />
+            </NavLink></>
+    }
 
     if (user) {
         return <div className={styles.wrapper} >
@@ -172,8 +173,12 @@ export default function SignInForm() {
                         <div className={styles.rightArrow} />
                         <div type="submit" className={styles.demo} onClick={() => {
                             setEmail("email@email.com");
-                            setEmailError("");
                             setPassword("password");
+
+                            setEmailError("");
+                            setBigError("");
+                            setShowPasswordField(true);
+                            setShowEmailField(false);
                         }}>Sign in as demo user?</div>
                     </div>
                 </form>

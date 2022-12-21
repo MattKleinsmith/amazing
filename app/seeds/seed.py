@@ -4,7 +4,7 @@ from app.seeds.upload import upload_image_to_bucket_from_url
 
 def seed_all():
     db.session.add(User(
-        fullname="Matthew Kleinsmith",
+        fullname="Demo Smith",
         email="email@email.com",
         password="password"
     ))
