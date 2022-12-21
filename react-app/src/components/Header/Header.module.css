@@ -10,5 +10,6 @@
 
     width: 100vw;
     max-width: 1200px;
-    margin: 10px 0px;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }

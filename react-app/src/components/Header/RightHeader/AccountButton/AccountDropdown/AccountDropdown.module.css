@@ -1,20 +1,13 @@
-.triangle2 {
+.triangle {
     position: absolute;
     top: 46px;
-    margin-left: 118px;
+    margin-left: 110px;
 
     width: 0;
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-bottom: 8px solid white;
-}
-
-.triangle {
-    object-fit: scale-down;
-    position: absolute;
-    top: 46px;
-    margin-left: 118px;
 }
 
 .background {
