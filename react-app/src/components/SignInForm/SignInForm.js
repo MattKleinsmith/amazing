@@ -66,16 +66,18 @@ export default function SignInForm() {
                 <div className={styles.demoWrapper}>
                     <div className={styles.rightArrow} />
                     <div type="submit" className={styles.demo} onClick={() => {
-                        setEmail("email@email");
+                        setEmail("email@email.com");
                         setPassword("password");
                     }}>Sign in as demo user?</div>
                 </div>
-
-                <div>
-                    <div>New to Amazon?</div>
-                    <div>Create your Amazon account</div>
-                </div>
             </form>
+
+            <div className={styles.newWrapper}>
+                <div className={styles.line}>
+                    <div className={styles.new}>New to Amazon?</div>
+                </div>
+                <div className={styles.create}>Create your Amazon account</div>
+            </div>
         </div>
     );
 }

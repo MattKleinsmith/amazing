@@ -59,7 +59,7 @@
     border: 1px solid #a88734;
     border-radius: 3px;
 
-    background: linear-gradient(0deg, rgba(240, 194, 77, 1) 0%, rgba(240, 194, 77, 1) 0%, rgba(246, 221, 160, 1) 100%);
+    background: linear-gradient(0deg, rgba(240, 194, 77, 1) 0%, rgba(246, 221, 160, 1) 100%);
 
     color: #111111;
     font-size: 14px;
@@ -69,12 +69,12 @@
 }
 
 .continue:hover {
-    background: linear-gradient(0deg, rgba(238, 186, 53, 1) 0%, rgba(238, 186, 53, 1) 0%, rgba(244, 213, 137, 1) 100%);
+    background: linear-gradient(0deg, rgba(238, 186, 53, 1) 0%, rgba(244, 213, 137, 1) 100%);
 }
 
 .continue:active {
-    background: linear-gradient(0deg, #f0c14b 0%, #f0c14b 0%, #f0c14b 100%);
-    filter: drop-shadow(0px 0px 2px #e88420);
+    background: linear-gradient(0deg, #f0c14b 0%, #f0c14b 100%);
+    filter: drop-shadow(0px 0px 3px #e88420);
     box-shadow: inset 0px 0px 1px black;
 }
 
@@ -129,4 +129,63 @@
     font-size: 13px;
     color: #0066c0;
     cursor: pointer;
+}
+
+.newWrapper {
+    margin-top: 20px;
+    width: 350px;
+}
+
+.line {
+    text-align: center;
+    position: relative;
+    top: 2px;
+    padding-top: 1px;
+    margin-bottom: 14px;
+    line-height: 0;
+}
+
+.new {
+    line-height: 1;
+    font-size: 12px;
+    color: #767676;
+    z-index: 2;
+    position: relative;
+    display: inline-block;
+    background-color: white;
+    padding: 0 8px 0 7px;
+}
+
+.line::after {
+    content: "";
+    width: 100%;
+    display: block;
+    border-top: 1px solid #e7e7e7;
+    position: absolute;
+    top: 50%;
+    margin-top: -1px;
+}
+
+.create {
+    text-align: center;
+    color: #111111;
+    font-size: 13px;
+    line-height: 29px;
+
+    background: linear-gradient(0deg, #e7e9ec 0%, #f6f7f9 100%);
+
+    border: 1px solid #adb1b8;
+    border-radius: 3px;
+
+    cursor: pointer;
+}
+
+.create:hover {
+    background: linear-gradient(0deg, #d9dce1 0%, #e6e9ef 100%);
+}
+
+.create:active {
+    background: linear-gradient(0deg, #d5d8dc 0%, #ccced2 100%);
+    filter: drop-shadow(0px 0px 3px #e88420);
+    box-shadow: inset 0px 0px 1px red;
 }
