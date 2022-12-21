@@ -9,7 +9,7 @@ export default function SignInForm() {
     return (
         <div className={styles.wrapper}>
             <div className={styles.content}>
-                Form
+                <NavLink to="/"><img src="images/logo_black.png" alt="logo_black" /></NavLink>
             </div >
         </div>
     );

@@ -35,26 +35,18 @@ export default function AccountDropdown({ delay, setShowMenu }) {
             <NavLink to="/signin">Sign in</NavLink>
 
             <div className={styles.row}>
-                <div className={`${styles.iconWrapper}`}>
-                    <i className={`fas fa-user-circle ${styles.profilePicture}`} />
-                </div>
                 <div className={styles.right}>
                     <div>row 1</div>
+                </div>
+            </div>
+
+            <div className={styles.row}>
+                <div className={styles.right}>
                     <div>row 2</div>
                 </div>
             </div>
 
-            <Link className={`${styles.row} ${styles.link}`} to='/your/purchases'>
-                <div className={styles.iconWrapper}><i className={`fa-regular fa-clipboard`} /></div>
-                <div className={`${styles.right} ${styles.purchases}`}>
-                    Purchases and reviews
-                </div>
-            </Link>
-
             <div className={`${styles.row} ${styles.signOut}`} onClick={onClickSignOut}>
-                <div className={styles.iconWrapper}>
-                    <i className={`fa-solid fa-arrow-right-from-bracket`} />
-                </div>
                 <div className={`${styles.right}`}>Sign out</div>
             </div>
 

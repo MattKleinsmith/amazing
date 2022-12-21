@@ -53,7 +53,9 @@
 }
 
 .row:hover {
-    background-color: #f7f7f7;
+    color: #e47911;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .iconWrapper {
