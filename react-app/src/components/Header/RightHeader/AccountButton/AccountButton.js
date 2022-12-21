@@ -31,7 +31,6 @@ export default function AccountButton() {
     }
 
     const onMouseLeave = (e) => {
-        console.log("LEFT");
         if (!timeoutId) {
             timeoutId = setTimeout(() => {
                 const hovered = Array.from(document.querySelectorAll(":hover"));

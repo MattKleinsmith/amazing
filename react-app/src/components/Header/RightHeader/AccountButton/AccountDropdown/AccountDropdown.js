@@ -16,7 +16,6 @@ export default function AccountDropdown({ delay, setShowMenu }) {
     };
 
     const onMouseLeave = (e) => {
-        console.log("LEFT");
         if (!timeoutId) {
             timeoutId = setTimeout(() => {
                 const hovered = Array.from(document.querySelectorAll(":hover"));
@@ -52,7 +51,7 @@ export default function AccountDropdown({ delay, setShowMenu }) {
 
         </div>
 
-        <img className={styles.triangle} src="/images/white-arrow.png" alt="▲" />
+        <div className={styles.triangle} />
 
         <div className={styles.background} />
     </>;

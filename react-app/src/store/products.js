@@ -73,6 +73,7 @@ export default function productsReducer(state = { all: {}, filtered: {} }, actio
     const newState = { ...state };
     switch (action.type) {
         case GET_PRODUCTS:
+            newState.filtered = {};
             for (const product of action.products) {
                 newState.all[product.id] = product;
                 newState.filtered[product.id] = product;

@@ -4,7 +4,7 @@
 
 Amazing is a web application clone of Amazon, which provides an online marketplace for consumer products.
 
-Live demo: TBD
+Live demo: https://mattkleinsmith.dev:5001
 
 It was built using this stack:
 
