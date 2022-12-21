@@ -9,6 +9,7 @@ export default function SignInForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
+    const [showPasswordField, setShowPasswordField] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -30,8 +31,6 @@ export default function SignInForm() {
                 <img src="/images/logo_black.png" alt="logo_black" />
             </NavLink>
             <form className={styles.form} onSubmit={handleSubmit}>
-
-
                 <div className={styles.signinHeader}>
                     <div className={styles.signIn}>Sign in</div>
                 </div>
@@ -40,17 +39,17 @@ export default function SignInForm() {
                         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>
                 }
-                <label >
-                    Email <br />
-                    <input
-                        className="field"
+                <div className={styles.emailWrapper}>
+                    <label htmlFor="signUpEmail" className={styles.emailLabel}>Email</label>
+                    <input id="signUpEmail" className={styles.emailField}
                         type="text"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
-                </label>
-                <label>
+                </div>
+
+                {showPasswordField && <label>
                     Password <br />
                     <input
                         className="field"
@@ -59,15 +58,23 @@ export default function SignInForm() {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
-                </label>
+                </label>}
 
                 <div className={`${styles.continue} ${styles.noselect}`} onClick={onClickContinue}>Continue</div>
 
                 <div className={styles.terms}>By continuing, you agree to Amazing's <NavLink>You Must Hire Me Conditions</NavLink> and <NavLink>Just Kidding Notice</NavLink>.</div>
-                <div type="submit" className={styles.demoButton} onClick={() => {
-                    setEmail("email@email");
-                    setPassword("password");
-                }}>Log in as demo user</div>
+                <div className={styles.demoWrapper}>
+                    <div className={styles.rightArrow} />
+                    <div type="submit" className={styles.demo} onClick={() => {
+                        setEmail("email@email");
+                        setPassword("password");
+                    }}>Sign in as demo user?</div>
+                </div>
+
+                <div>
+                    <div>New to Amazon?</div>
+                    <div>Create your Amazon account</div>
+                </div>
             </form>
         </div>
     );

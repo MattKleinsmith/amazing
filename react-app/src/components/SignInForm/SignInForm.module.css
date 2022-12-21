@@ -2,34 +2,59 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px;
+    padding-top: 15px;
 }
 
 .logo {
-    margin-top: -15px;
-    margin-bottom: 18px;
+    margin-bottom: 12px;
 }
 
 .form {
     width: 350px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    padding: 20px 30px;
+    padding: 20px 25px;
 
     display: flex;
     flex-direction: column;
-    gap: 15px;
 }
 
-
-
 .signIn {
-    font-size: 30px;
+    font-size: 28px;
+}
+
+.emailWrapper {
+    margin-top: 12px;
+    margin-bottom: 14px;
+}
+
+.emailLabel {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.emailField {
+    height: 31px;
+    width: 100%;
+    margin-top: 2px;
+
+    border: 1px solid #a6a6a6;
+    border-top-color: #949494;
+    border-radius: 3px;
+
+    text-indent: 7px;
+}
+
+.emailField:focus {
+    outline: none;
+    border: 1px solid #e77601;
+    filter: drop-shadow(0px 0px 2px #e88420);
 }
 
 .continue {
-    width: 295px;
+    width: 100%;
     padding: 5px 6px;
+    margin-bottom: 20px;
 
     border: 1px solid #a88734;
     border-radius: 3px;
@@ -72,6 +97,7 @@
 .terms {
     font-size: 12px;
     color: #111111;
+    margin-bottom: 30px;
 }
 
 .wrapper a {
@@ -82,4 +108,25 @@
 .wrapper a:hover {
     text-decoration: underline;
     color: #c45500;
+}
+
+.demoWrapper {
+    display: flex;
+    gap: 7px;
+}
+
+.rightArrow {
+    background-image: url("../../../public/images/atlas.png");
+    background-repeat: no-repeat;
+    width: 4px;
+    height: 7px;
+    background-position: -366px -86px;
+
+    align-self: center;
+}
+
+.demo {
+    font-size: 13px;
+    color: #0066c0;
+    cursor: pointer;
 }
