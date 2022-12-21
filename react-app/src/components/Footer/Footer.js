@@ -2,8 +2,8 @@ import { useLocation } from "react-router"
 
 export default function Footer() {
     const location = useLocation();
-    if (location.pathname.includes("signin")) {
+    const excludedPaths = ["signin", "register"];
+    if (excludedPaths.some(path => location.pathname.includes(path)))
         return;
-    }
-    return "Footer component"
+    return "Footer component";
 }

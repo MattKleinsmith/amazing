@@ -1,4 +1,4 @@
-import styles from './SignInForm.module.css';
+import styles from './Register.module.css';
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/session";
@@ -6,7 +6,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 
-export default function SignInForm() {
+export default function RegisterForm() {
     const dispatch = useDispatch();
 
     const [isLoaded, setIsLoaded] = useState(false);
@@ -131,7 +131,7 @@ export default function SignInForm() {
 
                 <form className={styles.form} onSubmit={onSubmit}>
                     <div className={styles.signinHeader}>
-                        <div className={styles.signIn}>Sign in</div>
+                        <div className={styles.signIn}>Create account</div>
                     </div>
                     {showEmailField && <div className={styles.fieldWrapper}>
                         <label htmlFor="signUpEmail" className={styles.fieldLabel}>Email</label>
@@ -171,11 +171,10 @@ export default function SignInForm() {
                     {showEmailField && <div className={`${styles.continue} ${styles.noselect}`} onClick={onClickContinue}>Continue</div>}
                     {showPasswordField && <div className={`${styles.continue} ${styles.noselect}`} onClick={onClickSignIn}>Sign in</div>}
 
-                    {showEmailField && <div className={styles.terms}>By continuing, you agree to Amazing's <NavLink onClick={() => setTerms1(true)}>You Must Hire Me Conditions</NavLink> and <NavLink onClick={() => setTerms2(true)}> Just Kidding Notice</NavLink>.</div>}
+                    {showEmailField && <div className={styles.terms}>By creating an account, you agree to Amazing's <br /> <NavLink onClick={() => setTerms1(true)}>You Must Hire Me Conditions</NavLink> and <NavLink onClick={() => setTerms2(true)}> Just Kidding Notice</NavLink>.</div>}
 
                     {terms1 && <div className={styles.jokeTerms}>There are no terms, I was just kidding.</div>}
                     {terms2 && <div className={styles.jokeTerms}>Verily, there are no terms.</div>}
-
 
                     <div className={styles.demoWrapper}>
                         <div className={styles.rightArrow} />
@@ -191,16 +190,16 @@ export default function SignInForm() {
                     </div>
                 </form>
 
-                {showEmailField && <div className={styles.newWrapper}>
-                    <div className={styles.line}>
-                        <div className={styles.new}>New to Amazing?</div>
+                {
+                    showEmailField && <div className={styles.newWrapper}>
+                        <div className={styles.line}>
+                            <div className={styles.new}>New to Amazing?</div>
+                        </div>
+                        <div className={styles.create}>Create your Amazing account</div>
                     </div>
-                    <div className={styles.create} onClick={() => {
-                        navigate("/register");
-                    }}>Create your Amazing account</div>
-                </div>}
+                }
 
-            </div>
+            </div >
 
             <div className={styles.footer}>
                 <div className={styles.footerLine} />

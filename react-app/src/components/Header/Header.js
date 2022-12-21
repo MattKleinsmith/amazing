@@ -6,9 +6,10 @@ import Logo from './Logo/Logo';
 
 export default function Header() {
     const location = useLocation();
-    if (location.pathname.includes("/signin")) {
+    const excludedPaths = ["signin", "register"];
+    if (excludedPaths.some(path => location.pathname.includes(path)))
         return;
-    }
+
     return (
         <>
             <div className={styles.headerWrapper}>
