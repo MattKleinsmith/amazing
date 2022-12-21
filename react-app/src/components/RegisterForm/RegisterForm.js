@@ -12,6 +12,11 @@ export default function RegisterForm() {
     const [isLoaded, setIsLoaded] = useState(false);
     const user = useSelector(state => state.session.user);
 
+    const nameField = useRef();
+    const [name, setName] = useState("");
+    const [nameError, setNameError] = useState("");
+    const [showNameField, setShowNameField] = useState(true);
+
     const emailField = useRef();
     const [email, setEmail] = useState("");
     const [emailError, setEmailError] = useState("");
@@ -21,6 +26,11 @@ export default function RegisterForm() {
     const [password, setPassword] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const [showPasswordField, setShowPasswordField] = useState(false);
+
+    const passwordRepeatField = useRef();
+    const [passwordRepeat, setPasswordRepeat] = useState("");
+    const [passwordRepeatError, setPasswordRepeatError] = useState("");
+    const [showPasswordRepeatField, setShowPasswordRepeatField] = useState(false);
 
     const [bigError, setBigError] = useState("");
 
@@ -96,10 +106,11 @@ export default function RegisterForm() {
     }
 
     if (!isLoaded) {
-        return <>
+        return <div className={styles.wrapper} >
             <NavLink className={styles.logo} to="/" style={{ textDecoration: 'none' }}>
                 <img src="/images/logo_black.png" alt="logo_black" />
-            </NavLink></>
+            </NavLink>
+        </div>
     }
 
     if (user) {
@@ -130,11 +141,34 @@ export default function RegisterForm() {
                 </div>}
 
                 <form className={styles.form} onSubmit={onSubmit}>
-                    <div className={styles.signinHeader}>
-                        <div className={styles.signIn}>Create account</div>
-                    </div>
+                    <div className={styles.title}>Create account</div>
+
                     {showEmailField && <div className={styles.fieldWrapper}>
-                        <label htmlFor="signUpEmail" className={styles.fieldLabel}>Email</label>
+                        <label htmlFor="signUpEmail" className={styles.fieldLabel}>
+                            Your name
+                        </label>
+                        <input
+                            ref={emailField}
+                            id="signUpEmail"
+                            className={`${styles.fieldInput} ${emailError && styles.errorInput}`}
+                            type="text"
+                            value={email}
+                            onChange={(e) => {
+                                setName(e.target.value);
+                                setNameError("");
+                            }}
+                            placeholder="First and last name"
+                        />
+                        {emailError && <div className={styles.errorWrapper}>
+                            <div className={styles.errorIcon} />
+                            <div className={styles.errorText}>{emailError}</div>
+                        </div>}
+                    </div>}
+
+                    {showEmailField && <div className={styles.fieldWrapper}>
+                        <label htmlFor="signUpEmail" className={styles.fieldLabel}>
+                            Email
+                        </label>
                         <input ref={emailField} id="signUpEmail" className={`${styles.fieldInput} ${emailError && styles.errorInput}`}
                             type="text"
                             value={email}
@@ -155,8 +189,33 @@ export default function RegisterForm() {
                     </div>
                     }
 
-                    {showPasswordField && <div className={styles.fieldWrapper}>
-                        <label htmlFor="signUpPassword" className={styles.fieldLabel}>Password</label>
+                    {showEmailField && <div className={styles.fieldWrapper}>
+                        <label htmlFor="signUpPassword" className={styles.fieldLabel}>
+                            Password
+                        </label>
+                        <input
+                            ref={passwordField}
+                            id="signUpPassword"
+                            className={`${styles.fieldInput} ${passwordError && styles.errorInput}`}
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="At least 6 characters"
+                        />
+                        {passwordError && <div className={styles.errorWrapper}>
+                            <div className={styles.errorIcon} />
+                            <div className={styles.errorText}>{passwordError}</div>
+                        </div>}
+                        <div className={styles.errorWrapper}>
+                            <div className={styles.warningIcon} />
+                            <div className={styles.warningText}>Passwords must be at least 6 characters.</div>
+                        </div>
+                    </div>}
+
+                    {showEmailField && <div className={styles.fieldWrapper}>
+                        <label htmlFor="signUpPassword" className={styles.fieldLabel}>
+                            Re-enter password
+                        </label>
                         <input ref={passwordField} id="signUpPassword" className={`${styles.fieldInput} ${passwordError && styles.errorInput}`}
                             type="password"
                             value={password}
@@ -176,30 +235,15 @@ export default function RegisterForm() {
                     {terms1 && <div className={styles.jokeTerms}>There are no terms, I was just kidding.</div>}
                     {terms2 && <div className={styles.jokeTerms}>Verily, there are no terms.</div>}
 
-                    <div className={styles.demoWrapper}>
-                        <div className={styles.rightArrow} />
-                        <div type="submit" className={styles.demo} onClick={() => {
-                            setEmail("email@email.com");
-                            setPassword("password");
-
-                            setEmailError("");
-                            setBigError("");
-                            setShowPasswordField(true);
-                            setShowEmailField(false);
-                        }}>Sign in as demo user?</div>
+                    <div className={styles.innerFooter}>
+                        <div className={styles.footerLine} />
+                        <div className={styles.already}>
+                            <div>Already have an account?</div>
+                            <NavLink to="/signin" className={styles.signInLinkWrapper}>Sign in <span className={styles.rightArrowLink} /></NavLink>
+                        </div>
                     </div>
                 </form>
-
-                {
-                    showEmailField && <div className={styles.newWrapper}>
-                        <div className={styles.line}>
-                            <div className={styles.new}>New to Amazing?</div>
-                        </div>
-                        <div className={styles.create}>Create your Amazing account</div>
-                    </div>
-                }
-
-            </div >
+            </div>
 
             <div className={styles.footer}>
                 <div className={styles.footerLine} />

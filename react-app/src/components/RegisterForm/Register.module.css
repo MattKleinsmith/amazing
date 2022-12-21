@@ -56,14 +56,15 @@
     width: 350px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    padding: 20px 25px;
+    padding: 20px 20px;
 
     display: flex;
     flex-direction: column;
 }
 
-.signIn {
+.title {
     font-size: 28px;
+    margin-bottom: 15px;
 }
 
 .email {
@@ -85,8 +86,7 @@
 }
 
 .fieldWrapper {
-    margin-top: 12px;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 }
 
 .fieldLabel {
@@ -146,10 +146,28 @@
     color: #c40000;
 }
 
+.warningIcon {
+    background-image: url("../../../public/images/atlas.png");
+    background-repeat: no-repeat;
+    align-self: center;
+
+    background-position: -166px -130px;
+    height: 13px;
+    width: 5px;
+    margin-left: 2px;
+}
+
+.warningText {
+    font-size: 12px;
+    line-height: 15px;
+    color: #2b2b2b;
+}
+
 .continue {
     width: 100%;
     padding: 5px 6px;
-    margin-bottom: 20px;
+    margin-top: 2px;
+    margin-bottom: 28px;
 
     border: 1px solid #a88734;
     border-radius: 3px;
@@ -192,6 +210,7 @@
 .terms {
     font-size: 12px;
     color: #111111;
+    line-height: 1.5;
 }
 
 .jokeTerms {
@@ -215,6 +234,27 @@
     height: 7px;
     background-position: -366px -86px;
 }
+
+.signInLinkWrapper {
+    display: flex;
+    gap: 5px;
+}
+
+.rightArrowLink {
+    background-image: url("../../../public/images/atlas.png");
+    background-repeat: no-repeat;
+    align-self: center;
+
+    width: 3px;
+    height: 6px;
+    background-position: -346px -86px;
+}
+
+.rightArrowLink:hover {
+    background-position: -346px -101px;
+}
+
+
 
 .demo {
     font-size: 13px;
@@ -309,11 +349,25 @@
     content: "";
 }
 
+.innerFooter {
+    display: flex;
+    flex-direction: column;
+    font-size: 11px;
+    gap: 15px;
+    margin-top: 26px;
+}
+
+.already {
+    display: flex;
+    gap: 5px;
+
+    font-size: 13px;
+    line-height: 19px;
+    color: #111;
+}
+
+
 .links {
     display: flex;
     gap: 20px;
-}
-
-.copyright {
-    color: #555555;
 }
