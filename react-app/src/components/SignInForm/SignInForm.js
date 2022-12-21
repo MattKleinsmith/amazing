@@ -3,12 +3,19 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
 import { NavLink } from 'react-router-dom';
+import { useRef } from 'react';
+import { useEffect } from 'react';
 
 export default function SignInForm() {
     const dispatch = useDispatch();
+    const emailField = useRef();
+    const passwordField = useRef();
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
+
+    const [showEmailField, setShowEmailField] = useState(true);
     const [showPasswordField, setShowPasswordField] = useState(false);
 
     const handleSubmit = (e) => {
@@ -22,8 +29,39 @@ export default function SignInForm() {
     };
 
     const onClickContinue = () => {
-        console.log("continue");
+        if (!email) {
+            setErrors(["Enter your email"])
+            return;
+        }
+
+        if (!validateEmail(email)) {
+            setErrors(["We cannot find an account with that email address"])
+            return;
+        }
+
+        setShowPasswordField(true);
+        setShowEmailField(false);
     }
+
+    const onClickSignIn = () => {
+        setShowPasswordField(false);
+        setShowEmailField(true);
+    }
+
+    const onClickChange = () => {
+        setShowPasswordField(false);
+        setShowEmailField(true);
+    }
+
+    const validateEmail = (email) => {
+        const re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
+
+    useEffect(() => {
+        if (showEmailField) emailField.current.focus();
+        else passwordField.current.focus();
+    }, [showEmailField, showPasswordField]);
 
     return (
         <>
@@ -40,30 +78,36 @@ export default function SignInForm() {
                             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                         </ul>
                     }
-                    <div className={styles.emailWrapper}>
-                        <label htmlFor="signUpEmail" className={styles.emailLabel}>Email</label>
-                        <input id="signUpEmail" className={styles.emailField}
+                    {showEmailField && <div className={styles.fieldWrapper}>
+                        <label htmlFor="signUpEmail" className={styles.fieldLabel}>Email</label>
+                        <input ref={emailField} id="signUpEmail" className={styles.fieldInput}
                             type="text"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
                         />
-                    </div>
+                    </div>}
 
-                    {showPasswordField && <label>
-                        Password <br />
-                        <input
-                            className="field"
+                    {showPasswordField && <div className={styles.email}>
+                        <div>{email}</div>
+                        <div className={styles.changeEmail} onClick={onClickChange}>Change</div>
+                    </div>
+                    }
+
+                    {showPasswordField && <div className={styles.fieldWrapper}>
+                        <label htmlFor="signUpPassword" className={styles.fieldLabel}>Password</label>
+                        <input ref={passwordField} id="signUpPassword" className={styles.fieldInput}
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
                         />
-                    </label>}
+                    </div>}
 
-                    <div className={`${styles.continue} ${styles.noselect}`} onClick={onClickContinue}>Continue</div>
+                    {showEmailField && <div className={`${styles.continue} ${styles.noselect}`} onClick={onClickContinue}>Continue</div>}
+                    {showPasswordField && <div className={`${styles.continue} ${styles.noselect}`} onClick={onClickSignIn}>Sign in</div>}
 
-                    <div className={styles.terms}>By continuing, you agree to Amazing's <NavLink>You Must Hire Me Conditions</NavLink> and <NavLink>Just Kidding Notice</NavLink>.</div>
+                    {showEmailField && <div className={styles.terms}>By continuing, you agree to Amazing's <NavLink>You Must Hire Me Conditions</NavLink> and <NavLink>Just Kidding Notice</NavLink>.</div>}
                     <div className={styles.demoWrapper}>
                         <div className={styles.rightArrow} />
                         <div type="submit" className={styles.demo} onClick={() => {
@@ -73,12 +117,12 @@ export default function SignInForm() {
                     </div>
                 </form>
 
-                <div className={styles.newWrapper}>
+                {showEmailField && <div className={styles.newWrapper}>
                     <div className={styles.line}>
                         <div className={styles.new}>New to Amazing?</div>
                     </div>
                     <div className={styles.create}>Create your Amazing account</div>
-                </div>
+                </div>}
 
             </div>
 
