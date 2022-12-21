@@ -69,6 +69,40 @@
     filter: drop-shadow(0px 0px 2px #e88420);
 }
 
+.errorInput {
+    border-color: #d00;
+    box-shadow: 0 0 0 3px rgb(221 0 0 / 10%) inset;
+}
+
+.errorInput:focus {
+    border-color: #d00;
+    filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0));
+}
+
+.errorWrapper {
+    margin-top: 5px;
+    display: flex;
+    gap: 7px;
+}
+
+.errorIcon {
+    background-image: url("../../../public/images/atlas.png");
+    background-repeat: no-repeat;
+    align-self: center;
+
+    background-position: -141px -130px;
+    height: 13px;
+    width: 5px;
+
+    margin-left: 2px;
+}
+
+.errorText {
+    font-size: 12px;
+    line-height: 15px;
+    color: #c40000;
+}
+
 .continue {
     width: 100%;
     padding: 5px 6px;
@@ -126,11 +160,11 @@
 .rightArrow {
     background-image: url("../../../public/images/atlas.png");
     background-repeat: no-repeat;
+    align-self: center;
+
     width: 4px;
     height: 7px;
     background-position: -366px -86px;
-
-    align-self: center;
 }
 
 .demo {

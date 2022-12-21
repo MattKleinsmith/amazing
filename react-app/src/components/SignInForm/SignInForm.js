@@ -8,34 +8,40 @@ import { useEffect } from 'react';
 
 export default function SignInForm() {
     const dispatch = useDispatch();
+
     const emailField = useRef();
-    const passwordField = useRef();
-
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [errors, setErrors] = useState([]);
-
+    const [emailError, setEmailError] = useState("");
     const [showEmailField, setShowEmailField] = useState(true);
+
+    const passwordField = useRef();
+    const [password, setPassword] = useState("");
+    const [passwordError, setPasswordError] = useState("");
     const [showPasswordField, setShowPasswordField] = useState(false);
+
+    const [bigError, setBigError] = useState("");
+
+    const [backendErrors, setBackendErrors] = useState([]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setErrors([]);
+        setBackendErrors([]);
         return dispatch(sessionActions.signIn({ email, password }))
             .catch(e => {
-                const errors = Object.entries(e.errors).map(([errorField, errorMessage]) => `${errorField}: ${errorMessage}`);
-                setErrors(errors);
+                const backendErrors = Object.entries(e.errors).map(([errorField, errorMessage]) => `${errorField}: ${errorMessage}`);
+                setBackendErrors(backendErrors);
             });
     };
 
     const onClickContinue = () => {
         if (!email) {
-            setErrors(["Enter your email"])
+            setEmailError("Enter your email");
+            emailField.current.focus();
             return;
         }
 
         if (!validateEmail(email)) {
-            setErrors(["We cannot find an account with that email address"])
+            setBigError("We cannot find an account with that email address");
             return;
         }
 
@@ -59,8 +65,10 @@ export default function SignInForm() {
     }
 
     useEffect(() => {
-        if (showEmailField) emailField.current.focus();
-        else passwordField.current.focus();
+        if (showEmailField)
+            emailField.current.focus();
+        else
+            passwordField.current.focus();
     }, [showEmailField, showPasswordField]);
 
     return (
@@ -73,19 +81,21 @@ export default function SignInForm() {
                     <div className={styles.signinHeader}>
                         <div className={styles.signIn}>Sign in</div>
                     </div>
-                    {
-                        errors.length > 0 && <ul className={styles.formErrors}>
-                            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                        </ul>
-                    }
                     {showEmailField && <div className={styles.fieldWrapper}>
                         <label htmlFor="signUpEmail" className={styles.fieldLabel}>Email</label>
-                        <input ref={emailField} id="signUpEmail" className={styles.fieldInput}
+                        <input ref={emailField} id="signUpEmail" className={`${styles.fieldInput} ${emailError && styles.errorInput}`}
                             type="text"
                             value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={(e) => {
+                                setEmail(e.target.value);
+                                setEmailError("");
+                            }}
                             required
                         />
+                        {emailError && <div className={styles.errorWrapper}>
+                            <div className={styles.errorIcon} />
+                            <div className={styles.errorText}>{emailError}</div>
+                        </div>}
                     </div>}
 
                     {showPasswordField && <div className={styles.email}>
@@ -112,6 +122,7 @@ export default function SignInForm() {
                         <div className={styles.rightArrow} />
                         <div type="submit" className={styles.demo} onClick={() => {
                             setEmail("email@email.com");
+                            setEmailError("");
                             setPassword("password");
                         }}>Sign in as demo user?</div>
                     </div>
