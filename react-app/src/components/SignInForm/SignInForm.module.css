@@ -5,17 +5,23 @@
     padding: 30px;
 }
 
-.content {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-
-    max-width: 1200px;
-
-    padding-top: 2vh;
-
-    column-gap: 1vw;
-    row-gap: 1vh;
+.logo {
+    margin-top: -15px;
+    margin-bottom: 18px;
 }
+
+.form {
+    width: 350px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px 30px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
 
 .signIn {
     font-size: 30px;
@@ -61,4 +67,19 @@
     user-select: none;
     /* Non-prefixed version, currently
                                     supported by Chrome, Edge, Opera and Firefox */
+}
+
+.terms {
+    font-size: 12px;
+    color: #111111;
+}
+
+.wrapper a {
+    color: #0066c0;
+    text-decoration: none;
+}
+
+.wrapper a:hover {
+    text-decoration: underline;
+    color: #c45500;
 }

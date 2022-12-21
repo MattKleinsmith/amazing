@@ -26,10 +26,10 @@ export default function SignInForm() {
 
     return (
         <div className={styles.wrapper} >
-            <NavLink to="/" style={{ textDecoration: 'none' }}>
+            <NavLink className={styles.logo} to="/" style={{ textDecoration: 'none' }}>
                 <img src="/images/logo_black.png" alt="logo_black" />
             </NavLink>
-            <form className={styles.signinForm} onSubmit={handleSubmit}>
+            <form className={styles.form} onSubmit={handleSubmit}>
 
 
                 <div className={styles.signinHeader}>
@@ -63,14 +63,12 @@ export default function SignInForm() {
 
                 <div className={`${styles.continue} ${styles.noselect}`} onClick={onClickContinue}>Continue</div>
 
+                <div className={styles.terms}>By continuing, you agree to Amazing's <NavLink>You Must Hire Me Conditions</NavLink> and <NavLink>Just Kidding Notice</NavLink>.</div>
                 <div type="submit" className={styles.demoButton} onClick={() => {
                     setEmail("email@email");
                     setPassword("password");
                 }}>Log in as demo user</div>
-
-                <div className={styles.why}>Why no work?</div>
             </form>
-        </ div>
-
+        </div>
     );
 }
