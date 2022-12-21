@@ -11,7 +11,8 @@ export default function Listing() {
 
     const products = useSelector(state => state.products);
     const product = products[productId];
-
+    console.log("Listing - productId", productId);
+    console.log("Listing - products", products);
     useEffect(() => {
         window.scrollTo(0, 0);
     })
