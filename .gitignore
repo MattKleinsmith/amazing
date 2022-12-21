@@ -195,3 +195,4 @@ yarn-error.log*
 dev.db
 scratch.md
 *.pem
+*.psd

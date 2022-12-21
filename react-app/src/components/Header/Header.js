@@ -1,12 +1,19 @@
 import styles from './Header.module.css';
 import SearchBar from './SearchBar/SearchBar'
 import RightHeader from './RightHeader/RightHeader'
+import { useLocation } from 'react-router';
+import Logo from './Logo/Logo';
 
 export default function Header() {
+    const location = useLocation();
+    if (location.pathname.includes("/signin")) {
+        return;
+    }
     return (
         <>
             <div className={styles.headerWrapper}>
                 <div className={styles.header}>
+                    <Logo />
                     <SearchBar />
                     <RightHeader />
                 </div>

@@ -1,7 +1,7 @@
 import styles from "./AccountDropdown.module.css";
 
 import { useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { signOut } from '../../../../../store/session';
 
 export default function AccountDropdown({ delay, setShowMenu }) {
@@ -31,6 +31,8 @@ export default function AccountDropdown({ delay, setShowMenu }) {
 
     return <>
         <div id="accountDropdown" className={styles.wrapper} onMouseLeave={onMouseLeave}>
+
+            <NavLink to="/signin">Sign in</NavLink>
 
             <div className={styles.row}>
                 <div className={`${styles.iconWrapper}`}>

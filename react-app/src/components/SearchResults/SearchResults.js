@@ -9,7 +9,6 @@ import { getProductsByKeywords } from "../../store/products";
 export default function SearchResults() {
     const dispatch = useDispatch();
     const searchParams = useSearchParams()[0];
-    console.log("SearchResults - searchParams", searchParams.get("k"));
 
     useEffect(() => {
         dispatch(getProductsByKeywords(searchParams.get("k")))
