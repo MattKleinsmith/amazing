@@ -144,12 +144,12 @@ export default function RegisterForm() {
                     <div className={styles.title}>Create account</div>
 
                     {showEmailField && <div className={styles.fieldWrapper}>
-                        <label htmlFor="signUpEmail" className={styles.fieldLabel}>
-                            Your name
+                        <label htmlFor="signUpName" className={styles.fieldLabel}>
+                            Your nam&zwj;e
                         </label>
                         <input
                             ref={emailField}
-                            id="signUpEmail"
+                            id="signUpName"
                             className={`${styles.fieldInput} ${emailError && styles.errorInput}`}
                             type="text"
                             value={email}
@@ -169,8 +169,12 @@ export default function RegisterForm() {
                         <label htmlFor="signUpEmail" className={styles.fieldLabel}>
                             Email
                         </label>
-                        <input ref={emailField} id="signUpEmail" className={`${styles.fieldInput} ${emailError && styles.errorInput}`}
+                        <input
+                            ref={emailField}
+                            id="signUpEmail"
+                            className={`${styles.fieldInput} ${emailError && styles.errorInput}`}
                             type="text"
+                            autocomplete="off"
                             value={email}
                             onChange={(e) => {
                                 setEmail(e.target.value);
