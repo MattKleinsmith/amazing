@@ -49,7 +49,7 @@ export default function SignInForm() {
         }
 
         if (!validateEmail(email)) {
-            setBigError("We cannot find an account with that email address");
+            setBigError("We cannot find an account with that email address.");
             return;
         }
 
@@ -80,6 +80,7 @@ export default function SignInForm() {
     }
 
     const onClickChange = () => {
+        setBigError("");
         setPasswordError("");
         setShowPasswordField(false);
         setShowEmailField(true);
