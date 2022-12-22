@@ -52,16 +52,41 @@ export default function RegisterForm() {
     }, [showEmailField, showPasswordField]);
 
     const onClickContinue = () => {
+        let hasErrors = false;
+
+        if (!passwordRepeat) {
+            setPasswordRepeatError("Type your password again");
+            passwordRepeatField.current.focus();
+            hasErrors = true;
+        } else if (password != passwordRepeat) {
+            setPasswordRepeatError("Passwords must match");
+            passwordRepeatField.current.focus();
+            hasErrors = true;
+        }
+
+        if (password.length < 6) {
+            setPasswordError("Minimum 6 characters required");
+            passwordField.current.focus();
+            hasErrors = true;
+        }
+
         if (!email) {
             setEmailError("Enter your email");
             emailField.current.focus();
-            return;
+            hasErrors = true;
+        } else if (!validateEmail(email)) {
+            setEmailError("Invalid email address. Please correct and try again.");
+            emailField.current.focus();
+            hasErrors = true;
         }
 
-        if (!validateEmail(email)) {
-            setBigError("We cannot find an account with that email address");
-            return;
+        if (!name) {
+            setNameError("Enter your name");
+            nameField.current.focus();
+            hasErrors = true;
         }
+
+        if (hasErrors) return;
 
         setEmailError("");
         setBigError("");
@@ -132,36 +157,28 @@ export default function RegisterForm() {
                     <img src="/images/logo_black.png" alt="logo_black" />
                 </NavLink>
 
-                {bigError && <div className={styles.problemWrapper}>
-                    <div className={styles.problemIcon} />
-                    <div className={styles.problemRight}>
-                        <div className={styles.problemTitle}>There was a problem</div>
-                        <div className={styles.problemText}>{bigError}</div>
-                    </div>
-                </div>}
-
                 <form className={styles.form} onSubmit={onSubmit}>
                     <div className={styles.title}>Create account</div>
 
                     {showEmailField && <div className={styles.fieldWrapper}>
                         <label htmlFor="signUpName" className={styles.fieldLabel}>
-                            Your nam&zwj;e
+                            Your name
                         </label>
                         <input
-                            ref={emailField}
+                            ref={nameField}
                             id="signUpName"
                             className={`${styles.fieldInput} ${emailError && styles.errorInput}`}
                             type="text"
-                            value={email}
+                            value={name}
                             onChange={(e) => {
                                 setName(e.target.value);
                                 setNameError("");
                             }}
                             placeholder="First and last name"
                         />
-                        {emailError && <div className={styles.errorWrapper}>
+                        {nameError && <div className={styles.errorWrapper}>
                             <div className={styles.errorIcon} />
-                            <div className={styles.errorText}>{emailError}</div>
+                            <div className={styles.errorText}>{nameError}</div>
                         </div>}
                     </div>}
 
@@ -174,7 +191,7 @@ export default function RegisterForm() {
                             id="signUpEmail"
                             className={`${styles.fieldInput} ${emailError && styles.errorInput}`}
                             type="text"
-                            autocomplete="off"
+                            autoComplete="off"
                             value={email}
                             onChange={(e) => {
                                 setEmail(e.target.value);
@@ -210,24 +227,24 @@ export default function RegisterForm() {
                             <div className={styles.errorIcon} />
                             <div className={styles.errorText}>{passwordError}</div>
                         </div>}
-                        <div className={styles.errorWrapper}>
+                        {!passwordError && <div className={styles.errorWrapper}>
                             <div className={styles.warningIcon} />
                             <div className={styles.warningText}>Passwords must be at least 6 characters.</div>
-                        </div>
+                        </div>}
                     </div>}
 
                     {showEmailField && <div className={styles.fieldWrapper}>
-                        <label htmlFor="signUpPassword" className={styles.fieldLabel}>
+                        <label htmlFor="signUpRepeatPassword" className={styles.fieldLabel}>
                             Re-enter password
                         </label>
-                        <input ref={passwordField} id="signUpPassword" className={`${styles.fieldInput} ${passwordError && styles.errorInput}`}
+                        <input ref={passwordRepeatField} id="signUpRepeatPassword" className={`${styles.fieldInput} ${passwordError && styles.errorInput}`}
                             type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            value={passwordRepeat}
+                            onChange={(e) => setPasswordRepeat(e.target.value)}
                         />
-                        {passwordError && <div className={styles.errorWrapper}>
+                        {passwordRepeatError && <div className={styles.errorWrapper}>
                             <div className={styles.errorIcon} />
-                            <div className={styles.errorText}>{passwordError}</div>
+                            <div className={styles.errorText}>{passwordRepeatError}</div>
                         </div>}
                     </div>}
 
