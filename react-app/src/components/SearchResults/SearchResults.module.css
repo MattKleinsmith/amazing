@@ -6,7 +6,6 @@
 
 .content {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
 
     max-width: 1200px;
 
@@ -14,4 +13,16 @@
 
     column-gap: 1vw;
     row-gap: 1vh;
+}
+
+@media screen and (min-width: 1880px) {
+    .content {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media screen and (max-width: 1879px) {
+    .content {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }
