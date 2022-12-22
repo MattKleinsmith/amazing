@@ -1,5 +1,7 @@
 .wrapper {
     height: 100px;
+    height: 300px;
+    max-height: 129.6px;
 
     display: flex;
     flex-direction: column;
@@ -9,9 +11,11 @@
 }
 
 .title {
-    white-space: nowrap;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
     overflow: hidden;
-    text-overflow: ellipsis;
     font-size: 16px;
     line-height: 24px;
 }
