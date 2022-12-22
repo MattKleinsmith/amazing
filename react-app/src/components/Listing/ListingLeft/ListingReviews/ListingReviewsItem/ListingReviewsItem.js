@@ -1,4 +1,4 @@
-import FiveStars from "../../../../FiveStars/FiveStars";
+import Stars from "../../../../Stars/Stars";
 import styles from "./ListingReviewsItem.module.css"
 
 export default function ListingReviewsItem({ review }) {
@@ -8,7 +8,7 @@ export default function ListingReviewsItem({ review }) {
         <div className={styles.wrapper}>
             <div className={styles.reviewList}>
                 <div>
-                    <FiveStars rating={review.rating} />
+                    <Stars rating={review.rating} />
                 </div>
                 <div className={styles.reviewText}>
                     {review.review}

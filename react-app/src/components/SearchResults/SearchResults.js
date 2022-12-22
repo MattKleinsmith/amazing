@@ -19,6 +19,7 @@ export default function SearchResults() {
 
     return (
         <div className={styles.wrapper}>
+            <div className={styles.filter}>Filter</div>
             <div className={styles.content}>
                 {products.map((product, i) =>
                     <NavLink key={i} to={`/listing/${product.id}`} style={{ textDecoration: 'none' }}>

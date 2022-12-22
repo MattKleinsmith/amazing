@@ -1,19 +1,25 @@
 .wrapper {
     display: flex;
-    justify-content: center;
-    padding: 30px;
+}
+
+.filter {
+    width: 250px;
+    background-color: gray;
 }
 
 .content {
     display: grid;
 
-    max-width: 700px;
+    max-width: 750px;
+    padding-left: 5px;
+    padding-right: 5px;
 
     padding-top: 2vh;
 
     column-gap: 1vw;
     row-gap: 1vh;
 }
+
 
 @media screen and (min-width: 1880px) {
     .content {

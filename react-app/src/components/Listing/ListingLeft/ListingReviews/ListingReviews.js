@@ -1,4 +1,4 @@
-import FiveStars from "../../../FiveStars/FiveStars";
+import Stars from "../../../Stars/Stars";
 import ListingReviewsItem from "./ListingReviewsItem/ListingReviewsItem";
 import styles from "./ListingReviews.module.css";
 
@@ -13,7 +13,7 @@ export default function ListingReviews({ product }) {
                     {reviews.length} reviews
                 </div>
                 <div className={styles.reviewStars}>
-                    <FiveStars style={{ fontSize: '1rem' }} rating={product.product_rating} />
+                    <Stars style={{ fontSize: '1rem' }} rating={product.product_rating} />
                 </div>
             </div>
             <div className={styles.ListingReviews}>

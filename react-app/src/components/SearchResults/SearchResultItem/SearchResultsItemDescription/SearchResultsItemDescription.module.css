@@ -1,13 +1,12 @@
 .wrapper {
-    height: 100px;
-    height: 300px;
-    max-height: 129.6px;
-
     display: flex;
     flex-direction: column;
+
+    height: 250px;
+    padding-left: 8px;
+
     font-size: 0.8rem;
-    color: #222222;
-    gap: 0.2rem;
+    color: #0F1111;
 }
 
 .title {
@@ -15,17 +14,86 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 
+    padding-top: 5px;
+
     overflow: hidden;
     font-size: 16px;
     line-height: 24px;
 }
 
-.rating {
-    display: flex;
-    align-items: center;
+.count {
+    margin-top: 5px;
+
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
 }
 
-.price {
-    font-size: 1rem;
-    font-weight: 200;
+.ratingRow {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 5px;
+    margin-bottom: 18px;
+}
+
+.rating {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.numRatings {
+    color: #007185;
+    font-size: 14px;
+}
+
+.numRatings:hover {
+    text-decoration: none;
+}
+
+.priceRow {
+    display: flex;
+    margin-top: -10px;
+}
+
+.symbol {
+    font-size: 13px;
+}
+
+.whole {
+    margin-top: -5px;
+    font-size: 28px;
+}
+
+.fraction {
+    font-size: 13px;
+}
+
+.perCount {
+    margin-left: 5px;
+    align-self: flex-end;
+
+    font-size: 14px;
+    color: #565959;
+}
+
+.prime {
+    background-image: url("../../../../../public/images/labels.png");
+    background-repeat: no-repeat;
+
+    width: 53px;
+    height: 15px;
+    background-position: -185px -182px;
+
+    margin-top: 10px;
+}
+
+.delivery {
+    margin-top: 3px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.date {
+    font-weight: 700;
 }

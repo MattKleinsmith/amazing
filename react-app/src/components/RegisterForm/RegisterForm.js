@@ -1,10 +1,10 @@
 import styles from './Register.module.css';
-import { useState } from "react";
+
+import { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import * as sessionActions from "../../store/session";
 import { NavLink, useNavigate } from 'react-router-dom';
-import { useRef } from 'react';
-import { useEffect } from 'react';
+
+import * as sessionActions from "../../store/session";
 
 export default function RegisterForm() {
     const dispatch = useDispatch();
