@@ -90,7 +90,7 @@ export default function RegisterForm() {
         if (hasErrors) return;
 
         try {
-            await dispatch(sessionActions.register({ email, password }));
+            await dispatch(sessionActions.register({ fullname: name, email, password }));
             navigate("/");
         }
         catch (responseBody) {
