@@ -49,7 +49,7 @@ export default function RegisterForm() {
             emailField.current.focus();
         else
             passwordField.current.focus();
-    }, [showEmailField, showPasswordField]);
+    }, [showEmailField, showPasswordField, isLoaded]);
 
     const onClickContinue = async () => {
         let hasErrors = false;
@@ -58,7 +58,7 @@ export default function RegisterForm() {
             setPasswordRepeatError("Type your password again");
             passwordRepeatField.current.focus();
             hasErrors = true;
-        } else if (password != passwordRepeat) {
+        } else if (password !== passwordRepeat) {
             setPasswordRepeatError("Passwords must match");
             passwordRepeatField.current.focus();
             hasErrors = true;

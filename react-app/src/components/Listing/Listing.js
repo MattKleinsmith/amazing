@@ -16,7 +16,7 @@ export default function Listing() {
     useEffect(() => {
         dispatch(getProduct(productId));
         window.scrollTo(0, 0);
-    }, [productId])
+    }, [productId, dispatch])
 
     if (!product) return;
 

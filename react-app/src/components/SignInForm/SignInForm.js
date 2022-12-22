@@ -31,7 +31,7 @@ export default function SignInForm() {
 
     useEffect(() => {
         setIsLoaded(true);
-    }, []);
+    }, [setIsLoaded]);
 
     useEffect(() => {
         if (!isLoaded) return;
@@ -39,7 +39,7 @@ export default function SignInForm() {
             emailField.current.focus();
         else
             passwordField.current.focus();
-    }, [showEmailField, showPasswordField]);
+    }, [showEmailField, showPasswordField, isLoaded]);
 
     const onClickContinue = () => {
         if (!email) {
