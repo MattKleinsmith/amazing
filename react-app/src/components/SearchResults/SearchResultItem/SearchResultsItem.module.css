@@ -1,7 +1,7 @@
 .wrapper {
     height: calc(100% - 8px);
     max-width: 374px;
-    min-width: 240px;
+    min-width: 241px;
     margin-bottom: 8px;
 
     border: 1px solid #f5f5f5;
@@ -9,9 +9,64 @@
     border-radius: 4px;
 }
 
+.badge {
+    max-width: 160px;
+
+    padding: 0 6px 0 10px;
+
+    position: relative;
+    height: 26px;
+    z-index: 1;
+    float: left;
+
+    background-color: #002F36 !important;
+    color: #002F36 !important;
+
+    cursor: pointer;
+
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.badge::after {
+    content: "";
+    width: 10px;
+    height: 26px;
+    border-right: 10px solid transparent;
+    border-top: 26px solid;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    right: -10px;
+}
+
+.amazing {
+    color: white;
+    font-size: 12px;
+    line-height: 26px;
+    white-space: nowrap;
+}
+
+.choice {
+    color: #F69931;
+    font-size: 12px;
+    line-height: 26px;
+    white-space: nowrap;
+}
+
+.topHalf {
+    background-color: #f8f8f8;
+    border-radius: 4px;
+}
+
 .image {
     object-fit: cover;
     border-radius: 4px;
     width: 100%;
+    padding-top: 3px;
+    padding-left: 30px;
+    padding-right: 30px;
     filter: brightness(97.25%);
 }

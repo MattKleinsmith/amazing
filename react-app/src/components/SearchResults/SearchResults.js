@@ -1,6 +1,6 @@
 import styles from "./SearchResults.module.css";
 
-import { NavLink, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 
 import SearchResultsItem from "./SearchResultItem/SearchResultsItem";
@@ -22,10 +22,8 @@ export default function SearchResults() {
             <div className={styles.filter}>Filter</div>
             <div className={styles.content}>
                 {products.map((product, i) =>
-                    <NavLink key={i} to={`/listing/${product.id}`} style={{ textDecoration: 'none' }}>
-                        <SearchResultsItem product={product} />
-                    </NavLink>)
-                }
+                    <SearchResultsItem key={i} product={product} />
+                )}
             </div >
         </div>
     );

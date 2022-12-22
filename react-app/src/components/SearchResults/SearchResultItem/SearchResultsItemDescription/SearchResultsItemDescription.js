@@ -9,7 +9,9 @@ export default function SearchResultsItemDescription({ product }) {
     const [wholePrice, fractionPrice] = price.split(".");
     return (
         <div className={styles.wrapper}>
-            <div className={styles.title}>{product.title}</div>
+            <NavLink to={`/listing/${product.id}`} style={{ textDecoration: 'none' }} className={styles.title}>
+                {product.title}
+            </NavLink>
 
             <div className={styles.count}>1 Count (Pack of 1)</div>
 
@@ -21,16 +23,20 @@ export default function SearchResultsItemDescription({ product }) {
                 </div>
             }
 
-            <div className={styles.priceRow}>
-                <div className={styles.symbol}>$</div>
-                <div className={styles.whole}>{wholePrice}</div>
-                <div className={styles.fraction}>{fractionPrice}</div>
-                <div className={styles.perCount}>(${price}/Count)</div>
+            <div className={styles.priceWrapper}>
+                <NavLink to={`/listing/${product.id}`} style={{ textDecoration: 'none' }} className={styles.priceRow}>
+                    <div className={styles.symbol}>$</div>
+                    <div className={styles.whole}>{wholePrice}</div>
+                    <div className={styles.fraction}>{fractionPrice}</div>
+                </NavLink>
+                <NavLink to={`/listing/${product.id}`} style={{ textDecoration: 'none' }} className={styles.perCount}>
+                    (${price}/Count)
+                </NavLink>
             </div>
 
             <div className={styles.prime} />
 
             <div className={styles.delivery}>FREE delivery <span className={styles.date}>Tue, Dec 27</span></div>
-        </div>
+        </div >
     );
 }
