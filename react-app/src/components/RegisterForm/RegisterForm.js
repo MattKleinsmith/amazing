@@ -26,6 +26,7 @@ export default function RegisterForm() {
     const [password, setPassword] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const [showPasswordField, setShowPasswordField] = useState(false);
+    const [showPasswordWarning, setShowPasswordWarning] = useState(true);
 
     const passwordRepeatField = useRef();
     const [passwordRepeat, setPasswordRepeat] = useState("");
@@ -51,7 +52,7 @@ export default function RegisterForm() {
             passwordField.current.focus();
     }, [showEmailField, showPasswordField]);
 
-    const onClickContinue = () => {
+    const onClickContinue = async () => {
         let hasErrors = false;
 
         if (!passwordRepeat) {
@@ -88,21 +89,8 @@ export default function RegisterForm() {
 
         if (hasErrors) return;
 
-        setEmailError("");
-        setBigError("");
-        setShowPasswordField(true);
-        setShowEmailField(false);
-    }
-
-    const onClickSignIn = async () => {
-        if (!password) {
-            setPasswordError("Enter your password");
-            passwordField.current.focus();
-            return;
-        }
-
         try {
-            await dispatch(sessionActions.signIn({ email, password }));
+            await dispatch(sessionActions.register({ email, password }));
             navigate("/");
         }
         catch (responseBody) {
@@ -127,7 +115,7 @@ export default function RegisterForm() {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        showEmailField ? onClickContinue() : onClickSignIn();
+        onClickContinue();
     }
 
     if (!isLoaded) {
@@ -167,12 +155,13 @@ export default function RegisterForm() {
                         <input
                             ref={nameField}
                             id="signUpName"
-                            className={`${styles.fieldInput} ${emailError && styles.errorInput}`}
+                            className={`${styles.fieldInput} ${nameError && styles.errorInput}`}
                             type="text"
+                            autoComplete="off"
                             value={name}
                             onChange={(e) => {
-                                setName(e.target.value);
                                 setNameError("");
+                                setName(e.target.value);
                             }}
                             placeholder="First and last name"
                         />
@@ -194,8 +183,8 @@ export default function RegisterForm() {
                             autoComplete="off"
                             value={email}
                             onChange={(e) => {
-                                setEmail(e.target.value);
                                 setEmailError("");
+                                setEmail(e.target.value);
                             }}
                         />
                         {emailError && <div className={styles.errorWrapper}>
@@ -220,14 +209,20 @@ export default function RegisterForm() {
                             className={`${styles.fieldInput} ${passwordError && styles.errorInput}`}
                             type="password"
                             value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            onChange={(e) => {
+                                if (e.target.value.length >= 6 && passwordError) {
+                                    setShowPasswordWarning(false);
+                                    setPasswordError("");
+                                }
+                                setPassword(e.target.value);
+                            }}
                             placeholder="At least 6 characters"
                         />
                         {passwordError && <div className={styles.errorWrapper}>
                             <div className={styles.errorIcon} />
                             <div className={styles.errorText}>{passwordError}</div>
                         </div>}
-                        {!passwordError && <div className={styles.errorWrapper}>
+                        {!passwordError && showPasswordWarning && <div className={styles.errorWrapper}>
                             <div className={styles.warningIcon} />
                             <div className={styles.warningText}>Passwords must be at least 6 characters.</div>
                         </div>}
@@ -237,10 +232,13 @@ export default function RegisterForm() {
                         <label htmlFor="signUpRepeatPassword" className={styles.fieldLabel}>
                             Re-enter password
                         </label>
-                        <input ref={passwordRepeatField} id="signUpRepeatPassword" className={`${styles.fieldInput} ${passwordError && styles.errorInput}`}
+                        <input ref={passwordRepeatField} id="signUpRepeatPassword" className={`${styles.fieldInput} ${passwordRepeatError && styles.errorInput}`}
                             type="password"
                             value={passwordRepeat}
-                            onChange={(e) => setPasswordRepeat(e.target.value)}
+                            onChange={(e) => {
+                                setPasswordRepeatError("");
+                                setPasswordRepeat(e.target.value);
+                            }}
                         />
                         {passwordRepeatError && <div className={styles.errorWrapper}>
                             <div className={styles.errorIcon} />
@@ -248,10 +246,9 @@ export default function RegisterForm() {
                         </div>}
                     </div>}
 
-                    {showEmailField && <div className={`${styles.continue} ${styles.noselect}`} onClick={onClickContinue}>Continue</div>}
-                    {showPasswordField && <div className={`${styles.continue} ${styles.noselect}`} onClick={onClickSignIn}>Sign in</div>}
+                    <div className={`${styles.continue} ${styles.noselect}`} onClick={onClickContinue}>{email ? "Verify email" : "Continue"}</div>
 
-                    {showEmailField && <div className={styles.terms}>By creating an account, you agree to Amazing's <br /> <NavLink onClick={() => setTerms1(true)}>You Must Hire Me Conditions</NavLink> and <NavLink onClick={() => setTerms2(true)}> Just Kidding Notice</NavLink>.</div>}
+                    <div className={styles.terms}>By creating an account, you agree to Amazing's <br /> <NavLink onClick={() => setTerms1(true)}>You Must Hire Me Conditions</NavLink> and <NavLink onClick={() => setTerms2(true)}> Just Kidding Notice</NavLink>.</div>
 
                     {terms1 && <div className={styles.jokeTerms}>There are no terms, I was just kidding.</div>}
                     {terms2 && <div className={styles.jokeTerms}>Verily, there are no terms.</div>}
