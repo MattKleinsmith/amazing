@@ -175,7 +175,7 @@ export default function SignInForm() {
                     {showEmailField && <div className={styles.terms}>By continuing, you agree to Amazing's <NavLink onClick={() => setTerms1(true)}>You Must Hire Me Conditions</NavLink> and <NavLink onClick={() => setTerms2(true)}> Just Kidding Notice</NavLink>.</div>}
 
                     {terms1 && <div className={styles.jokeTerms}>There are no terms, I was just kidding.</div>}
-                    {terms2 && <div className={styles.jokeTerms}>Verily, there are no terms.</div>}
+                    {terms2 && <div className={styles.jokeTerms2}>Verily, there are no terms.</div>}
 
 
                     <div className={styles.demoWrapper}>

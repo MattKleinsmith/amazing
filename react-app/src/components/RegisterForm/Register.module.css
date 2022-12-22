@@ -222,7 +222,13 @@
 }
 
 .jokeTerms {
-    margin-top: 20px;
+    margin-top: 15px;
+    font-size: 12px;
+    color: #111111;
+}
+
+.jokeTerms2 {
+    margin-top: 15px;
     font-size: 12px;
     color: #111111;
 }
