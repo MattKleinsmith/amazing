@@ -31,3 +31,6 @@ class ProductImage(db.Model):
             "url": self.url,
             "preview": self.preview
         }
+
+    def to_dict_for_product(self):
+        return self.url

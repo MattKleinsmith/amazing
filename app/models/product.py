@@ -57,8 +57,8 @@ class Product(db.Model):
             "price": str(self.price),
             "description": self.description,
 
-            "seller": self.seller.to_dict(),
-            "product_images": [x.to_dict() for x in self.product_images],
+            "seller": self.seller.to_dict_for_product(),
+            "product_images": [x.to_dict_for_product() for x in self.product_images],
 
             "avg_rating": avg_rating,
             "num_ratings": num_ratings,

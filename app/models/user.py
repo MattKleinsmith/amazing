@@ -44,3 +44,9 @@ class User(db.Model, UserMixin):
             "fullname": self.fullname,
             "email": self.email,
         }
+
+    def to_dict_for_product(self):
+        return {
+            "fullname": self.fullname,
+            "email": self.email,
+        }
