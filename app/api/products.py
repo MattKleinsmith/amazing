@@ -17,15 +17,15 @@ def get_products():
             products = Product.query.filter(Product.title.match(term)).all()
             products += Product.query.filter(
                 Product.description.match(term)).all()
-        return [product.to_dict_lazy() for product in set(products)]
-    return [product.to_dict_lazy() for product in Product.query]
+        return [product.to_dict_search_results() for product in set(products)]
+    return [product.to_dict_search_results() for product in Product.query]
 
 
 @bp.route("<int:product_id>",  methods=["GET"])
 def get_product(product_id):
     try:
         product = Product.query.get(product_id)
-        return product.to_dict_eager() if product else (f"Product with id {product_id} not found", 404)
+        return product.to_dict_details() if product else (f"Product with id {product_id} not found", 404)
     except Exception:
         return "500", 500
 
