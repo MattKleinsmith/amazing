@@ -15,7 +15,6 @@ export default function RegisterForm() {
     const nameField = useRef();
     const [name, setName] = useState("");
     const [nameError, setNameError] = useState("");
-    const [showNameField, setShowNameField] = useState(true);
 
     const emailField = useRef();
     const [email, setEmail] = useState("");
@@ -31,9 +30,9 @@ export default function RegisterForm() {
     const passwordRepeatField = useRef();
     const [passwordRepeat, setPasswordRepeat] = useState("");
     const [passwordRepeatError, setPasswordRepeatError] = useState("");
-    const [showPasswordRepeatField, setShowPasswordRepeatField] = useState(false);
 
     const [bigError, setBigError] = useState("");
+    const [submittedEmail, setSubmittedEmail] = useState("");
 
     const [terms1, setTerms1] = useState("");
     const [terms2, setTerms2] = useState("");
@@ -96,8 +95,9 @@ export default function RegisterForm() {
         catch (responseBody) {
             const backendErrors = Object.entries(responseBody.errors)
                 .map(([errorField, errorMessage]) => `${errorField}: ${errorMessage}`);
-            if (backendErrors.includes("Credentials: Email and password did not match")) {
-                setBigError("Your password is incorrect");
+            if (backendErrors.includes("email: Email has already been used.")) {
+                setBigError("You indicated you're a new customer, but an account already exists with the email address");
+                setSubmittedEmail(email);
             }
         }
     }
@@ -144,6 +144,15 @@ export default function RegisterForm() {
                 <NavLink className={styles.logo} to="/" style={{ textDecoration: 'none' }}>
                     <img src="/images/logo_black.png" alt="logo_black" />
                 </NavLink>
+
+                {bigError && <div className={styles.problemWrapper}>
+                    <div className={styles.problemIcon} />
+                    <div className={styles.problemRight}>
+                        <div className={styles.problemTitle}>Email address already in use</div>
+                        <div className={styles.problemText}>{bigError}</div>
+                        <div className={styles.problemEmail}>{submittedEmail}.</div>
+                    </div>
+                </div>}
 
                 <form className={styles.form} onSubmit={onSubmit}>
                     <div className={styles.title}>Create account</div>

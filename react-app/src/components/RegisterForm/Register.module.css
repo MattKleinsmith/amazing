@@ -23,17 +23,18 @@
     padding-left: 15px;
 
 
-    border: 1px solid #c40000;
+    border: 1px solid #7c6200;
     border-radius: 4px;
+    box-shadow: 0 0 0 4px #fffae7 inset;
 }
 
 .problemIcon {
     background-image: url("../../../public/images/atlas.png");
     background-repeat: no-repeat;
 
-    background-position: -248px -35px;
+    background-position: -283px -35px;
     height: 27px;
-    width: 30px;
+    width: 55px;
 }
 
 .problemRight {
@@ -42,14 +43,21 @@
 }
 
 .problemTitle {
-    color: #c40000;
+    color: #7c6200;
     font-size: 17px;
     line-height: 1.255;
 }
 
 .problemText {
+    margin-top: 5px;
     font-size: 13px;
     line-height: 19px;
+}
+
+.problemEmail {
+    font-size: 13px;
+    line-height: 19px;
+    font-weight: bold;
 }
 
 .form {
