@@ -29,6 +29,10 @@
     margin-bottom: 7px;
 }
 
+.moreResults {
+    margin-top: 20px;
+}
+
 .content {
     display: grid;
 

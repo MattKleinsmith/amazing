@@ -27,5 +27,5 @@ export default function Stars({ rating }) {
         className = styles.zero;
     }
 
-    return (<div className={`${styles.stars} ${className}`} />);
+    return <div className={`${styles.stars} ${className}`} />;
 }

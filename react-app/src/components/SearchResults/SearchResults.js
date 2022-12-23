@@ -1,25 +1,34 @@
 import styles from "./SearchResults.module.css";
 
-import { useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import { useSearchParams } from "react-router-dom";
+
+import { getProductsByKeywords } from "../../store/products";
 
 import SearchResultsItem from "./SearchResultItem/SearchResultsItem";
-import { useEffect } from "react";
-import { getProductsByKeywords } from "../../store/products";
 import SearchResultsFilter from "./SearchResultsFilter/SearchResultsFilter";
 
 export default function SearchResults() {
     const dispatch = useDispatch();
     const searchParams = useSearchParams()[0];
+    const [width, setWidth] = useState(window.innerWidth);
 
     useEffect(() => {
         dispatch(getProductsByKeywords(searchParams.get("k")))
     }, [dispatch, searchParams]);
 
+    useEffect(() => {
+        const handleResize = () => setWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [])
+
     let products = useSelector(state => Object.values(state.products.filtered));
 
-    const width = document.documentElement.clientWidth * window.devicePixelRatio;
-    const numCols = width > 1879 ? 5 : 4;  // Calibrate to media queries
+    let numCols;
+    if (width >= 1880) numCols = 5
+    else if (width >= 820) numCols = 3
     const products2 = products.slice(numCols);
     products = products.slice(0, numCols);
 
@@ -35,7 +44,7 @@ export default function SearchResults() {
                             <SearchResultsItem key={i} i={i} first={true} product={product} />
                         )}
                     </div>
-                    <div className={styles.title}>MORE RESULTS</div>
+                    <div className={`${styles.title} ${styles.moreResults}`}>MORE RESULTS</div>
                     <div className={styles.content}>
                         {products2.map((product, i) =>
                             <SearchResultsItem key={i} i={i} first={false} product={product} />
