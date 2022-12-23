@@ -47,8 +47,8 @@ export default function ListingRight({ product }) {
                 :
                 <button onClick={() => navigate(`/your/shop/listing/${product.id}`)}>Edit listing</button>
             }
-            <div className={styles.description}>Description</div>
-            <div className={styles.productDescription}>{product.description}</div>
+            <div className={styles.description}>About this item</div>
+            <div className={styles.productDescription}>{product.description.split("\n").map((item, i) => { return <li key={i}>{item}</li> })}</div>
         </div>
     );
 }

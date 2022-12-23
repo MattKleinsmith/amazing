@@ -13,8 +13,8 @@ export default function ListingImages({ product }) {
     return (
         <div className={styles.wrapper}>
             <div type='checkbox' className={styles.moreImagesWrapper}>
-                {product.product_images.map(product_image =>
-                    <button className={styles.moreImagesBtn} onClick={() => onClickHandler(product_image.id)} key={product_image.id}>
+                {product.product_images.map((product_image, i) =>
+                    <button className={styles.moreImagesBtn} onClick={() => onClickHandler(product_image.id)} key={i} >
                         <img src={product_image.url} alt="ListingImages" className={styles.moreImages} />
                     </button>)}
             </div>
