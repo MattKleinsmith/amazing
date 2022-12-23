@@ -33,3 +33,12 @@ a:hover {
     text-decoration: underline;
     color: #c45500;
 }
+
+.prime {
+    background-image: url("../public/images/labels.png");
+    background-repeat: no-repeat;
+
+    width: 53px;
+    height: 15px;
+    background-position: -185px -182px;
+}

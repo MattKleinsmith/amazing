@@ -49,3 +49,19 @@
     margin-bottom: 14px;
     margin-top: 8px;
 }
+
+.price {
+    display: flex;
+    gap: 8px;
+}
+
+.count {
+    color: #0F1111;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 5px;
+}
+
+.prime {
+    margin-top: 8px;
+}

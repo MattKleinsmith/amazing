@@ -31,7 +31,7 @@ export default function SearchResultsItemDescription({ product }) {
                 </NavLink>
             </div>
 
-            <div className={styles.prime} />
+            <div className={`prime ${styles.prime}`} />
 
             <div className={styles.delivery}>FREE delivery <span className={styles.date}>Tue, Dec 27</span></div>
         </div >

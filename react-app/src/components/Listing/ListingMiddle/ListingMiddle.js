@@ -14,7 +14,11 @@ export default function ListingMiddle({ product }) {
                     <div className={styles.numRatings}>{product.num_ratings} rating{product.num_ratings !== 1 && "s"}</div>
                 </div>
                 <div className={styles.hr} />
-                <div className={styles.price}><Price product={product} /></div>
+                <div className={styles.price}>
+                    <Price product={product} />
+                    <div className={styles.count}>(${product.price} / Count)</div>
+                </div>
+                <div className={`prime ${styles.prime}`} />
             </div>
         </div>
     );
