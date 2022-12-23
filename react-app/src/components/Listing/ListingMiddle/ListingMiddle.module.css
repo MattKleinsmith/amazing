@@ -65,3 +65,40 @@
 .prime {
     margin-top: 8px;
 }
+
+.freeReturns {
+    margin-top: 5px;
+    color: rgb(0, 113, 133);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.rewards {
+    color: rgb(15, 17, 17);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.getBack {
+    font-weight: 700;
+    color: rgb(0, 113, 133);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.aboutTitle {
+    color: rgb(15, 17, 17);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    padding-bottom: 4px;
+    margin-top: 0.67em;
+}
+
+.about {
+    padding-left: 18px;
+
+    color: rgb(15, 17, 17);
+    font-size: 14px;
+    line-height: 20px;
+}
