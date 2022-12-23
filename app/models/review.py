@@ -17,6 +17,7 @@ class Review(db.Model):
         'products.id', name='fk_review_product_id', ondelete='CASCADE'), nullable=False)
 
     rating = Column(Integer, nullable=False)
+    title = Column(VARCHAR(100))
     review = Column(VARCHAR(25000))
 
     created_at = Column(DateTime(timezone=True),

@@ -9,6 +9,10 @@
     border-radius: 4px;
 }
 
+.padding {
+    padding-top: 13px;
+}
+
 .badge {
     max-width: 160px;
 

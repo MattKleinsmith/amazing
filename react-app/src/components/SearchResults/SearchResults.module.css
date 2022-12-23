@@ -8,15 +8,24 @@
 }
 
 .filter {
-    background-color: gray;
+    background-color: #d2d2d2;
+}
+
+.results {
+    padding-left: 5px;
+}
+
+.title {
+    color: #0F1111;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 7px;
 }
 
 .content {
     display: grid;
 
-    padding-left: 5px;
     padding-right: 5px;
-    padding-top: 20px;
 
     column-gap: 9px;
 }
