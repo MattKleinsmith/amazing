@@ -5,9 +5,14 @@
 }
 
 .topBar {
-    background-color: white;
-    height: 80px;
+    height: 40px;
     width: 100%;
+
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    box-shadow: 0px 0px 10px #dddddd;
+
+    margin-bottom: 25px;
 }
 
 .wrapper {
@@ -21,7 +26,6 @@
 .title {
     color: #0F1111;
     font-size: 20px;
-    margin-top: 20px;
     margin-bottom: 7px;
 }
 

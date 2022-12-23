@@ -1,0 +1,16 @@
+.wrapper {
+    width: 390px;
+    color: #0F1111;
+    line-height: 16px;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+@media screen and (min-width: 1880px) {
+    .wrapper {
+        width: 390px;
+    }
+}

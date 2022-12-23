@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import SearchResultsItem from "./SearchResultItem/SearchResultsItem";
 import { useEffect } from "react";
 import { getProductsByKeywords } from "../../store/products";
+import SearchResultsFilter from "./SearchResultsFilter/SearchResultsFilter";
 
 export default function SearchResults() {
     const dispatch = useDispatch();
@@ -26,7 +27,7 @@ export default function SearchResults() {
         <div className={styles.superWrapper}>
             <div className={styles.topBar}></div>
             <div className={styles.wrapper}>
-                <div className={styles.filter}></div>
+                <SearchResultsFilter />
                 <div className={styles.results}>
                     <div className={styles.title}>RESULTS</div>
                     <div className={styles.content}>
