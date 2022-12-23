@@ -5,6 +5,10 @@ import Price from "../../Price/Price";
 export default function ListingRight({ product }) {
     return (
         <div className={styles.wrapper}>
+            <div className={styles.tabs}>
+                <div className={styles.deliveryTabWrapper}><div><div className={`${styles.deliveryTabText}`}>Delivery</div></div></div>
+                <div className={styles.pickupTabWrapper}><div className={styles.pickupTab}><div className={`${styles.pickupTabText}`}>Pickup</div></div></div>
+            </div>
             <div className={styles.content}>
                 <div className={styles.price}>
                     <Price product={product} />
