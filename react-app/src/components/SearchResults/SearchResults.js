@@ -18,12 +18,13 @@ export default function SearchResults() {
     let products = useSelector(state => Object.values(state.products.filtered));
 
     const width = document.documentElement.clientWidth * window.devicePixelRatio;
-    const numCols = width > 1879 ? 4 : 3;  // Calibrate to media queries
+    const numCols = width > 1879 ? 5 : 4;  // Calibrate to media queries
     const products2 = products.slice(numCols);
     products = products.slice(0, numCols);
 
     return (
         <div className={styles.superWrapper}>
+            <div className={styles.topBar}></div>
             <div className={styles.wrapper}>
                 <div className={styles.filter}></div>
                 <div className={styles.results}>
@@ -41,6 +42,6 @@ export default function SearchResults() {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }

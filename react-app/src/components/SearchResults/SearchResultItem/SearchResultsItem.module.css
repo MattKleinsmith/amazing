@@ -1,35 +1,20 @@
-.wrapper {
-    height: calc(100% - 8px);
-    max-width: 374px;
-    min-width: 241px;
-    margin-bottom: 5px;
-
-    border: 1px solid #f5f5f5;
-    border: 1px solid black;
-    border-radius: 4px;
-}
-
 .padding {
     padding-top: 13px;
 }
 
 .badge {
-    max-width: 160px;
-
     padding: 0 6px 0 10px;
 
     position: relative;
-    height: 26px;
-    z-index: 1;
     float: left;
 
-    background-color: #002F36 !important;
-    color: #002F36 !important;
+    background-color: #002F36;
+    color: #002F36;
 
     cursor: pointer;
 
     font-size: 14px;
-    line-height: 20px;
+    border-top-left-radius: 4px;
 }
 
 .badge::after {
@@ -60,17 +45,30 @@
     white-space: nowrap;
 }
 
+.wrapper {
+    height: calc(100% - 8px);
+    max-width: 374px;
+    min-width: 241px;
+    margin-bottom: 5px;
+
+    border: 1px solid #f5f5f5;
+    border-radius: 4px;
+}
+
 .topHalf {
     background-color: #f8f8f8;
     border-radius: 4px;
 }
 
 .image {
-    object-fit: cover;
-    border-radius: 4px;
     width: 100%;
+    height: 100%;
+
     padding-top: 3px;
     padding-left: 30px;
     padding-right: 30px;
+
+    /* object-fit: fill; */
+    border-radius: 4px;
     filter: brightness(97.25%);
 }
