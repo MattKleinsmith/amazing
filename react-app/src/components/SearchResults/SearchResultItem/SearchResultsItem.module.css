@@ -1,7 +1,3 @@
-.padding {
-    padding-top: 13px;
-}
-
 .badge {
     padding: 0 6px 0 10px;
 
@@ -59,17 +55,29 @@
     background-color: #f8f8f8;
     border-radius: 4px;
     min-height: 305px;
+    height: 300px;
+}
+
+.badgelessPadding {
+    padding-top: 30px;
+}
+
+.imageWrapper {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    padding-top: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .image {
-    width: 100%;
-    height: 275px;
+    max-width: 240px;
+    max-height: 235px;
+    transform: scale(1.15);
 
-    padding-top: 3px;
-    padding-left: 30px;
-    padding-right: 30px;
-
-    /* object-fit: fill; */
     border-radius: 4px;
+
     filter: brightness(97.25%);
 }

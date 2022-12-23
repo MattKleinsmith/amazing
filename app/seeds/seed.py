@@ -115,60 +115,53 @@ def seed_all():
         review
     ])
 
+    # https://www.amazon.com/Philips-Sonicare-ProtectiveClean-Rechargeable-HX6423/dp/B084TM4XKG/
     product = Product(
         seller=seller,
-        title="Philips Sonicare 4100 Power Toothbrush, Rechargeable Electric Toothbrush with Pressure Sensor, Black HX3681/24",
-        price=39.99,
-        description="Removes up to 5x more plaque vs. a manual toothbrush\nPressure sensor and two intensity settings protect sensitive gums from overbrushing\n2 minute SmarTimer with QuadPacer ensure Dentist-recommended brushing time\nBrush head replacement reminder ensures your brush head is always effective\nLong battery life with battery light indicator: One charge last for 2 weeks\nIncludes: 1 Philips Sonicare 4100 handle, 1 Optimal Plaque Control (C2) brush head, and 1 USB charger (wall adaptor not included)\nSRG, Test Report, CIPS918151 (2021)"
+        title="Philips Sonicare ProtectiveClean 5300 Rechargeable Electric Power Toothbrush, Black, HX6423/34",
+        price=99.96,
+        description="Customize your experience with the three different modes: Clean, White and Gum Care.\nPressure sensor protects teeth and gums from excess brushing pressure while improving your gum health up to 100% more vs a manual toothbrush.\nAlways know when to replace your brush head for an effective clean with BrushSync replacement reminder.\n2 minute timer with QuadPacer helps ensure dental professional recommended brushing time and encourages brushing in each quadrant of the mouth.\nBattery indicator light let's you know when to recharge; 2 week battery life. Includes: 1 Philips Sonicare 5300 handle, 1 charger, 1 G2 Optimal Gum Care brush head, 1 travel case, 2 extra W DiamondClean brush heads"
     )
 
     review = Review(
         product=product,
         buyer=buyer,
         rating=5,
-        review="I generally write reviews when products seriously impress me or leave me very disappointed. This Philips Sonicare electric toothbrush did not disappoint. I have always been an analogue tooth brush user, but after this I have been converted.\nSome background: this year I started a new health regime and as part of that started drinking *lots* of coffee and tea. However several months in I noticed my teeth started to develop serious staining! This was despite brushing teeth very thoroughly twice a day. Regular brushing did not seem to help with my staining, and as time went by it continued to get worse and worse. I learned that plaque also stains more easily than enamel, and so this served to highlight all of the plaque in my mouth that had been accumulating over time.\nI did not want to reduce my coffee and tea consumption, nor did I want to go through abrasive teeth whitening procedures (also that would not solve my apparent plaque issue). After some research, I thought perhaps an electric toothbrush would help, so I bought this Sonicare and have not looked back. I brush twice a day, once in the morning and once at night. I do two cycles per brushing, one according to the instructions that come with the toothbrush, and another immediately after to focus on the more stained regions of my teeth.\nFast forward two months, and the stains on my front teeth have almost entirely disappeared! The plaque that had accumulated has also started to go away. I am seriously impressed, and never imagined that an electric toothbrush would have such a profound impact on my dental health! While it may be gross, see my attached photo. The light stain on the front left tooth used to cover over 80% of the surface. Now it is almost gone. My other teeth definitely need some tough love and care, but it is a major step in the right direction. It definitely takes time for the plaque to go away (do not expect magical results overnight), but with patience and proper brushing your oral health will certainly be improved.\nAside from the potent cleaning power of this toothbrush, the battery life is excellent, typically lasts me 3-4 weeks before alerting me to a recharge. Additionally it is rather portable, especially when you remove the toothbrush head from the body.\nIf you are not using an electric toothbrush, I urge you to make the swap. Your teeth will be so much cleaner. I can't say how my Sonic stacks up against other electric toothbrush brands, but I can say that this model certainly does the job."
+        title="Lighter, more powerful, more advanced than its predecessor",
+        review="I purchased this to replace the previous model that I used for many years. This model is lighter than the previous one, slightly slimmer, smoother feeling, and has 3 programs rather than one. It also has a new feature that I found fascinating. It sends a unique vibration warning if you push too hard on your gums. This was extremely cool. I’ve actually been told I press too hard by my dentist. He said, “It’s a Sonicare. You don’t have to press hard. It does the work.” This new feature really helps me understand the correct pressure to apply. Highly recommended."
     )
 
     db.session.add_all([
         ProductImage(
             product=product,
             url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/713c7c3UWrL._AC_UL320_.jpg"),
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81e58wQ0DrL._AC_UL320_.jpg"),
             preview=True
-        ),
-        ReviewImage(
-            review=review,
-            url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51H8iZ1vgwL._SY88.jpg"),
-        ),
+        )
     ])
 
     product = Product(
         seller=seller,
-        title="Philips Sonicare 4100 Power Toothbrush, Rechargeable Electric Toothbrush with Pressure Sensor, Black HX3681/24",
-        price=39.99,
-        description="Removes up to 5x more plaque vs. a manual toothbrush\nPressure sensor and two intensity settings protect sensitive gums from overbrushing\n2 minute SmarTimer with QuadPacer ensure Dentist-recommended brushing time\nBrush head replacement reminder ensures your brush head is always effective\nLong battery life with battery light indicator: One charge last for 2 weeks\nIncludes: 1 Philips Sonicare 4100 handle, 1 Optimal Plaque Control (C2) brush head, and 1 USB charger (wall adaptor not included)\nSRG, Test Report, CIPS918151 (2021)"
+        title="Oral-B Pro 1000 Power Rechargeable Electric Toothbrush Powered by Braun ,1 count , White (Packaging may vary)",
+        price=39.97,
+        description="Clinically proven superior 3D cleaning oscillates and pulsates to break up and remove up to 300 percentage more plaque along the gum line than a regular manual toothbrush\nThe pressure sensor stops the pulsation movement if you brush too hard and the in handle timer helps you brush for a dentist recommended 2 minutes\n1 Mode, Daily Clean, rotates to break up and sweep away plaque. Bristle Type: Soft\nCompatible with Oral-B brush heads for every oral care need: CrossAction, FlossAction, Precision Clean, 3D White, Sensitive Gum Care, Deep Sweep, Dual Clean. Does not fit iO brush heads"
     )
 
     review = Review(
         product=product,
         buyer=buyer,
-        rating=5,
-        review="I generally write reviews when products seriously impress me or leave me very disappointed. This Philips Sonicare electric toothbrush did not disappoint. I have always been an analogue tooth brush user, but after this I have been converted.\nSome background: this year I started a new health regime and as part of that started drinking *lots* of coffee and tea. However several months in I noticed my teeth started to develop serious staining! This was despite brushing teeth very thoroughly twice a day. Regular brushing did not seem to help with my staining, and as time went by it continued to get worse and worse. I learned that plaque also stains more easily than enamel, and so this served to highlight all of the plaque in my mouth that had been accumulating over time.\nI did not want to reduce my coffee and tea consumption, nor did I want to go through abrasive teeth whitening procedures (also that would not solve my apparent plaque issue). After some research, I thought perhaps an electric toothbrush would help, so I bought this Sonicare and have not looked back. I brush twice a day, once in the morning and once at night. I do two cycles per brushing, one according to the instructions that come with the toothbrush, and another immediately after to focus on the more stained regions of my teeth.\nFast forward two months, and the stains on my front teeth have almost entirely disappeared! The plaque that had accumulated has also started to go away. I am seriously impressed, and never imagined that an electric toothbrush would have such a profound impact on my dental health! While it may be gross, see my attached photo. The light stain on the front left tooth used to cover over 80% of the surface. Now it is almost gone. My other teeth definitely need some tough love and care, but it is a major step in the right direction. It definitely takes time for the plaque to go away (do not expect magical results overnight), but with patience and proper brushing your oral health will certainly be improved.\nAside from the potent cleaning power of this toothbrush, the battery life is excellent, typically lasts me 3-4 weeks before alerting me to a recharge. Additionally it is rather portable, especially when you remove the toothbrush head from the body.\nIf you are not using an electric toothbrush, I urge you to make the swap. Your teeth will be so much cleaner. I can't say how my Sonic stacks up against other electric toothbrush brands, but I can say that this model certainly does the job."
+        rating=4,
+        title="So clean but horrible timer",
+        review="This brush cleans so well but I find it to be so annoying! First let me tell you how well it cleans and then I'll tell you what bothers me.\nWith this brush, my teeth are cleaner than they have ever been in my life. My teeth are so clean that they look like Mr Wilson's fake \"gum teeth\" from the move Dennis the Menace. My mouth is so clean that my breath tastes fresh. The charger is great too and it's a wireless charge. Here's the main thing I dislike though. I absolutely do not like that brush timer. I use the brush and I'm in the middle of a relaxing brushing session when all of the sudden I hear and feel in my mouth \"Wah,Wah , Wah\" while the brush starts to slow it's rpm and vibrate. It does this continually during the brushing cycle and I find it to be super distracting. I understand that the reasons behind this timer are to help my time when to brush but it would be nice if this option could be turned off. As much as I dislike this feature, I'll continue to use this brush until I find something better because it does such an amazing job cleaning my teeth."
     )
 
     db.session.add_all([
         ProductImage(
             product=product,
             url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/713c7c3UWrL._AC_UL320_.jpg"),
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71tk0kk89CL._AC_UL320_.jpg"),
             preview=True
-        ),
-        ReviewImage(
-            review=review,
-            url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51H8iZ1vgwL._SY88.jpg"),
-        ),
+        )
     ])
 
     product = Product(
