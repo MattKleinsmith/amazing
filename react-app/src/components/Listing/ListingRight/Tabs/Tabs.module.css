@@ -1,0 +1,62 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 246px;
+
+    border-left: 1px solid #D5D9D9;
+    border-top: none;
+}
+
+.tabs {
+    display: flex;
+    width: 100%;
+    height: 51px;
+    cursor: pointer;
+}
+
+.tabWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(50% - 1px);
+    border-top: 1px solid #C7511F;
+
+    background-color: #F3F3F3;
+    box-shadow: inset 0 -1.7px 0 0 #ddd;
+    border-top: 1px solid #D5D9D9;
+}
+
+.tabWrapperMouseEnter {
+    border-top: 1px solid #C7511F;
+}
+
+.pickupTabWrapper {
+    border-left: 1px solid #D5D9D9;
+}
+
+.activeTabWrapper {
+    background-color: white;
+    border-top: 1px solid #C7511F;
+    box-shadow: none;
+}
+
+.tabText {
+    color: #007185;
+    font-weight: 400;
+    line-height: 14px;
+
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.tabTextMouseEnter {
+    color: #C7511F;
+}
+
+.activeTabText {
+    color: #C7511F;
+    font-weight: 700;
+    line-height: 20px;
+}
