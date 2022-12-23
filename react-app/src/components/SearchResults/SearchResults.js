@@ -18,13 +18,16 @@ export default function SearchResults() {
     const products = useSelector(state => Object.values(state.products.filtered));
 
     return (
-        <div className={styles.wrapper}>
-            <div className={styles.filter}>Filter</div>
-            <div className={styles.content}>
-                {products.map((product, i) =>
-                    <SearchResultsItem key={i} product={product} />
-                )}
-            </div >
+        <div className={styles.superWrapper}>
+
+            <div className={styles.wrapper}>
+                <div className={styles.filter}>Filter</div>
+                <div className={styles.content}>
+                    {products.map((product, i) =>
+                        <SearchResultsItem key={i} product={product} />
+                    )}
+                </div >
+            </div>
         </div>
     );
 }

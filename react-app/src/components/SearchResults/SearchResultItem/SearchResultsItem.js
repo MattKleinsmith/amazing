@@ -1,5 +1,7 @@
-import { NavLink } from "react-router-dom";
 import styles from "./SearchResultsItem.module.css";
+
+import { NavLink } from "react-router-dom";
+
 import SearchResultsItemDescription from "./SearchResultsItemDescription/SearchResultsItemDescription";
 
 export default function SearchResultsItem({ product }) {
