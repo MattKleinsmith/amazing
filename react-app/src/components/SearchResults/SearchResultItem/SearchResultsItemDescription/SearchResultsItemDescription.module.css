@@ -57,28 +57,6 @@
     margin-top: -5px;
 }
 
-.priceRow {
-    display: flex;
-    color: #0F1111;
-}
-
-.priceRow:hover {
-    color: #0F1111;
-}
-
-.symbol {
-    font-size: 13px;
-}
-
-.whole {
-    margin-top: -5px;
-    font-size: 28px;
-}
-
-.fraction {
-    font-size: 13px;
-}
-
 .perCount {
     margin-left: 5px;
     margin-top: 7px;

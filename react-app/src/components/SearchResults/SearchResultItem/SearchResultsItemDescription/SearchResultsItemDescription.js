@@ -3,10 +3,9 @@ import styles from "./SearchResultsItemDescription.module.css";
 import { NavLink } from "react-router-dom"
 
 import Stars from '../../../Stars/Stars'
+import Price from "../../../Price/Price";
 
 export default function SearchResultsItemDescription({ product }) {
-    const price = parseFloat(product.price).toFixed(2);
-    const [wholePrice, fractionPrice] = price.split(".");
     return (
         <div className={styles.wrapper}>
             <NavLink to={`/listing/${product.id}`} style={{ textDecoration: 'none' }} className={styles.title}>
@@ -24,13 +23,11 @@ export default function SearchResultsItemDescription({ product }) {
             }
 
             <div className={styles.priceWrapper}>
-                <NavLink to={`/listing/${product.id}`} style={{ textDecoration: 'none' }} className={styles.priceRow}>
-                    <div className={styles.symbol}>$</div>
-                    <div className={styles.whole}>{wholePrice}</div>
-                    <div className={styles.fraction}>{fractionPrice}</div>
+                <NavLink to={`/listing/${product.id}`} style={{ textDecoration: 'none' }}>
+                    <Price product={product} />
                 </NavLink>
                 <NavLink to={`/listing/${product.id}`} style={{ textDecoration: 'none' }} className={styles.perCount}>
-                    (${price}/Count)
+                    (${product.price}/Count)
                 </NavLink>
             </div>
 

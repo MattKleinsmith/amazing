@@ -1,17 +1,5 @@
 .wrapper {
     display: flex;
     justify-content: center;
-    padding: 30px;
-    margin: 0 auto;
-}
-
-.content {
-    max-width: 1200px;
-    gap: 10px;
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    grid-template-rows: 1fr;
-    gap: 0px 0px;
-    grid-template-areas:
-        ". .";
+    margin: 60px 20px;
 }
