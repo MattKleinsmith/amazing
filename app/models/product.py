@@ -12,7 +12,7 @@ class Product(db.Model):
 
     seller_id = Column(Integer, ForeignKey(
         'users.id', name='fk_product_seller_id', ondelete='CASCADE'), nullable=False)
-    title = Column(VARCHAR(140), nullable=False)
+    title = Column(VARCHAR(400), nullable=False)
     price = Column(DECIMAL, nullable=False)
     description = Column(TEXT)
 

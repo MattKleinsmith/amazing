@@ -29,7 +29,7 @@ class SignupForm(FlaskForm):
 
 
 class ProductForm(FlaskForm):
-    title = StringField("Title", validators=[DataRequired(), Length(max=140)])
+    title = StringField("Title", validators=[DataRequired(), Length(max=400)])
     price = FloatField("Price", validators=[
                        DataRequired(), NumberRange(min=0)])
     description = TextAreaField("Description")

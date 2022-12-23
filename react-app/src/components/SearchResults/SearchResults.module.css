@@ -5,7 +5,7 @@
 }
 
 .topBar {
-    background-color: gray;
+    background-color: white;
     height: 80px;
     width: 100%;
 }
@@ -15,7 +15,7 @@
 }
 
 .filter {
-    background-color: #d2d2d2;
+    background-color: white;
 }
 
 .title {

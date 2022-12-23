@@ -58,11 +58,12 @@
 .topHalf {
     background-color: #f8f8f8;
     border-radius: 4px;
+    min-height: 305px;
 }
 
 .image {
     width: 100%;
-    height: 100%;
+    height: 275px;
 
     padding-top: 3px;
     padding-left: 30px;
