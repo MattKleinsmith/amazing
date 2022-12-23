@@ -15,6 +15,7 @@
     display: flex;
     width: 100%;
     height: 51px;
+    cursor: pointer;
 }
 
 .deliveryTabWrapper {
@@ -29,7 +30,6 @@
 .deliveryTabText {
     color: #C7511F;
     font-weight: 700;
-    cursor: pointer;
     line-height: 20px;
     font-size: 14px;
 }
@@ -46,6 +46,10 @@
     border-top: 1px solid #D5D9D9;
 }
 
+.pickupTabWrapperMouseEnter {
+    border-top: 1px solid #C7511F;
+}
+
 .pickupTabText {
     color: #007185;
     cursor: pointer;
@@ -53,9 +57,13 @@
     font-size: 14px;
 }
 
+.pickupTabTextMouseEnter {
+    color: #C7511F;
+}
+
 .content {
     width: 206px;
-    margin-top: 18px;
+    margin-top: 18Spx;
 }
 
 .price {

@@ -1,13 +1,28 @@
 import styles from "./ListingRight.module.css";
 
+import { useRef } from "react";
+
 import Price from "../../Price/Price";
 
 export default function ListingRight({ product }) {
+    const pickupTabTextRef = useRef();
+    const onPickupMouseEnter = (e) => {
+        e.target.classList.add(styles.pickupTabWrapperMouseEnter);
+        pickupTabTextRef.current.classList.add(styles.pickupTabTextMouseEnter);
+    }
+
+    const onPickupMouseLeave = (e) => {
+        e.target.classList.remove(styles.pickupTabWrapperMouseEnter);
+        pickupTabTextRef.current.classList.remove(styles.pickupTabTextMouseEnter);
+    }
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.tabs}>
-                <div className={styles.deliveryTabWrapper}><div><div className={`${styles.deliveryTabText}`}>Delivery</div></div></div>
-                <div className={styles.pickupTabWrapper}><div className={styles.pickupTab}><div className={`${styles.pickupTabText}`}>Pickup</div></div></div>
+                <div className={styles.deliveryTabWrapper}>
+                    <div><div className={`${styles.deliveryTabText}`}>Delivery</div></div></div>
+                <div onMouseEnter={onPickupMouseEnter} onMouseLeave={onPickupMouseLeave} className={styles.pickupTabWrapper}>
+                    <div className={styles.pickupTab}><div ref={pickupTabTextRef} className={`${styles.pickupTabText}`}>Pickup</div></div></div>
             </div>
             <div className={styles.content}>
                 <div className={styles.price}>
