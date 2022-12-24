@@ -65,3 +65,9 @@
     margin-bottom: 14px;
     margin-top: 8px;
 }
+
+.inStock {
+    color: #007600;
+    font-size: 18px;
+    line-height: 24px;
+}

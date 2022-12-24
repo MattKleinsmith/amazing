@@ -1,0 +1,42 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    width: 63px;
+    height: 22px;
+    min-width: 0.7%;
+    margin-right: 6px;
+    padding-left: 8px;
+
+    border: 1px solid #D5D9D9;
+    border-radius: 8px;
+
+    color: #0F1111;
+    background: #F0F2F2;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 90%);
+
+    text-align: center;
+    vertical-align: middle;
+    font-size: 11px;
+    line-height: 20px;
+
+    cursor: pointer;
+}
+
+.wrapper:hover {
+    background-color: #e3e6e6;
+}
+
+.iconWrapper {
+    display: flex;
+}
+
+.icon {
+    background-image: url("../../../../../public/images/icons.png");
+    background-repeat: no-repeat;
+
+    width: 10px;
+    height: 8px;
+    background-position: -7px -102px;
+}
