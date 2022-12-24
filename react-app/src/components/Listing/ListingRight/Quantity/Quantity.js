@@ -1,20 +1,17 @@
 import styles from "./Quantity.module.css";
 
-export default function Quantity({ quantity, setQuantity }) {
-    return (<>
+import { useRef } from "react";
 
-        <select
+export default function Quantity({ quantity, setQuantity }) {
+    const ref = useRef();
+    if (ref.current) ref.current.click();
+    return (<>
+        <select ref={ref} className={styles.wrapper}
             value={quantity} onChange={(e) => setQuantity(e.target.value)}>
             {[...Array(30).keys()].map(num => (
                 <option key={num} value={num + 1}>
-                    {num + 1}
+                    Qty: {num + 1}
                 </option>))}
         </select>
-
-        <div className={styles.wrapper}>
-            <span className={styles.quantityLabel}>Qty:</span>
-            <span className={styles.quantity}>{quantity}</span>
-            <span className={styles.iconWrapper}><span className={styles.icon}>⠀⠀</span></span>
-        </div>
     </>);
 }

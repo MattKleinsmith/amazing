@@ -67,7 +67,49 @@
 }
 
 .inStock {
+    margin-top: 8px;
     color: #007600;
     font-size: 18px;
     line-height: 24px;
+}
+
+.addToCart {
+    margin-top: 12px;
+    margin-bottom: 8px;
+
+    background: #FFD814;
+    border: 1px solid #FCD200;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+
+    font-size: 13px;
+    line-height: 29px;
+    color: #0F1111;
+    text-align: center;
+    vertical-align: middle;
+
+    cursor: pointer;
+}
+
+.addToCart:hover {
+    background: #F7CA00;
+}
+
+.buyNow {
+    margin-bottom: 8px;
+
+    background: #FFA41C;
+    border-color: #FF8F00;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+
+    font-size: 13px;
+    line-height: 29px;
+    color: #0F1111;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.buyNow:hover {
+    background: #FA8900;
 }
