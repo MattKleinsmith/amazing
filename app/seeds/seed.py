@@ -48,6 +48,46 @@ def seed_all():
                 "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/713c7c3UWrL._AC_UL320_.jpg"),
             preview=True
         ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/713c7c3UWrL._SX679_.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71FWv6ibykL._SL1500_.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71IioUiA+ML._SL1500_.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/714wHoGhTfL._SL1500_.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/61hwmY1cGTL._SL1500_.jpg"),
+            preview=False
+        ),
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/6180V77bcKL._SL1500_.jpg"),
+            preview=False
+        ),
+
+
+
         ReviewImage(
             review=review,
             url=upload_image_to_bucket_from_url(

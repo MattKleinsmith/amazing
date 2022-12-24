@@ -1,26 +1,28 @@
 import styles from "./ListingImages.module.css";
+
 import { useState } from "react";
 
 export default function ListingImages({ product }) {
-    const [url, setUrl] = useState(product.preview_image);
+    const [url, setUrl] = useState(product.image_urls[0]);
 
-    const onClickHandler = (productImageId) => {
-        const image = product.product_images.find(image => image.id === productImageId);
-        setUrl(image.url);
+    const onClick = (i) => {
+        setUrl(product.image_urls[i]);
     };
 
-    if (!product.product_images) return;
     return (
         <div className={styles.wrapper}>
-            <div type='checkbox' className={styles.moreImagesWrapper}>
-                {product.product_images.map((product_image, i) =>
-                    <button className={styles.moreImagesBtn} onClick={() => onClickHandler(product_image.id)} key={i} >
-                        <img src={product_image.url} alt="ListingImages" className={styles.moreImages} />
+
+            <div className={styles.moreImagesWrapper}>
+                {product.image_urls.map((url, i) =>
+                    <button className={styles.moreImagesBtn} onClick={() => onClick(i)} key={i} >
+                        <img src={url} alt="product_image" className={styles.moreImages} />
                     </button>)}
             </div>
+
             <div className={styles.defaultImageWrapper}>
                 <img src={url} alt="ListingImages" className={styles.defaultImage} />
             </div>
-        </div >
+
+        </div>
     );
 }

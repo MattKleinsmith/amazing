@@ -57,6 +57,8 @@ class Product(db.Model):
         avg_rating = sum(
             [review.rating for review in self.reviews]) / len(self.reviews) if len(self.reviews) > 0 else None
         num_ratings = len(self.reviews)
+        product_images = list(
+            filter(lambda x: not x.preview, self.product_images))
         return {
             "id": self.id,
             "seller_id": self.seller_id,
@@ -66,7 +68,7 @@ class Product(db.Model):
             "description": self.description,
 
             "seller": self.seller.to_dict_for_product(),
-            "product_images": list(filter(lambda x: not x.preview, self.product_images)),
+            "image_urls": [x.to_dict_for_product() for x in product_images],
 
             "avg_rating": avg_rating,
             "num_ratings": num_ratings

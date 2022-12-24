@@ -1,3 +1,4 @@
+from werkzeug.utils import secure_filename
 import boto3
 import os
 import requests
@@ -36,7 +37,7 @@ def upload_image_to_bucket(image, image_name, acl="public-read"):
 
 
 def upload_image_to_bucket_from_url(url, acl="public-read"):
-    image_name = os.path.basename(url)
+    image_name = secure_filename(os.path.basename(url))
     bucket_url = f"{S3_LOCATION}{image_name}"
 
     # Don't bother the third party if we already have the image

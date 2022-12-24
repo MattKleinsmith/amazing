@@ -1,10 +1,11 @@
 import styles from "./ListingLeft.module.css";
-// import ListingImages from "./ListingImages/ListingImages";
+
+import ListingImages from "./ListingImages/ListingImages";
 
 export default function ListingLeft({ product }) {
     return (
         <div className={styles.wrapper}>
-            Left
+            <ListingImages product={product} />
         </div>
     );
 }
