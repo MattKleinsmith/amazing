@@ -1,0 +1,130 @@
+.wrapper {
+    width: 206px;
+    margin-top: 18px;
+}
+
+.price {
+    color: #B12704;
+    text-rendering: optimizeLegibility;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.delivery {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.date {
+    font-weight: 700;
+}
+
+.deadline {
+    color: #007600;
+}
+
+.hr {
+    height: 1px;
+
+    margin-top: 24px;
+    margin-bottom: 12px;
+    line-height: 19px;
+
+    border-top: 1px solid #e7e7e7;
+}
+
+.pickUpLabel {
+    color: #565959;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.pickUpLocationWrapper {
+    margin-top: 4px;
+    width: 200px;
+    padding: 5px 10px;
+    padding-bottom: 6px;
+
+    border: 1px solid #e7e7e7;
+    border-left: 5px solid #077398;
+    border-radius: 8px;
+}
+
+.pickUpLocation {
+    width: 150px;
+}
+
+.locker {
+    color: #0F1111;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: left;
+}
+
+.distance {
+    font-size: 12px;
+    line-height: 16px;
+    text-align: left;
+}
+
+.inStock {
+    margin-top: 21px;
+    margin-bottom: 16px;
+    color: #007600;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.buyNow {
+    margin-top: 12px;
+    margin-bottom: 8px;
+
+    background: #FFA41C;
+    border-color: #FF8F00;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+
+    font-size: 13px;
+    line-height: 31px;
+    color: #0F1111;
+    text-align: center;
+    vertical-align: middle;
+
+    cursor: pointer;
+
+    text-rendering: optimizeLegibility;
+}
+
+.buyNow:hover {
+    background: #FA8900;
+}
+
+.details {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.details>div {
+    display: flex;
+}
+
+.detailsLabel {
+    color: #565959;
+    font-size: 12px;
+    line-height: 16px;
+    min-width: 88px;
+}
+
+.detailsText {
+    color: #0F1111;
+    font-size: 12px;
+    line-height: 16px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
