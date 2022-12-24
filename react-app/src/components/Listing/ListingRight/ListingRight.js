@@ -35,12 +35,17 @@ export default function ListingRight({ product }) {
                         Secure transaction
                     </div>
                 </div>
-                <div className={styles.fulfillment}>
-                    <div className={styles.shipsFrom}>Secure transaction</div>
-                    <div className={styles.soldBy}>Secure transaction</div>
-                    <div className={styles.packaging}>Secure transaction</div>
+                <div className={styles.details}>
+                    <div>
+                        <div className={styles.detailsLabel}>Ships from</div><div className={styles.detailsText}>Amazon.com</div>
+                    </div>
+                    <div>
+                        <div className={styles.detailsLabel}>Sold by</div><div className={styles.detailsText}>Amazon.com</div>
+                    </div>
+                    <div>
+                        <div className={styles.detailsLabel}>Packaging</div><div className={styles.detailsText}>Shows what's inside. Item often ships in manufacturer container to reduce packaging. If this is a gift, consider shipping to a different address.</div>
+                    </div>
                 </div>
-
                 <div className={styles.hr} />
             </div>}
 
