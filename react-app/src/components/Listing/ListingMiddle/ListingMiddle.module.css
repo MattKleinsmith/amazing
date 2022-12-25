@@ -1,15 +1,33 @@
 .wrapper {
-    width: 240px;
-    /* border: 1px solid purple; */
+    width: 23vw;
     margin: 0px 3px;
 
     display: flex;
     flex-direction: column;
 }
 
-.content {
-    width: 200px;
+@media screen and (min-width: 1880px) {
+    .wrapper {
+        /* width: 24vw; */
+        margin-right: 25px;
+        margin-left: 15px;
+    }
+
+    .content {
+        width: 23vw;
+    }
 }
+
+@media screen and (min-width: 820px) and (max-width: 1879px) {
+    .wrapper {
+        width: 22vw;
+    }
+
+    .content {
+        width: 16vw;
+    }
+}
+
 
 .title {
     font-size: 24px;
@@ -17,6 +35,7 @@
     word-break: break-word;
     line-height: 32px;
     text-rendering: optimizeLegibility;
+    width: 20vw;
 }
 
 .seller {
