@@ -22,7 +22,7 @@ export default function ListingImages({ product }) {
             </div>
 
             <div className={styles.imageWrapper}>
-                <img className={styles.image} src={url} alt="main image" />
+                <img className={styles.image} src={url} alt="main" />
             </div>
 
         </div>
