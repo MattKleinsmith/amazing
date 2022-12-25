@@ -17,7 +17,7 @@
     border-radius: 1px;
 }
 
-.thumbnail:hover {
+.thumbnailHover {
     border-color: #e77601;
     box-shadow: 0 0 3px 2px rgb(228 121 17 / 50%);
 }
