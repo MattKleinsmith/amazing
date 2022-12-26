@@ -17,7 +17,7 @@ export default function SearchBar() {
 
     return (
         <div className={styles.wrapper}>
-            <div className={styles.content} onClick={handleSearch}>
+            <div className={styles.content}>
                 <form onSubmit={handleSearch} className={styles.form}>
                     <input
                         type="text"
