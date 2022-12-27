@@ -255,7 +255,7 @@ export default function RegisterForm() {
                         </div>}
                     </div>}
 
-                    <div className={`${styles.continue} ${styles.noselect}`} onClick={onClickContinue}>{email ? "Verify email" : "Continue"}</div>
+                    <button className={`${styles.continue} ${styles.noselect}`} onClick={onClickContinue}>{email ? "Verify email" : "Continue"}</button>
 
                     <div className={styles.terms}>By creating an account, you agree to Amazing's <br /> <NavLink onClick={() => setTerms1(true)}>You Must Hire Me Conditions</NavLink> and <NavLink onClick={() => setTerms2(true)}> Just Kidding Notice</NavLink>.</div>
 
