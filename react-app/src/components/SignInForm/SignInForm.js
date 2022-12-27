@@ -35,9 +35,9 @@ export default function SignInForm() {
 
     useEffect(() => {
         if (!isLoaded) return;
-        if (showEmailField)
+        if (showEmailField && emailField.current)
             emailField.current.focus();
-        else
+        else if (passwordField.current)
             passwordField.current.focus();
     }, [showEmailField, showPasswordField, isLoaded]);
 
