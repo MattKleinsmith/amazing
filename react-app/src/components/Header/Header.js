@@ -1,9 +1,11 @@
 import styles from './Header.module.css';
 
+import { useLocation } from 'react-router';
+
 import SearchBar from './SearchBar/SearchBar'
 import RightHeader from './RightHeader/RightHeader'
-import { useLocation } from 'react-router';
 import Logo from './Logo/Logo';
+import LinksBar from './LinksBar/LinksBar';
 
 export default function Header() {
     const location = useLocation();
@@ -19,9 +21,9 @@ export default function Header() {
                     <SearchBar />
                     <RightHeader />
                 </div>
-                <div className={styles.linksBar}></div>
+                <LinksBar />
             </div>
-            <div className={styles.line}></div>
+            <div className={styles.line} />
         </>
     );
 }
