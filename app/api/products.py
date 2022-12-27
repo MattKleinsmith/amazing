@@ -21,6 +21,11 @@ def get_products():
     return [product.to_dict_search_results() for product in Product.query]
 
 
+@bp.route("/current",  methods=["GET"])
+def get_current_products():
+    return [product.to_dict_inventory() for product in Product.query.filter(Product.seller_id == current_user.id)]
+
+
 @bp.route("<int:product_id>",  methods=["GET"])
 def get_product(product_id):
     try:

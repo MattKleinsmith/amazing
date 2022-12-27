@@ -32,6 +32,8 @@ export default function AccountDropdown({ delay, setShowMenu }) {
 
             <NavLink to="/signin">Sign in</NavLink>
 
+            <NavLink to="/inventory">Manage inventory</NavLink>
+
             <div className={styles.row}>
                 <div className={styles.right}>
                     <div>row 1</div>
