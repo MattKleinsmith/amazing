@@ -42,6 +42,8 @@ export default function SignInForm() {
     }, [showEmailField, showPasswordField, isLoaded]);
 
     const onClickContinue = () => {
+        setTerms1(false);
+        setTerms2(false);
         if (!email) {
             setEmailError("Enter your email");
             emailField.current.focus();
@@ -188,6 +190,8 @@ export default function SignInForm() {
                             setBigError("");
                             setShowPasswordField(true);
                             setShowEmailField(false);
+                            setTerms1(false)
+                            setTerms2(false)
                         }}>Sign in as demo user?</div>
                     </div>
                 </form>
