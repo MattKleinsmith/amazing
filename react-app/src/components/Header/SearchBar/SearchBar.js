@@ -6,7 +6,7 @@ import { useSearchParams } from "react-router-dom";
 export default function SearchBar() {
     const navigate = useNavigate();
     const searchParams = useSearchParams()[0];
-    const [keywords, setKeywords] = useState(searchParams.get('k'));
+    const [keywords, setKeywords] = useState(searchParams.get('k') || "");
 
     const handleSearch = async (e) => {
         if (e) e.preventDefault();

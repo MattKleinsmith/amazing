@@ -10,6 +10,18 @@ export default function LinksBar() {
                 <NavLink className={styles.link} to="/s?k=toothbrush">Toothbrushes</NavLink>
                 <NavLink className={styles.link} to="/s?k=toothbrush">Toothbrushes</NavLink>
                 <NavLink className={styles.link} to="/s?k=toothbrush">Toothbrushes</NavLink>
+                <NavLink className={styles.link} to="/s?k=toothbrush">Toothbrushes</NavLink>
+                <NavLink className={styles.link} to="/s?k=toothbrush">Toothbrushes</NavLink>
+                <NavLink className={styles.link} to="/s?k=toothbrush">Toothbrushes</NavLink>
+                <NavLink className={styles.link} to="/s?k=toothbrush">Toothbrushes</NavLink>
+                <NavLink className={styles.link} to="/s?k=toothbrush">Toothbrushes</NavLink>
+                <NavLink className={styles.link} to="/s?k=toothbrush">Toothbrushes</NavLink>
+                <NavLink className={styles.link} to="/s?k=toothbrush">Toothbrushes</NavLink>
+                <NavLink className={styles.link} to="/s?k=toothbrush">Toothbrushes</NavLink>
+                <NavLink className={styles.link} to="/s?k=toothbrush">Toothbrushes</NavLink>
+                <NavLink className={styles.link} to="/s?k=toothbrush">Toothbrushes</NavLink>
+                <NavLink className={styles.link} to="/s?k=toothbrush">Toothbrushes</NavLink>
+                <NavLink className={styles.link} to="/s?k=toothbrush">Toothbrushes</NavLink>
             </div>
         </div>
     )
