@@ -8,6 +8,7 @@ import { getProductsByKeywords } from "../../store/products";
 
 import SearchResultsItem from "./SearchResultItem/SearchResultsItem";
 import SearchResultsFilter from "./SearchResultsFilter/SearchResultsFilter";
+import SearchResultsBar from "./SearchResultsBar/SearchResultsBar";
 
 export default function SearchResults() {
     const dispatch = useDispatch();
@@ -24,23 +25,23 @@ export default function SearchResults() {
         return () => window.removeEventListener('resize', handleResize);
     }, [])
 
-    let products = useSelector(state => Object.values(state.products.filtered));
+    const products = useSelector(state => Object.values(state.products.filtered));
 
     let numCols;
     if (width >= 1880) numCols = 5
     else if (width >= 820) numCols = 3
+    const products1 = products.slice(0, numCols);
     const products2 = products.slice(numCols);
-    products = products.slice(0, numCols);
 
     return (
         <div className={styles.superWrapper}>
-            <div className={styles.topBar}></div>
+            <SearchResultsBar products={products} keywords={searchParams.get("k")} />
             <div className={styles.wrapper}>
                 <SearchResultsFilter />
                 <div className={styles.results}>
                     <div className={styles.title}>RESULTS</div>
                     <div className={styles.content}>
-                        {products.map((product, i) =>
+                        {products1.map((product, i) =>
                             <SearchResultsItem key={i} i={i} first={true} product={product} />
                         )}
                     </div>

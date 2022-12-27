@@ -4,17 +4,6 @@
     align-items: center;
 }
 
-.topBar {
-    height: 40px;
-    width: 100%;
-
-    border-top: 1px solid #cccccc;
-    border-bottom: 1px solid #cccccc;
-    box-shadow: 0px 0px 10px #dddddd;
-
-    margin-bottom: 25px;
-}
-
 .wrapper {
     display: flex;
 }
