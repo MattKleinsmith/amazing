@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { getProduct } from "../../store/productDetails";
+import { getProductDetails } from "../../store/productDetails";
 
 import ListingLeft from "./ListingLeft/ListingLeft";
 import ListingMiddle from "./ListingMiddle/ListingMiddle";
@@ -17,7 +17,7 @@ export default function Listing() {
 
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(getProduct(productId));
+        dispatch(getProductDetails(productId));
         window.scrollTo(0, 0);
     }, [productId, dispatch]);
 

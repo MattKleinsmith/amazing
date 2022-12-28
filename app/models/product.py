@@ -59,6 +59,8 @@ class Product(db.Model):
         num_ratings = len(self.reviews)
         product_images = list(
             filter(lambda x: not x.preview, self.product_images))
+        preview_images = list(
+            filter(lambda x: x.preview, self.product_images))
         return {
             "id": self.id,
             "seller_id": self.seller_id,
@@ -69,6 +71,7 @@ class Product(db.Model):
 
             "seller": self.seller.to_dict_for_product(),
             "image_urls": [x.to_dict_for_product() for x in product_images],
+            "preview_image": preview_images[-1].url if len(preview_images) else None,
 
             "avg_rating": avg_rating,
             "num_ratings": num_ratings
@@ -82,17 +85,5 @@ class Product(db.Model):
             "title": self.title,
             "created_at": self.created_at,
             "updated_at": self.updated_at,
-            "price": self.price
-        }
-
-    def to_dict_inventory_edit(self):
-        product_images = list(
-            filter(lambda x: not x.preview, self.product_images))
-        return {
-            "image_urls": [x.to_dict_for_product() for x in product_images],
-            "title": self.title,
-            "created_at": self.created_at,
-            "updated_at": self.updated_at,
             "price": self.price,
-            "description": self.description
         }

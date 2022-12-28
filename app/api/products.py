@@ -1,8 +1,11 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import db, Product
-from app.forms import ProductForm, validation_errors_formatter
 from sqlalchemy.exc import IntegrityError
+from werkzeug.utils import secure_filename
+
+from app.models import db, Product, ProductImage
+from app.forms import ProductForm, validation_errors_formatter
+from app.seeds.upload import upload_image_to_bucket
 
 bp = Blueprint("products", __name__, url_prefix="/products")
 
@@ -84,3 +87,35 @@ def delete_product(product_id):
         return {"errors": {
             "server": "Server failed to delete"
         }}, 500
+
+
+def allowed_file(filename): return '.' in filename and filename.rsplit(
+    '.', 1)[1].lower() in set(['png', 'jpg', 'jpeg'])
+
+
+@bp.route("<int:product_id>/images", methods=['POST'])
+def post_image_by_product_id(product_id):
+    try:
+        file = request.files['image']
+        filename = secure_filename(file.filename)
+        if not allowed_file(filename):
+            return {
+                "errors": {
+                    "image": "Please upload a supported image format: .png and .jpg"
+                }
+            }, 400
+        url = upload_image_to_bucket(file, filename)
+        product_image = ProductImage(
+            product_id=product_id,
+            url=url,
+            preview=request.form['preview'] == 'true'
+        )
+        db.session.add(product_image)
+        db.session.commit()
+        return product_image.to_dict()
+    except Exception as e:
+        return {
+            "errors": {
+                "image": str(e)
+            }
+        }, 500

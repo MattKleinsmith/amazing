@@ -1,7 +1,8 @@
 import { csrfFetch } from './csrf';
-import { deleteProductCurrent } from './productsCurrent';
+import { postProductDetails } from './productDetails';
+import { deleteProductCurrent, postProductCurrent } from './productsCurrent';
 
-const GET_PRODUCT = 'products/GET_INDIVIUDAL_PRODUCT';
+const GET_PRODUCT = 'products/GET_INDIVIDUAL_PRODUCT';
 const GET_PRODUCTS = 'products/GET_PRODUCTS';
 const ADD_PRODUCT = 'products/ADD_PRODUCT';
 const ADD_IMAGE = 'products/ADD_IMAGE';
@@ -32,6 +33,8 @@ export const postProduct = body => async dispatch => {
     });
     const product = await response.json();
     dispatch({ type: ADD_PRODUCT, product });
+    dispatch(postProductCurrent(product));
+    dispatch(postProductDetails(product));
     return product.id;
 };
 
