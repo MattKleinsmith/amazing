@@ -14,10 +14,16 @@ export default function Inventory() {
         dispatch(getProductsCurrent());
     }, [dispatch]);
     return (
-        <>
-            <div className={styles.wrapper}>
+        <div className={styles.wrapper}>
+            <div className={styles.bar}>
+                <div className={styles.heading}>Manage Inventory</div>
+                <div className={styles.addProductWrapper}>
+                    <button className={styles.addProduct}>Add product</button>
+                </div>
+            </div>
+            <div className={styles.inventory}>
                 {products.map((product, i) => <InventoryItem key={i} product={product} />)}
             </div>
-        </>
+        </div>
     );
 }

@@ -1,5 +1,24 @@
 .wrapper {
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+.bar {
+    display: flex;
+}
+
+.heading {
+    font-size: 25px;
+}
+
+.addProductWrapper {
+    display: flex;
+    justify-content: flex-end;
+    width: 1350px;
+}
+
+.inventory {
     display: flex;
     flex-direction: column;
-    margin: 20px;
+    margin-top: 20px;
 }

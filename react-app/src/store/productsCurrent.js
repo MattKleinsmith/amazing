@@ -13,7 +13,6 @@ export const deleteProductCurrent = productId => async dispatch => {
     dispatch({ type: DELETE_CURRENT_PRODUCT, productId });
 };
 
-
 export default function productsCurrentReducer(state = [], action) {
     switch (action.type) {
         case GET_CURRENT_PRODUCTS:
