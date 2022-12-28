@@ -14,9 +14,9 @@ export default function SearchResultsItemDescription({ product }) {
 
             <div className={styles.count}>1 Count (Pack of 1)</div>
 
-            {product.avg_rating &&
+            {
                 <div className={styles.ratingRow}>
-                    <div className={styles.rating}>{product.avg_rating.toFixed(1)}</div>
+                    <div className={styles.rating}>{product.avg_rating && product.avg_rating.toFixed(1)}</div>
                     <Stars rating={product.avg_rating} />
                     <NavLink to={`/listing/${product.id}`} className={styles.numRatings}>({product.num_ratings})</NavLink>
                 </div>

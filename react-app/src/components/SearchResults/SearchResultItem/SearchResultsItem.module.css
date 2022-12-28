@@ -120,7 +120,7 @@
 
     .image {
         max-width: 190px;
-        max-height: 185px;
+        height: 185px;
         transform: scale(1.15);
 
         border-radius: 4px;

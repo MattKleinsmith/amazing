@@ -28,6 +28,8 @@
     padding-right: 5px;
 
     column-gap: 9px;
+
+    row-gap: 9px;
 }
 
 @media screen and (min-width: 1880px) {
