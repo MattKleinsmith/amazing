@@ -11,8 +11,7 @@ export default function ListingForm() {
     const { productId } = useParams();
     const product = useSelector(state => state.productDetails)[productId];
     const dispatch = useDispatch();
-
-    const [isLoaded, setIsLoaded] = useState(false);
+    console.log(product);
 
     const previewImageRef = useRef();
     const [preview, setPreview] = useState(null);
@@ -36,13 +35,17 @@ export default function ListingForm() {
         if (productId && !product) {
             dispatch(getProductDetails(productId));
         }
-        setIsLoaded(true);
     }, [productId, product, dispatch]);
 
     useEffect(() => {
-        if (!isLoaded) return;
+        setTitle(product?.title || "");
+        setPrice(product?.price || 0);
+        setDescription(product?.description || "");
+    }, [product])
+
+    useEffect(() => {
         titleField.current.focus();
-    }, [isLoaded]);
+    }, []);
 
     const handlePreviewChange = (e) => {
         const file = e.target.files[0];
