@@ -1,4 +1,5 @@
 import { csrfFetch } from './csrf';
+import { deleteProductCurrent } from './productsCurrent';
 
 const GET_PRODUCT = 'products/GET_INDIVIUDAL_PRODUCT';
 const GET_PRODUCTS = 'products/GET_PRODUCTS';
@@ -67,6 +68,7 @@ export const postProductImage = (productId, image, preview) => async dispatch =>
 export const deleteProduct = productId => async dispatch => {
     await csrfFetch(`/api/products/${productId}`, { method: "DELETE" });
     dispatch({ type: DELETE_PRODUCT, productId });
+    dispatch(deleteProductCurrent(productId));
 };
 
 export default function productsReducer(state = { all: {}, filtered: {} }, action) {

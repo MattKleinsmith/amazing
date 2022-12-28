@@ -77,6 +77,7 @@ class Product(db.Model):
     def to_dict_inventory(self):
         preview_images = list(filter(lambda x: x.preview, self.product_images))
         return {
+            "id": self.id,
             "preview_image": preview_images[-1].url if len(preview_images) else None,
             "title": self.title,
             "created_at": self.created_at,
