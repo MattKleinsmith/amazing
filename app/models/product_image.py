@@ -14,6 +14,7 @@ class ProductImage(db.Model):
         'products.id', name='fk_product_image_product_id', ondelete='CASCADE'), nullable=False)
     url = Column(TEXT, nullable=False)
     preview = Column(BOOLEAN, nullable=False)
+    position = Column(Integer)
 
     created_at = Column(DateTime(timezone=True),
                         server_default=func.now(), nullable=False)

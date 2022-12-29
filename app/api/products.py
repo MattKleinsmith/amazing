@@ -105,11 +105,17 @@ def post_image_by_product_id(product_id):
                 }
             }, 400
         url = upload_image_to_bucket(file, filename)
-        product_image = ProductImage(
-            product_id=product_id,
-            url=url,
-            preview=request.form['preview'] == 'true'
-        )
+        product_image = ProductImage(product_id=product_id, url=url)
+        if request.form['preview'] == 'true':
+            product_image.preview = request.form['preview'] == 'true'
+        else:
+            position = request.form['position']
+            product_image.preview = False
+            product_image.position = position
+            images_in_this_position = ProductImage.query.filter(
+                ProductImage.position == position, ProductImage.product_id == product_id).all()
+            for img in images_in_this_position:
+                db.session.delete(img)
         db.session.add(product_image)
         db.session.commit()
         return product_image.to_dict()

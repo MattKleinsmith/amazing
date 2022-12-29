@@ -24,7 +24,7 @@ class Product(db.Model):
 
     seller = relationship("User", back_populates="products")
     product_images = relationship(
-        "ProductImage", cascade="all, delete-orphan", back_populates="product", order_by="ProductImage.id")
+        "ProductImage", cascade="all, delete-orphan", back_populates="product", order_by="ProductImage.position")
     reviews = relationship(
         "Review", back_populates="product", cascade="all, delete-orphan")
 
