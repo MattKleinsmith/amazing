@@ -58,7 +58,7 @@ class Product(db.Model):
             [review.rating for review in self.reviews]) / len(self.reviews) if len(self.reviews) > 0 else None
         num_ratings = len(self.reviews)
         product_images = list(
-            filter(lambda x: not x.preview, self.product_images))
+            filter(lambda x: x.position, self.product_images))
         preview_images = list(
             filter(lambda x: x.preview, self.product_images))
         return {

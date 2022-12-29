@@ -1,5 +1,5 @@
 import { csrfFetch } from './csrf';
-import { postProductDetails } from './productDetails';
+import { getProductDetails, postProductDetails } from './productDetails';
 import { deleteProductCurrent, postProductCurrent } from './productsCurrent';
 
 const GET_PRODUCT = 'products/GET_INDIVIDUAL_PRODUCT';
@@ -44,13 +44,15 @@ export const putProduct = (productId, body) => async dispatch => {
         body: JSON.stringify(body)
     });
     dispatch(getProduct(productId));
+    dispatch(getProductDetails(productId));
 };
 
-export const postProductImage = (productId, image, preview) => async dispatch => {
+export const postProductImage = (productId, image, isPreview, position) => async dispatch => {
     const formData = new FormData();
 
     formData.append('image', image);
-    formData.append('preview', preview);
+    formData.append('preview', isPreview);
+    if (position) formData.append('position', position);
 
     const response = await fetch(`/api/products/${productId}/images`, {
         method: "POST",
@@ -63,9 +65,7 @@ export const postProductImage = (productId, image, preview) => async dispatch =>
         throw errors;
     }
 
-    const product_image = await response.json();
-
-    dispatch({ type: ADD_IMAGE, productId, product_image })
+    dispatch(getProductDetails(productId))
 };
 
 export const deleteProduct = productId => async dispatch => {
@@ -89,10 +89,6 @@ export default function productsReducer(state = { all: {}, filtered: {} }, actio
             return newState;
         case GET_PRODUCT:
             newState.all[action.product.id] = action.product;
-            return newState;
-        case ADD_IMAGE:
-            newState.all[action.productId].preview_image = action.product_image.url;
-            newState.all[action.productId].product_images.push(action.product_image);
             return newState;
         case DELETE_PRODUCT:
             delete newState.all[action.productId];

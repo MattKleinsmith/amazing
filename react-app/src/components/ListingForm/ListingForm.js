@@ -11,11 +11,10 @@ export default function ListingForm() {
     const { productId } = useParams();
     const product = useSelector(state => state.productDetails)[productId];
     const dispatch = useDispatch();
-    console.log(product);
 
-    const previewImageRef = useRef();
-    const [preview, setPreview] = useState(null);
-    const [previewError, setPreviewError] = useState("");
+    const imageRef = useRef();
+    const [image, setImage] = useState(null);
+    const [imageError, setImageError] = useState("");
 
     const titleField = useRef();
     const [title, setTitle] = useState(product?.title || "");
@@ -49,10 +48,10 @@ export default function ListingForm() {
 
     const handlePreviewChange = (e) => {
         const file = e.target.files[0];
-        setPreview(file)
+        setImage(file)
         const reader = new FileReader();
         reader.onload = function (e) {
-            previewImageRef.current.src = e.target.result;
+            imageRef.current.src = e.target.result;
         }
         reader.readAsDataURL(file);
     }
@@ -86,14 +85,14 @@ export default function ListingForm() {
 
         if (hasErrors) return;
 
-        if (preview || product?.preview_image) {
+        if (image || product?.preview_image) {
             try {
                 const body = { title, price, description }
                 const productThunkAction = product ? putProduct(productId, body) : postProduct(body);
                 const newProductId = await dispatch(productThunkAction);
                 try {
-                    if (preview) {
-                        await dispatch(postProductImage(newProductId ? newProductId : productId, preview, true));
+                    if (image) {
+                        await dispatch(postProductImage(newProductId ? newProductId : productId, image, true, 1));
                     }
                 }
                 catch (responseBody) {
@@ -106,7 +105,7 @@ export default function ListingForm() {
             navigate("/inventory");
         }
         else {
-            setPreviewError("Please upload an image for the product listing");
+            setImageError("Please upload an image for the product listing");
         }
     }
 
@@ -122,8 +121,8 @@ export default function ListingForm() {
                 <form className={styles.form} onSubmit={onSubmit}>
                     <div className={styles.heading}>{productId ? "Edit" : "Create"} product listing</div>
                     <div className={`${styles.fieldWrapper} ${styles.imageWrapper}`}>
-                        {previewError && <div>{previewError}</div>}
-                        <img ref={previewImageRef} className={styles.image} src={product?.preview_image} alt={product?.preview_image} />
+                        {imageError && <div>{imageError}</div>}
+                        <img ref={imageRef} className={styles.image} src={product?.preview_image} alt={product?.preview_image} />
                         <label className={`${styles.fieldLabel} ${styles.imageLabel}`}>Search results image</label>
                         <input
                             type="file"
