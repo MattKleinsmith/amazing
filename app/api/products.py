@@ -113,7 +113,7 @@ def post_image_by_product_id(product_id):
         )
         if request.form['preview'] == 'true':
             preview_images = ProductImage.query.filter(
-                ProductImage.preview == 't', ProductImage.product_id == product_id)
+                ProductImage.preview == 't', ProductImage.product_id == product_id).all()
             print("preview_images-----------", len(preview_images))
             for img in preview_images:
                 print(img, img.id, img.product_id, img.position)
@@ -121,7 +121,7 @@ def post_image_by_product_id(product_id):
                     print("we flipped it")
                     img.preview = False
                     img.position = ProductImage.query.filter(
-                        ProductImage.product_id == product_id, ProductImage.position).count() + 1
+                        ProductImage.product_id == product_id, ProductImage.position > 0).count() + 1
                 else:
                     print("we deleted it")
                     db.session.delete(img)
