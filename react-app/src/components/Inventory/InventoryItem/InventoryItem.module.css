@@ -7,6 +7,12 @@
 .title {
     width: 60vw;
     padding-left: 10px;
+    color: #222222;
+}
+
+.title:hover {
+    text-decoration: none;
+    color: #222222;
 }
 
 .image {
