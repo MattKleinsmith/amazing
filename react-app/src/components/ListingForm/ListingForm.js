@@ -198,7 +198,7 @@ export default function ListingForm() {
                         </div>}
                     </div>
 
-                    <button className={`${styles.continue} ${styles.noselect}`} onClick={onClickContinue}>Submit</button>
+                    <button type="submit" className={`${styles.continue} ${styles.noselect}`}>Submit</button>
                 </form>
             </div>
         </>

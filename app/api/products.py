@@ -111,16 +111,20 @@ def post_image_by_product_id(product_id):
             preview=request.form['preview'] == 'true',
             position=request.form['position'] if request.form['position'] else None
         )
-        if request.form['position']:
-            images_in_this_position = ProductImage.query.filter(
-                ProductImage.position == request.form['position'], ProductImage.product_id == product_id).all()
-            for img in images_in_this_position:
-                db.session.delete(img)
         if request.form['preview'] == 'true':
             preview_images = ProductImage.query.filter(
-                ProductImage.preview, ProductImage.product_id == product_id, not ProductImage.position).all()
+                ProductImage.preview == 't', ProductImage.product_id == product_id)
+            print("preview_images-----------", len(preview_images))
             for img in preview_images:
-                db.session.delete(img)
+                print(img, img.id, img.product_id, img.position)
+                if (img.position):
+                    print("we flipped it")
+                    img.preview = False
+                    img.position = ProductImage.query.filter(
+                        ProductImage.product_id == product_id, ProductImage.position).count() + 1
+                else:
+                    print("we deleted it")
+                    db.session.delete(img)
         db.session.add(product_image)
         db.session.commit()
         return product_image.to_dict()
