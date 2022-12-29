@@ -4,7 +4,7 @@
 
 Amazing is a web application clone of Amazon, which provides an online marketplace for consumer products.
 
-Live demo: TBD
+Live demo: https://mattkleinsmith.dev
 
 It was built using this stack:
 
@@ -15,15 +15,15 @@ It was built using this stack:
 
 #### Backend
 
+![Flask](https://img.shields.io/badge/flask⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀-%23000000.svg?style=for-the-badge&logo=flask&logoColor=%23FFFFFF)
+<br/>
 ![SQLAlchemy](https://img.shields.io/badge/sqlalchemy⠀⠀⠀⠀-424242?style=for-the-badge&logo=academia&logoColor=d71f00)
-![Flask](https://img.shields.io/badge/flask⠀⠀⠀⠀⠀-%23000000.svg?style=for-the-badge&logo=flask&logoColor=%23FFFFFF)
+![Gunicorn](https://img.shields.io/badge/gunicorn⠀-%23FFFFFF.svg?style=for-the-badge&logo=gunicorn&logoColor=%23298629)
 <br/>
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Python](https://img.shields.io/badge/python⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀-376c99?style=for-the-badge&logo=python&logoColor=f7d34b)
 <br/>
-![AWS](https://img.shields.io/badge/Amazon_AWS⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀-%23232f3e.svg?style=for-the-badge&logo=amazonaws&logoColor=ec912d)
-
-I used Amazon EC2 instead of Heroku or Render.
+![AWS](https://img.shields.io/badge/AMAZON_LINUX_2_(EC2_instance)⠀⠀⠀-%23232f3e.svg?style=for-the-badge&logo=amazonaws&logoColor=ec912d)
 
 ## Features
 
@@ -53,20 +53,10 @@ The following are screenshots of this user flow:
 
 ### Getting started
 
-1. Start the backend server: From a terminal within the project directory, run:
+1. Paste this command into a terminal to spin up a docker container of the app:
+```
 
-    ```javascript
-    sh ./setup.sh
-    ```
-
-2. Start the frontend server: From a second terminal within the `react-app` directory, run:
-
-    ```javascript
-    npm start
-    ```
-
-3. Experience the app: From a browser, go to:
-    > http://localhost:3000
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

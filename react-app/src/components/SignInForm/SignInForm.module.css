@@ -1,0 +1,326 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.logo {
+    margin-bottom: 12px;
+}
+
+.problemWrapper {
+    display: flex;
+
+    width: 350px;
+    margin-bottom: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    gap: 15px;
+
+    padding-right: 15px;
+    padding-left: 15px;
+
+
+    border: 1px solid #c40000;
+    border-radius: 4px;
+}
+
+.problemIcon {
+    background-image: url("../../../public/images/atlas.png");
+    background-repeat: no-repeat;
+
+    background-position: -248px -35px;
+    height: 27px;
+    width: 30px;
+}
+
+.problemRight {
+    display: flex;
+    flex-direction: column;
+}
+
+.problemTitle {
+    color: #c40000;
+    font-size: 17px;
+    line-height: 1.255;
+}
+
+.problemText {
+    font-size: 13px;
+    line-height: 19px;
+}
+
+.form {
+    width: 350px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px 25px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.signIn {
+    font-size: 28px;
+}
+
+.email {
+    margin-top: 15px;
+    display: flex;
+    gap: 3px;
+    font-size: 13px;
+}
+
+.changeEmail {
+    color: #0066c0;
+    cursor: pointer;
+    align-self: center;
+}
+
+.changeEmail:hover {
+    color: #c45500;
+    text-decoration: underline;
+}
+
+.fieldWrapper {
+    margin-top: 12px;
+    margin-bottom: 14px;
+}
+
+.fieldLabel {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.fieldInput {
+    height: 31px;
+    width: 100%;
+    margin-top: 2px;
+
+    border: 1px solid #a6a6a6;
+    border-top-color: #949494;
+    border-radius: 3px;
+
+    text-indent: 7px;
+}
+
+.fieldInput:focus {
+    outline: none;
+    border: 1px solid #e77601;
+    filter: drop-shadow(0px 0px 2px #e88420);
+}
+
+.errorInput {
+    border-color: #d00;
+    box-shadow: 0 0 0 3px rgb(221 0 0 / 10%) inset;
+}
+
+.errorInput:focus {
+    border-color: #d00;
+    filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0));
+}
+
+.errorWrapper {
+    margin-top: 5px;
+    display: flex;
+    gap: 7px;
+}
+
+.errorIcon {
+    background-image: url("../../../public/images/atlas.png");
+    background-repeat: no-repeat;
+    align-self: center;
+
+    background-position: -141px -130px;
+    height: 13px;
+    width: 5px;
+
+    margin-left: 2px;
+}
+
+.errorText {
+    font-size: 12px;
+    line-height: 15px;
+    color: #c40000;
+}
+
+.continue {
+    width: 100%;
+    padding: 5px 6px;
+    margin-bottom: 20px;
+
+    border: 1px solid #a88734;
+    border-radius: 3px;
+
+    background: linear-gradient(0deg, rgba(240, 194, 77, 1) 0%, rgba(246, 221, 160, 1) 100%);
+
+    color: #111111;
+    font-size: 14px;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.continue:hover {
+    background: linear-gradient(0deg, rgba(238, 186, 53, 1) 0%, rgba(244, 213, 137, 1) 100%);
+}
+
+.continue:active {
+    background: linear-gradient(0deg, #f0c14b 0%, #f0c14b 100%);
+    filter: drop-shadow(0px 0px 3px #e88420);
+    box-shadow: inset 0px 0px 1px black;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+.terms {
+    font-size: 12px;
+    color: #111111;
+}
+
+.jokeTerms {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #111111;
+}
+
+.jokeTerms2 {
+    margin-top: 15px;
+    margin-bottom: -10px;
+    font-size: 12px;
+    color: #111111;
+}
+
+.demoWrapper {
+    margin-top: 30px;
+    display: flex;
+    gap: 7px;
+}
+
+.rightArrow {
+    background-image: url("../../../public/images/atlas.png");
+    background-repeat: no-repeat;
+    align-self: center;
+
+    width: 4px;
+    height: 7px;
+    background-position: -366px -86px;
+}
+
+.demo {
+    font-size: 13px;
+    color: #0066c0;
+    cursor: pointer;
+}
+
+.demo:hover {
+    color: #c45500;
+    text-decoration: underline;
+}
+
+.newWrapper {
+    margin-top: 20px;
+    width: 350px;
+}
+
+.line {
+    text-align: center;
+    position: relative;
+    top: 2px;
+    padding-top: 1px;
+    margin-bottom: 14px;
+    line-height: 0;
+}
+
+.new {
+    line-height: 1;
+    font-size: 12px;
+    color: #767676;
+    z-index: 2;
+    position: relative;
+    display: inline-block;
+    background-color: white;
+    padding: 0 8px 0 7px;
+}
+
+.line::after {
+    content: "";
+    width: 100%;
+    display: block;
+    border-top: 1px solid #e7e7e7;
+    position: absolute;
+    top: 50%;
+    margin-top: -1px;
+}
+
+.create {
+    text-align: center;
+    color: #111111;
+    font-size: 13px;
+    line-height: 29px;
+
+    background: linear-gradient(0deg, #e7e9ec 0%, #f6f7f9 100%);
+
+    border: 1px solid #adb1b8;
+    border-radius: 3px;
+
+    cursor: pointer;
+}
+
+.create:hover {
+    background: linear-gradient(0deg, #d9dce1 0%, #e6e9ef 100%);
+}
+
+.create:active {
+    background: linear-gradient(0deg, #d5d8dc 0%, #ccced2 100%);
+    filter: drop-shadow(0px 0px 3px #e88420);
+    box-shadow: inset 0px 0px 1px red;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 11px;
+    gap: 15px;
+    margin-top: 26px;
+}
+
+.footerLine {
+    width: 100%;
+    height: 14px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .14), rgba(0, 0, 0, .03) 3px, transparent);
+}
+
+.footerLine::after {
+    display: block;
+    width: 100%;
+    height: 44px;
+    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0), #fff);
+    content: "";
+}
+
+.links {
+    display: flex;
+    gap: 25px;
+}
+
+.copyright {
+    color: #555555;
+}

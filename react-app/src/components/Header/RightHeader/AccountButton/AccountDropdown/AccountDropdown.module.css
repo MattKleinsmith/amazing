@@ -1,0 +1,86 @@
+.wrapper {
+    position: absolute;
+    top: 54px;
+
+    margin-left: -375px;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 750px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    border-radius: 3px;
+    background-color: white;
+    /* border: 1px gray solid; */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 5;
+}
+
+.triangle {
+    position: absolute;
+    top: 46px;
+    margin-left: 110px;
+
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
+}
+
+.background {
+    position: fixed;
+    top: 60px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100vw;
+    height: 100vh;
+}
+
+.row {
+    display: flex;
+
+    height: 40px;
+    width: 100%;
+    padding-left: 10px;
+
+    border: none;
+    background-color: transparent;
+    font-size: 13px;
+}
+
+.row:hover {
+    color: #e47911;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.iconWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    font-size: 24px;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 5px;
+}
+
+.profilePicture {
+    color: #6e6e6e
+}
+
+.link {
+    text-decoration: none;
+    color: #222222;
+}
+
+.signOut {
+    cursor: pointer;
+}

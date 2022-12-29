@@ -1,0 +1,30 @@
+.wrapper {
+    width: 80px;
+    padding-left: 9px;
+    padding-right: 5px;
+    padding-top: 8px;
+    padding-bottom: 9px;
+    margin-top: -5px;
+
+    border: 1px solid transparent;
+    border-radius: 2px;
+    color: white;
+
+    cursor: pointer;
+}
+
+.wrapper:hover {
+    border: 1px solid white;
+}
+
+.row1 {
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 400;
+}
+
+.row2 {
+    font-size: 14px;
+    line-height: 15px;
+    font-weight: 700;
+}

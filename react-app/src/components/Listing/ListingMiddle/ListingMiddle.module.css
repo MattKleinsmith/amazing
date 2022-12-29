@@ -1,0 +1,123 @@
+.wrapper {
+    width: 23vw;
+    margin: 0px 3px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 1880px) {
+    .wrapper {
+        /* width: 24vw; */
+        margin-right: 25px;
+        margin-left: 15px;
+    }
+
+    .content {
+        width: 23vw;
+    }
+}
+
+@media screen and (min-width: 820px) and (max-width: 1879px) {
+    .wrapper {
+        width: 22vw;
+    }
+
+    .content {
+        width: 16vw;
+    }
+}
+
+
+.title {
+    font-size: 24px;
+    color: #0F1111;
+    word-break: break-word;
+    line-height: 32px;
+    text-rendering: optimizeLegibility;
+    width: 20vw;
+}
+
+.seller {
+    font-size: 14px;
+    line-height: 20px;
+    color: #007185;
+}
+
+.rating {
+    margin-top: 1px;
+    display: flex;
+    gap: 20px;
+}
+
+.numRatings {
+    color: #007185;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.hr {
+    background-color: transparent;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top: 1px solid #e7e7e7;
+    display: block;
+    height: 1px;
+    line-height: 19px;
+    margin-bottom: 14px;
+    margin-top: 8px;
+}
+
+.price {
+    display: flex;
+    gap: 8px;
+}
+
+.count {
+    color: #0F1111;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 5px;
+}
+
+.prime {
+    margin-top: 8px;
+}
+
+.freeReturns {
+    margin-top: 5px;
+    color: rgb(0, 113, 133);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.rewards {
+    color: rgb(15, 17, 17);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.getBack {
+    font-weight: 700;
+    color: rgb(0, 113, 133);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.aboutTitle {
+    color: rgb(15, 17, 17);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    padding-bottom: 4px;
+    margin-top: 0.67em;
+}
+
+.about {
+    padding-left: 18px;
+
+    color: rgb(15, 17, 17);
+    font-size: 14px;
+    line-height: 20px;
+}

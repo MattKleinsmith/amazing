@@ -1,0 +1,44 @@
+@font-face {
+    font-family: "Amazon Ember";
+    font-weight: 400;
+    src: url('~/public/fonts/AmazonEmber_Rg.ttf');
+}
+
+@font-face {
+    font-family: "Amazon Ember";
+    font-weight: 500;
+    src: url('~/public/fonts/Amazon-Ember-Medium.ttf');
+}
+
+@font-face {
+    font-family: "Amazon Ember";
+    font-weight: 700;
+    src: url('~/public/fonts/AmazonEmber_Bd.ttf');
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Amazon Ember", Arial, sans-serif;
+}
+
+a {
+    color: #0066c0;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #c45500;
+}
+
+.prime {
+    background-image: url("../public/images/labels.png");
+    background-repeat: no-repeat;
+
+    width: 53px;
+    height: 15px;
+    background-position: -185px -182px;
+}

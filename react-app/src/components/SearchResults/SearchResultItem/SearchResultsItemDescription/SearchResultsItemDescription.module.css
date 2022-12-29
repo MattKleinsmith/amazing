@@ -1,0 +1,80 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+
+    height: 250px;
+    padding-left: 8px;
+
+    font-size: 0.8rem;
+    color: #0F1111;
+}
+
+.title {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    padding-top: 5px;
+
+    overflow: hidden;
+    font-size: 16px;
+    line-height: 24px;
+    color: #0F1111;
+}
+
+.count {
+    margin-top: 4px;
+
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+}
+
+.ratingRow {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 5px;
+    margin-bottom: 18px;
+}
+
+.rating {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.numRatings {
+    color: #007185;
+    font-size: 14px;
+}
+
+.numRatings:hover {
+    text-decoration: none;
+}
+
+.priceWrapper {
+    display: flex;
+    margin-top: -5px;
+}
+
+.perCount {
+    margin-left: 5px;
+    margin-top: 7px;
+
+    font-size: 14px;
+    color: #565959;
+}
+
+.prime {
+    margin-top: 9px;
+}
+
+.delivery {
+    margin-top: 2px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.date {
+    font-weight: 700;
+}

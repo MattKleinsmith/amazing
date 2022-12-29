@@ -1,0 +1,30 @@
+import styles from "./App.module.css";
+
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+
+import { restoreUser } from "./store/session";
+
+import Header from "./components/Header/Header";
+import AppRoutes from "./AppRoutes";
+import Footer from "./components/Footer/Footer";
+
+export default function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(restoreUser());
+  }, [dispatch]);
+
+  return (
+    <>
+      <div className={styles.pageContainer}>
+        <div className={styles.contentWrapper}>
+          <Header />
+          <AppRoutes />
+        </div>
+        <Footer />
+      </div>
+    </>
+  );
+}
