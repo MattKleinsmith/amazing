@@ -27,7 +27,7 @@ export default function SearchResultsItemDescription({ product }) {
                     <Price product={product} />
                 </NavLink>
                 <NavLink to={`/listing/${product.id}`} style={{ textDecoration: 'none' }} className={styles.perCount}>
-                    (${product.price}/Count)
+                    (${parseFloat(product.price).toFixed(2)}/Count)
                 </NavLink>
             </div>
 

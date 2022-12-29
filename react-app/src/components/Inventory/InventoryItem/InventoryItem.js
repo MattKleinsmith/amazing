@@ -22,7 +22,7 @@ export default function InventoryItem({ product }) {
                 <div>{createdAt}</div>
                 <div>{updatedAt}</div>
             </div>
-            <div>{product.price}</div>
+            <div className={styles.price}>{parseFloat(product.price).toFixed(2)}</div>
             <NavLink to={`/inventory/${product.id}`}><button className={styles.edit}>Edit</button></NavLink>
             <button onClick={onClickDelete} className={styles.edit}>Delete</button>
         </div>

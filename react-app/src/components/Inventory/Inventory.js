@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getProductsCurrent } from "../../store/productsCurrent";
 
 import InventoryItem from "./InventoryItem/InventoryItem";
+import { NavLink } from "react-router-dom";
 
 export default function Inventory() {
     const products = useSelector(state => state.productsCurrent);
@@ -18,7 +19,7 @@ export default function Inventory() {
             <div className={styles.bar}>
                 <div className={styles.heading}>Manage Inventory</div>
                 <div className={styles.addProductWrapper}>
-                    <button className={styles.addProduct}>Add product</button>
+                    <NavLink to="/inventory/add"><button className={styles.addProduct}>Add product</button></NavLink>
                 </div>
             </div>
             <div className={styles.inventory}>
