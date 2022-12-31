@@ -34,3 +34,17 @@ class ProductForm(FlaskForm):
                        DataRequired(), NumberRange(min=0)])
     description = TextAreaField("Description")
     submit = SubmitField()
+
+
+class AddressForm(FlaskForm):
+    fullname = StringField("Fullname", validators=[
+                           DataRequired(), Length(max=1000)])
+    address = StringField("Address", validators=[
+                          DataRequired(), Length(max=1000)])
+    city = StringField("City", validators=[DataRequired(), Length(max=1000)])
+    state = StringField("State", validators=[DataRequired(), Length(max=1000)])
+    zipcode = StringField("Zipcode", validators=[
+                          DataRequired(), Length(max=1000)])
+    region = StringField("Region", validators=[
+                         DataRequired(), Length(max=1000)])
+    submit = SubmitField()

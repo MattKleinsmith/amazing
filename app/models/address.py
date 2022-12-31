@@ -30,4 +30,10 @@ class Address(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
+            "user_id": self.user_id,
+            "fullname": self.fullname,
+            "city": self.city,
+            "state": self.state,
+            "zipcode": self.zipcode,
+            "region": self.region
         }
