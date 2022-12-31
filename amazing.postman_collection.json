@@ -603,6 +603,24 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "DELETE address",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/addresses/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"addresses",
+						"1"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
