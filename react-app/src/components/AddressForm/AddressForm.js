@@ -69,13 +69,13 @@ export default function AddressForm() {
     const onClickContinue = async () => {
         let hasErrors = false;
 
-        if (!phoneNumber) {
+        if (phoneNumber.length != 10) {
             setPhoneNumberError("Please enter a phone number so we can call if there are any issues with delivery.");
             phoneNumberField.current.focus();
             hasErrors = true;
         }
 
-        if (!zipcode) {
+        if (zipcode.length < 6 || zipcode.length > 10) {
             setZipcodeError("Please enter a ZIP or postal code.");
             zipcodeField.current.focus();
             hasErrors = true;
