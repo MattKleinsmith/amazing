@@ -20,8 +20,12 @@ export default function AddressForm() {
     const [fullnameError, setFullnameError] = useState("");
 
     const addressField = useRef();
-    const [addressValue, setAddressValue] = useState(address?.price || 0);
+    const [addressValue, setAddressValue] = useState(address?.address || "");
     const [addressValueError, setAddressValueError] = useState("");
+
+    const buildingNumberField = useRef();
+    const [buildingNumber, setBuildingNumber] = useState(address?.buildingNumber || "");
+    const [buildingNumberError, setBuildingNumberError] = useState("");
 
     const cityField = useRef();
     const [city, setCity] = useState(address?.city || "");
@@ -35,6 +39,10 @@ export default function AddressForm() {
     const [zipcode, setZipcode] = useState(address?.zipcode || "");
     const [zipcodeError, setZipcodeError] = useState("");
 
+    const phoneNumberField = useRef();
+    const [phoneNumber, setPhoneNumber] = useState(address?.phoneNumber || "");
+    const [phoneNumberError, setPhoneNumberError] = useState("");
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -47,9 +55,11 @@ export default function AddressForm() {
         setRegion(address?.region || "");
         setFullname(address?.fullname || "");
         setAddressValue(address?.address || "");
+        setBuildingNumber(address?.buildingNumber || "");
         setCity(address?.city || "");
         setState(address?.state || "");
         setZipcode(address?.zipcode || "");
+        setPhoneNumber(address?.phoneNumber || "");
     }, [address])
 
     useEffect(() => {
@@ -59,38 +69,38 @@ export default function AddressForm() {
     const onClickContinue = async () => {
         let hasErrors = false;
 
+        if (!phoneNumber) {
+            setPhoneNumberError("Please enter a phone number so we can call if there are any issues with delivery.");
+            phoneNumberField.current.focus();
+            hasErrors = true;
+        }
+
         if (!zipcode) {
-            setZipcodeError("Enter a zip or postal code.");
+            setZipcodeError("Please enter a ZIP or postal code.");
             zipcodeField.current.focus();
             hasErrors = true;
         }
 
-        if (!state) {
-            setStateError("Enter a state, region, or province");
-            stateField.current.focus();
-            hasErrors = true;
-        }
-
         if (!city) {
-            setCityError("Enter a city");
+            setCityError("Please enter a city name.");
             cityField.current.focus();
             hasErrors = true;
         }
 
         if (!addressValue) {
-            setAddressValueError("Enter an address");
+            setAddressValueError("Please enter an address.");
             addressField.current.focus();
             hasErrors = true;
         }
 
         if (!fullname) {
-            setFullnameError("Enter a name");
+            setFullnameError("Please enter a name.");
             fullnameField.current.focus();
             hasErrors = true;
         }
 
         if (!region) {
-            setRegionError("Enter a region");
+            setRegionError("Please enter a region");
             regionField.current.focus();
             hasErrors = true;
         }
@@ -122,7 +132,7 @@ export default function AddressForm() {
 
                     <div className={styles.fieldWrapper}>
                         <label htmlFor="addressFormRegion" className={styles.fieldLabel}>
-                            Country / Region
+                            Country/Region
                         </label>
                         <input
                             ref={regionField}
@@ -166,7 +176,7 @@ export default function AddressForm() {
 
                     <div className={styles.fieldWrapper}>
                         <label htmlFor="addressFormAddress" className={styles.fieldLabel}>
-                            Address
+                            Street address
                         </label>
                         <input
                             ref={addressField}
@@ -175,6 +185,7 @@ export default function AddressForm() {
                             type="text"
                             autoComplete="off"
                             value={addressValue}
+                            placeholder="Street address, P.O. box, company name, c/o"
                             onChange={(e) => {
                                 setAddressValueError("");
                                 setAddressValue(e.target.value);
@@ -184,75 +195,107 @@ export default function AddressForm() {
                             <div className={styles.errorIcon} />
                             <div className={styles.errorText}>{addressValueError}</div>
                         </div>}
+                        <input
+                            ref={buildingNumberField}
+                            className={`${styles.fieldInput} ${buildingNumberError && styles.errorInput}`}
+                            type="text"
+                            autoComplete="off"
+                            value={buildingNumber}
+                            placeholder="Apartment, suite, unit, building, floor, etc."
+                            onChange={(e) => {
+                                setBuildingNumberError("");
+                                setBuildingNumber(e.target.value);
+                            }}
+                        />
                     </div>
 
-                    <div className={styles.row}>
 
-                        <div className={styles.fieldWrapper}>
-                            <label htmlFor="addressFormCity" className={styles.fieldLabel}>
-                                City
-                            </label>
-                            <input
-                                ref={cityField}
-                                id="addressFormCity"
-                                className={`${styles.fieldInput} ${cityError && styles.errorInput}`}
-                                type="text"
-                                autoComplete="off"
-                                value={city}
-                                onChange={(e) => {
-                                    setCityError("");
-                                    setCity(e.target.value);
-                                }}
-                            />
-                            {cityError && <div className={styles.errorWrapper}>
-                                <div className={styles.errorIcon} />
-                                <div className={styles.errorText}>{cityError}</div>
-                            </div>}
-                        </div>
+                    <div className={styles.fieldWrapper}>
+                        <label htmlFor="addressFormCity" className={styles.fieldLabel}>
+                            City
+                        </label>
+                        <input
+                            ref={cityField}
+                            id="addressFormCity"
+                            className={`${styles.fieldInput} ${cityError && styles.errorInput}`}
+                            type="text"
+                            autoComplete="off"
+                            value={city}
+                            onChange={(e) => {
+                                setCityError("");
+                                setCity(e.target.value);
+                            }}
+                        />
+                        {cityError && <div className={styles.errorWrapper}>
+                            <div className={styles.errorIcon} />
+                            <div className={styles.errorText}>{cityError}</div>
+                        </div>}
+                    </div>
 
-                        <div className={styles.fieldWrapper}>
-                            <label htmlFor="addressFormState" className={styles.fieldLabel}>
-                                State
-                            </label>
-                            <input
-                                ref={stateField}
-                                id="addressFormState"
-                                className={`${styles.fieldInput} ${stateError && styles.errorInput}`}
-                                type="text"
-                                autoComplete="off"
-                                value={state}
-                                onChange={(e) => {
-                                    setStateError("");
-                                    setState(e.target.value);
-                                }}
-                            />
-                            {stateError && <div className={styles.errorWrapper}>
-                                <div className={styles.errorIcon} />
-                                <div className={styles.errorText}>{stateError}</div>
-                            </div>}
-                        </div>
+                    <div className={styles.fieldWrapper}>
+                        <label htmlFor="addressFormState" className={styles.fieldLabel}>
+                            State / Province / Region
+                        </label>
+                        <input
+                            ref={stateField}
+                            id="addressFormState"
+                            className={`${styles.fieldInput} ${stateError && styles.errorInput}`}
+                            type="text"
+                            autoComplete="off"
+                            value={state}
+                            onChange={(e) => {
+                                setStateError("");
+                                setState(e.target.value);
+                            }}
+                        />
+                        {stateError && <div className={styles.errorWrapper}>
+                            <div className={styles.errorIcon} />
+                            <div className={styles.errorText}>{stateError}</div>
+                        </div>}
+                    </div>
 
-                        <div className={styles.fieldWrapper}>
-                            <label htmlFor="addressFormZipcode" className={styles.fieldLabel}>
-                                Zipcode
-                            </label>
-                            <input
-                                ref={zipcodeField}
-                                id="addressFormZipcode"
-                                className={`${styles.fieldInput} ${zipcodeError && styles.errorInput}`}
-                                type="text"
-                                autoComplete="off"
-                                value={zipcode}
-                                onChange={(e) => {
-                                    setZipcodeError("");
-                                    setZipcode(e.target.value);
-                                }}
-                            />
-                            {zipcodeError && <div className={styles.errorWrapper}>
-                                <div className={styles.errorIcon} />
-                                <div className={styles.errorText}>{zipcodeError}</div>
-                            </div>}
-                        </div>
+                    <div className={styles.fieldWrapper}>
+                        <label htmlFor="addressFormZipcode" className={styles.fieldLabel}>
+                            Zip Code
+                        </label>
+                        <input
+                            ref={zipcodeField}
+                            id="addressFormZipcode"
+                            className={`${styles.fieldInput} ${zipcodeError && styles.errorInput}`}
+                            type="text"
+                            autoComplete="off"
+                            value={zipcode}
+                            onChange={(e) => {
+                                setZipcodeError("");
+                                setZipcode(e.target.value);
+                            }}
+                        />
+                        {zipcodeError && <div className={styles.errorWrapper}>
+                            <div className={styles.errorIcon} />
+                            <div className={styles.errorText}>{zipcodeError}</div>
+                        </div>}
+                    </div>
+
+                    <div className={styles.fieldWrapper}>
+                        <label htmlFor="addressFormPhoneNumber" className={styles.fieldLabel}>
+                            Phone number
+                        </label>
+                        <input
+                            ref={phoneNumberField}
+                            id="addressFormPhoneNumber"
+                            className={`${styles.fieldInput} ${phoneNumberError && styles.errorInput}`}
+                            type="text"
+                            autoComplete="off"
+                            value={phoneNumber}
+                            onChange={(e) => {
+                                setPhoneNumberError("");
+                                setPhoneNumber(e.target.value);
+                            }}
+                        />
+                        {phoneNumberError && <div className={styles.errorWrapper}>
+                            <div className={styles.errorIcon} />
+                            <div className={styles.errorText}>{phoneNumberError}</div>
+                        </div>}
                     </div>
 
                     <button type="submit" className={`${styles.continue} ${styles.noselect}`}>Add address</button>

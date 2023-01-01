@@ -16,10 +16,12 @@ class Address(db.Model):
 
     fullname = Column(VARCHAR(1000), nullable=False)
     address = Column(VARCHAR(1000), nullable=False)
+    building = Column(VARCHAR(1000))
     city = Column(VARCHAR(1000), nullable=False)
-    state = Column(VARCHAR(1000), nullable=False)
+    state = Column(VARCHAR(1000))
     zipcode = Column(VARCHAR(1000), nullable=False)
     region = Column(VARCHAR(1000), nullable=False)
+    phone = Column(VARCHAR(1000), nullable=False)
 
     created_at = Column(DateTime(timezone=True),
                         server_default=func.now(), nullable=False)
@@ -33,8 +35,10 @@ class Address(db.Model):
             "user_id": self.user_id,
             "fullname": self.fullname,
             "address": self.address,
+            "building": self.building,
             "city": self.city,
             "state": self.state,
             "zipcode": self.zipcode,
-            "region": self.region
+            "region": self.region,
+            "phone": self.phone
         }

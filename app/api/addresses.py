@@ -18,10 +18,12 @@ def post_address():
             user_id=current_user.id,
             fullname=form.fullname.data,
             address=form.address.data,
+            building=form.building.data,
             city=form.city.data,
             state=form.state.data,
             zipcode=form.zipcode.data,
-            region=form.region.data
+            region=form.region.data,
+            phone=form.phone.data
         )
 
         db.session.add(address)
@@ -47,10 +49,12 @@ def put_address(address_id):
     if form.validate_on_submit():
         address.fullname = form.fullname.data
         address.address = form.address.data
+        address.building = form.building.data
         address.city = form.city.data
         address.state = form.state.data
         address.zipcode = form.zipcode.data
         address.region = form.region.data
+        address.phone = form.phone.data
         db.session.commit()
         return address.to_dict()
     return {'errors': validation_errors_formatter(form, form.errors)}, 400

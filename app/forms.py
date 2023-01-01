@@ -41,10 +41,14 @@ class AddressForm(FlaskForm):
                            DataRequired(), Length(max=1000)])
     address = StringField("Address", validators=[
                           DataRequired(), Length(max=1000)])
+    building = StringField(
+        "Building", validators=[Length(max=100)])
     city = StringField("City", validators=[DataRequired(), Length(max=1000)])
-    state = StringField("State", validators=[DataRequired(), Length(max=1000)])
+    state = StringField("State", validators=[Length(max=1000)])
     zipcode = StringField("Zipcode", validators=[
                           DataRequired(), Length(max=1000)])
     region = StringField("Region", validators=[
                          DataRequired(), Length(max=1000)])
+    phone = StringField("Phone", validators=[
+        DataRequired(), Length(max=10)])
     submit = SubmitField()
