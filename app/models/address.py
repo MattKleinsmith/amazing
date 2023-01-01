@@ -32,6 +32,7 @@ class Address(db.Model):
             "id": self.id,
             "user_id": self.user_id,
             "fullname": self.fullname,
+            "address": self.address,
             "city": self.city,
             "state": self.state,
             "zipcode": self.zipcode,

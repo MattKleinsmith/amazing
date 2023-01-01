@@ -1,0 +1,31 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    gap: 10px;
+}
+
+.title {
+    width: 60vw;
+    padding-left: 10px;
+    color: #222222;
+}
+
+.title:hover {
+    text-decoration: none;
+    color: #222222;
+}
+
+.image {
+    width: 50px;
+    height: 50px;
+}
+
+.button {
+    width: 100px;
+    height: 25px;
+}
+
+.price {
+    width: 50px;
+}

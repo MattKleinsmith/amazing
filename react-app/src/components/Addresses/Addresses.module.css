@@ -1,0 +1,28 @@
+.wrapper {
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+.bar {
+    display: flex;
+}
+
+.heading {
+    font-size: 25px;
+}
+
+.addAddressWrapper {
+    display: flex;
+    justify-content: flex-end;
+    width: 1350px;
+}
+
+.inventory {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.addAddress {
+    padding: 5px 10px;
+}
