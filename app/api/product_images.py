@@ -14,6 +14,13 @@ def delete_product_image(product_image_id):
         image = ProductImage.query.filter(
             ProductImage.id == product_image_id).first()
         if image and Product.query.filter(Product.id == image.product_id, Product.seller_id == current_user.id):
+            other_images = ProductImage.query.filter(
+                ProductImage.product_id == image.product_id, ProductImage.id != product_image_id).all()
+            if (len(other_images) > 0):
+                next_image = other_images[0]
+                next_image.preview = True
+                print("-------------setting preview image",
+                      next_image.id, next_image.url, next_image.preview)
             db.session.delete(image)
             db.session.commit()
             return {"message": f"Deleted product image with id {product_image_id}"}
