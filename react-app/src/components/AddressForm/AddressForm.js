@@ -2,7 +2,7 @@ import styles from './AddressForm.module.css';
 
 import { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from 'react-router-dom';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 
 import { getAddresses, postAddress, putAddress } from '../../store/addresses';
 
@@ -126,7 +126,7 @@ export default function AddressForm() {
     return (
         <>
             <div className={styles.wrapper}>
-
+                <div className={styles.navInfo}>Your Account {">"} <NavLink to="/addresses" className={styles.yourAddresses}>Your Addresses</NavLink> {">"} <span className={styles.youAreHere}>{addressId ? "Edit" : "New"} Address</span></div>
                 <form className={styles.form} onSubmit={onSubmit}>
                     <div className={styles.heading}>{addressId ? "Edit your" : "Add a new"} address</div>
 

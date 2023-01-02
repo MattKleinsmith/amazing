@@ -182,3 +182,22 @@
 .image {
     width: 250px;
 }
+
+.navInfo {
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    color: #565959;
+    font-size: 14px;
+    line-height: 20px;
+
+    margin-left: -200px;
+}
+
+.youAreHere {
+    color: #c45500;
+}
+
+.yourAddresses {
+    color: #565959;
+}
