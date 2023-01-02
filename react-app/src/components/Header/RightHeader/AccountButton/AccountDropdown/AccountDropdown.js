@@ -1,12 +1,13 @@
 import styles from "./AccountDropdown.module.css";
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { signOut } from '../../../../../store/session';
 
 export default function AccountDropdown({ delay, setShowMenu }) {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const user = useSelector(state => state.session.user);
     let timeoutId = null;
 
     const onClickSignOut = () => {
@@ -28,27 +29,21 @@ export default function AccountDropdown({ delay, setShowMenu }) {
     }
 
     return <>
-        <div id="accountDropdown" className={styles.wrapper} onMouseLeave={onMouseLeave}>
+        <div id="accountDropdown" className={user ? styles.wrapper : styles.wrapperSignedOut} onMouseLeave={onMouseLeave}>
 
-            <NavLink to="/signin">Sign in</NavLink>
-
-            <NavLink to="/inventory">Manage inventory</NavLink>
-
-            <div className={styles.row}>
-                <div className={styles.right}>
-                    <div>row 1</div>
-                </div>
+            {!user && <div className={styles.signInWrapper}>
+                <NavLink style={{ textDecoration: "none" }} to="/signin"><div className={`${styles.signIn}`}>Sign in</div></NavLink>
+                <div className={styles.new}>New customer? <NavLink to="/register">Start here.</NavLink></div>
             </div>
+            }
 
-            <div className={styles.row}>
-                <div className={styles.right}>
-                    <div>row 2</div>
-                </div>
-            </div>
+            {user && <>
+                <NavLink to="/inventory">Manage inventory</NavLink>
 
-            <div className={`${styles.row} ${styles.signOut}`} onClick={onClickSignOut}>
-                <div className={`${styles.right}`}>Sign out</div>
-            </div>
+                <NavLink to="/addresses">Manage addresses</NavLink>
+
+                <NavLink onClick={onClickSignOut}>Sign out</NavLink>
+            </>}
 
         </div>
 

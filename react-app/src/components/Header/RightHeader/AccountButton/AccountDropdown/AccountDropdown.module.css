@@ -18,6 +18,26 @@
     z-index: 5;
 }
 
+.wrapperSignedOut {
+    position: absolute;
+    top: 54px;
+
+    /* margin-left: -375px; */
+
+    display: flex;
+    flex-direction: column;
+
+    width: 165px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    border-radius: 3px;
+    background-color: white;
+    /* border: 1px gray solid; */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 5;
+}
+
 .triangle {
     position: absolute;
     top: 46px;
@@ -83,4 +103,44 @@
 
 .signOut {
     cursor: pointer;
+}
+
+.signInWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signIn {
+    width: 115px;
+    height: 33px;
+    padding: 5px 6px;
+    margin-bottom: 20px;
+
+    border: 1px solid #a88734;
+    border-radius: 3px;
+
+    background: linear-gradient(0deg, rgba(240, 194, 77, 1) 0%, rgba(246, 221, 160, 1) 100%);
+
+    color: #111111;
+    font-size: 14px;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.signIn:hover {
+    background: linear-gradient(0deg, rgba(238, 186, 53, 1) 0%, rgba(244, 213, 137, 1) 100%);
+}
+
+.signIn:active {
+    background: linear-gradient(0deg, #f0c14b 0%, #f0c14b 100%);
+    filter: drop-shadow(0px 0px 3px #e88420);
+    box-shadow: inset 0px 0px 1px black;
+}
+
+.new {
+    color: #333;
+    font-size: 11px;
+    margin-top: -10px;
 }
