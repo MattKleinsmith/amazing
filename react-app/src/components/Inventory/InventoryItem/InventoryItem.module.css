@@ -8,6 +8,7 @@
     width: 60vw;
     padding-left: 10px;
     color: #222222;
+    word-break: break-all;
 }
 
 .title:hover {
