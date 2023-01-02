@@ -2,27 +2,29 @@
     position: absolute;
     top: 54px;
 
-    margin-left: -375px;
-
     display: flex;
     flex-direction: column;
 
-    width: 750px;
     padding-top: 20px;
     padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 
     border-radius: 3px;
     background-color: white;
-    /* border: 1px gray solid; */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     z-index: 5;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .wrapperSignedOut {
     position: absolute;
     top: 54px;
-
-    /* margin-left: -375px; */
 
     display: flex;
     flex-direction: column;
@@ -33,7 +35,6 @@
 
     border-radius: 3px;
     background-color: white;
-    /* border: 1px gray solid; */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     z-index: 5;
 }
@@ -57,52 +58,6 @@
     background-color: rgba(0, 0, 0, 0.6);
     width: 100vw;
     height: 100vh;
-}
-
-.row {
-    display: flex;
-
-    height: 40px;
-    width: 100%;
-    padding-left: 10px;
-
-    border: none;
-    background-color: transparent;
-    font-size: 13px;
-}
-
-.row:hover {
-    color: #e47911;
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-.iconWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    font-size: 24px;
-}
-
-.right {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 5px;
-}
-
-.profilePicture {
-    color: #6e6e6e
-}
-
-.link {
-    text-decoration: none;
-    color: #222222;
-}
-
-.signOut {
-    cursor: pointer;
 }
 
 .signInWrapper {
@@ -140,7 +95,20 @@
 }
 
 .new {
-    color: #333;
+    color: #333333;
     font-size: 11px;
     margin-top: -10px;
+}
+
+.link {
+    font-size: 13px;
+    color: #444444;
+    font-weight: 400;
+}
+
+.YourAccount {
+    color: #0F1111;
+    font-size: 16px;
+    font-weight: 700;
+    padding-bottom: 5px;
 }

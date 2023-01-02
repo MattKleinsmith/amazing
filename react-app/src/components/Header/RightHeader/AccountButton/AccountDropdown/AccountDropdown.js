@@ -37,13 +37,15 @@ export default function AccountDropdown({ delay, setShowMenu }) {
             </div>
             }
 
-            {user && <>
-                <NavLink to="/inventory">Manage inventory</NavLink>
+            {user && <div className={styles.content}>
+                <div className={styles.YourAccount}>Your Account</div>
 
-                <NavLink to="/addresses">Manage addresses</NavLink>
+                <NavLink className={styles.link} to="/inventory">Manage inventory</NavLink>
 
-                <NavLink onClick={onClickSignOut}>Sign out</NavLink>
-            </>}
+                <NavLink className={styles.link} to="/addresses">Manage addresses</NavLink>
+
+                <NavLink className={styles.link} onClick={onClickSignOut}>Sign out</NavLink>
+            </div>}
 
         </div>
 
