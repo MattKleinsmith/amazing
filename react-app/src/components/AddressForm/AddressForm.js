@@ -69,7 +69,7 @@ export default function AddressForm() {
     const onClickContinue = async () => {
         let hasErrors = false;
 
-        if (phoneNumber.length != 10) {
+        if (phoneNumber.length !== 10) {
             setPhoneNumberError("Please enter a phone number so we can call if there are any issues with delivery.");
             phoneNumberField.current.focus();
             hasErrors = true;
