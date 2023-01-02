@@ -7,12 +7,12 @@ import Quantity from "../Quantity/Quantity";
 export default function PickupTab({ product }) {
     const [quantity, setQuantity] = useState(1);
     return (<div className={styles.wrapper}>
-        <div className={styles.price}>${product.price}</div>
+        <div className={styles.price}>${parseFloat(product.price).toFixed(2)}</div>
         <div className={styles.delivery}>FREE pickup <span className={styles.date}>Tuesday, December 27.</span> Order within <span className={styles.deadline}>10 hrs 13 mins</span></div>
         <div className={styles.hr} />
         <div className={styles.pickUpLabel}>Pick up at:</div>
         <div className={styles.pickUpLocationWrapper}>
-            <div className={styles.pickUpLocation}><span className={styles.locker}>Amazon Hub Locker - Track | </span><span className={styles.distance}>0.08 mi</span></div>
+            <div className={styles.pickUpLocation}><span className={styles.locker}>Amazing Hub Locker - Track | </span><span className={styles.distance}>0.08 mi</span></div>
         </div>
         <div className={styles.inStock}>In Stock.</div>
         <Quantity quantity={quantity} setQuantity={setQuantity} />

@@ -70,7 +70,7 @@ class Product(db.Model):
             "description": self.description,
 
             "seller": self.seller.to_dict_for_product(),
-            "image_urls": [x.to_dict_for_product() for x in product_images],
+            "images": [x.to_dict_for_product() for x in product_images],
             "preview_image": preview_images[-1].url if len(preview_images) else None,
 
             "avg_rating": avg_rating,

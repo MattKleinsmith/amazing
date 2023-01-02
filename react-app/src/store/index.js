@@ -5,6 +5,7 @@ import productsReducer from "./products";
 import uiReducer from "./ui";
 import productDetailsReducer from "./productDetails";
 import productsCurrentReducer from "./productsCurrent";
+import addressesReducer from "./addresses";
 
 const rootReducer = combineReducers({
     session: sessionReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
     ui: uiReducer,
     productDetails: productDetailsReducer,
     productsCurrent: productsCurrentReducer,
+    addresses: addressesReducer,
 });
 
 let enhancer;

@@ -274,7 +274,23 @@
 				"header": [],
 				"body": {
 					"mode": "urlencoded",
-					"urlencoded": []
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "dog 2",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "88",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "NEW_PRODUCT description",
+							"type": "text"
+						}
+					]
 				},
 				"url": {
 					"raw": "{{url}}/products",
@@ -313,7 +329,23 @@
 				"header": [],
 				"body": {
 					"mode": "urlencoded",
-					"urlencoded": []
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "NEW_TITLE",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "99",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "NEW_PRODUCT description",
+							"type": "text"
+						}
+					]
 				},
 				"url": {
 					"raw": "{{url}}/products/{{product_id}}",
@@ -341,6 +373,250 @@
 					"path": [
 						"products",
 						"{{product_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "----------------------------",
+			"request": {
+				"method": "----",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "email@email.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/session",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "READ products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/products",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "READ products Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/products?k=asdas",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "k",
+							"value": "asdas"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "---------------------------- Copy",
+			"request": {
+				"method": "----",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "email@email.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/session",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE address",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "fullname",
+							"value": "John Smith",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "123 Main Street",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "City",
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": "Kansas",
+							"type": "text"
+						},
+						{
+							"key": "zipcode",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "region",
+							"value": "United States",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/addresses",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"addresses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "READ address",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/addresses/current",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"addresses",
+						"current"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE address Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "fullname",
+							"value": "UPDATED John Smith",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "123 Main Street",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "UPDATED City",
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": "UPDATED Kansas",
+							"type": "text"
+						},
+						{
+							"key": "zipcode",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "region",
+							"value": "United States",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/addresses",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"addresses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE address",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/addresses/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"addresses",
+						"1"
 					]
 				}
 			},

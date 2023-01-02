@@ -100,14 +100,14 @@
 
     margin-top: 10px;
     color: #007185;
-    cursor: pointer;
+    /* cursor: pointer; */
     font-size: 14px;
     line-height: 20px;
 }
 
-.secure:hover {
+/* .secure:hover {
     color: #c45500;
-}
+} */
 
 .secureText {
     margin-top: 2px;

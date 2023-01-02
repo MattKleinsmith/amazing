@@ -6,13 +6,18 @@
 }
 
 .form {
-    width: 850px;
+    width: 500px;
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 20px 20px;
 
     display: flex;
     flex-direction: column;
+}
+
+.row {
+    display: flex;
+    gap: 15px;
 }
 
 .heading {
@@ -69,7 +74,7 @@
     border-top-color: #949494;
     border-radius: 3px;
 
-    padding-left: 7px;
+    text-indent: 7px;
     padding-top: 5px;
 }
 
@@ -131,10 +136,10 @@
 }
 
 .continue {
-    width: 150px;
+    width: 100px;
     padding: 5px 6px;
     margin-top: 2px;
-    margin-bottom: 28px;
+    /* margin-bottom: 28px; */
 
     border: 1px solid #a88734;
     border-radius: 3px;
@@ -176,22 +181,23 @@
 
 .image {
     width: 250px;
-    height: 250px;
-    object-fit: scale-down;
 }
 
-.thumbnailListWrapper {
-    display: flex;
-    gap: 5px;
+.navInfo {
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    color: #565959;
+    font-size: 14px;
+    line-height: 20px;
+
+    margin-left: -200px;
 }
 
-.thumbnail {
-    width: 75px;
-    border: 1px solid rgb(182, 181, 181);
-    object-fit: scale-down;
+.youAreHere {
+    color: #c45500;
 }
 
-.thumbnail:hover {
-    background-color: red;
-    border: 2px solid red;
+.yourAddresses {
+    color: #565959;
 }
