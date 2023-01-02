@@ -1,6 +1,25 @@
 .wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
     margin-top: 15px;
     margin-left: 20px;
+    max-width: 990px;
+}
+
+.navInfo {
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    color: #565959;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.youAreHere {
+    color: #c45500;
 }
 
 .bar {
@@ -9,19 +28,60 @@
 
 .heading {
     font-size: 25px;
-}
-
-.addAddressWrapper {
-    display: flex;
-    justify-content: flex-end;
-    width: 1350px;
+    width: 100%;
+    color: #0F1111;
+    font-weight: 400;
+    line-height: 36px;
+    font-size: 28px;
+    margin-bottom: 25px;
 }
 
 .addresses {
     display: flex;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
 .addAddress {
-    padding: 5px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    height: 266px;
+    width: 320px;
+    min-width: 320px;
+
+    border: 2px dashed #C7C7C7;
+    border-radius: 8px;
+    background-color: white;
+
+    color: #565959;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+
+    padding-top: 20px;
+    padding-left: 20px;
+
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.addAddress:hover {
+    text-decoration: none;
+    color: #565959;
+}
+
+.plus {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gMfFBUB8Kc3yAAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAABmJLR0QA/wD/AP+gvaeTAAAAP0lEQVRYw+3UsQkAMAwDsPz/o29pHkjnlCKDV6PJVb8myZkKBgYGBgYGBvYg7Da+VTAwMD8GBgYGBgYGBraWBpeqjFTlGtDAAAAAAElFTkSuQmCC) left center no-repeat;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.addAddressText {
+    margin-bottom: 25px;
+    margin-right: 10px;
 }

@@ -39,9 +39,9 @@ export default function AddressForm() {
     const [zipcode, setZipcode] = useState(address?.zipcode || "");
     const [zipcodeError, setZipcodeError] = useState("");
 
-    const phoneNumberField = useRef();
-    const [phoneNumber, setPhoneNumber] = useState(address?.phoneNumber || "");
-    const [phoneNumberError, setPhoneNumberError] = useState("");
+    const phoneField = useRef();
+    const [phone, setPhoneNumber] = useState(address?.phone || "");
+    const [phoneError, setPhoneNumberError] = useState("");
 
     const navigate = useNavigate();
 
@@ -69,9 +69,9 @@ export default function AddressForm() {
     const onClickContinue = async () => {
         let hasErrors = false;
 
-        if (phoneNumber.length !== 10) {
+        if (phone.length !== 10) {
             setPhoneNumberError("Please enter a phone number so we can call if there are any issues with delivery.");
-            phoneNumberField.current.focus();
+            phoneField.current.focus();
             hasErrors = true;
         }
 
@@ -108,7 +108,7 @@ export default function AddressForm() {
         if (hasErrors) return;
 
         try {
-            const body = { region, fullname, address: addressValue, city, state, zipcode }
+            const body = { region, fullname, address: addressValue, city, state, zipcode, phone }
             const productThunkAction = address ? putAddress(addressId, body) : postAddress(body);
             await dispatch(productThunkAction);
         }
@@ -281,20 +281,20 @@ export default function AddressForm() {
                             Phone number
                         </label>
                         <input
-                            ref={phoneNumberField}
+                            ref={phoneField}
                             id="addressFormPhoneNumber"
-                            className={`${styles.fieldInput} ${phoneNumberError && styles.errorInput}`}
+                            className={`${styles.fieldInput} ${phoneError && styles.errorInput}`}
                             type="text"
                             autoComplete="off"
-                            value={phoneNumber}
+                            value={phone}
                             onChange={(e) => {
                                 setPhoneNumberError("");
                                 setPhoneNumber(e.target.value);
                             }}
                         />
-                        {phoneNumberError && <div className={styles.errorWrapper}>
+                        {phoneError && <div className={styles.errorWrapper}>
                             <div className={styles.errorIcon} />
-                            <div className={styles.errorText}>{phoneNumberError}</div>
+                            <div className={styles.errorText}>{phoneError}</div>
                         </div>}
                     </div>
 

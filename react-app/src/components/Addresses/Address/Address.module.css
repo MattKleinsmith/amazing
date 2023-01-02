@@ -3,6 +3,7 @@
     flex-direction: column;
     height: 266px;
     width: 320px;
+    min-width: 320px;
     border: 1px solid #C7C7C7;
     border-radius: 8px;
     box-shadow: 0 2px 1px 0 rgb(0 0 0 / 16%);
