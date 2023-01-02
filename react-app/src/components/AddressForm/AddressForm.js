@@ -55,11 +55,11 @@ export default function AddressForm() {
         setRegion(address?.region || "");
         setFullname(address?.fullname || "");
         setAddressValue(address?.address || "");
-        setBuildingNumber(address?.buildingNumber || "");
+        setBuildingNumber(address?.building || "");
         setCity(address?.city || "");
         setState(address?.state || "");
         setZipcode(address?.zipcode || "");
-        setPhoneNumber(address?.phoneNumber || "");
+        setPhoneNumber(address?.phone || "");
     }, [address])
 
     useEffect(() => {
