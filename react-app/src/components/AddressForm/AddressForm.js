@@ -298,7 +298,7 @@ export default function AddressForm() {
                         </div>}
                     </div>
 
-                    <button type="submit" className={`${styles.continue} ${styles.noselect}`}>Add address</button>
+                    <button type="submit" className={`${styles.continue} ${styles.noselect}`}>{addressId ? "Edit" : "Add"} address</button>
                 </form>
             </div>
         </>

@@ -12,7 +12,7 @@ export default function PickupTab({ product }) {
         <div className={styles.hr} />
         <div className={styles.pickUpLabel}>Pick up at:</div>
         <div className={styles.pickUpLocationWrapper}>
-            <div className={styles.pickUpLocation}><span className={styles.locker}>Amazon Hub Locker - Track | </span><span className={styles.distance}>0.08 mi</span></div>
+            <div className={styles.pickUpLocation}><span className={styles.locker}>Amazing Hub Locker - Track | </span><span className={styles.distance}>0.08 mi</span></div>
         </div>
         <div className={styles.inStock}>In Stock.</div>
         <Quantity quantity={quantity} setQuantity={setQuantity} />

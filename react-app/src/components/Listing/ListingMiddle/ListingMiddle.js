@@ -20,7 +20,7 @@ export default function ListingMiddle({ product }) {
                 </div>
                 <div className={`prime ${styles.prime}`} />
                 <div className={styles.freeReturns}>FREE Returns</div>
-                <div className={styles.rewards}><span className={styles.getBack}>Get 5% back ($4.99 in rewards)</span> on the amount charged to your Amazon Prime Rewards Visa Signature Card.</div>
+                <div className={styles.rewards}><span className={styles.getBack}>Get 5% back ($4.99 in rewards)</span> on the amount charged to your Amazing Prime Rewards Visa Signature Card.</div>
                 <div className={styles.hr} />
                 <div className={styles.aboutTitle}>About this item</div>
                 <ul className={styles.about}>{product.description.split("\n").map((item, i) => { return <li key={i}>{item}</li> })}</ul>
