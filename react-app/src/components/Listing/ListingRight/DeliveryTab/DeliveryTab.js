@@ -10,7 +10,7 @@ export default function DeliveryTab({ product }) {
     return (<div className={styles.wrapper}>
         <div className={styles.price}>
             <Price product={product} />
-            <div className={styles.count}>(${product.price} / Count)</div>
+            <div className={styles.count}>(${parseFloat(product.price).toFixed(2)} / Count)</div>
         </div>
         <div className={`prime ${styles.prime}`} />
         <div className={styles.freeReturns}>FREE Returns</div>
