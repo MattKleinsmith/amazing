@@ -34,4 +34,7 @@ class ProductImage(db.Model):
         }
 
     def to_dict_for_product(self):
-        return self.url
+        return {
+            "id": self.id,
+            "url": self.url,
+        }

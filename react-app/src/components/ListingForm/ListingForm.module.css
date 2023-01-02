@@ -131,7 +131,7 @@
 }
 
 .continue {
-    width: 100%;
+    width: 150px;
     padding: 5px 6px;
     margin-top: 2px;
     margin-bottom: 28px;
@@ -176,4 +176,20 @@
 
 .image {
     width: 250px;
+}
+
+.thumbnailListWrapper {
+    display: flex;
+    gap: 5px;
+}
+
+.thumbnail {
+    width: 75px;
+    border: 1px solid rgb(182, 181, 181);
+    object-fit: scale-down;
+}
+
+.thumbnail:hover {
+    background-color: red;
+    border: 2px solid red;
 }

@@ -39,6 +39,7 @@ def get_current_user_addresses():
 
 
 @bp.route("<int:address_id>",  methods=["PUT"])
+@login_required
 def put_address(address_id):
     address = Address.query.filter(Address.id == address_id,
                                    Address.user_id == current_user.id).first()
@@ -61,6 +62,7 @@ def put_address(address_id):
 
 
 @bp.route("<int:address_id>",  methods=["DELETE"])
+@login_required
 def delete_product(address_id):
     try:
         address = db.session.query(Address).filter(

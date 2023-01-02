@@ -73,6 +73,11 @@ export const deleteProduct = productId => async dispatch => {
     dispatch(deleteProductCurrent(productId));
 };
 
+export const deleteProductImage = (productId, productImageId) => async dispatch => {
+    await csrfFetch(`/api/product_images/${productImageId}`, { method: "DELETE" });
+    dispatch(getProductDetails(productId));
+};
+
 export default function productsReducer(state = { all: {}, filtered: {} }, action) {
     const newState = { ...state };
     switch (action.type) {

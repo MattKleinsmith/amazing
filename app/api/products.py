@@ -57,6 +57,7 @@ def post_product():
 
 
 @bp.route("<int:product_id>",  methods=["PUT"])
+@login_required
 def put_product(product_id):
     product = Product.query.filter(Product.id == product_id,
                                    Product.seller_id == current_user.id).first()
@@ -74,6 +75,7 @@ def put_product(product_id):
 
 
 @bp.route("<int:product_id>",  methods=["DELETE"])
+@login_required
 def delete_product(product_id):
     try:
         product = db.session.query(Product).filter(
@@ -94,6 +96,7 @@ def allowed_file(filename): return '.' in filename and filename.rsplit(
 
 
 @bp.route("<int:product_id>/images", methods=['POST'])
+@login_required
 def post_image_by_product_id(product_id):
     try:
         file = request.files['image']

@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { postProduct, putProduct, postProductImage } from '../../store/products';
+import { postProduct, putProduct, postProductImage, deleteProductImage } from '../../store/products';
 import { getProductDetails } from '../../store/productDetails';
 
 export default function ListingForm() {
@@ -116,7 +116,7 @@ export default function ListingForm() {
 
     return (
         <>
-            <div className={styles.wrapper} >
+            <div className={styles.wrapper}>
 
                 <form className={styles.form} onSubmit={onSubmit}>
                     <div className={styles.heading}>{productId ? "Edit" : "Create"} product listing</div>
@@ -131,6 +131,9 @@ export default function ListingForm() {
                             onChange={handlePreviewChange}
                             className={`${styles.imageInput}`}
                         />
+                    </div>
+                    <div className={styles.thumbnailListWrapper}>
+                        {product?.images.map((image, i) => <img onClick={() => dispatch(deleteProductImage(product.id, image.id))} className={styles.thumbnail} src={image.url} key={i} alt={i} />)}
                     </div>
                     <div className={styles.fieldWrapper}>
                         <label htmlFor="listingFormTitle" className={styles.fieldLabel}>
@@ -198,7 +201,7 @@ export default function ListingForm() {
                         </div>}
                     </div>
 
-                    <button type="submit" className={`${styles.continue} ${styles.noselect}`}>Submit</button>
+                    <button type="submit" className={`${styles.continue} ${styles.noselect}`}>{productId ? "Edit" : "Create"} listing</button>
                 </form>
             </div>
         </>
