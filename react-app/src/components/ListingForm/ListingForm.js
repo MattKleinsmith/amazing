@@ -46,7 +46,7 @@ export default function ListingForm() {
         titleField.current.focus();
     }, []);
 
-    const handlePreviewChange = (e) => {
+    const handlePreviewChange = async (e) => {
         const file = e.target.files[0];
         setImage(file)
         const reader = new FileReader();
@@ -54,6 +54,12 @@ export default function ListingForm() {
             imageRef.current.src = e.target.result;
         }
         reader.readAsDataURL(file);
+
+        if (productId && file) {
+            await dispatch(postProductImage(productId, file, true, 1));
+            dispatch(getProductDetails(productId));
+            console.log("get product details");
+        }
     }
 
     const onClickContinue = async () => {
@@ -91,8 +97,8 @@ export default function ListingForm() {
                 const productThunkAction = product ? putProduct(productId, body) : postProduct(body);
                 const newProductId = await dispatch(productThunkAction);
                 try {
-                    if (image) {
-                        await dispatch(postProductImage(newProductId ? newProductId : productId, image, true, 1));
+                    if (image && newProductId) {
+                        await dispatch(postProductImage(newProductId, image, true, 1));
                     }
                 }
                 catch (responseBody) {
