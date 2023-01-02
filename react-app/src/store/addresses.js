@@ -52,7 +52,7 @@ export default function addressesReducer(state = {}, action) {
             newState[action.address.id] = action.address;
             return newState;
         case DELETE_ADDRESS:
-            delete newState[action.address.id];
+            delete newState[action.addressId];
             return newState;
         default:
             return state;
