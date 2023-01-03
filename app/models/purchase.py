@@ -1,6 +1,6 @@
 from .db import db
 from sqlalchemy.schema import Column, ForeignKey
-from sqlalchemy.types import Integer, DateTime, DECIMAL
+from sqlalchemy.types import Integer, DateTime, DECIMAL, TEXT
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
 
@@ -10,10 +10,10 @@ class Purchase(db.Model):
 
     id = Column(Integer, primary_key=True)
 
-    order_id = Column(Integer, nullable=False)
+    order_id = Column(Integer, ForeignKey(
+        'orders.id', name='fk_purchase_order_id', ondelete='CASCADE'))
 
-    address_id = Column(Integer, ForeignKey(
-        'addresses.id', name='fk_purchase_address_id', ondelete='CASCADE'))
+    address = Column(TEXT)
 
     buyer_id = Column(Integer, ForeignKey(
         'users.id', name='fk_purchase_buyer_id', ondelete='CASCADE'), nullable=False)
@@ -36,8 +36,11 @@ class Purchase(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
+            "order_id": self.order_id,
             "seller_id": self.seller_id,
             "product_id": self.product_id,
             "price": self.price,
             "quantity": self.quantity,
+            "address": self.address,
+            "created_at": self.created_at
         }

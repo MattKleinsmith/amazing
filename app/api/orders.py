@@ -16,12 +16,12 @@ def post_order():
     if len(product_ids) == 0:
         return {"errors": {"error": "No products given"}}, 400
 
-    products = Product.query.filter(Product.id.in_(product_ids))
+    products = Product.query.filter(Product.id.in_(product_ids)).all()
 
     if len(products) == 0:
         return {"errors": {"error": "No products found"}}, 404
 
-    products_by_id = {product.id: product for product in products}
+    products_by_id = {str(product.id): product for product in products}
 
     seller_ids = (product.seller_id for product in products)
     if current_user.id in seller_ids:
@@ -36,14 +36,8 @@ def post_order():
                           address=body["address"],
                           price=products_by_id[product_id].price,
                           quantity=quantity)
-                 for product_id, quantity in cart]
+                 for product_id, quantity in cart.items()]
 
     db.session.add_all(purchases)
     db.session.commit()
-    return {"order_id", order.id}, 201
-
-
-@bp.route("/current",  methods=["GET"])
-def get_current_user_purchases():
-    purchases = Purchase.query.filter(Purchase.buyer_id == current_user.id)
-    return [purchase.to_dict() for purchase in purchases]
+    return {"order_id": order.id}, 201
