@@ -6,7 +6,7 @@ export default function Purchase({ purchase }) {
     return (
         <div className={styles.wrapper}>
             <div className={styles.top}>
-                <div className={styles.left}>
+                <div className={styles.topLeft}>
                     <div>
                         <div className={styles.label}>ORDER PLACED</div>
                         <div className={styles.value}>{createdAt}</div>
@@ -22,6 +22,15 @@ export default function Purchase({ purchase }) {
                 </div>
                 <div className={styles.label}>
                     ORDER # {purchase.order_id}
+                </div>
+            </div>
+
+            <div className={styles.bottom}>
+                <div>
+                    <div className={styles.status}>Not yet shipped</div>
+                </div>
+                <div>
+                    <div className={styles.reviewButton}>Write a product review</div>
                 </div>
             </div>
         </div>
