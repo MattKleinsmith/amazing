@@ -10,4 +10,6 @@ bp = Blueprint("purchases", __name__, url_prefix="/purchases")
 @login_required
 def get_current_user_purchases():
     purchases = Purchase.query.filter(Purchase.buyer_id == current_user.id)
-    return [purchase.to_dict() for purchase in purchases]
+    result = [purchase.to_dict() for purchase in purchases]
+    result.reverse()
+    return result

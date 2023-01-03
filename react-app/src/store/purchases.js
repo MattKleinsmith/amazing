@@ -17,13 +17,10 @@ export const getPurchases = () => async dispatch => {
     dispatch({ type: GET_PURCHASES, purchases });
 };
 
-export default function purchasesReducer(state = {}, action) {
+export default function purchasesReducer(state = [], action) {
     switch (action.type) {
         case GET_PURCHASES:
-            return action.purchases.reduce((newState, purchase) => {
-                newState[purchase.id] = purchase;
-                return newState;
-            }, {});
+            return action.purchases;
         default:
             return state;
     }

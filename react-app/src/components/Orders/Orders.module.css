@@ -1,0 +1,42 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 920px;
+}
+
+.purchases {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.navInfo {
+    margin-bottom: 15px;
+
+    color: #565959;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.youAreHere {
+    color: #c45500;
+}
+
+.bar {
+    display: flex;
+}
+
+.heading {
+    font-size: 25px;
+    width: 100%;
+    color: #0F1111;
+    font-weight: 400;
+    line-height: 36px;
+    font-size: 28px;
+    margin-bottom: 25px;
+}

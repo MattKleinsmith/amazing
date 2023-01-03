@@ -1,5 +1,6 @@
 import styles from "./ReturnsButton.module.css";
 
+import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 export default function ReturnsButton() {
@@ -13,9 +14,11 @@ export default function ReturnsButton() {
     }, [showMenu]);
 
     return (
-        <div className={styles.wrapper} onClick={() => setShowMenu(true)}>
-            <div className={styles.row1}>Returns</div>
-            <div className={styles.row2}>& Orders</div>
-        </div>
+        <NavLink style={{ textDecoration: "none" }} to="/orders">
+            <div className={styles.wrapper} onClick={() => setShowMenu(true)}>
+                <div className={styles.row1}>Returns</div>
+                <div className={styles.row2}>& Orders</div>
+            </div>
+        </NavLink>
     );
 }
