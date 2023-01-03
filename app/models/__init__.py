@@ -5,4 +5,5 @@ from .product_image import ProductImage
 from .review import Review
 from .review_image import ReviewImage
 from .address import Address
+from .order import Order
 from .purchase import Purchase

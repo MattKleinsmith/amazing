@@ -2,6 +2,7 @@ from .db import db
 from sqlalchemy.schema import Column, ForeignKey
 from sqlalchemy.types import Integer, DateTime, DECIMAL
 from sqlalchemy.sql import func
+from sqlalchemy.orm import relationship
 
 
 class Purchase(db.Model):
@@ -30,12 +31,11 @@ class Purchase(db.Model):
     created_at = Column(DateTime(timezone=True),
                         server_default=func.now(), nullable=False)
 
+    order = relationship("Order")
+
     def to_dict(self):
         return {
             "id": self.id,
-            "order_id": self.order_id,
-            "address_id": self.address_id,
-            "buyer_id": self.buyer_id,
             "seller_id": self.seller_id,
             "product_id": self.product_id,
             "price": self.price,
