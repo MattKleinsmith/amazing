@@ -1,7 +1,7 @@
 import styles from "./DeliveryTab.module.css";
 
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import Price from "../../../Price/Price";
 import Quantity from "../Quantity/Quantity";
@@ -9,15 +9,16 @@ import { postOrder } from "../../../../store/purchases"
 
 export default function DeliveryTab({ product }) {
     const [quantity, setQuantity] = useState(1);
-
+    const addresses = useSelector(state => Object.values(state.addresses));
+    console.log(addresses);
     const dispatch = useDispatch();
 
     const onBuyNow = async () => {
-        const address = "my address from react";
+        const address = `${addresses[0].fullname}\n${addresses[0].address.toUpperCase()}\n${addresses[0].city.toUpperCase()}, ${addresses[0].state.toUpperCase()} ${addresses[0].zipcode.toUpperCase()}\n${addresses[0].region}`;
         const cart = { [product.id]: quantity };
         try {
             const orderId = await dispatch(postOrder({ address, cart }));
-            console.log("onBuyNow succeeded. Order id:", orderId);
+            console.log("onBuyNow succeeded. Order id:", orderId, address);
         } catch (e) {
             console.log("onBuyNow failed:", e);
         }
