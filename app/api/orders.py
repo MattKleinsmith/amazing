@@ -9,6 +9,16 @@ bp = Blueprint("orders", __name__, url_prefix="/orders")
 @bp.route("",  methods=["POST"])
 @login_required
 def post_order():
+    """
+    Example request:
+    {
+        "address": "my address",
+        "cart": {
+            "1": 1,
+            "2": 2
+        }
+    }
+    """
     body = request.get_json()
     cart = body["cart"]
     product_ids = cart.keys()
