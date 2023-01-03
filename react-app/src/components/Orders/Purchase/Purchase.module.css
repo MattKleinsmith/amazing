@@ -1,7 +1,7 @@
 .wrapper {
-    height: 305px;
     border-radius: 8px;
     border: 1px #D5D9D9 solid;
+    padding-bottom: 5px;
 }
 
 .top {
@@ -68,3 +68,68 @@
     background-color: #F7FAFA;
     border-color: #D5D9D9;
 }
+
+.product {
+    display: flex;
+    gap: 10px;
+
+    padding-top: 10px;
+    padding-right: 50px;
+
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.previewImage {
+    height: 100px;
+}
+
+.title {
+    color: #007185;
+}
+
+.title:hover {
+    color: #C7511F;
+}
+
+.buttonsRow {
+    display: flex;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.buyItAgain {
+    display: flex;
+    gap: 13px;
+    width: 122px;
+
+    padding-top: 2px;
+    padding-left: 2px;
+
+    font-size: 13px;
+    line-height: 27px;
+    color: #0F1111;
+    text-align: center;
+
+    background: #FFD814;
+    border: 1px solid #FCD200;
+
+    border-radius: 7px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+
+    cursor: pointer;
+}
+
+.buyItAgainIcon {
+    background-image: url("../../../../public/images/buyItAgain.png");
+    background-size: 25px;
+    height: 25px;
+    width: 25px;
+}
+
+.buyItAgainText {
+    margin-top: -1px;
+    margin-bottom: 1px;
+}
+
+.viewYourItem {}
