@@ -50,4 +50,4 @@ def post_order():
 
     db.session.add_all(purchases)
     db.session.commit()
-    return {"order_id": order.id}, 201
+    return {"id": order.id}, 201
