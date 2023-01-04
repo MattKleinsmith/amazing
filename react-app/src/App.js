@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import { restoreUser } from "./store/session";
+import { getAddresses } from "./store/addresses";
 
 import Header from "./components/Header/Header";
 import AppRoutes from "./AppRoutes";
@@ -14,6 +15,7 @@ export default function App() {
 
   useEffect(() => {
     dispatch(restoreUser());
+    dispatch(getAddresses());
   }, [dispatch]);
 
   return (

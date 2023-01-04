@@ -1,12 +1,29 @@
 import styles from "./DeliveryTab.module.css";
 
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import Price from "../../../Price/Price";
 import Quantity from "../Quantity/Quantity";
+import { postOrder } from "../../../../store/purchases"
 
 export default function DeliveryTab({ product }) {
     const [quantity, setQuantity] = useState(1);
+    const addresses = useSelector(state => Object.values(state.addresses));
+    console.log(addresses);
+    const dispatch = useDispatch();
+
+    const onBuyNow = async () => {
+        const address = `${addresses[0].fullname}\n${addresses[0].address.toUpperCase()}\n${addresses[0].city.toUpperCase()}, ${addresses[0].state.toUpperCase()} ${addresses[0].zipcode.toUpperCase()}\n${addresses[0].region}`;
+        const cart = { [product.id]: quantity };
+        try {
+            const orderId = await dispatch(postOrder({ address, cart }));
+            console.log("onBuyNow succeeded. Order id:", orderId, address);
+        } catch (e) {
+            console.log("onBuyNow failed:", e);
+        }
+    }
+
     return (<div className={styles.wrapper}>
         <div className={styles.price}>
             <Price product={product} />
@@ -19,7 +36,7 @@ export default function DeliveryTab({ product }) {
         <div className={styles.inStock}>In Stock.</div>
         <Quantity quantity={quantity} setQuantity={setQuantity} />
         <div className={styles.addToCart}>Add to Cart</div>
-        <div className={styles.buyNow}>Buy Now</div>
+        <div className={styles.buyNow} onClick={onBuyNow}>Buy Now</div>
         <div className={styles.secure}>
             <div className={styles.secureIconWrapper}>
                 <img src="/images/secure.png" alt="Secure icon" height="15px" />

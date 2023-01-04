@@ -1,0 +1,160 @@
+.wrapper {
+    border-radius: 8px;
+    border: 1px #D5D9D9 solid;
+    padding-bottom: 5px;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+
+    height: 65px;
+    padding-top: 15px;
+    padding-left: 18px;
+    padding-right: 18px;
+
+    background-color: #F0F2F2;
+    border-bottom: 1px #D5D9D9 solid;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+
+    color: #565959;
+}
+
+.topLeft {
+    display: flex;
+    gap: 50px;
+}
+
+.label {
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.value {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 18px;
+}
+
+.status {
+    color: #0F1111;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+    text-rendering: optimizeLegibility;
+}
+
+.reviewButton {
+    width: 220px;
+
+    font-size: 13px;
+    line-height: 29px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+    border: 1px solid #D5D9D9;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.reviewButton:hover {
+    background-color: #F7FAFA;
+    border-color: #D5D9D9;
+}
+
+.product {
+    display: flex;
+    gap: 10px;
+
+    padding-top: 10px;
+    padding-right: 50px;
+
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.previewImage {
+    height: 100px;
+}
+
+.title {
+    color: #007185;
+}
+
+.title:hover {
+    color: #C7511F;
+}
+
+.buttonsRow {
+    display: flex;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.buyItAgain {
+    display: flex;
+    gap: 13px;
+    width: 122px;
+
+    padding-top: 2px;
+    padding-left: 2px;
+
+    font-size: 13px;
+    line-height: 27px;
+    color: #0F1111;
+    text-align: center;
+
+    background: #FFD814;
+    border: 1px solid #FCD200;
+
+    border-radius: 7px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+
+    cursor: pointer;
+}
+
+.buyItAgain:hover {
+    background: #F7CA00;
+    border-color: #F2C200;
+}
+
+.buyItAgainIcon {
+    background-image: url("../../../../public/images/buyItAgain.png");
+    background-size: 25px;
+    height: 25px;
+    width: 25px;
+}
+
+.buyItAgainText {
+    margin-top: -1px;
+    margin-bottom: 1px;
+}
+
+.viewYourItem {
+    padding: 0px 10px;
+
+    font-size: 13px;
+    line-height: 29px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+    border: 1px solid #D5D9D9;
+    text-align: center;
+
+    color: #0F1111;
+
+    cursor: pointer;
+}
+
+.viewYourItem:hover {
+    background-color: #F7FAFA;
+    border-color: #D5D9D9;
+    color: #0F1111;
+    text-decoration: none;
+}

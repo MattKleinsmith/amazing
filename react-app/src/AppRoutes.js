@@ -9,6 +9,7 @@ import Inventory from "./components/Inventory/Inventory";
 import ListingForm from "./components/ListingForm/ListingForm";
 import AddressForm from "./components/AddressForm/AddressForm";
 import Addresses from "./components/Addresses/Addresses";
+import Orders from "./components/Orders/Orders";
 
 export default function AppRoutes() {
     return (
@@ -28,6 +29,8 @@ export default function AppRoutes() {
             <Route path="/addresses" element={<Addresses />} />
             <Route path="/addresses/add" element={<AddressForm />} />
             <Route path="/addresses/:addressId" element={<AddressForm />} />
+
+            <Route path="/orders" element={<Orders />} />
         </Routes>
     );
 }
