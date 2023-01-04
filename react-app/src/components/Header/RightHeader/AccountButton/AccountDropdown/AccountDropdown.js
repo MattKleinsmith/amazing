@@ -44,6 +44,8 @@ export default function AccountDropdown({ delay, setShowMenu }) {
 
                 <NavLink className={styles.link} to="/addresses">Manage addresses</NavLink>
 
+                <NavLink className={styles.link} to="/orders">Manage orders</NavLink>
+
                 <NavLink className={styles.link} onClick={onClickSignOut}>Sign out</NavLink>
             </div>}
 
