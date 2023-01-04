@@ -40,7 +40,7 @@ export default function AccountDropdown({ delay, setShowMenu }) {
             {user && <div className={styles.content}>
                 <div className={styles.YourAccount}>Your Account</div>
 
-                <NavLink className={styles.link} to="/inventory">Manage inventory</NavLink>
+                <NavLink className={styles.link} to="/inventory">Manage products</NavLink>
 
                 <NavLink className={styles.link} to="/addresses">Manage addresses</NavLink>
 
