@@ -24,6 +24,10 @@ export default function DeliveryTab({ product }) {
         }
     }
 
+    let deliveryDate = new Date();
+    deliveryDate.setDate(deliveryDate.getDate() + 2);
+    deliveryDate = deliveryDate.toLocaleDateString('en-us', { weekday: "long", month: "long", day: "numeric" });
+
     return (<div className={styles.wrapper}>
         <div className={styles.price}>
             <Price product={product} />
@@ -31,7 +35,7 @@ export default function DeliveryTab({ product }) {
         </div>
         <div className={`prime ${styles.prime}`} />
         <div className={styles.freeReturns}>FREE Returns</div>
-        <div className={styles.delivery}>FREE delivery <span className={styles.date}>Tuesday, December 27.</span> Order within <span className={styles.deadline}>10 hrs 13 mins</span></div>
+        <div className={styles.delivery}>FREE delivery <span className={styles.date}>{deliveryDate}.</span> Order within <span className={styles.deadline}>10 hrs 13 mins</span></div>
         <div className={styles.address}></div>
         <div className={styles.inStock}>In Stock.</div>
         <Quantity quantity={quantity} setQuantity={setQuantity} />
