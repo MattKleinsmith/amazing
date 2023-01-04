@@ -2,6 +2,7 @@ import styles from "./AccountButton.module.css";
 
 import { useState, useEffect } from "react";
 import { useSelector } from 'react-redux';
+import { NavLink } from "react-router-dom";
 
 import AccountDropdown from "./AccountDropdown/AccountDropdown";
 
@@ -45,13 +46,13 @@ export default function AccountButton() {
 
     return (
         <>
-            <div id="accountButton" className={styles.wrapper} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+            <NavLink to={user ? "/inventory" : "/signin"} style={{ textDecoration: "none" }} id="accountButton" className={styles.wrapper} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
                 <div className={styles.row1}>Hello, {user ? user.fullname.split(" ")[0] : "sign in"}</div>
                 <div className={styles.row2}>
                     <div className={styles.row2row1}>Account & Lists</div>
                     <img src={"/images/nav-arrow.png"} alt="▼" />
                 </div>
-            </div>
+            </NavLink>
             {showMenu && <AccountDropdown delay={TIMEOUT_DELAY} setShowMenu={setShowMenu} />}
         </>
     );
