@@ -139,7 +139,7 @@ export default function RegisterForm() {
 
     return (
         <>
-            <div className={styles.wrapper} >
+            <div className={styles.wrapper}>
 
                 <NavLink className={styles.logo} to="/" style={{ textDecoration: 'none' }}>
                     <img src="/images/logo_black.png" alt="logo_black" />

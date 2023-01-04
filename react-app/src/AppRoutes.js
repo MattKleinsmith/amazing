@@ -10,6 +10,7 @@ import ListingForm from "./components/ListingForm/ListingForm";
 import AddressForm from "./components/AddressForm/AddressForm";
 import Addresses from "./components/Addresses/Addresses";
 import Orders from "./components/Orders/Orders";
+import OrderConfirmation from "./components/OrderConfirmation/OrderConfirmation";
 
 export default function AppRoutes() {
     return (
@@ -31,6 +32,7 @@ export default function AppRoutes() {
             <Route path="/addresses/:addressId" element={<AddressForm />} />
 
             <Route path="/orders" element={<Orders />} />
+            <Route path="/order-confirmation" element={<OrderConfirmation />} />
         </Routes>
     );
 }

@@ -7,6 +7,7 @@ import { getPurchases } from "../../store/purchases"
 
 import Purchase from "./Purchase/Purchase";
 import { useState } from "react";
+import { useLocation } from "react-router";
 
 export default function Orders() {
     const [page, setPage] = useState(1);
@@ -15,7 +16,8 @@ export default function Orders() {
     const max = min + size;
     const allPurchases = useSelector(state => state.purchases);
     const purchases = allPurchases.slice(min, max);
-    console.log(purchases, min, max);
+
+    useLocation();
 
     const dispatch = useDispatch();
 
