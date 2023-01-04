@@ -10,14 +10,18 @@ import SearchResultsItem from "./SearchResultItem/SearchResultsItem";
 import SearchResultsFilter from "./SearchResultsFilter/SearchResultsFilter";
 import SearchResultsBar from "./SearchResultsBar/SearchResultsBar";
 
-export default function SearchResults() {
+export default function SearchResults({ keywords }) {
     const dispatch = useDispatch();
     const searchParams = useSearchParams()[0];
     const [width, setWidth] = useState(window.innerWidth);
 
     useEffect(() => {
-        dispatch(getProductsByKeywords(searchParams.get("k")))
-    }, [dispatch, searchParams]);
+        if (keywords) {
+            dispatch(getProductsByKeywords(keywords))
+        } else {
+            dispatch(getProductsByKeywords(searchParams.get("k")))
+        }
+    }, [dispatch, searchParams, keywords]);
 
     useEffect(() => {
         const handleResize = () => setWidth(window.innerWidth);
@@ -35,7 +39,7 @@ export default function SearchResults() {
 
     return (
         <div className={styles.superWrapper}>
-            <SearchResultsBar products={products} keywords={searchParams.get("k")} />
+            <SearchResultsBar products={products} keywords={keywords ? keywords : searchParams.get("k")} />
             <div className={styles.wrapper}>
                 <SearchResultsFilter />
                 <div className={styles.results}>
