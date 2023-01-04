@@ -66,3 +66,29 @@
     background-color: #F7FAFA;
     border-color: #D5D9D9;
 }
+
+.disabled {
+    background-color: rgb(162, 162, 162);
+    cursor: not-allowed;
+}
+
+.disabled:hover {
+    background-color: rgb(162, 162, 162);
+    border: 1px solid #6c6e73;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}

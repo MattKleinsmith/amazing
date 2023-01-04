@@ -13,7 +13,9 @@ export default function Orders() {
     const size = 10;
     const min = (page - 1) * size;
     const max = min + size;
-    const purchases = useSelector(state => state.purchases).slice(min, max);
+    const allPurchases = useSelector(state => state.purchases);
+    const purchases = allPurchases.slice(min, max);
+    console.log(purchases, min, max);
 
     const dispatch = useDispatch();
 
@@ -22,7 +24,7 @@ export default function Orders() {
     }, [dispatch]);
 
     const incrementPage = () => {
-        if (page * 10 < purchases.length) setPage(page + 1);
+        if (page * 10 < allPurchases.length) setPage(page + 1);
     }
 
     const decrementPage = () => {
@@ -44,8 +46,8 @@ export default function Orders() {
                 </div>
 
                 <div className={styles.paginationBar}>
-                    <div className={styles.paginationButton} onClick={decrementPage}>←Previous</div>
-                    <div className={styles.paginationButton} onClick={incrementPage}>Next→</div>
+                    <div className={`${styles.paginationButton} ${page <= 1 && styles.disabled} ${styles.noselect}`} onClick={decrementPage}>←Previous</div>
+                    <div className={`${styles.paginationButton} ${page * 10 >= allPurchases.length && styles.disabled} ${styles.noselect}`} onClick={incrementPage}>Next→</div>
                 </div>
             </div>
         </div>
