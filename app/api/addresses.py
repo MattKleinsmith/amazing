@@ -33,6 +33,7 @@ def post_address():
 
 
 @bp.route("/current",  methods=["GET"])
+@login_required
 def get_current_user_addresses():
     addresses = Address.query.filter(Address.user_id == current_user.id)
     return [address.to_dict() for address in addresses]

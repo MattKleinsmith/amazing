@@ -25,6 +25,7 @@ def get_products():
 
 
 @bp.route("/current",  methods=["GET"])
+@login_required
 def get_current_products():
     return [product.to_dict_inventory() for product in Product.query.filter(Product.seller_id == current_user.id)]
 
