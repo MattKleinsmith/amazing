@@ -8,6 +8,7 @@ export const postOrder = body => async dispatch => {
         body: JSON.stringify(body)
     });
     const order = await response.json();
+    await dispatch(getPurchases());
     return order.id;
 };
 

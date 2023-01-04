@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 import { getProductDetails } from "../../../store/productDetails";
+import { postOrder } from "../../../store/purchases";
 
 export default function Purchase({ purchase }) {
     const createdAt = (new Date(purchase.created_at)).toLocaleDateString('en-us', { year: "numeric", month: "long", day: "numeric" });;
@@ -14,9 +15,21 @@ export default function Purchase({ purchase }) {
 
     useEffect(() => {
         dispatch(getProductDetails(purchase.product_id));
-    }, [dispatch]);
+    }, [dispatch, purchase]);
 
     if (!product) return;
+
+    const onBuyAgain = async () => {
+        const address = purchase.address;
+        const cart = { [product.id]: 1 };
+        try {
+            const orderId = await dispatch(postOrder({ address, cart }));
+            console.log("onBuyNow succeeded. Order id:", orderId, address);
+        } catch (e) {
+            console.log("onBuyNow failed:", e);
+        }
+    }
+
 
     return (
         <div className={styles.wrapper}>
@@ -50,9 +63,9 @@ export default function Purchase({ purchase }) {
                             <div className={styles.buttonsRow}>
                                 <div className={styles.buyItAgain}>
                                     <div className={styles.buyItAgainIcon} />
-                                    <div className={styles.buyItAgainText}>Buy it again</div>
+                                    <div className={styles.buyItAgainText} onClick={onBuyAgain}>Buy it again</div>
                                 </div>
-                                <div className={styles.viewYourItem}>View your item</div>
+                                <NavLink to={`/listing/${product.id}`} className={styles.viewYourItem}>View your item</NavLink>
                             </div>
                         </div>
                     </div>
