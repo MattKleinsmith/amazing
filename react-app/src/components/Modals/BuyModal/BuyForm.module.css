@@ -1,33 +1,132 @@
-.deleteForm {
+.wrapper {
     display: flex;
     flex-direction: column;
     text-align: center;
+    /* padding: 20px; */
+    width: 580px;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 25px;
+
+    background-color: #f0f2f2;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: #d5d9d9;
+}
+
+.buyNow {
+    color: #0F1111;
+    font-weight: 700;
+    line-height: 24px;
+    font-size: 16px;
+
+    text-rendering: optimizeLegibility;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 20px;
+}
+
+.close {
+    background-image: url(https://m.media-amazon.com/images/S/sash/McBZv0ZvnbehkIx.png);
+    opacity: .64;
+    width: 20px;
+    height: 9px;
+    background-position: -297px -5px;
+
+    align-self: center;
+}
+
+.close:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.row {
+    display: flex;
+    gap: 20px;
     padding: 20px;
 }
 
-.deleteFormButton {
-    border-radius: 20px;
-    color: #FFF;
-    font-weight: 500;
+.leftColumn {
+    width: 60px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.image {
+    height: 60px;
+    width: 60px;
+}
+
+.arriving {
+    font-size: 18px;
+    line-height: 24px;
+    text-rendering: optimizeLegibility;
+    color: #0F1111;
+    text-align: left;
+}
+
+.free {
+    font-size: 12px;
+    line-height: 16px;
+    text-align: left;
+}
+
+.fullname {
+    text-align: left;
+}
+
+.text {
+    line-height: 20px;
+    font-size: 14px;
+    color: #0F1111;
+}
+
+.price {
+    font-weight: 700;
+    text-align: left;
+}
+
+.taxNote {
+    font-size: 12px;
+    line-height: 16px;
+    color: #0F1111;
+}
+
+.bottom {
+    display: flex;
+    padding: 15px;
+    justify-content: flex-end;
+
+    background-color: #f0f2f2;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.submitButton {
+    background: #FFD814;
+    border-color: #FCD200;
     font-size: 13px;
-    padding: 9px 15px 9px 15px;
+    line-height: 20px;
+    text-align: center;
     cursor: pointer;
-    margin-top: 20px;
-    border: 2px solid #222;
-    background-color: #222222;
+    color: #0F1111;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+    width: 120px;
+    padding: 5px;
 }
 
-.deleteFormButton:hover {
-    transform: scale(1.01);
-    background-color: rgba(34, 34, 34, 0.65);
-    border: 2px solid transparent;
-}
-
-.cancel {
-    font-weight: bold;
-    font-size: 20px;
-    margin-left: 400px;
-    align-self: flex-end;
-    margin-top: -10px;
-    margin-bottom: 5px;
+.submitButton:hover {
+    background: #F7CA00;
+    border-color: #F2C200;
 }
