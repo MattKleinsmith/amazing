@@ -66,7 +66,7 @@ export default function BuyForm() {
             <div className={styles.line} />
 
             <div className={styles.bottom}>
-                <div className={styles.submitButton} type="submit">Place your order</div>
+                <button className={`${styles.submitButton} noselect`} type="submit">Place your order</button>
             </div>
 
         </form>

@@ -36,7 +36,7 @@
 }
 
 .close {
-    background-image: url(https://m.media-amazon.com/images/S/sash/McBZv0ZvnbehkIx.png);
+    background-image: url("../../../../public/images/x-icon.png");
     opacity: .64;
     width: 20px;
     height: 9px;
@@ -114,7 +114,7 @@
 
 .submitButton {
     background: #FFD814;
-    border-color: #FCD200;
+    border: 1px solid #FCD200;
     font-size: 13px;
     line-height: 20px;
     text-align: center;
