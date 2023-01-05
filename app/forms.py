@@ -46,7 +46,7 @@ class AddressForm(FlaskForm):
     city = StringField("City", validators=[DataRequired(), Length(max=1000)])
     state = StringField("State", validators=[Length(max=1000)])
     zipcode = StringField("Zipcode", validators=[
-                          DataRequired(), Length(min=6, max=10)])
+                          DataRequired(), Length(min=5, max=10)])
     region = StringField("Region", validators=[
                          DataRequired(), Length(max=1000)])
     phone = StringField("Phone", validators=[

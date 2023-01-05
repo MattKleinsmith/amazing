@@ -79,7 +79,7 @@ export default function AddressForm() {
             hasErrors = true;
         }
 
-        if (zipcode.length < 6 || zipcode.length > 10) {
+        if (zipcode.length < 5 || zipcode.length > 10) {
             setZipcodeError("Please enter a ZIP or postal code.");
             zipcodeField.current.focus();
             hasErrors = true;

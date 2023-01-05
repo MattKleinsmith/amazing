@@ -7,11 +7,15 @@ import { useEffect } from "react";
 import { getProductDetails } from "../../store/productDetails";
 
 export default function OrderConfirmation() {
-    const user = useSelector(state => state.session.user);
     const purchase = useSelector(state => state.purchases)[0];
+    const addressParts = purchase.address.split('\n');
 
     const dispatch = useDispatch();
     const product = useSelector(state => state.productDetails)[purchase.product_id];
+
+    let deliveryDate = new Date();
+    deliveryDate.setDate(deliveryDate.getDate() + 2);
+    deliveryDate = deliveryDate.toLocaleDateString('en-us', { weekday: "long", month: "short", day: "numeric" });
 
     useEffect(() => {
         dispatch(getProductDetails(purchase.product_id));
@@ -20,23 +24,32 @@ export default function OrderConfirmation() {
     if (!product) return;
 
     return (
-        <div className={styles.wrapper}>
-            <div>Hello {user.fullname},</div>
-            <div>Thank you for shopping with us. You ordererd <NavLink to={`/listing/${product.id}`}>"{product.title}"</NavLink>. We'll send you a confirmation when your item ships.</div>
-            <div>Details</div>
-            <div>Order {purchase.order_id}</div>
-            <div>
-                <div>
-                    <div>Not yet shipped</div>
-                    <div>View order</div>
-                </div>
-                <div>
-                    <div>
-                        <div>Ship to:</div>
-                        <div></div>
+        <div className={styles.outerWrapper}>
+            <div className={styles.wrapper}>
+                <div className={styles.content}>
+                    <div className={styles.innerContent}>
+                        <div className={styles.top}>
+                            <div className={styles.checkmark} />
+                            <div className={styles.thanks}>Order placed, thanks!</div>
+                        </div>
+
+                        <div className={styles.confirm}>Confirmation will be shown on <NavLink to="/orders">your orders page</NavLink>.</div>
+
+                        <div><span className={styles.shipping}>Shipping to {addressParts[0]}</span>, {addressParts[1]}, {addressParts[2]}, {addressParts[3]}</div>
+
+                        <div className={styles.line} />
+
+                        <div className={styles.deliveryRow}>
+                            <div>
+                                <div className={styles.date}>{deliveryDate}</div>
+                                <div>Estimated delivery</div>
+                            </div>
+                            <img className={styles.image} src={product.preview_image} alt="preview" />
+                        </div>
                     </div>
                 </div>
             </div>
+            <NavLink to="/" className={styles.continue}>Continue shopping</NavLink>
         </div>
     );
 }

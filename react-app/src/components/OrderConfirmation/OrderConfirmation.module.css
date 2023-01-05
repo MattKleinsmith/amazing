@@ -1,0 +1,94 @@
+.outerWrapper {
+    display: flex;
+    flex-direction: column;
+    color: #0F1111;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.content {
+    width: 100%;
+    margin: 14px 18px;
+    background-color: #f0f2f2;
+    border-radius: 8px;
+}
+
+.innerContent {
+    border: 1px solid #d5d9d9;
+    border-radius: 8px;
+    background-color: white;
+    margin: 20px;
+    padding: 20px 25px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.top {
+    display: flex;
+    gap: 8px;
+}
+
+.checkmark {
+    background-image: url("../../../public/images/stars.png");
+    height: 18px;
+    width: 18px;
+    background-position: -84px -138px;
+    align-self: center;
+}
+
+.thanks {
+    color: #067D62;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.shipping {
+    font-weight: 700
+}
+
+.line {
+    height: 1px;
+    background-color: #e7e7e7;
+    width: 100%;
+}
+
+.deliveryRow {
+    display: flex;
+    gap: 125px;
+}
+
+.date {
+    font-weight: 700;
+}
+
+.image {
+    height: 60px;
+    width: 60px;
+}
+
+.continue {
+    background: #FFD814;
+    border: 1px solid #FCD200;
+    width: 136px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+    padding: 5px 5px;
+    align-self: center;
+    color: #0F1111;
+}
+
+.continue:hover {
+    background: #F7CA00;
+    border-color: #F2C200;
+    color: #0F1111;
+    text-decoration: none;
+}
