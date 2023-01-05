@@ -68,3 +68,59 @@
     color: #ffffff;
     text-decoration: none;
 }
+
+.edit {
+    width: 60px;
+    height: 33px;
+    padding: 5px 6px;
+    margin-bottom: 20px;
+
+    border: 1px solid #a88734;
+    border-radius: 3px;
+
+    background: linear-gradient(0deg, rgba(240, 194, 77, 1) 0%, rgba(246, 221, 160, 1) 100%);
+
+    color: #111111;
+    font-size: 14px;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.edit:hover {
+    background: linear-gradient(0deg, rgba(238, 186, 53, 1) 0%, rgba(244, 213, 137, 1) 100%);
+}
+
+.edit:active {
+    background: linear-gradient(0deg, #f0c14b 0%, #f0c14b 100%);
+    filter: drop-shadow(0px 0px 3px #e88420);
+    box-shadow: inset 0px 0px 1px black;
+}
+
+.delete {
+    width: 70px;
+    height: 33px;
+    padding: 5px 6px;
+    margin-bottom: 20px;
+
+    border: 1px solid #a88734;
+    border-radius: 3px;
+
+    background: linear-gradient(0deg, rgba(240, 194, 77, 1) 0%, rgba(246, 221, 160, 1) 100%);
+
+    color: #111111;
+    font-size: 14px;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.delete:hover {
+    background: linear-gradient(0deg, rgb(238, 53, 53) 0%, rgb(244, 137, 137) 100%);
+}
+
+.delete:active {
+    background: linear-gradient(0deg, #f0c14b 0%, #f0c14b 100%);
+    filter: drop-shadow(0px 0px 3px #e88420);
+    box-shadow: inset 0px 0px 1px black;
+}

@@ -67,6 +67,11 @@
     align-items: center;
 }
 
+
+.demo {
+    margin-top: -10px;
+}
+
 .signIn {
     width: 115px;
     height: 33px;
@@ -83,10 +88,6 @@
     text-align: center;
 
     cursor: pointer;
-}
-
-.demo {
-    margin-top: -10px;
 }
 
 .signIn:hover {
