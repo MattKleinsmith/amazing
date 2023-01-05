@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
 import { getAddresses, postAddress, putAddress } from '../../store/addresses';
-import { postOrder } from '../../store/purchases';
+import { setBuyModal } from '../../store/ui';
 
 export default function AddressForm() {
     const { addressId } = useParams();
@@ -111,27 +111,21 @@ export default function AddressForm() {
 
         if (hasErrors) return;
 
-        let didNavigate = false;
+        let shouldNavigate = true;
         try {
             const body = { region, fullname, address: addressValue, city, state, zipcode, phone }
             const productThunkAction = address ? putAddress(addressId, body) : postAddress(body);
             await dispatch(productThunkAction);
             if (productId) {
-                const address = `${fullname}\n${addressValue.toUpperCase()}\n${city.toUpperCase()}, ${state.toUpperCase()} ${zipcode.toUpperCase()}\n${region}`;
-                const cart = { [productId]: quantity };
-                try {
-                    await dispatch(postOrder({ address, cart }));
-                    navigate("/order-confirmation");
-                    didNavigate = true;
-                } catch (e) {
-                    console.log("onBuyNow failed:", e);
-                }
+                dispatch(setBuyModal(true, productId, quantity));
+                navigate(`/listing/${productId}`);
+                shouldNavigate = false;
             }
         }
         catch (responseBody) {
             console.log(responseBody);
         }
-        if (!didNavigate) navigate("/addresses");
+        if (shouldNavigate) navigate("/addresses");
     }
 
     const onSubmit = (e) => {

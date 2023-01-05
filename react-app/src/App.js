@@ -9,6 +9,7 @@ import { getAddresses } from "./store/addresses";
 import Header from "./components/Header/Header";
 import AppRoutes from "./AppRoutes";
 import Footer from "./components/Footer/Footer";
+import Modals from "./components/Modals/Modals";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -27,6 +28,8 @@ export default function App() {
         </div>
         <Footer />
       </div>
+
+      <Modals />
     </>
   );
 }
