@@ -13,7 +13,7 @@
 
 .title:hover {
     text-decoration: none;
-    color: #222222;
+    color: #db8b36;
 }
 
 .image {
@@ -21,11 +21,50 @@
     height: 50px;
 }
 
-.edit {
-    width: 50px;
-    height: 25px;
-}
-
 .price {
     width: 50px;
+}
+
+.edit {
+    width: 60px;
+    font-size: 14px;
+
+    background: #FFD814;
+    border: 1px solid #FCD200;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+    padding: 5px 5px;
+    align-self: center;
+    color: #0F1111;
+}
+
+.edit:hover {
+    background: #F7CA00;
+    border-color: #F2C200;
+    color: #0F1111;
+    text-decoration: none;
+}
+
+.delete {
+    width: 60px;
+    font-size: 14px;
+
+    background: #FFD814;
+    border: 1px solid #FCD200;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+    padding: 5px 5px;
+    align-self: center;
+    color: #0F1111;
+}
+
+.delete:hover {
+    background: #f70000;
+    border-color: #f20000;
+    color: #ffffff;
+    text-decoration: none;
 }

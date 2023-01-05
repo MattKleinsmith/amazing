@@ -11,10 +11,20 @@
     font-size: 25px;
 }
 
+.emptyWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 .addProductWrapper {
     display: flex;
     justify-content: flex-end;
     width: 1350px;
+}
+
+.addProductWrapperEmpty {
+    display: flex;
 }
 
 .inventory {
@@ -24,5 +34,22 @@
 }
 
 .addProduct {
-    padding: 5px 10px;
+    width: 110px;
+
+    background: #FFD814;
+    border: 1px solid #FCD200;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+    padding: 5px 5px;
+    align-self: center;
+    color: #0F1111;
+}
+
+.addProduct:hover {
+    background: #F7CA00;
+    border-color: #F2C200;
+    color: #0F1111;
+    text-decoration: none;
 }

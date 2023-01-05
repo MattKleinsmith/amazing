@@ -48,6 +48,10 @@ export default function ListingForm() {
 
     const handlePreviewChange = async (e) => {
         const file = e.target.files[0];
+        if (!["image/png", "image/jpeg"].includes(file.type)) {
+            setImageError("Please upload a png or jpeg image.");
+            return;
+        }
         setImage(file)
         const reader = new FileReader();
         reader.onload = function (e) {
@@ -58,7 +62,6 @@ export default function ListingForm() {
         if (productId && file) {
             await dispatch(postProductImage(productId, file, true, 1));
             dispatch(getProductDetails(productId));
-            console.log("get product details");
         }
     }
 
@@ -77,8 +80,8 @@ export default function ListingForm() {
             hasErrors = true;
         }
 
-        if (price <= 0) {
-            setPriceError("Price must be greater than zero");
+        if (price <= 0 || price > 9999) {
+            setPriceError("Price must be greater than zero and less than 10,000");
             priceField.current.focus();
             hasErrors = true;
         }
@@ -111,7 +114,7 @@ export default function ListingForm() {
             navigate("/inventory");
         }
         else {
-            setImageError("Please upload an image for the product listing");
+            setImageError("Please upload an image for the product listing.");
         }
     }
 
@@ -127,7 +130,7 @@ export default function ListingForm() {
                 <form className={styles.form} onSubmit={onSubmit}>
                     <div className={styles.heading}>{productId ? "Edit" : "Create"} product listing</div>
                     <div className={`${styles.fieldWrapper} ${styles.imageWrapper}`}>
-                        {imageError && <div>{imageError}</div>}
+                        {imageError && <div className={styles.imageError}>{imageError}</div>}
                         <img ref={imageRef} className={styles.image} src={product?.preview_image} alt={product?.preview_image} />
                         <label className={`${styles.fieldLabel} ${styles.imageLabel}`}>Search results image</label>
                         <input
