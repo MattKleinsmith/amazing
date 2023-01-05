@@ -2,12 +2,16 @@ import styles from './AddressForm.module.css';
 
 import { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useNavigate, useParams } from 'react-router-dom';
+import { NavLink, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
 import { getAddresses, postAddress, putAddress } from '../../store/addresses';
+import { postOrder } from '../../store/purchases';
 
 export default function AddressForm() {
     const { addressId } = useParams();
+    const searchParams = useSearchParams()[0];
+    const productId = searchParams.get('productId');
+    const quantity = searchParams.get('quantity');
     const address = useSelector(state => state.addresses)[addressId];
     const dispatch = useDispatch();
 
@@ -107,15 +111,27 @@ export default function AddressForm() {
 
         if (hasErrors) return;
 
+        let didNavigate = false;
         try {
             const body = { region, fullname, address: addressValue, city, state, zipcode, phone }
             const productThunkAction = address ? putAddress(addressId, body) : postAddress(body);
             await dispatch(productThunkAction);
+            if (productId) {
+                const address = `${fullname}\n${addressValue.toUpperCase()}\n${city.toUpperCase()}, ${state.toUpperCase()} ${zipcode.toUpperCase()}\n${region}`;
+                const cart = { [productId]: quantity };
+                try {
+                    await dispatch(postOrder({ address, cart }));
+                    navigate("/order-confirmation");
+                    didNavigate = true;
+                } catch (e) {
+                    console.log("onBuyNow failed:", e);
+                }
+            }
         }
         catch (responseBody) {
             console.log(responseBody);
         }
-        navigate("/addresses");
+        if (!didNavigate) navigate("/addresses");
     }
 
     const onSubmit = (e) => {

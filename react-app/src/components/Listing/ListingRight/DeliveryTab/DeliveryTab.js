@@ -6,21 +6,27 @@ import { useDispatch, useSelector } from "react-redux";
 import Price from "../../../Price/Price";
 import Quantity from "../Quantity/Quantity";
 import { postOrder } from "../../../../store/purchases"
+import { useNavigate } from 'react-router-dom';
 
 export default function DeliveryTab({ product }) {
     const [quantity, setQuantity] = useState(1);
     const addresses = useSelector(state => Object.values(state.addresses));
-    console.log(addresses);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const onBuyNow = async () => {
-        const address = `${addresses[0].fullname}\n${addresses[0].address.toUpperCase()}\n${addresses[0].city.toUpperCase()}, ${addresses[0].state.toUpperCase()} ${addresses[0].zipcode.toUpperCase()}\n${addresses[0].region}`;
-        const cart = { [product.id]: quantity };
-        try {
-            const orderId = await dispatch(postOrder({ address, cart }));
-            console.log("onBuyNow succeeded. Order id:", orderId, address);
-        } catch (e) {
-            console.log("onBuyNow failed:", e);
+        if (addresses.length === 0) {
+            navigate(`/addresses/add?productId=${product.id}&quantity=${quantity}`);
+        }
+        else {
+            const address = `${addresses[0].fullname}\n${addresses[0].address.toUpperCase()}\n${addresses[0].city.toUpperCase()}, ${addresses[0].state.toUpperCase()} ${addresses[0].zipcode.toUpperCase()}\n${addresses[0].region}`;
+            const cart = { [product.id]: quantity };
+            try {
+                await dispatch(postOrder({ address, cart }));
+                navigate("/order-confirmation");
+            } catch (e) {
+                console.log("onBuyNow failed:", e);
+            }
         }
     }
 

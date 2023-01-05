@@ -11,7 +11,6 @@ export default function PickupTab({ product }) {
     deliveryDate.setDate(deliveryDate.getDate() + 2);
     deliveryDate = deliveryDate.toLocaleDateString('en-us', { weekday: "long", month: "long", day: "numeric" });
 
-
     return (<div className={styles.wrapper}>
         <div className={styles.price}>${parseFloat(product.price).toFixed(2)}</div>
         <div className={styles.delivery}>FREE pickup <span className={styles.date}>{deliveryDate}.</span> Order within <span className={styles.deadline}>10 hrs 13 mins</span></div>
