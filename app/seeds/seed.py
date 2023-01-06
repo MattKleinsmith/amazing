@@ -97,7 +97,7 @@ def seed_all():
         ReviewImage(
             review=review,
             url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51H8iZ1vgwL._SY88.jpg"),
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51H8iZ1vgwL._SL1500.jpg"),
         ),
     ])
 
@@ -241,7 +241,7 @@ def seed_all():
         ReviewImage(
             review=review,
             url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51H8iZ1vgwL._SY88.jpg"),
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51H8iZ1vgwL._SL1500.jpg"),
         ),
     ])
 
@@ -270,7 +270,7 @@ def seed_all():
         ReviewImage(
             review=review,
             url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51H8iZ1vgwL._SY88.jpg"),
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51H8iZ1vgwL._SL1500.jpg"),
         ),
     ])
 
@@ -299,7 +299,7 @@ def seed_all():
         ReviewImage(
             review=review,
             url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51H8iZ1vgwL._SY88.jpg"),
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51H8iZ1vgwL._SL1500.jpg"),
         ),
     ])
 
@@ -328,7 +328,7 @@ def seed_all():
         ReviewImage(
             review=review,
             url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51H8iZ1vgwL._SY88.jpg"),
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51H8iZ1vgwL._SL1500.jpg"),
         ),
     ])
 
@@ -357,7 +357,7 @@ def seed_all():
         ReviewImage(
             review=review,
             url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51H8iZ1vgwL._SY88.jpg"),
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51H8iZ1vgwL._SL1500.jpg"),
         ),
     ])
 

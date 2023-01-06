@@ -47,13 +47,13 @@ export default function SearchResults({ showRecent }) {
             <div className={styles.wrapper}>
                 {/* <SearchResultsFilter /> */}
                 {products1.length > 0 && <div className={styles.results}>
-                    <div className={styles.title}>RESULTS</div>
+                    {!showRecent && <div className={styles.title}>RESULTS</div>}
                     <div className={styles.content}>
                         {products1.map((product, i) =>
                             <SearchResultsItem key={i} i={i} first={true} product={product} />
                         )}
                     </div>
-                    <div className={`${styles.title} ${styles.moreResults}`}>MORE RESULTS</div>
+                    {!showRecent && <div className={`${styles.title} ${styles.moreResults}`}>MORE RESULTS</div>}
                     {products2.length > 0 && <div className={styles.content}>
                         {products2.map((product, i) =>
                             <SearchResultsItem key={i} i={i} first={false} product={product} />

@@ -1,3 +1,21 @@
 .wrapper {
     width: 66%;
 }
+
+.heading {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: #0F1111;
+    margin-bottom: 8px;
+}
+
+.reviewsHeading {
+    margin: 20px 0px;
+}
+
+.image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}

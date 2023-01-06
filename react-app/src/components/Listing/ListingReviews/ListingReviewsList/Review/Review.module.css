@@ -1,0 +1,16 @@
+.profile {
+    display: flex;
+    gap: 10px;
+}
+
+.profileImage {
+    height: 30px;
+    width: 30px;
+}
+
+.name {
+    color: #0F1111;
+    font-size: 13px;
+    line-height: 19px;
+    align-self: center;
+}
