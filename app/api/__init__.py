@@ -1,5 +1,5 @@
 from flask import Blueprint
-from . import orders, session, users, products, addresses, product_images, purchases
+from . import orders, session, users, products, addresses, product_images, purchases, reviews
 
 bp = Blueprint("api", __name__, url_prefix="/api")
 
@@ -10,3 +10,4 @@ bp.register_blueprint(addresses.bp)
 bp.register_blueprint(product_images.bp)
 bp.register_blueprint(orders.bp)
 bp.register_blueprint(purchases.bp)
+bp.register_blueprint(reviews.bp)

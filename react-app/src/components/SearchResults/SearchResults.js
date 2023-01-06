@@ -16,6 +16,8 @@ export default function SearchResults({ showRecent }) {
     const searchParams = useSearchParams()[0];
     const [width, setWidth] = useState(window.innerWidth);
 
+    document.title = showRecent ? "Amazing. Spend less. Smile more." : `Amazing : ${searchParams.get("k")}`;
+
     useEffect(() => {
         if (showRecent) {
             dispatch(getProducts())
