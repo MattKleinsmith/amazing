@@ -35,7 +35,7 @@ export default function SearchBar() {
                     <input
                         type="text"
                         className={styles.searchBar}
-                        value={keywords}
+                        value={keywords ? keywords : ""}
                         onChange={(e) => dispatch(setKeywords(e.target.value))}
                     />
                 </form>
