@@ -8,8 +8,8 @@ export default function ListingReviews({ product }) {
     if (!reviews) return;
     return (
         <div className={styles.wrapper}>
-            <ListingReviewsBreakdown />
-            <ListingReviewsList />
+            <ListingReviewsBreakdown product={product} />
+            <ListingReviewsList product={product} />
         </div>
     );
 }

@@ -24,6 +24,8 @@ export default function Listing() {
 
     if (!product) return;
 
+    document.title = `Amazing : ${product.title}`;
+
     return (
 
         <div className={styles.wrapper}>

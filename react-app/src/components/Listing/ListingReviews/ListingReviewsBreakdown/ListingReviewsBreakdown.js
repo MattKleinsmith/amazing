@@ -1,9 +1,13 @@
 import styles from "./ListingReviewsBreakdown.module.css"
 
-export default function ListingReviewsBreakdown() {
+import StarsBig from "../../../StarsBig/StarsBig"
+
+export default function ListingReviewsBreakdown({ product }) {
+
     return (
         <div className={styles.wrapper}>
-            ListingReviewsBreakdown
+            <div className={styles.heading}>Customer reviews</div>
+            <StarsBig rating={product.avg_rating} />
         </div>
     );
 }
