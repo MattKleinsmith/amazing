@@ -1,7 +1,7 @@
 import styles from "./ListingReviewsBreakdown.module.css"
 
-import StarsBig from "../../../StarsBig/StarsBig"
-import RatingBar from "./RatingBar/RatingBar";
+import StarsBig from "../../../../StarsBig/StarsBig"
+import { useRef } from "react";
 
 export default function ListingReviewsBreakdown({ product, reviews }) {
     const percents = reviews.reduce((counts, review) => {
@@ -19,11 +19,11 @@ export default function ListingReviewsBreakdown({ product, reviews }) {
             <div className={styles.heading}>Customer reviews</div>
             <div className={styles.summary}><StarsBig rating={product.avg_rating} /> <span className={styles.summaryText}>{product.avg_rating} out of 5</span></div>
             <div className={styles.count}>{product.num_ratings} global rating{product.num_ratings === 1 ? "" : "s"}</div>
-            <RatingBar percents={percents} rating={5} />
-            <RatingBar percents={percents} rating={4} />
-            <RatingBar percents={percents} rating={3} />
-            <RatingBar percents={percents} rating={2} />
-            <RatingBar percents={percents} rating={1} />
+            <div className={styles.breakdownItem}>
+                <div className={styles.starText}>5 star</div>
+                <div ref={fiveRef} className={styles.ratingBar}><div className={styles.ratingBarFill} /></div>
+                <div className={styles.percentText}>{percents["5"]}%</div>
+            </div>
         </div>
     );
 }
