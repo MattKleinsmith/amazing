@@ -4,6 +4,11 @@ const POST_ADDRESS = 'addresses/POST_ADDRESS';
 const GET_ADDRESSES = 'addresses/GET_ADDRESSES';
 const PUT_ADDRESS = 'addresses/PUT_ADDRESS';
 const DELETE_ADDRESS = 'addresses/DELETE_ADDRESS';
+const CLEAR_ADDRESSES = 'addresses/CLEAR_ADDRESSES';
+
+export const clearAddresses = () => {
+    return { type: CLEAR_ADDRESSES };
+}
 
 export const postAddress = body => async dispatch => {
     const response = await csrfFetch('/api/addresses', {
@@ -54,6 +59,8 @@ export default function addressesReducer(state = {}, action) {
         case DELETE_ADDRESS:
             delete newState[action.addressId];
             return newState;
+        case CLEAR_ADDRESSES:
+            return {};
         default:
             return state;
     }

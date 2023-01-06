@@ -2,7 +2,7 @@ import styles from "./AccountDropdown.module.css";
 
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { signOut } from '../../../../../store/session';
+import { signIn, signOut } from '../../../../../store/session';
 
 export default function AccountDropdown({ delay, setShowMenu }) {
     const dispatch = useDispatch();
@@ -14,6 +14,10 @@ export default function AccountDropdown({ delay, setShowMenu }) {
         dispatch(signOut());
         navigate("/signin");
     };
+
+    const onDemo = () => {
+        dispatch(signIn({ email: "email@email.com", password: "password" }));
+    }
 
     const onMouseLeave = (e) => {
         if (!timeoutId) {
@@ -33,6 +37,7 @@ export default function AccountDropdown({ delay, setShowMenu }) {
 
             {!user && <div className={styles.signInWrapper}>
                 <NavLink style={{ textDecoration: "none" }} to="/signin"><div className={`${styles.signIn}`}>Sign in</div></NavLink>
+                <div style={{ textDecoration: "none" }} to="/signin"><div className={`${styles.signIn} ${styles.demo}`} onClick={onDemo}>Demo user</div></div>
                 <div className={styles.new}>New customer? <NavLink to="/register">Start here.</NavLink></div>
             </div>
             }
@@ -40,13 +45,13 @@ export default function AccountDropdown({ delay, setShowMenu }) {
             {user && <div className={styles.content}>
                 <div className={styles.YourAccount}>Your Account</div>
 
-                <NavLink className={styles.link} to="/inventory">Manage inventory</NavLink>
+                <NavLink className={styles.link} to="/inventory">Manage products</NavLink>
 
                 <NavLink className={styles.link} to="/addresses">Manage addresses</NavLink>
 
                 <NavLink className={styles.link} to="/orders">Manage orders</NavLink>
 
-                <NavLink className={styles.link} onClick={onClickSignOut}>Sign out</NavLink>
+                <NavLink className={styles.link} to="/" onClick={onClickSignOut}>Sign out</NavLink>
             </div>}
 
         </div>

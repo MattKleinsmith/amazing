@@ -17,14 +17,14 @@ export default function InventoryItem({ product }) {
     return (
         <div className={styles.wrapper}>
             <NavLink to={`/listing/${product.id}`}><img className={styles.image} src={product.preview_image} alt={product.title} /></NavLink>
-            <div className={styles.title}>{product.title}</div>
+            <NavLink to={`/listing/${product.id}`} className={styles.title}>{product.title}</NavLink>
             <div>
                 <div>{createdAt}</div>
                 <div>{updatedAt}</div>
             </div>
             <div className={styles.price}>{parseFloat(product.price).toFixed(2)}</div>
-            <NavLink to={`/inventory/${product.id}`}><button className={styles.edit}>Edit</button></NavLink>
-            <button onClick={onClickDelete} className={styles.edit}>Delete</button>
+            <NavLink to={`/inventory/${product.id}`} className={styles.edit}>Edit</NavLink>
+            <div onClick={onClickDelete} className={styles.delete}>Delete</div>
         </div>
     );
 }

@@ -1,8 +1,11 @@
 import styles from "./Stars.module.css";
 
 export default function Stars({ rating }) {
+
     if (isNaN(Number(rating))) return;
+
     let className = styles.zero;
+
     if (rating >= 4.8) {
         className = styles.five;
     } else if (rating > 4.1) {

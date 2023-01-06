@@ -66,3 +66,55 @@
     background-color: #F7FAFA;
     border-color: #D5D9D9;
 }
+
+.disabled {
+    background-color: rgb(162, 162, 162);
+    cursor: not-allowed;
+}
+
+.disabled:hover {
+    background-color: rgb(162, 162, 162);
+    border: 1px solid #6c6e73;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+.emptyWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.continue {
+    background: #FFD814;
+    border: 1px solid #FCD200;
+    width: 136px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+    padding: 5px 5px;
+    color: #0F1111;
+    font-size: 14px;
+}
+
+.continue:hover {
+    background: #F7CA00;
+    border-color: #F2C200;
+    color: #0F1111;
+    text-decoration: none;
+}

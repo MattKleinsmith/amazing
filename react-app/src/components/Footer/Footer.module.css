@@ -12,5 +12,38 @@
     justify-content: space-around;
     align-items: center;
 
+    background-color: #232f3e;
+    color: white;
+
     height: 80px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 800px;
+}
+
+.link {
+    display: flex;
+    gap: 5px;
+    color: white;
+}
+
+.link:hover {
+    color: white;
+    filter: brightness(100%) sepia(100) saturate(100) hue-rotate(-50deg);
+}
+
+.linkedinIcon {
+    height: 25px;
+}
+
+.githubText {
+    height: 30px;
+}
+
+.githubIcon {
+    height: 30px;
 }

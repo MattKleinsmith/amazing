@@ -2,12 +2,16 @@ import styles from './AddressForm.module.css';
 
 import { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useNavigate, useParams } from 'react-router-dom';
+import { NavLink, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
 import { getAddresses, postAddress, putAddress } from '../../store/addresses';
+import { setBuyModal } from '../../store/ui';
 
 export default function AddressForm() {
     const { addressId } = useParams();
+    const searchParams = useSearchParams()[0];
+    const productId = searchParams.get('productId');
+    const quantity = searchParams.get('quantity');
     const address = useSelector(state => state.addresses)[addressId];
     const dispatch = useDispatch();
 
@@ -75,7 +79,7 @@ export default function AddressForm() {
             hasErrors = true;
         }
 
-        if (zipcode.length < 6 || zipcode.length > 10) {
+        if (zipcode.length < 5 || zipcode.length > 10) {
             setZipcodeError("Please enter a ZIP or postal code.");
             zipcodeField.current.focus();
             hasErrors = true;
@@ -107,15 +111,21 @@ export default function AddressForm() {
 
         if (hasErrors) return;
 
+        let shouldNavigate = true;
         try {
             const body = { region, fullname, address: addressValue, city, state, zipcode, phone }
             const productThunkAction = address ? putAddress(addressId, body) : postAddress(body);
             await dispatch(productThunkAction);
+            if (productId) {
+                dispatch(setBuyModal(true, productId, quantity));
+                navigate(`/listing/${productId}`);
+                shouldNavigate = false;
+            }
         }
         catch (responseBody) {
             console.log(responseBody);
         }
-        navigate("/addresses");
+        if (shouldNavigate) navigate("/addresses");
     }
 
     const onSubmit = (e) => {

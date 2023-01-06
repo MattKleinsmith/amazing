@@ -3,12 +3,12 @@ import styles from "./ListingImages.module.css";
 import { useRef, useState } from "react";
 
 export default function ListingImages({ product }) {
-    const [url, setUrl] = useState(product.images[0].url);
+    const [url, setUrl] = useState(product.images[0]?.url);
     const firstThumbnailRef = useRef();
     const [thumbnail, setThumbnail] = useState();
 
     const onMouseEnter = (i, e) => {
-        setUrl(product.images[i].url);
+        setUrl(product.images[i]?.url);
         firstThumbnailRef.current.classList.remove(styles.thumbnailHover);
         if (thumbnail) thumbnail.classList.remove(styles.thumbnailHover);
         e.target.classList.add(styles.thumbnailHover);

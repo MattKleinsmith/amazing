@@ -13,7 +13,7 @@
 
 .title:hover {
     text-decoration: none;
-    color: #222222;
+    color: #db8b36;
 }
 
 .image {
@@ -21,11 +21,106 @@
     height: 50px;
 }
 
-.edit {
-    width: 50px;
-    height: 25px;
-}
-
 .price {
     width: 50px;
+}
+
+.edit {
+    width: 60px;
+    font-size: 14px;
+
+    background: #FFD814;
+    border: 1px solid #FCD200;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+    padding: 5px 5px;
+    align-self: center;
+    color: #0F1111;
+}
+
+.edit:hover {
+    background: #F7CA00;
+    border-color: #F2C200;
+    color: #0F1111;
+    text-decoration: none;
+}
+
+.delete {
+    width: 60px;
+    font-size: 14px;
+
+    background: #FFD814;
+    border: 1px solid #FCD200;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+    padding: 5px 5px;
+    align-self: center;
+    color: #0F1111;
+}
+
+.delete:hover {
+    background: #f70000;
+    border-color: #f20000;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.edit {
+    width: 60px;
+    height: 33px;
+    padding: 5px 6px;
+    margin-bottom: 20px;
+
+    border: 1px solid #a88734;
+    border-radius: 3px;
+
+    background: linear-gradient(0deg, rgba(240, 194, 77, 1) 0%, rgba(246, 221, 160, 1) 100%);
+
+    color: #111111;
+    font-size: 14px;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.edit:hover {
+    background: linear-gradient(0deg, rgba(238, 186, 53, 1) 0%, rgba(244, 213, 137, 1) 100%);
+}
+
+.edit:active {
+    background: linear-gradient(0deg, #f0c14b 0%, #f0c14b 100%);
+    filter: drop-shadow(0px 0px 3px #e88420);
+    box-shadow: inset 0px 0px 1px black;
+}
+
+.delete {
+    width: 70px;
+    height: 33px;
+    padding: 5px 6px;
+    margin-bottom: 20px;
+
+    border: 1px solid #a88734;
+    border-radius: 3px;
+
+    background: linear-gradient(0deg, rgba(240, 194, 77, 1) 0%, rgba(246, 221, 160, 1) 100%);
+
+    color: #111111;
+    font-size: 14px;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.delete:hover {
+    background: linear-gradient(0deg, rgb(238, 53, 53) 0%, rgb(244, 137, 137) 100%);
+}
+
+.delete:active {
+    background: linear-gradient(0deg, #f0c14b 0%, #f0c14b 100%);
+    filter: drop-shadow(0px 0px 3px #e88420);
+    box-shadow: inset 0px 0px 1px black;
 }

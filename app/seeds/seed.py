@@ -46,7 +46,8 @@ def seed_all():
             product=product,
             url=upload_image_to_bucket_from_url(
                 "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/713c7c3UWrL._AC_UL320_.jpg"),
-            preview=True
+            preview=True,
+            position=1
         ),
 
         ProductImage(
@@ -130,7 +131,8 @@ def seed_all():
             product=product,
             url=upload_image_to_bucket_from_url(
                 "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51rG8juGtnL._AC_UL320_.jpg"),
-            preview=True
+            preview=True,
+            position=1
         ),
         review, review2
     ])
@@ -156,7 +158,8 @@ def seed_all():
             product=product,
             url=upload_image_to_bucket_from_url(
                 "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/716hFx-iA3L._AC_UL320_.jpg"),
-            preview=True
+            preview=True,
+            position=1
         ),
         review
     ])
@@ -182,8 +185,9 @@ def seed_all():
             product=product,
             url=upload_image_to_bucket_from_url(
                 "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81e58wQ0DrL._AC_UL320_.jpg"),
-            preview=True
-        )
+            preview=True,
+            position=1
+        ),
     ])
 
     # https://www.amazon.com/Oral-B-1000-Rechargeable-Electric-Toothbrush/dp/B003UKM9CO
@@ -208,8 +212,9 @@ def seed_all():
             product=product,
             url=upload_image_to_bucket_from_url(
                 "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71tk0kk89CL._AC_UL320_.jpg"),
-            preview=True
-        )
+            preview=True,
+            position=1
+        ),
     ])
 
     product = Product(
@@ -231,7 +236,8 @@ def seed_all():
             product=product,
             url=upload_image_to_bucket_from_url(
                 "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/713c7c3UWrL._AC_UL320_.jpg"),
-            preview=True
+            preview=True,
+            position=1
         ),
         ReviewImage(
             review=review,
@@ -259,7 +265,8 @@ def seed_all():
             product=product,
             url=upload_image_to_bucket_from_url(
                 "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/713c7c3UWrL._AC_UL320_.jpg"),
-            preview=True
+            preview=True,
+            position=1
         ),
         ReviewImage(
             review=review,
@@ -287,7 +294,8 @@ def seed_all():
             product=product,
             url=upload_image_to_bucket_from_url(
                 "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/713c7c3UWrL._AC_UL320_.jpg"),
-            preview=True
+            preview=True,
+            position=1
         ),
         ReviewImage(
             review=review,
@@ -315,7 +323,8 @@ def seed_all():
             product=product,
             url=upload_image_to_bucket_from_url(
                 "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/713c7c3UWrL._AC_UL320_.jpg"),
-            preview=True
+            preview=True,
+            position=1
         ),
         ReviewImage(
             review=review,
@@ -343,7 +352,8 @@ def seed_all():
             product=product,
             url=upload_image_to_bucket_from_url(
                 "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/713c7c3UWrL._AC_UL320_.jpg"),
-            preview=True
+            preview=True,
+            position=1
         ),
         ReviewImage(
             review=review,
