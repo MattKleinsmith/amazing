@@ -26,7 +26,7 @@ export default function SearchBar() {
                         className={styles.searchBar}
                         value={keywords}
                         onChange={(e) => setKeywords(e.target.value)}
-                        placeholder="o_o" />
+                    />
                 </form>
                 <div onClick={handleSearch} className={`${styles.iconWrapperBase}`}>
                     <i className={`fa-solid fa-magnifying-glass ${styles.icon}`} />

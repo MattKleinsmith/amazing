@@ -7,7 +7,7 @@ import { useSearchParams } from "react-router-dom";
 import { getProductsByKeywords } from "../../store/products";
 
 import SearchResultsItem from "./SearchResultItem/SearchResultsItem";
-import SearchResultsFilter from "./SearchResultsFilter/SearchResultsFilter";
+// import SearchResultsFilter from "./SearchResultsFilter/SearchResultsFilter";
 import SearchResultsBar from "./SearchResultsBar/SearchResultsBar";
 
 export default function SearchResults({ keywords }) {
@@ -32,7 +32,8 @@ export default function SearchResults({ keywords }) {
     const products = useSelector(state => Object.values(state.products.filtered));
 
     let numCols;
-    if (width >= 1880) numCols = 5
+    if (width >= 1880) numCols = 4
+    else if (width >= 1320) numCols = 4
     else if (width >= 820) numCols = 3
     const products1 = products.slice(0, numCols);
     const products2 = products.slice(numCols);
@@ -41,7 +42,7 @@ export default function SearchResults({ keywords }) {
         <div className={styles.superWrapper}>
             <SearchResultsBar products={products} keywords={keywords ? keywords : searchParams.get("k")} />
             <div className={styles.wrapper}>
-                <SearchResultsFilter />
+                {/* <SearchResultsFilter /> */}
                 <div className={styles.results}>
                     <div className={styles.title}>RESULTS</div>
                     <div className={styles.content}>
