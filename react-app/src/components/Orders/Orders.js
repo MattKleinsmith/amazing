@@ -2,8 +2,10 @@ import styles from "./Orders.module.css";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 import { getPurchases } from "../../store/purchases"
+import { setKeywords } from "../../store/keywords"
 
 import Purchase from "./Purchase/Purchase";
 import { useState } from "react";
@@ -46,11 +48,17 @@ export default function Orders() {
                 <div className={styles.purchases}>
                     {purchases.map((purchase, i) => <Purchase key={i} purchase={purchase} />)}
                 </div>
+                {purchases.length === 0 &&
+                    <div className={styles.emptyWrapper}>
+                        <div>You have no orders.</div>
+                        <NavLink to="/" className={styles.continue} onClick={() => dispatch(setKeywords(""))}>Continue shopping</NavLink>
+                    </div>
+                }
 
-                <div className={styles.paginationBar}>
+                {allPurchases.length > size && <div className={styles.paginationBar}>
                     <div className={`${styles.paginationButton} ${page <= 1 && styles.disabled} ${styles.noselect}`} onClick={decrementPage}>←Previous</div>
                     <div className={`${styles.paginationButton} ${page * 10 >= allPurchases.length && styles.disabled} ${styles.noselect}`} onClick={incrementPage}>Next→</div>
-                </div>
+                </div>}
             </div>
         </div>
     );
