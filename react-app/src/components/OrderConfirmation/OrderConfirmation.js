@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
 
 import { getProductDetails } from "../../store/productDetails";
+import { setKeywords } from "../../store/keywords";
 
 export default function OrderConfirmation() {
     const purchase = useSelector(state => state.purchases)[0];
@@ -49,7 +50,7 @@ export default function OrderConfirmation() {
                     </div>
                 </div>
             </div>
-            <NavLink to="/" className={styles.continue}>Continue shopping</NavLink>
+            <NavLink to="/" className={styles.continue} onClick={() => dispatch(setKeywords(""))}>Continue shopping</NavLink>
         </div>
     );
 }

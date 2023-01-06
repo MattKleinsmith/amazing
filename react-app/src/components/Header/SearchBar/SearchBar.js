@@ -1,12 +1,23 @@
 import styles from "./SearchBar.module.css";
-import { useState } from "react";
+
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { useSearchParams } from "react-router-dom";
 
+import { setKeywords } from "../../../store/keywords";
+
 export default function SearchBar() {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+
     const searchParams = useSearchParams()[0];
-    const [keywords, setKeywords] = useState(searchParams.get('k') || "");
+    const keywords = useSelector(state => state.keywords);
+
+    const newKeywords = searchParams.get('k');
+    useEffect(() => {
+        dispatch(setKeywords(newKeywords));
+    }, [newKeywords, dispatch]);
 
     const handleSearch = async (e) => {
         if (e) e.preventDefault();
@@ -25,7 +36,7 @@ export default function SearchBar() {
                         type="text"
                         className={styles.searchBar}
                         value={keywords}
-                        onChange={(e) => setKeywords(e.target.value)}
+                        onChange={(e) => dispatch(setKeywords(e.target.value))}
                     />
                 </form>
                 <div onClick={handleSearch} className={`${styles.iconWrapperBase}`}>

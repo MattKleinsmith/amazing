@@ -22,7 +22,7 @@ class Purchase(db.Model):
         'users.id', name='fk_purchase_seller_id', ondelete='CASCADE'), nullable=False)
 
     product_id = Column(Integer, ForeignKey(
-        'users.id', name='fk_purchase_product_id', ondelete='CASCADE'), nullable=False)
+        'products.id', name='fk_purchase_product_id', ondelete='CASCADE'), nullable=False)
 
     price = Column(DECIMAL, nullable=False)
 
