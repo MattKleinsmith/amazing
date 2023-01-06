@@ -138,11 +138,13 @@ def post_image_by_product_id(product_id):
 
 @bp.route("<int:product_id>/reviews",  methods=["POST"])
 @login_required
-def post_review():
+def post_review(product_id):
+    product = Product.query.get(product_id)
     form = ReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if (form.validate_on_submit()):
         review = Review(
+            product=product,
             buyer=current_user,
             title=form.title.data,
             rating=form.rating.data,
@@ -152,3 +154,11 @@ def post_review():
         db.session.commit()
         return review.to_dict(), 201
     return {'errors': validation_errors_formatter(form, form.errors)}, 400
+
+
+@bp.route("<int:product_id>/reviews",  methods=["GET"])
+def get_reviews_for_product(product_id):
+    product = Product.query.get(product_id)
+    if (not product):
+        return f"Product with id {product_id} not found", 404
+    return [review.to_dict() for review in Review.query.filter(Review.product == product)]

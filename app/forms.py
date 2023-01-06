@@ -58,5 +58,5 @@ class ReviewForm(FlaskForm):
     title = StringField("Title", validators=[DataRequired(), Length(max=400)])
     rating = FloatField("Rating", validators=[
         DataRequired(), NumberRange(min=1, max=5)])
-    review = TextAreaField("Review", Length(max=25000))
+    review = TextAreaField("Review", validators=[Length(max=25000)])
     submit = SubmitField()
