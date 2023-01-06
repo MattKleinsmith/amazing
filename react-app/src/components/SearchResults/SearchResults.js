@@ -21,7 +21,7 @@ export default function SearchResults({ showRecent }) {
         } else {
             dispatch(getProductsByKeywords(searchParams.get("k")))
         }
-    }, [dispatch, searchParams]);
+    }, [dispatch, searchParams, showRecent]);
 
     useEffect(() => {
         const handleResize = () => setWidth(window.innerWidth);
