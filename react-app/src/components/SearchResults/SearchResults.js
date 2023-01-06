@@ -2,7 +2,7 @@ import styles from "./SearchResults.module.css";
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { useSearchParams } from "react-router-dom";
+import { NavLink, useSearchParams } from "react-router-dom";
 
 import { getProducts, getProductsByKeywords } from "../../store/products";
 
@@ -43,7 +43,7 @@ export default function SearchResults({ showRecent }) {
             <SearchResultsBar products={products} keywords={showRecent ? "recent" : searchParams.get("k")} />
             <div className={styles.wrapper}>
                 {/* <SearchResultsFilter /> */}
-                <div className={styles.results}>
+                {products1.length > 0 && <div className={styles.results}>
                     <div className={styles.title}>RESULTS</div>
                     <div className={styles.content}>
                         {products1.map((product, i) =>
@@ -51,12 +51,18 @@ export default function SearchResults({ showRecent }) {
                         )}
                     </div>
                     <div className={`${styles.title} ${styles.moreResults}`}>MORE RESULTS</div>
-                    <div className={styles.content}>
+                    {products2.length > 0 && <div className={styles.content}>
                         {products2.map((product, i) =>
                             <SearchResultsItem key={i} i={i} first={false} product={product} />
                         )}
+                    </div>}
+                </div>}
+                {products1.length === 0 &&
+                    <div className={styles.emptyResults}>
+                        <div>No products found.</div>
+                        <NavLink to="/" className={styles.continue}>Continue shopping</NavLink>
                     </div>
-                </div>
+                }
             </div>
         </div >
     );
