@@ -9,6 +9,7 @@ import { getProductDetails } from "../../store/productDetails";
 import ListingLeft from "./ListingLeft/ListingLeft";
 import ListingMiddle from "./ListingMiddle/ListingMiddle";
 import ListingRight from "./ListingRight/ListingRight";
+import ListingReviews from "./ListingReviews/ListingReviews";
 
 export default function Listing() {
     const { productId } = useParams();
@@ -24,10 +25,16 @@ export default function Listing() {
     if (!product) return;
 
     return (
+
         <div className={styles.wrapper}>
-            <ListingLeft product={product} />
-            <ListingMiddle product={product} />
-            <ListingRight product={product} />
+            <div className={styles.top}>
+                <ListingLeft product={product} />
+                <ListingMiddle product={product} />
+                <ListingRight product={product} />
+            </div>
+            <div className={styles.top}>
+                <ListingReviews product={product} />
+            </div>
         </div>
     );
 }

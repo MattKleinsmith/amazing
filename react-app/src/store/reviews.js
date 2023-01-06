@@ -5,16 +5,22 @@ const GET_REVIEW = 'reviews/GET_INDIVIDUAL_REVIEW';
 const POST_REVIEW = 'reviews/POST_REVIEW';
 const DELETE_REVIEW = 'reviews/DELETE_REVIEW';
 
-export const getReviews = () => async dispatch => {
-    const response = await csrfFetch('/api/reviews');
+export const getReviewsByProductId = (productId) => async dispatch => {
+    const response = await csrfFetch(`/api/products/${productId}/reviews`);
     const reviews = await response.json();
     dispatch({ type: GET_REVIEWS, reviews });
+};
+
+export const getReviewsByProductIdAndUser = (productId) => async dispatch => {
+    const response = await csrfFetch(`/api/products/${productId}/reviews/current`);
+    const review = await response.json();
+    return review;
 };
 
 export const getReview = (reviewId) => async dispatch => {
     const response = await csrfFetch(`/api/reviews/${reviewId}`);
     const review = await response.json();
-    dispatch({ type: GET_REVIEW, review });
+    return review;
 };
 
 export const postReview = body => async dispatch => {
@@ -56,7 +62,6 @@ export const postReviewImage = (reviewId, image) => async dispatch => {
 export const deleteReview = reviewId => async dispatch => {
     await csrfFetch(`/api/reviews/${reviewId}`, { method: "DELETE" });
     dispatch({ type: DELETE_REVIEW, reviewId });
-    dispatch(deleteReviewCurrent(reviewId));
 };
 
 export const deleteReviewImage = (reviewId, reviewImageId) => async dispatch => {

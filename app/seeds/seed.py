@@ -46,8 +46,7 @@ def seed_all():
             product=product,
             url=upload_image_to_bucket_from_url(
                 "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/713c7c3UWrL._AC_UL320_.jpg"),
-            preview=True,
-            position=1
+            preview=True
         ),
 
         ProductImage(

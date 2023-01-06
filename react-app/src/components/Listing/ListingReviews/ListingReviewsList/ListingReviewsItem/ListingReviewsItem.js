@@ -1,4 +1,4 @@
-import Stars from "../../../../Stars/Stars";
+import Stars from "../../../Stars/Stars";
 import styles from "./ListingReviewsItem.module.css"
 
 export default function ListingReviewsItem({ review }) {

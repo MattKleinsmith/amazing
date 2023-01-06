@@ -8,23 +8,6 @@ from app.forms import ReviewForm, validation_errors_formatter
 bp = Blueprint("reviews", __name__, url_prefix="/reviews")
 
 
-@bp.route("/current",  methods=["GET"])
-def get_current_user_reviews():
-    try:
-        return [review.to_dict() for review in Review.query.filter(Review.buyer == current_user)]
-    except Exception:
-        return "500", 500
-
-
-@bp.route("<int:review_id>",  methods=["GET"])
-def get_review(review_id):
-    try:
-        review = Review.query.get(review_id)
-        return review.to_dict() if review else (f"Review with id {review_id} not found", 404)
-    except Exception:
-        return "500", 500
-
-
 @bp.route("<int:review_id>",  methods=["PUT"])
 @login_required
 def put_review(review_id):

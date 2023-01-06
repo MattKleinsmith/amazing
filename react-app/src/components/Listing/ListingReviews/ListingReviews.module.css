@@ -1,0 +1,18 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    background-color: blue;
+}
+
+
+@media screen and (min-width: 1880px) {
+    .wrapper {
+        width: calc(36vw + 23vw + 245px);
+    }
+}
+
+@media screen and (min-width: 820px) and (max-width: 1879px) {
+    .wrapper {
+        width: calc(44.5vw + 23vw + 245px + 35px);
+    }
+}

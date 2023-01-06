@@ -162,3 +162,13 @@ def get_reviews_for_product(product_id):
     if (not product):
         return f"Product with id {product_id} not found", 404
     return [review.to_dict() for review in Review.query.filter(Review.product == product)]
+
+
+@bp.route("<int:product_id>/reviews/current",  methods=["GET"])
+def get_review_for_product_by_current_user(product_id):
+    product = Product.query.get(product_id)
+    if (not product):
+        return f"Product with id {product_id} not found", 404
+    review = Review.query.filter(
+        Review.product == product, Review.buyer == current_user).first()
+    return review.to_dict() if review else (f"Review for this product not found for this user", 404)

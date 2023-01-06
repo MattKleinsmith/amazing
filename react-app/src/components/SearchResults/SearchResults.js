@@ -43,7 +43,7 @@ export default function SearchResults({ showRecent }) {
 
     return (
         <div className={styles.superWrapper}>
-            <SearchResultsBar products={products} keywords={showRecent ? "recent" : searchParams.get("k")} />
+            <SearchResultsBar products={products} keywords={showRecent ? "recent" : searchParams.get("k")} showRecent={showRecent} />
             <div className={styles.wrapper}>
                 {/* <SearchResultsFilter /> */}
                 {products1.length > 0 && <div className={styles.results}>
