@@ -27,6 +27,7 @@
 
 .ratingBarFill {
     height: 100%;
+    width: 0%;
 
     background-color: #FFA41C;
     box-shadow: inset -2px 0 0 -1px #f5961d, inset 0 0 0 1px #de7921;
@@ -34,17 +35,79 @@
     border-radius: 4px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+}
 
-    animation: animateWidth .5s ease-in;
+.ratingBarAnimate5 {
+    animation: animateWidth5 0.5s ease;
     animation-fill-mode: forwards;
 }
 
-@keyframes animateWidth {
+@keyframes animateWidth5 {
     0% {
         width: 0%;
     }
 
     100% {
-        width: var(--width, 0%);
+        width: var(--width5, 0%);
+    }
+}
+
+.ratingBarAnimate4 {
+    animation: animateWidth4 0.5s ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes animateWidth4 {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: var(--width4, 0%);
+    }
+}
+
+.ratingBarAnimate3 {
+    animation: animateWidth3 0.5s ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes animateWidth3 {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: var(--width3, 0%);
+    }
+}
+
+.ratingBarAnimate2 {
+    animation: animateWidth2 0.5s ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes animateWidth2 {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: var(--width2, 0%);
+    }
+}
+
+.ratingBarAnimate1 {
+    animation: animateWidth1 0.5s ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes animateWidth1 {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: var(--width1, 0%);
     }
 }
