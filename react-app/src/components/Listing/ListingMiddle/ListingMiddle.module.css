@@ -56,6 +56,12 @@
     line-height: 20px;
 }
 
+.numRatings:hover {
+    color: #c45500;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .hr {
     background-color: transparent;
     border-bottom-width: 0;

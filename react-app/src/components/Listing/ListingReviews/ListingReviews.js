@@ -6,10 +6,13 @@ import { getReviewsByProductId } from "../../../store/reviews";
 
 import ListingReviewsBreakdown from "./ListingReviewsBreakdown/ListingReviewsBreakdown";
 import ListingReviewsList from "./ListingReviewsList/ListingReviewsList";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
-export default function ListingReviews({ product }) {
+export default function ListingReviews({ product, setReviewPosition }) {
     const dispatch = useDispatch();
+    const ref = useRef();
+
+    if (ref.current) setReviewPosition(ref.current.offsetTop);
 
     useEffect(() => {
         dispatch(getReviewsByProductId(product.id));
@@ -18,7 +21,7 @@ export default function ListingReviews({ product }) {
     const reviews = useSelector(state => Object.values(state.reviews));
 
     return (
-        <div className={styles.wrapper}>
+        <div ref={ref} className={styles.wrapper}>
             <ListingReviewsBreakdown product={product} reviews={reviews} />
             <ListingReviewsList product={product} reviews={reviews} />
         </div>
