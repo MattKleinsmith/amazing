@@ -24,11 +24,14 @@
 
 .imageWrapper {
     overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
 
 @media screen and (min-width: 1880px) {
     .imageWrapper {
         width: 36vw;
+        height: 80vh;
     }
 
     .thumbnailListWrapper {
@@ -43,7 +46,7 @@
 }
 
 .image {
-    width: 100%;
+    width: auto;
     height: 100%;
     padding-top: 0px;
     padding-right: 10px;
