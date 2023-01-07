@@ -1,12 +1,11 @@
-// import Stars from "../../../Stars/Stars";
 import styles from "./ListingReviewsList.module.css"
+
 import Review from "./Review/Review"
 
 export default function ListingReviewsList({ product, reviews }) {
     if (reviews.length === 0 || reviews[0].product_id !== product.id) return;
-    const images = reviews.filter(review => review.review_images.length > 0).map(review => review.review_images[0]).slice(0, 4);
-    console.log("reviews", reviews);
-    console.log("images", images);
+    let images = reviews.filter(review => review.review_images.length > 0).map(review => review.review_images[0]);
+    images = images.slice(images.length - 4);
     return (
         <div className={styles.wrapper}>
             <div>
@@ -15,7 +14,7 @@ export default function ListingReviewsList({ product, reviews }) {
             </div>
             <div>
                 <div className={`${styles.heading} ${styles.reviewsHeading}`}>Reviews</div>
-                <div>{reviews.map((review, i) => <Review key={i} review={review} />)}</div>
+                <div className={styles.reviews}>{reviews.map((review, i) => <Review key={i} review={review} />)}</div>
             </div>
 
         </div>

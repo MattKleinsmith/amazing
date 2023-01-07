@@ -34,7 +34,7 @@ export default function Listing() {
                 <ListingMiddle product={product} />
                 <ListingRight product={product} />
             </div>
-            <div className={styles.top}>
+            <div className={styles.reviews}>
                 <ListingReviews product={product} />
             </div>
         </div>

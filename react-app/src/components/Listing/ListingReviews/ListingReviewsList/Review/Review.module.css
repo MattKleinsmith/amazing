@@ -46,4 +46,5 @@
     line-height: 20px;
     color: #0F1111;
     overflow-wrap: break-word;
+    white-space: pre-wrap;
 }

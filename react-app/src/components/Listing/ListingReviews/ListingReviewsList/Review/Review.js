@@ -1,5 +1,6 @@
-import Stars from "../../../../Stars/Stars";
 import styles from "./Review.module.css"
+
+import Stars from "../../../../Stars/Stars";
 
 export default function Review({ review }) {
     let reviewDate = new Date(review.created_at);
