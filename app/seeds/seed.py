@@ -1,13 +1,29 @@
-from app.models import db, User, Product, ProductImage, Review, ReviewImage
+from app.models import db, User, Product, ProductImage, Review, ReviewImage, Address
 from app.seeds.upload import upload_image_to_bucket_from_url
 
 
 def seed_all():
     demo = User(
-        fullname="Demo",
+        fullname="Demo Smith",
         email="email@email.com",
         password="password"
     )
+
+    db.session.add(demo)
+    db.session.commit()
+
+    address = Address(
+        user_id=demo.id,
+        fullname=demo.fullname,
+        address="123 Main St",
+        city="Kansas City",
+        state="MO",
+        zipcode="12345",
+        region="United States",
+        phone="1231231231"
+    )
+
+    db.session.add(address)
 
     seller = User(
         fullname="Seller",
@@ -44,8 +60,6 @@ def seed_all():
         email="sarah@email.com",
         password="password"
     )
-
-    db.session.add(demo)
 
     # https://www.amazon.com/Philips-Sonicare-Toothbrush-Rechargeable-HX3681/dp/B09LD7WRVS
 
@@ -1936,6 +1950,122 @@ def seed_all():
             rating=5.0,
             review="Went to the store and saw they were charging $13 for 32 gigabytes but then I go on Amazon and I can get 120gb for the same price! I bought this SD card to use on my dash cam and it’s worked perfectly so far.",
             title="Best SD Cards Out There"
+        ),
+    ])
+
+    # https://www.amazon.com/Amazon-Basics-Lightweight-Microfiber-14-Inch/dp/B00Q7OAW1U/ref=sr_1_19?crid=39H0ZIRVXYJ34&keywords=amazon%2Bbasics&qid=1673131349&sprefix=amazon%2Bbasic%2Caps%2C96&sr=8-19&th=1
+
+    product = Product(
+        seller=seller,
+        title="Amazon Basics Lightweight Super Soft Easy Care Microfiber Bed Sheet Set with 14-Inch Deep Pockets - Twin, Navy Blue",
+        price="14.91",
+        description="Make sure this fits by entering your model number.\n100% Polyester Microfiber\nImported\nTwin bed sheet set includes (1) 66 x 96-inch flat sheet, (1) 38 x 74 x 14-inch fitted sheet, and (1) 20 x 30-inch Standard pillowcase\nAll-around elastic on 14-inch fitted sheet allows for snug, secure fit of most mattress sizes up to a 16-inch mattress depth\nSuper soft and durable polyester microfiber (85 GSM) fabric offers all-season comfort and resists wrinkles and fading\nEasy care bedding; machine wash warm with no bleach and tumble dry low\nMade in an OEKO-TEX Standard 100 factory, an independent certification system that ensures textiles meet high safety and environmental standards"
+    )
+
+    db.session.add_all([
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81BERSr+JuL._AC_SL1500_.jpg"),
+            preview=True,
+            position=1
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81s7hRHorbL._AC_SL1500_.jpg"),
+            preview=False,
+            position=2
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71jaTaeVffL._AC_SL1500_.jpg"),
+            preview=False,
+            position=3
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51waip1B-bL._AC_SL1500_.jpg"),
+            preview=False,
+            position=4
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51xwYpbT0IL._AC_SL1500_.jpg"),
+            preview=False,
+            position=5
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/218XgotUAuL._AC_SL1500_.jpg"),
+            preview=False,
+            position=6
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/61FmE6TAM9L._AC_SL1500_.jpg"),
+            preview=False,
+            position=7
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/61I0wbY1FUL._AC_SL1500_.jpg"),
+            preview=False,
+            position=8
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=4.0,
+            review="First, I love the color (spa blue).  I really prefer crisp white percale sheets, but that doesn't work for my husband (he sweats a lot at night, so white sheets become yellow rather quickly).  For whatever reason, I can't seem to find nice percale sheets like my grandma used to have.  She never wasted money on high thread count, but her sheets were also crisp and fresh and smooth.  All the sheets I have tried over the years end up being rough or they pill or they wrinkle.  I had one set that I loved the feel of, but the top sheet would NOT ever give me a nice clean edge, even if I ironed it.  So when we bought our new king-size bed and had to upgrade all our queen size bedding, I decided to take a chance on these microfiber sheets.  They are thinner than I expected, but they seem to be sturdy, I hope.  Only time will really tell.  They washed up beautifully, and when I pulled them out of the dryer (TBH, it was 3 days later), there wasn't a wrinkle to be seen and no pilling.  When we put the fitted sheet on the bed, it fit snugly, exactly as it is supposed to, without a wrinkle and without any loose sections that tend to annoy me when I'm in bed at night.  The top sheet fit well, but I wish it were longer.  The sides drape just right, but the length didn't give me much to tuck under the end of the bed, which is actually very important to me, as my husband is a rough sleeper and tends to pull sheets and blankets out if they aren't well-tucked.  The pillowcases are much larger than I expected.  We have good quality thick bamboo pillows that are dwarfed by these cases' length (probably extra 6 inches or more hanging loose at the end of the pillow), but they fit the pillows properly in every other regard, nice and smooth, snug without being tight.  The sheets are smooth and soft.  Not percale crisp, but a nice softness that might just convince me to give up on the percale dream.  They also don't have that weird microfiber feel that so many others have (can't really describe it, but it just doesn't feel natural to me).  I only have 2 complaints, and they are fairly minor.  The biggest complaint is that the bottom sheet fits well, but it doesn't stay in place.  Woke up in the morning with the sheet completely off in one corner.  I'm hoping that it is just that we didn't get it on quite right the first time and maybe it will hold up better in the future, or maybe I'm going to have to invest in some straps to hold the corners in place better.  The other complaint is more like a suggestion.  our last set of sheets had a small tag on the fitted sheet that said \"Top or Bottom\" so we always knew which way to put it on the bed.  Queen sheets were easier to identify ends from sides (obvious rectangle), as the king sheets are closer to square and harder to identify ends.  We had to put the sheet on and try it, then pull it off and turn it before we knew the correct placement.  I will put some kind of mark on it myself for future placement, but it would sure be nice if the manufacturer would include that tag from the get-go.",
+            title="Good basic sheets, soft, wrinkle-free, but thin"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5.0,
+            review="For two years. Two years I suffered in silence. Yes. I.... I a struggling young adult struggled with only one... Yes that's right ONE set of sheets. Every week it was the same. Strip the bed. Wash the sheets, dry the sheets, remake the bed. Over the 2 years my one poor set of sheets took a beating. They saw countless menstrual cycles, various cold and flue viruses, dogs, and sleep overs. I meticulously washed and  bleached those sheets until one day I took them from the wash and noted that they were beyond bleaching or stain removal. There were dying.... They were dying gray.\n\nI searched high and low. Went to target and TJ Maxx... But to no avail. Why... Why were simple square pieces of fabric $50.00!?!?!? I could not afford this. I could not justify the spending of $50.00 on plain white fabric. So I searched. I searched high and I searched low Until I came here...\nTo The Amazon.\n\nIt was here. Here I discovered them. Plain white sheets at a modest and affordable price.\n\"Don't buy them! You'll regret it! You need Egyptian cotton!\" My mother said.\n\n\"No! I care not what cotton they be! All I need are sheets! I have no one to impress! No one who shares my bed! I am a lowly virgin promised in matrimony to another with a sworn vow of chastity! I care not for fancy sheets!\" I shouted.\n\nSo I bought them. I made my bed and I laid in it. And I can tell you that yes... They are I fact sheets that you can sleep in.",
+            title="My search was over."
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=4.0,
+            review="Nov  13th, original review:\nI didn't actually realize these were microfiber, thought they were cotton. I looked at so many sheet sets that day I probably just got it mixed up. So I will review them from the standpoint as if I actually ordered microfiber on purpose instead of being incredibly disappointed I wasn't paying attention and did not  get cotton sheets. That's on me.\n\nWhen you take them out to wash them (I hope everyone washes sheets before putting on your bed, you never know what it could have picked up in the factory or warehouse!) they feel a bit plastic, and when you shake it out, it sounds like a flag, lol. Which of course I thought was super strange for cotton sheets, lol. Looked on tag and that's when I realized I got the wrong fabric. Oh well, they are really pretty so I'll give them a chance anyway.\n\nThey are very wrinkle resistant, that's true. The colors are beautiful. The sheets are soft but still have that weird plastic feel. These sheets would actually be great for summer or if someone is having hot flashes because they stay pretty cool.\n\nSo I will keep them but they will be summer sheets. They just don't hold the warmth in winter like I wanted. For microfiber, yes, they are nice. But if you expect them to be anything like cotton, you'll be very disappointed.\n\nUpdate, Nov 26th, 2022:\nWell I will say these will be good summer sheets. I also really like the coolness of the fabric when it's on the pillows. Great for not overheating your head while sleeping. And they feel a lot better after washing a couple of times.\n\nI don't think I'll use them in winter. It's kind of shocking to get into a bed on a cold night and find yourself lying on cold sheets! Haha! So yes, these will be great for summer for sure.\n\nP.S. I've discovered the best sheets for winter are microfleece. Get good quality ones if you want to try them because there is a huge difference in quality of microfleece. They are warm, cozy, but don't overheat me. Perfect!",
+            title="Microfiber"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=1.0,
+            review="My boyfriend has bought these sheets for us many times in the past and we've loved them, they are polyester but felt like cotton. They have lasted for years and are so comfortable. We bought new ones because we upgraded to a Queen and needed bigger sheets. The new sheets feel awful! Even though the tag says its the same material and it's the same product, these sheets feel completely different. I don't think Amazon should be allowed to market these sheets marketed as the same ones they used to sell. The material, doesn't breathe, feels terrible to the touch and snags on feet. And after using them for 2 weeks, they have pilled. Oh well, I was about to throw them out anyway. So disappointing.",
+            title="Newly changed material is terrible"
+        ),
+
+        Review(
+            buyer=sarah,
+            product=product,
+            rating=1.0,
+            review="WARNING: Upon receiving, I found these sheets bled their Navy Blue color onto things (after 2 extra rinse prewashes), which were then permanently stained by it. Were it not for that dealbreaking flaw, these sheets would be a 3/5 given the price and assuming you don't particularly care about the list of cons below. Personally, a year later, I regret not immediately refunding and replacing.\n\nCons: 1) NOT COLORFAST - can and will stain anything touched 2) EXTREME PILLING + threads coming out regardless of delicate washing and air drying (both immediately evident), 3) DETRITUS SUPER MAGNET - attracts fluff/hair/whatever and doesn't want to let it go in the wash (vacuuming, LOL at having to, does nothing - most of it is stuck on as though by barbs)\n\nPros: 1) PRICE - If you get non-dyed and none of the above concerns you, might be a reasonable value (quite a bit of rationalizing here - Costco currently has a microfibre set for $17), 2) SHRED RESISTANCE - somewhat more resistant to ripping/tearing than expensive cotton sheets, 3) TECHNICALLY FUNCTIONAL - they don't feel awful to touch/sleep on as far as I can tell, but neither did any other bedsheet set ive had, every one of which was superior in terms of all cons.",
+            title="These will stain what they touch"
         ),
     ])
 
