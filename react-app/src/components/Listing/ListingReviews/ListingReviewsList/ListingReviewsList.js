@@ -8,12 +8,12 @@ export default function ListingReviewsList({ product, reviews }) {
     images = images.slice(images.length - 4);
     return (
         <div className={styles.wrapper}>
-            <div>
+            {images.length > 0 && <div>
                 <div className={styles.heading}>Review images</div>
                 <div>{images.map((image, i) => <img className={styles.image} key={i} alt={i} src={image.url} />)}</div>
-            </div>
+            </div>}
             <div>
-                <div className={`${styles.heading} ${styles.reviewsHeading}`}>Reviews</div>
+                <div className={`${styles.heading} ${styles.reviewsHeading}`}>Top reviews from the United States</div>
                 <div className={styles.reviews}>{reviews.map((review, i) => <Review key={i} review={review} />)}</div>
             </div>
 
