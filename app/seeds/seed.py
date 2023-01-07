@@ -1741,7 +1741,7 @@ def seed_all():
         ProductImage(
             product=product,
             url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/612zDGeN+sL._AC_SL1500_.jpg"),
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81vEzLBqoHL._AC_SL1500_.jpg"),
             preview=False,
             position=2
         ),
@@ -1749,7 +1749,7 @@ def seed_all():
         ProductImage(
             product=product,
             url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71VLCNDupmL._AC_SL1500_.jpg"),
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/612zDGeN+sL._AC_SL1500_.jpg"),
             preview=False,
             position=3
         ),
@@ -1757,7 +1757,7 @@ def seed_all():
         ProductImage(
             product=product,
             url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81oaBqvWAXS._AC_SL1500_.jpg"),
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71VLCNDupmL._AC_SL1500_.jpg"),
             preview=False,
             position=4
         ),
@@ -1765,7 +1765,7 @@ def seed_all():
         ProductImage(
             product=product,
             url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71z8TgHJGDL._AC_SL1500_.jpg"),
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81oaBqvWAXS._AC_SL1500_.jpg"),
             preview=False,
             position=5
         ),
@@ -1773,9 +1773,17 @@ def seed_all():
         ProductImage(
             product=product,
             url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71RZ8Hj6JOL._AC_SL1500_.jpg"),
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71z8TgHJGDL._AC_SL1500_.jpg"),
             preview=False,
             position=6
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71RZ8Hj6JOL._AC_SL1500_.jpg"),
+            preview=False,
+            position=7
         ),
 
         Review(
@@ -1783,7 +1791,7 @@ def seed_all():
             product=product,
             rating=5.0,
             review="I tested the AA size Amazon brand battery to find out the actual usable capacity as compared to the AA Duracell Procell battery. The results showed that the Amazon battery is about 88 percent the capacity of the Duracell. If you calculate the cost per unit capacity, the batteries are almost identical. The Amazon battery was actually slightly more expensive when represented in cost per Watt-Hour. Because of this I would probably choose the Procell (if I can get a good price on it) just because it means less frequent battery changes. The Amazon battery is a surprisingly good battery though. You will probably barely notice the difference in capacity, so if you don't want to waste time shopping around then its a good choice.\n\nI also performed the same test on Duracell Copper Top, and Energizer Max. Their performance was nearly identical to the Procell. More interestingly, I tested the Energizer Ultimate Lithium AA cell. This cell was 4 times the cost of a procell at $1.27 per cell! However the capacity was only 1.5 times that of the Procell. So don't waste your money on these batteries, they're much more expensive per unit of capacity. The capacity of all these batteries were measured in Watt-Hours. Here are the numbers.\n\nAA Amazon Battery = 2.71 Wh. My cost per cell = $0.291. Cost per Watt-Hour = $0.107\nAA Duracell Procell = 3.09 Wh. My cost per cell = $0.321. Cost per Watt-Hour = $0.104\nAA Energizer Lithium = 4.86 Wh. My cost per cell = $1.27. Cost per Watt-Hour = $0.261\n\nThis test was done using an op-amp circuit to maintain a constant current load at 100ma. Voltage and current were being logged ounce per minute and this data was used to calculate the Amp-Hour with a 0.8 volt cutoff. The Watt-Hour was then calculated by multiplying the Amp-Hour by the average voltage from the beginning of the test to 0.8 volts. All batteries mentioned were tested using this same method. Note that the capacity of these batteries can change dramatically under different conditions. The same battery under a heavy load will have a fraction of the capacity that it would under a light load. This data is only good for a comparison when choosing what battery is worth buying at what price. Unless your device loads the battery at a constant current of 100ma.\n\nIn summery, the Amazon batteries are not bad batteries (at least based on this test using the AA cell). If you choose to shop around for a name brand battery, stay at or below $0.33 per cell. Anything above $0.33 per cell will be more expensive per unit capacity than the Amazon battery. Oh, and definitely stay away from the Energizer Lithium unless expense is not an issue. These batteries are only worth the additional cost if your application requires a light weight and relatively high capacity battery regardless of cost. These batteries are surprisingly light weight compared to an alkaline.lkaline.",
-            title="undefined"
+            title="Results of capacity testing shows its slightly below the competition."
         ),
 
         ReviewImage(
@@ -1792,7 +1800,7 @@ def seed_all():
                 product=product,
                 rating=5.0,
                 review="Like many of us after the holidays, I found myself short on AAA batteries. Well, actually…I was totally out of them after all the wreaths and trees with lights and remotes I had for the holidays.\n\nAfter hunting around and comparing prices, this Amazon Basics purchase seemed to be pretty cost-effective.\n\nI received the shipment pretty fast and was impressed with the packaging. I like how these batteries came in a sturdy box and the batteries were sealed in plastic in four equal portions. I opened the first package to keep in my battery container and will keep the others sealed until it’s time to break them open. I like to keep batteries on both floors of my home for convenience.\n\nI also like that they have a shelf life of ten years, though I don’t think it will be that long before we use them.\n\nThe batteries I have used so far had a full charge. I always keep a battery tester with my battery stash, so I can see what the charge is.\n\nI am very pleased with this purchase and feel that it is a good value. I will be looking to buy Amazon batteries again in this and other sizes.",
-                title="undefined"
+                title="This is a pretty good deal for batteries"
             ),
             url=upload_image_to_bucket_from_url(
                 "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71J73LiVr7L._SL1500.jpg"),
@@ -1803,7 +1811,7 @@ def seed_all():
             product=product,
             rating=5.0,
             review="I had been using several brands of batteries, and they never seemed to last very long. My home devices need AA batteries, so I am using these Amazon's Alkaline Batteries for my remotes, flashlights, and smoke detectors to see if they live up to their efficiency. I find this 20-pack set the most practical because the batteries protect your devices from leakage, and I don't have to worry for a while once I use them. They are aimed at high demand and are advertising to last 50% longer than other store-bought batteries. It also has a 10 yr shelf life, so you can have them around in case you need them. The packaging they came in is what you expect from Amazon; well-received and in excellent condition. They're my go-to batteries from now on. Highly recommend!!!",
-            title="undefined"
+            title="Super Long Lasting AA Batteries :-)"
         ),
 
         Review(
@@ -1811,7 +1819,7 @@ def seed_all():
             product=product,
             rating=5.0,
             review="For many uses, I prefer Amazon Basics rechargeable batteries, but there are some situations where the device isn't happy with the voltage profile of a rechargeable (typically 1.2 volts) compared to an alkaline (typically 1.5 volts to start).  For the majority of those situations, AC Delco are my favorite low cost AA alkaline batteries, but, they were not available, so I went with these Amazon Basics which were only slightly more expensive the AC Delco.\n\nFor typical uses like the many, many, LED candles and mini-Christmas tree lights my wife has scattered around the house, these provide a cost effective solution.\n\nThe only use for which I have found that these aren't ideal is in our smart lock.  For this use, I find that Duracell batteries outperform value batteries, providing over twice the life.  But, since the Duracell cost twice as much as the these, it isn't a cost thing, it's more the convenience of not having to change the batteries as often that leads me to use the Duracells for the smart lock.\n\nThe one minor complaint I have with these Amazon Basics batteries is the packaging. They do provide a slight challenge to get out of the shrink wrap.",
-            title="undefined"
+            title="Good relatively low cost AA alkaline batteries"
         ),
 
         Review(
@@ -1819,7 +1827,115 @@ def seed_all():
             product=product,
             rating=5.0,
             review="The Amazon Basics 100 Pack AA Batteries are an excellent choice for powering your everyday devices. They are reliable, long-lasting, and provide consistent power. The batteries are made with high-quality materials and are designed to last up to 10 years in storage. They are also leak-proof and have a low self-discharge rate, so you can be sure that your devices will stay powered for a long time. The batteries are also reasonably priced, making them a great value for the money. Overall, the Amazon Basics 100 Pack AA Batteries are an excellent choice for powering your everyday devices.",
-            title="undefined"
+            title="For The Price  - Can't beat it!!!"
+        ),
+    ])
+
+    # https://www.amazon.com/Amazon-Basics-microSDXC-Memory-Adapter/dp/B08TJRVWV1/ref=sr_1_5?crid=39H0ZIRVXYJ34&keywords=amazon%2Bbasics&qid=1673131349&sprefix=amazon%2Bbasic%2Caps%2C96&sr=8-5&th=1
+
+    product = Product(
+        seller=seller,
+        title="Amazon Basics microSDXC Memory Card with Full Size Adapter, A2, U3, Read Speed up to 100 MB/s, 128 GB",
+        price="14.59",
+        description="Make sure this fits by entering your model number.\nWIDE COMPATIBILITY: Compatible with smartphones, tablets, cameras, GoPro/action cameras, laptops, desktop computers, DSLRs, drones, Nintendo Switch/other portable consoles and much more. Includes SD adapter. Note: Please refer to compatible devices list (keep update) in below Product guides for more detail.\nHIGH QUALITY STORAGE: Perfect for high resolution photos, for recording and storing Full HD/4K videos and any other data type\nULTRA FAST: Read speed up to 100mb/s. Write speed up to 60mb/s (varies according to memory size). UHS, U3, Class 10 and A2 speed classes for an optimal smartphone experience\nLASTING RELIABILITY: Shockproof, IPX6 waterproof, temperature-proof (-10° to 80°), X-Ray-proof and magnetic-proof\nNote: Actual storage capacity shown by a device's OS may be less than the capacity indicated on the product label due to different measurement standards. The available storage capacity is higher than 116GB.\nRead and write speeds are based on internal tests conducted under controlled conditions. Actual speeds may vary depending on device used, interface, conditions of use, and other factors\nNote: Please note that we are changing the product's printing and packaging; both 2 versions are the same. (Old version does not show the A2 logo, but its performance is A2 level.)\nNote: Check whether your device is compatible with the MicroSD capacity, for example, if the device only supports a maximum capacity of 64GB, it may not recognize 128GB MicroSDs above"
+    )
+
+    db.session.add_all([
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/61DwejyTGkL._AC_SL1500_.jpg"),
+            preview=True,
+            position=1
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71swf31eHtL._AC_SL1500_.jpg"),
+            preview=False,
+            position=2
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81odhbhx3BL._AC_SL1500_.jpg"),
+            preview=False,
+            position=3
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/818qMd1TCDL._AC_SL1500_.jpg"),
+            preview=False,
+            position=4
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81E2vgO9vmL._AC_SL1500_.jpg"),
+            preview=False,
+            position=5
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/815qkPHsGZL._AC_SL1500_.jpg"),
+            preview=False,
+            position=6
+        ),
+
+        ReviewImage(
+            review=Review(
+                buyer=brian,
+                product=product,
+                rating=5.0,
+                review="I am reviewing and comparing two different memory cards, the Amazon basics 256gb and the SanDisk Extreme 256gb card.\n\nFirst is price, the Amazon basics is a several dollars less than the SanDisk (at this moment 23.72 vs 36.99). Currently Amazon says there is a newer version of the SanDisk for 24.85, however I have not purchased or tested the newer version.\n\nThe two cards:\n\"SanDisk 256GB Extreme microSDXC UHS-I Memory Card with Adapter - Up to 160MB/s, C10, U3, V30, 4K, A2, Micro SD - SDSQXA1-256G-GN6MA\"\n\"Amazon Basics microSDXC Memory Card with Full Size Adapter, A2, U3, Read Speed up to 100 MB/s, 256 GB\"\n\nTested using:\nCrystalDiskMark 5.5.0 x64.\nComputer is a 4 year old \"NUC8i7HVK\" running Windows 10, and it has a built in SD card reader (Intel calls it \"SDXC with UHS-I support\"). This interface is what I call \"SD reader\" in the accompanying screen captures.\nI also tested using a SanDisk USB 3 adapter \"SanDisk MobileMate USB 3.0 microSD Card Reader- SDDR-B531-GN6NN\". This interface is what I call USB3 in the accompanying screen captures.\n\nFirst, I noticed a UK review where the reviewer noted the Amazon basics card seems to be missing 5 gigabytes of storage even when the (confusing) translation from computer storage gigabytes (1024 x 1024 x 1024 = 1,073,741,824 bytes vs 1000 x 1000 x 1000 = 1,000,000,000 bytes) vs \"we sell storage\" gigabytes. You will notice CrystalDiskMark reports the Amazon basic card as 233GiB versus the 238GiB of the SanDisk, so he is very correct. I have no clue why the discrepancy, but it is slightly smaller than it should be.\n\nSecond, to get the real read/write speed of the SanDisk card, you will notice I had to use the SanDisk USB 3 adapter. Using the built in SD card reader, both cards were very close to identical results.\nUsing the SanDisk USB 3 adapter, I did manage to exceed the ratings for the SanDisk card (up to 160 MB/s read, and up to 90 MB/s write) giving 169 read and 105 write. The Amazon basic card did have a slight change using the SanDisk adapter, but really not significant.\n\nBoth cards were close enough to their claimed specs to not worry about it, however it should be noted that you need the SanDisk adapter to actually get the much higher speeds of the SanDisk.\nI will be using the Amazon basic card to store children's movies for my granddaughter to play on her new Kindle, it is plenty fast enough reading to do full HD movies.\n\nNote that both cards were brand new when tested and had never had anything written or read from them prior to the test. The Amazon basic seems a good value and is certainly adequate for normal use in a cell phone or laptop. The SanDisk would really shine if you used the adapter to move lots of larger files to it.",
+                title="256gb Amazon basic vs 256gb SanDisk Extreme"
+            ),
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/61MWGEaPvBL._SL1500.jpg"),
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5.0,
+            review="I'm a sucker for a bargain and always trying out Amazon Basics branded items when I need them. They're almost always a great value. But even I was still hesitant about them hawking cheap Mirco SD cards. Especially with these specifications, features and advertised speeds. But here I am, fully satisfied and impressed. They deliver.\n\nI figured that worse case scenario I'd use them on less demanding gadgets. But you can slap one of these in something like a Steam Deck, install a AAA game, and notice no difference from a quality line of name brand cards. Now maybe the quality control is lower, and/or maybe they have shorter lifespans. But I bought two 256gb cards and both work fine. On anything from gaming devices to tablets to cameras and so on. Transfer speeds are there in both read and write. No reliability issues at all. I've had no issues with data loss in mounting/unmounting. And they've been holding up so far.\n\nWith so many gadgets these days using the Micro SD format I'm starting to have quite the collection. I've got stuff like Samsung EVO Select's and Pro's. And then I've got stuff all the way on the other end of the spectrum like unbranded generic ones that die the first time you eject them from the device they came with. I am very comfortable in saying that these are performing for me like the Samsung's on the higher end of the spectrum. With the prices these go on sale, there's no reason not to add them to your mix. You can always use them in less important or demanding devices if you don't want to trust them. But like I said, I'm using them in demanding devices with regular heavy use and they're up to task.\n\nDefinitely recommend them.",
+            title="Color me Impressed"
+        ),
+
+        ReviewImage(
+            review=Review(
+                buyer=derrik,
+                product=product,
+                rating=5.0,
+                review="I used this for a dash cam and the camera had no problem formatting the card the adapter makes it easy to take it out then watch the clips on my computer. I only use this to store videos but it has the full capacity stated when my dash cam checked",
+                title="Best deal for price"
+            ),
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/614YUnqpyiL._SL1500.jpg"),
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=4.0,
+            review="I ordered this because the price was very reasonable, and I know most Amazon branded products are good quality. I needed another 128gb card to \"clone\" one that has a specific functioning program on it for one of my small form factor computers so that I can put the second cloned card into my second identical computer that doesn't want to function correctly with a NEW install of the same software. The problem is, the working 128gb card reads as 119gb, and the new Amazon 128gb card reads as only 117gb so it is too small for cloning the working one. It's not that the card doesn't work, or isn't any good, it is just smaller than it needed to be, which is very disappointing. I now have to get another card of a larger formatted size for this project. The Amazon card is working just fine however in my sons Nintendo Switch, so I can't complain too much. If you're looking for a slightly undersized 128gb micro sd card at a very reasonable price, and can live with only 117gb, buy this one and you'll be happy you saved a few bucks. I'd buy it again for other projects, or for a dashcam, gopro style cam, or maybe for security cameras, or maybe a tablet/phone, because they would be fine for those uses.",
+            title="Disappointed in this one"
+        ),
+
+        Review(
+            buyer=sarah,
+            product=product,
+            rating=5.0,
+            review="Went to the store and saw they were charging $13 for 32 gigabytes but then I go on Amazon and I can get 120gb for the same price! I bought this SD card to use on my dash cam and it’s worked perfectly so far.",
+            title="Best SD Cards Out There"
         ),
     ])
 
