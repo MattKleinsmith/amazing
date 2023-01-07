@@ -24,16 +24,16 @@ export default function AppRoutes() {
             <Route path="/signin" element={<SignInForm />} />
             <Route path="/register" element={<RegisterForm />} />
 
-            <Route path="/inventory" element={<Inventory />} />
-            <Route path="/inventory/add" element={<ListingForm />} />
-            <Route path="/inventory/:productId" element={<ListingForm />} />
+            <Route path="/inventory" element={<Protected><Inventory /></Protected>} />
+            <Route path="/inventory/add" element={<Protected><ListingForm /></Protected>} />
+            <Route path="/inventory/:productId" element={<Protected><ListingForm /></Protected>} />
 
             <Route path="/addresses" element={<Protected><Addresses /></Protected>} />
-            <Route path="/addresses/add" element={<AddressForm />} />
-            <Route path="/addresses/:addressId" element={<AddressForm />} />
+            <Route path="/addresses/add" element={<Protected><AddressForm /></Protected>} />
+            <Route path="/addresses/:addressId" element={<Protected><AddressForm /></Protected>} />
 
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/order-confirmation" element={<OrderConfirmation />} />
+            <Route path="/orders" element={<Protected><Orders /></Protected>} />
+            <Route path="/order-confirmation" element={<Protected><OrderConfirmation /></Protected>} />
         </Routes>
     );
 }
