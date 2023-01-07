@@ -11,7 +11,7 @@ result = `
     db.session.add_all([
 `
 
-product_image_urls = Array.from(document.querySelectorAll(".a-dynamic-image.a-stretch-vertical")).map(img => img.src.replace(/SX\d\d\d/i, "SL1500"));
+product_image_urls = Array.from(document.querySelectorAll(".a-dynamic-image.a-stretch-vertical")).map(img => img.src.replace(/S[A-Z]\d\d\d/i, "SL1500"));
 product_image_urls.forEach((url, i) => {
     result += `
         ProductImage(

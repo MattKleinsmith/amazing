@@ -13,7 +13,7 @@ export default function ListingReviews({ product }) {
 
     useEffect(() => {
         dispatch(getReviewsByProductId(product.id));
-    }, [dispatch, product.id]);
+    }, [dispatch, product]);
 
     const reviews = useSelector(state => Object.values(state.reviews));
 

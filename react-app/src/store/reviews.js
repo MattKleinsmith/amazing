@@ -70,9 +70,10 @@ export const deleteReviewImage = (reviewId, reviewImageId) => async dispatch => 
 };
 
 export default function reviewsReducer(state = {}, action) {
-    const newState = { ...state };
+    let newState = { ...state };
     switch (action.type) {
         case GET_REVIEWS:
+            newState = {};
             for (const review of action.reviews) {
                 newState[review.id] = review;
             }

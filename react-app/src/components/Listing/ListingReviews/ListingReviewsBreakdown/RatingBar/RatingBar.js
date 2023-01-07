@@ -17,7 +17,6 @@ export default function RatingBar({ percents, rating }) {
         function playAnimation(entries, observer) {
             entries.forEach(entry => {
                 if (entry.intersectionRatio > .2) {
-                    console.log("playAnimation", entry);
                     ref.current?.style.setProperty(`--width${rating}`, `${percents[rating]}%`);
                     ref.current?.classList.add(classes[rating]);
                 }
