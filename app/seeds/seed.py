@@ -831,6 +831,118 @@ def seed_all():
         ),
     ])
 
+    # https://www.amazon.com/Kingston-480GB-Solid-SA400S37-480G/dp/B01N0TQPQB/ref=sr_1_4?keywords=ssd&qid=1673128339&sr=8-4&th=1
+
+    product = Product(
+        seller=seller,
+        title="Kingston 480GB A400 SATA 3 2.5\" Internal SSD SA400S37/480G - HDD Replacement for Increase Performance",
+        price="32.99",
+        description="Make sure this fits by entering your model number.\nFast start up, loading and file transfers. A400 has a 7 millimeter form factor to fit in a wider array of systems. It’s ideal for slimmer notebooks and in systems with limited available space\nMore reliable and durable than a hard drive\nMultiple capacities with space for applications or a hard drive replacement; Operating temperature: 0°C-70°C\nCapacity: 480GB, Interface: SATA Rev. 3.0 (6Gb/s) with backwards compatibility to SATA Rev. 2.0. 480GB to 500MB/s Read and 450MB/s Write"
+    )
+
+    db.session.add_all([
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/91RL+MhTWbL._AC_SL1500_.jpg"),
+            preview=True,
+            position=1
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71ZGQh+PENL._AC_SL1500_.jpg"),
+            preview=False,
+            position=2
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/21ys6wDn1NL._AC_SL1500_.jpg"),
+            preview=False,
+            position=3
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81vCejH6FxL._AC_SL1500_.jpg"),
+            preview=False,
+            position=4
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/912Ya5k32eL._AC_SL1500_.jpg"),
+            preview=False,
+            position=5
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81OB7lpfnzL._AC_SL1500_.jpg"),
+            preview=False,
+            position=6
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81PijwOLSWL._AC_SL1500_.jpg"),
+            preview=False,
+            position=7
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5.0,
+            review="I recently upgraded my 11-year-old Windows 7 backup computer to Windows 10, and the Windows 10 boot time was noticeably slow. Previously I had resisted upgrading the computer's C:\ drive to an SSD because of cost, but when I saw this Kingston SSD's low cost I could not resist. I already had the necessary (ASIN B00HJZJI84 not included) USB-to-SATA-3 cable, and a (ASIN B00G57BN1M not included) SSD mounting bracket cost less than ten dollars, an affordable addition.\n\nI optimized my C:\ drive before cloning it, removing obsolete apps and temporary files, and I made a System Image backup. I downloaded Macrium's Reflect Free cloning software from the Internet; Reflect Free has an intuitive user interface and it cloned my HDD to the SSD almost automatically. Swapping the SSD for the HDD involved shifting four screws, a power connector and a data connector. My 11-year-old computer booted on first try and now it boots acceptably fast, an affordable revitalization.",
+            title="Affordably revitalizes legacy computers"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5.0,
+            review="I had trouble getting my pc to recognize this drive. More a pc issue than a drive issue but I contacted Kingston support by email. I was expecting the typical days long wait.  Shockingly within 30 minutes had a reply and then only 5 to 10 minutes wait with followup questions.  Problem was a missing driver on pc. Daniel in support was fantastic.  This will be my go to drive company moving forward.  Pc is now running at least 10x faster. Boots in under 20 seconds. Prior to this drive was minutes. Great support. Great value. Glad I went with Kingston",
+            title="Excellent support"
+        ),
+
+        ReviewImage(
+            review=Review(
+                buyer=derrik,
+                product=product,
+                rating=5.0,
+                review="I use these for my laptops, and they are great drives.  I was just moving a little over 200GB between drives and wanted to write this review.  I have had PNY drives and they use cache in the beginning and drop to about 84MBps after about 8GB is copied...  Even PNY USB sticks are the same, so I am trying these.  These drives sustain 300+MBps all day long.  I am moving this data in about 11 minutes and these things are awesome.",
+                title="Bought a few and all are still great performers"
+            ),
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/41ljn9MVQ-L._SL1500.jpg"),
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5.0,
+            review="I must make a disclaimer here - THESE ARE NOT SERVER ENTERPRISE-RATED DRIVES, GO SEE THE ENTERPRISE SSD LINE.\n\nI purchased a hand full of these drives (2x 240 and 6x 960 GB). For the value you pay, the write endurance for these consumer-level drives is very high! Should last you a few years or more. I have had these in a home lab server for close to a year, very fast and power-efficient.\n\nFor people just looking to make a very low-power home lab server and don't want to deal with a higher power draw of HDD SAS drives. These will work well for you. Just know, if you use these in servers, you could likely void your warranty.\n\nWhen reviewing My array, the drives are reporting that there are a few errors, but I have not experienced a catastrophic failure yet. I am seeing one already intermittently disconnecting and reconnecting to the Raid array after 9000 HRs of the drives being online. Drives still show 97% life left. Still impressive.\n\nIf you are looking at making a fully-fledged home server meant to run 24/7, look into Enterprise level SSDs if you want power efficiency, speed, and full support for ECC. These Drives do not have ECC from what I can tell (No mention of ECC Support for the A400 line in their promotional material).\n\nOverall, great SSD :), Will recommend people to this product for its value and endurance for home lab project boxes and general-purpose computers.",
+            title="Great Value for low power HomeLab Servers - Not Enterprise"
+        ),
+
+        Review(
+            buyer=sarah,
+            product=product,
+            rating=5.0,
+            review="I basically looked at ratings and the price was right during holiday sales. I wanted an SSD drive to use this for my pc back up and image. It runs cool and super fast! My backups finish a lot faster switching this out with an old 2.5HDD. Backups that took 1 hour now take 15 min. SATA connectivity so it is internal and fits in the caddy perfectly. It has a plastic case which surprisingly stays cool enough as not to be a concern.",
+            title="Perfect backup or storage drive."
+        ),
+    ])
+
     db.session.commit()
 
 

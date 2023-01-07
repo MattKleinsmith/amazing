@@ -3,7 +3,7 @@ result = `
 
     product = Product(
         seller=seller,
-        title="${document.querySelector("#productTitle").textContent.trim()}",
+        title="${document.querySelector("#productTitle").textContent.replaceAll('"', '\\"').trim()}",
         price="${document.querySelector(".a-price.a-text-price>span").textContent.replace('$', '')}",
         description="${Array.from(document.querySelectorAll("#feature-bullets>ul>li>span")).map(ele => ele.textContent.replaceAll('"', "\"").trim()).join("\\n")}"
     )
@@ -11,7 +11,7 @@ result = `
     db.session.add_all([
 `
 
-product_image_urls = Array.from(document.querySelectorAll(".a-dynamic-image.a-stretch-vertical")).map(img => img.src.replace(/S[A-Z]\d\d\d/i, "SL1500"));
+product_image_urls = Array.from(document.querySelector("#main-image-container").querySelectorAll(".a-dynamic-image")).map(img => img.src.replace(/S[A-Z]\d\d\d/i, "SL1500"));
 product_image_urls.forEach((url, i) => {
     result += `
         ProductImage(
