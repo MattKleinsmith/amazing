@@ -9,7 +9,7 @@ result = `
     db.session.add_all([
 `
 
-product_image_urls = Array.from(document.querySelectorAll(".a-button-text>img")).map(img => img.src).filter(url => url.includes("SS40_.")).map(url => url.replace("SS40", "SL1500"));
+product_image_urls = Array.from(document.querySelectorAll(".a-dynamic-image.a-stretch-vertical")).map(img => img.src.replace(/SX\d\d\d/i, "SL1500"));
 product_image_urls.forEach((url, i) => {
     result += `
         ProductImage(
@@ -22,7 +22,7 @@ product_image_urls.forEach((url, i) => {
 })
 
 ratings = Array.from(document.querySelectorAll(".a-icon.a-icon-star.review-rating>span")).map(ele => ele.innerText.split(" ")[0]).slice(0, 5);
-reviews = Array.from(document.querySelectorAll(".reviewText>span")).map(ele => ele.innerHTML.replaceAll("<br>", "&#13;").replaceAll('"', "'")).slice(0, 5);
+reviews = Array.from(document.querySelectorAll(".reviewText>span")).map(ele => ele.innerHTML.replaceAll("<br>", "\\n").replaceAll('"', "'")).slice(0, 5);
 titles = Array.from(document.querySelectorAll(".review-title-content>span")).map(ele => ele.innerText).slice(0, 5);
 review_image_urls = Array.from(document.querySelectorAll(".a-section.review.aok-relative")).slice(0, 5).map(ele => ele.querySelector(".review-image-tile")?.src.replace("SY88", "SL1500"));
 users = ["brian", "caitlynn", "derrik", "elizabeth", "sarah"];
