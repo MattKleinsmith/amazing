@@ -3,7 +3,7 @@ from app.seeds.upload import upload_image_to_bucket_from_url
 
 
 def seed_all():
-    buyer = User(
+    demo = User(
         fullname="Demo",
         email="email@email.com",
         password="password"
@@ -12,12 +12,6 @@ def seed_all():
     seller = User(
         fullname="Seller",
         email="seller@email.com",
-        password="password"
-    )
-
-    buyer2 = User(
-        fullname="Mike Miller",
-        email="buyer@email.com",
         password="password"
     )
 
@@ -50,6 +44,8 @@ def seed_all():
         email="sarah@email.com",
         password="password"
     )
+
+    db.session.add(demo)
 
     # https://www.amazon.com/Philips-Sonicare-Toothbrush-Rechargeable-HX3681/dp/B09LD7WRVS
 

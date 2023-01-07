@@ -2,12 +2,13 @@ import styles from './SignInForm.module.css';
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/session";
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, useSearchParams } from 'react-router-dom';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 
 export default function SignInForm() {
     const dispatch = useDispatch();
+    const source = useSearchParams()[0].get("source");
 
     const [isLoaded, setIsLoaded] = useState(false);
     const user = useSelector(state => state.session.user);
@@ -70,7 +71,7 @@ export default function SignInForm() {
 
         try {
             await dispatch(sessionActions.signIn({ email, password }));
-            navigate("/");
+            navigate(source ? source : "/");
         }
         catch (responseBody) {
             const backendErrors = Object.entries(responseBody.errors)

@@ -11,6 +11,7 @@ import AddressForm from "./components/AddressForm/AddressForm";
 import Addresses from "./components/Addresses/Addresses";
 import Orders from "./components/Orders/Orders";
 import OrderConfirmation from "./components/OrderConfirmation/OrderConfirmation";
+import Protected from "./components/Protected";
 
 export default function AppRoutes() {
     return (
@@ -27,7 +28,7 @@ export default function AppRoutes() {
             <Route path="/inventory/add" element={<ListingForm />} />
             <Route path="/inventory/:productId" element={<ListingForm />} />
 
-            <Route path="/addresses" element={<Addresses />} />
+            <Route path="/addresses" element={<Protected><Addresses /></Protected>} />
             <Route path="/addresses/add" element={<AddressForm />} />
             <Route path="/addresses/:addressId" element={<AddressForm />} />
 
