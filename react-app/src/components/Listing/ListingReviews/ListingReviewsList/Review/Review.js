@@ -24,6 +24,8 @@ export default function Review({ review }) {
             </div>
 
             <div className={styles.review}>{review.review}</div>
+
+            {review.review_images[0] && <img className={styles.image} alt="review" src={review.review_images[0].url} />}
         </div>
     );
 }

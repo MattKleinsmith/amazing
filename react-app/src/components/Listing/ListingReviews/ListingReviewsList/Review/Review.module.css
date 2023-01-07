@@ -48,3 +48,9 @@
     overflow-wrap: break-word;
     white-space: pre-wrap;
 }
+
+.image {
+    height: 90px;
+    object-fit: scale-down;
+    align-self: flex-start;
+}

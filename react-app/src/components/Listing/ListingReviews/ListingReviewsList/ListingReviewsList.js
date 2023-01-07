@@ -10,7 +10,7 @@ export default function ListingReviewsList({ product, reviews }) {
         <div className={styles.wrapper}>
             {images.length > 0 && <div>
                 <div className={styles.heading}>Review images</div>
-                <div>{images.map((image, i) => <img className={styles.image} key={i} alt={i} src={image.url} />)}</div>
+                <div className={styles.reviewImages}>{images.map((image, i) => <img className={styles.image} key={i} alt={i} src={image.url} />)}</div>
             </div>}
             <div>
                 <div className={`${styles.heading} ${styles.reviewsHeading}`}>Top reviews from the United States</div>

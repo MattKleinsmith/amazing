@@ -11,7 +11,13 @@
 }
 
 .reviewsHeading {
-    margin: 20px 0px;
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+
+.reviewImages {
+    display: flex;
+    gap: 5px;
 }
 
 .image {
