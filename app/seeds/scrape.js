@@ -1,4 +1,6 @@
 result = `
+    # ${window.location.href}
+
     product = Product(
         seller=seller,
         title="${document.querySelector("#productTitle").textContent.trim()}",
@@ -58,6 +60,6 @@ ratings.forEach((rating, i) => {
 
 result += '])'
 
-result += '\n\n    db.session.commit()'
+result += '\n\n'
 
 console.log(result)
