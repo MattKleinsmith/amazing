@@ -53,7 +53,7 @@ export default function SearchResults({ showRecent }) {
                             <SearchResultsItem key={i} i={i} first={true} product={product} />
                         )}
                     </div>
-                    {!showRecent && <div className={`${styles.title} ${styles.moreResults}`}>MORE RESULTS</div>}
+                    {!showRecent && products2.length > 0 && <div className={`${styles.title} ${styles.moreResults}`}>MORE RESULTS</div>}
                     {products2.length > 0 && <div className={styles.content}>
                         {products2.map((product, i) =>
                             <SearchResultsItem key={i} i={i} first={false} product={product} />

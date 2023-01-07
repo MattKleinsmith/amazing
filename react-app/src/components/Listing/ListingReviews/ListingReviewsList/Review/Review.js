@@ -15,7 +15,7 @@ export default function Review({ review }) {
             </div>
 
             <div className={styles.rating}>
-                <Stars rating={review.rating} />
+                <div><Stars rating={review.rating} /></div>
                 <div className={styles.title}>{review.title}</div>
             </div>
 

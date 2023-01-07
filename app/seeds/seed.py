@@ -831,13 +831,13 @@ def seed_all():
         ),
     ])
 
-    # https://www.amazon.com/Kingston-480GB-Solid-SA400S37-480G/dp/B01N0TQPQB/ref=sr_1_4?keywords=ssd&qid=1673128339&sr=8-4&th=1
+    # https://www.amazon.com/Tracfone-Motorola-moto-Pure-32GB/dp/B09NWDJQ78/ref=sr_1_3?keywords=phone&qid=1673129825&sr=8-3&ufe=app_do%3Aamzn1.fos.18ed3cb5-28d5-4975-8bc7-93deae8f9840&th=1
 
     product = Product(
         seller=seller,
-        title="Kingston 480GB A400 SATA 3 2.5\" Internal SSD SA400S37/480G - HDD Replacement for Increase Performance",
-        price="32.99",
-        description="Make sure this fits by entering your model number.\nFast start up, loading and file transfers. A400 has a 7 millimeter form factor to fit in a wider array of systems. It’s ideal for slimmer notebooks and in systems with limited available space\nMore reliable and durable than a hard drive\nMultiple capacities with space for applications or a hard drive replacement; Operating temperature: 0°C-70°C\nCapacity: 480GB, Interface: SATA Rev. 3.0 (6Gb/s) with backwards compatibility to SATA Rev. 2.0. 480GB to 500MB/s Read and 450MB/s Write"
+        title="Tracfone Motorola moto g Pure (2021), 32GB, Blue - Prepaid Smartphone (Locked)",
+        price="519.99",
+        description="Make sure this fits by entering your model number.\nDUAL CAMERA SYSTEM: Get professional-looking portraits with a blur effect using the depth sensor. The 13MP camera with phase detection autofocus (PDAF) captures your subject in the blink of an eye..Form_factor : Slate\nMORE FUN. LESS LAG: Feel your phone respond instantly to every touch, tap, and swipe using an octa-core processor with HyperEngine.\nWATER-REPELLENT. WORRY PROOF: Whether you’re going out for a run or getting caught in a little rain, a water-repellent design2 keeps your phone protected inside and out.\nBEAUTIFULLY DESIGNED. THROUGH AND THROUGH: Securely unlock your phone with just the touch of your finger.\nCARRIER: This phone is locked to Tracfone, which means this device can only be used on the Tracfone wireless network."
     )
 
     db.session.add_all([
@@ -845,7 +845,7 @@ def seed_all():
         ProductImage(
             product=product,
             url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/91RL+MhTWbL._AC_SL1500_.jpg"),
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71zGrrAe5NL._AC_SL1500_.jpg"),
             preview=True,
             position=1
         ),
@@ -853,7 +853,7 @@ def seed_all():
         ProductImage(
             product=product,
             url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71ZGQh+PENL._AC_SL1500_.jpg"),
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71wQImiv9OL._AC_SL1500_.jpg"),
             preview=False,
             position=2
         ),
@@ -861,7 +861,7 @@ def seed_all():
         ProductImage(
             product=product,
             url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/21ys6wDn1NL._AC_SL1500_.jpg"),
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71pLWLYN-rL._AC_SL1500_.jpg"),
             preview=False,
             position=3
         ),
@@ -869,7 +869,7 @@ def seed_all():
         ProductImage(
             product=product,
             url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81vCejH6FxL._AC_SL1500_.jpg"),
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71IpaMmzQ5L._AC_SL1500_.jpg"),
             preview=False,
             position=4
         ),
@@ -877,69 +877,49 @@ def seed_all():
         ProductImage(
             product=product,
             url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/912Ya5k32eL._AC_SL1500_.jpg"),
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81gp2lbffJL._AC_SL1500_.jpg"),
             preview=False,
             position=5
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81OB7lpfnzL._AC_SL1500_.jpg"),
-            preview=False,
-            position=6
-        ),
-
-        ProductImage(
-            product=product,
-            url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81PijwOLSWL._AC_SL1500_.jpg"),
-            preview=False,
-            position=7
         ),
 
         Review(
             buyer=brian,
             product=product,
             rating=5.0,
-            review="I recently upgraded my 11-year-old Windows 7 backup computer to Windows 10, and the Windows 10 boot time was noticeably slow. Previously I had resisted upgrading the computer's C:\ drive to an SSD because of cost, but when I saw this Kingston SSD's low cost I could not resist. I already had the necessary (ASIN B00HJZJI84 not included) USB-to-SATA-3 cable, and a (ASIN B00G57BN1M not included) SSD mounting bracket cost less than ten dollars, an affordable addition.\n\nI optimized my C:\ drive before cloning it, removing obsolete apps and temporary files, and I made a System Image backup. I downloaded Macrium's Reflect Free cloning software from the Internet; Reflect Free has an intuitive user interface and it cloned my HDD to the SSD almost automatically. Swapping the SSD for the HDD involved shifting four screws, a power connector and a data connector. My 11-year-old computer booted on first try and now it boots acceptably fast, an affordable revitalization.",
-            title="Affordably revitalizes legacy computers"
+            review="Amazing phone for the money\nLenovo has done a fantastic job since it acquired Motorola.\n\nLike my prior Motorola fones, this one has minimal bloatware for a near stock Android experience.\nJust a few easy to remove pre-installed games, and easy to remove Facebook app as well.\nFM radio app can't be removed, but it was easy to deactivate.\n\nNote:\nThis fone will not work with a T-Mobile SIM, it requires a TracFone SIM.\nEven though TracFone does use in fact use T-Mobile towers, amongst others.\n\nDoes work perfectly with my Walmart Family Mobile SIM card (running T-Mobile), as WFM is 100% owned by TracFone.\nTherefore, my WFM SIM is actually a Tracfone SIM card, connecting to the T-Mobile network.\n\nNo tweaks during set up were needed, such as modifying the Access Point Name (APN).\nPut my SIM in, powered up, and followed prompts during set up.\n\nEven better, wirelessly copied all settings and apps from my old fone.\nFollowed prompts on both fones, to both grant and accept permission to copy.\nWith 55 apps, took about 1 hour, but a very easy and automated process.\n\nOnly \"downside\" of fone is large size, which is a plus for many.\nBut, I'm quickly getting used to moving from a 5.5 inch phone, to this 6.5 inch.\n\nAlso, greatly appreciate moving from a 16GB phone to this 32GB.\nBeing able to keep as many Apps as one likes, and without needing to clear cache weekly to free up space for existing apps, is a huge upgrade, and big convivence.\n\nYes, Apps can stored on an SD, but it's already near full of music, movies, and photos.\n\nI'm not a \"gamer\" so the 3GB of RAM works perfectly.\nNo lags even when multi-tasking, etc.\n\nMy only multi-tasking is listening to music via streaming or via an app from SD stored music, while a fitness tracker in running.\nWorked fine with prior Moto e6 2GB RAM fone, and still no problem with this 3GB RAM fone.",
+            title="Excellent Value. Works w Walmart Family Mobile SIM as TracFone bought WFM in 2016"
         ),
 
         Review(
             buyer=caitlynn,
             product=product,
-            rating=5.0,
-            review="I had trouble getting my pc to recognize this drive. More a pc issue than a drive issue but I contacted Kingston support by email. I was expecting the typical days long wait.  Shockingly within 30 minutes had a reply and then only 5 to 10 minutes wait with followup questions.  Problem was a missing driver on pc. Daniel in support was fantastic.  This will be my go to drive company moving forward.  Pc is now running at least 10x faster. Boots in under 20 seconds. Prior to this drive was minutes. Great support. Great value. Glad I went with Kingston",
-            title="Excellent support"
+            rating=4.0,
+            review="I dropped my LG Rebel Lte &amp; broke it. I first bought the ACL 3 to replace it. The ACL 3 was terrible, and even worse was I bought it from the Tracfone website and it would have cost more to return it than what I paid for it. Next I tried Blu View 2, which was on par with the ACL 3, that is to say, terrible, if not more so. Horrible camera, unresponsive buttons, etc. At least I bought it where I could return it right away. Next I picked this phone, the Moto G PURE on Amazon, and it's a keeper. Great pics with the 13MP camera, responsive buttons, easy layout, and easy to learn and use. The only thing I don't like about this phone,  which is not specific to this phone, is that it's a larger size than what my old phone was. It's only about 1.25\" longer, and .5\"  wider, but I have small hands, I do tend to drop things. I know all phones are bigger these days, but I hope they go back to giving the choice of smaller phones.",
+            title="More Than I Expected"
         ),
 
-        ReviewImage(
-            review=Review(
-                buyer=derrik,
-                product=product,
-                rating=5.0,
-                review="I use these for my laptops, and they are great drives.  I was just moving a little over 200GB between drives and wanted to write this review.  I have had PNY drives and they use cache in the beginning and drop to about 84MBps after about 8GB is copied...  Even PNY USB sticks are the same, so I am trying these.  These drives sustain 300+MBps all day long.  I am moving this data in about 11 minutes and these things are awesome.",
-                title="Bought a few and all are still great performers"
-            ),
-            url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/41ljn9MVQ-L._SL1500.jpg"),
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5.0,
+            review="This phone is solid, nice feel, good weight, attractive in looks and easy to use.  For it's price, it is a great phone. Even though my previous phone still works great, it is 16 GB and I was running out of memory for apps.  I had to start removing apps as with each update of each app, they seemed to bloat taking up more and more memory.  That led me to needing a new phone with 32 GB of memory which led me to this phone.  Previously I always used LG Tracfones but I read LG is no longer making inexpensive Tracfones which is probably why they are no longer on Tracfone's website.  I always wondered how the Motorola phones were so when I saw this at a great price I bought it.  I have not connected it to Tracfone service yet as I want to have it setup to my liking before I do.  Even though it is still Android there are some differences with the Moto settings and its use of the features that make me prefer the LG phones but nothing that would make me not like it or want to use it.  My only complaint is no where on the Amazon listing for this phone did it say whether it is GSM or CDMA so I don't know whether Tracfone in my area will accept this phone.  The packing list said CDMA but according to Motorola's website it is GSM.  Then I read that Tracfone was bought by Verizon and as of November 2023 Tracfone plans will be changed.  There is some confusion whether Verizon is still CDMA or not.  So I don't know whether I will be able to use this phone after Verizon takes over.  Or whether I would stay with Verizon depending on their pricing policies for previous Tracfone customers.  But it is still a great phone so far.",
+            title="Solid phone with great screen"
         ),
 
         Review(
             buyer=elizabeth,
             product=product,
-            rating=5.0,
-            review="I must make a disclaimer here - THESE ARE NOT SERVER ENTERPRISE-RATED DRIVES, GO SEE THE ENTERPRISE SSD LINE.\n\nI purchased a hand full of these drives (2x 240 and 6x 960 GB). For the value you pay, the write endurance for these consumer-level drives is very high! Should last you a few years or more. I have had these in a home lab server for close to a year, very fast and power-efficient.\n\nFor people just looking to make a very low-power home lab server and don't want to deal with a higher power draw of HDD SAS drives. These will work well for you. Just know, if you use these in servers, you could likely void your warranty.\n\nWhen reviewing My array, the drives are reporting that there are a few errors, but I have not experienced a catastrophic failure yet. I am seeing one already intermittently disconnecting and reconnecting to the Raid array after 9000 HRs of the drives being online. Drives still show 97% life left. Still impressive.\n\nIf you are looking at making a fully-fledged home server meant to run 24/7, look into Enterprise level SSDs if you want power efficiency, speed, and full support for ECC. These Drives do not have ECC from what I can tell (No mention of ECC Support for the A400 line in their promotional material).\n\nOverall, great SSD :), Will recommend people to this product for its value and endurance for home lab project boxes and general-purpose computers.",
-            title="Great Value for low power HomeLab Servers - Not Enterprise"
+            rating=4.0,
+            review="Nice phone.  Migrating from a Samsung J3.  As others stated, this is an inexpensive phone.  Don't compare it to a $1k iPhone.  I thought it was a very good value for the price.\n\nThe negative comes from the service, Tracfone.  The lesson I learned is that you should just go to your local Walmart/Best Buy/etc. and buy a Tracfone phone from there.\n\nThere is an issue, and you will read about it in other reviews, where this phone (and I suspect other phones sold by Amazon) does not work with the Tracfone network where I live.\n\nI spent approximately 8 hours of the course of 2 or so weeks on support calls with Tracfone.  They could not figure out why the phone would not work.  Everything on their end was set up correctly.  But my phone did not have service.\n\nIn the end, I returned this phone and went to my local Walmart and bought a similarly priced phone, activated it and had no issues using Tracfone service.",
+            title="Good phone, poor support from Tracfone"
         ),
 
         Review(
             buyer=sarah,
             product=product,
-            rating=5.0,
-            review="I basically looked at ratings and the price was right during holiday sales. I wanted an SSD drive to use this for my pc back up and image. It runs cool and super fast! My backups finish a lot faster switching this out with an old 2.5HDD. Backups that took 1 hour now take 15 min. SATA connectivity so it is internal and fits in the caddy perfectly. It has a plastic case which surprisingly stays cool enough as not to be a concern.",
-            title="Perfect backup or storage drive."
+            rating=4.0,
+            review="Purchased for someone who would really rather have a flip phone &amp; isn't fond of technology.  Works with TracFone as promised. Set up was a chore because it needed a Google account to transfer contacts from old phone.  Loaded with unnecessary apps (games mostly) which we deleted.",
+            title="Easy to use"
         ),
     ])
 
