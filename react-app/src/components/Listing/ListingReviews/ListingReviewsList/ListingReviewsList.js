@@ -4,8 +4,7 @@ import Review from "./Review/Review"
 
 export default function ListingReviewsList({ product, reviews }) {
     if (reviews.length === 0 || reviews[0].product_id !== product.id) return;
-    let images = reviews.reduce((images, review) => images.concat(review.review_images), []);
-    images = images.slice(images.length - 4);
+    const images = reviews.reduce((images, review) => images.concat(review.review_images), []).slice(0, 4);
     return (
         <div className={styles.wrapper}>
             {images.length > 0 && <div>
