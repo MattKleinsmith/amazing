@@ -211,9 +211,9 @@ export default function SignInForm() {
             <div className={styles.footer}>
                 <div className={styles.footerLine} />
                 <div className={styles.links}>
-                    <a href="https://www.linkedin.com/in/matthewkleinsmith/">LinkedIn</a>
-                    <a href="https://github.com/MattKleinsmith/">GitHub</a>
-                    <a href="https://github.com/MattKleinsmith/amazing/">Project repo</a>
+                    <a target="_blank" href="https://www.linkedin.com/in/matthewkleinsmith/">LinkedIn</a>
+                    <a target="_blank" href="https://github.com/MattKleinsmith/">GitHub</a>
+                    <a target="_blank" href="https://github.com/MattKleinsmith/amazing/">Project repo</a>
                 </div>
                 <div className={styles.copyright}>
                     Capstone project by <a href="https://github.com/MattKleinsmith/">Matt Kleinsmith</a> of App Academy
