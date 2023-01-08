@@ -2,8 +2,10 @@ from flask import Blueprint, request
 from flask_login import login_required, current_user
 from sqlalchemy.exc import IntegrityError
 
-from app.models import db, Review
+from app.models import db, Review, ReviewImage
 from app.forms import ReviewForm, validation_errors_formatter
+from werkzeug.utils import secure_filename
+from app.seeds.upload import upload_image_to_bucket, allowed_file
 
 bp = Blueprint("reviews", __name__, url_prefix="/reviews")
 
@@ -41,3 +43,31 @@ def delete_review(review_id):
         return {"errors": {
             "server": "Server failed to delete"
         }}, 500
+
+
+@bp.route("<int:review_id>/images", methods=['POST'])
+@login_required
+def post_image_by_review_id(review_id):
+    try:
+        file = request.files['image']
+        filename = secure_filename(file.filename)
+        if not allowed_file(filename):
+            return {
+                "errors": {
+                    "image": "Please upload a supported image format: .png and .jpg"
+                }
+            }, 400
+        url = upload_image_to_bucket(file, filename)
+        review_image = ReviewImage(
+            review_id=review_id,
+            url=url,
+        )
+        db.session.add(review_image)
+        db.session.commit()
+        return review_image.to_dict()
+    except Exception as e:
+        return {
+            "errors": {
+                "image": str(e)
+            }
+        }, 500

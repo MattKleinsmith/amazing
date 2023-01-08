@@ -5,7 +5,7 @@ from werkzeug.utils import secure_filename
 
 from app.models import db, Product, ProductImage, Review
 from app.forms import ProductForm, ReviewForm, validation_errors_formatter
-from app.seeds.upload import upload_image_to_bucket
+from app.seeds.upload import upload_image_to_bucket, allowed_file
 
 bp = Blueprint("products", __name__, url_prefix="/products")
 
@@ -90,10 +90,6 @@ def delete_product(product_id):
         return {"errors": {
             "server": "Server failed to delete"
         }}, 500
-
-
-def allowed_file(filename): return '.' in filename and filename.rsplit(
-    '.', 1)[1].lower() in set(['png', 'jpg', 'jpeg'])
 
 
 @bp.route("<int:product_id>/images", methods=['POST'])

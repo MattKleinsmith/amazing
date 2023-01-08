@@ -96,7 +96,7 @@ export default function ReviewForm() {
         reader.readAsDataURL(file);
 
         if (review?.id && file) {
-            await dispatch(postReviewImage(productId, file, true, 1));
+            await dispatch(postReviewImage(review.id, file));
             // dispatch(getProductDetails(productId));
         }
     }

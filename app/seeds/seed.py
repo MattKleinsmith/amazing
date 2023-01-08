@@ -3338,7 +3338,7 @@ def seed_all():
                 title="Removes so well!"
             ),
             url=upload_image_to_bucket_from_url(
-                "https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif"),
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71TFZ5SJoOL._SL1500.jpg"),
         ),
 
         Review(
