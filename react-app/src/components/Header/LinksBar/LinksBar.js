@@ -9,6 +9,7 @@ export default function LinksBar() {
                 <NavLink className={styles.link} to="/s?k=toothbrush">Toothbrushes</NavLink>
                 <NavLink className={styles.link} to="/s?k=phone">Phones</NavLink>
                 <NavLink className={styles.link} to="/s?k=basics">Amazon Basics</NavLink>
+                <NavLink className={styles.link} to="/s?k=makeup">Makeup</NavLink>
             </div>
         </div>
     )

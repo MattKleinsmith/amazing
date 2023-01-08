@@ -863,7 +863,7 @@ def seed_all():
     product = Product(
         seller=seller,
         title="Tracfone Motorola moto g Pure (2021), 32GB, Blue - Prepaid Smartphone (Locked)",
-        price="519.99",
+        price="49.88",
         description="Make sure this fits by entering your model number.\nDUAL CAMERA SYSTEM: Get professional-looking portraits with a blur effect using the depth sensor. The 13MP camera with phase detection autofocus (PDAF) captures your subject in the blink of an eye..Form_factor : Slate\nMORE FUN. LESS LAG: Feel your phone respond instantly to every touch, tap, and swipe using an octa-core processor with HyperEngine.\nWATER-REPELLENT. WORRY PROOF: Whether you’re going out for a run or getting caught in a little rain, a water-repellent design2 keeps your phone protected inside and out.\nBEAUTIFULLY DESIGNED. THROUGH AND THROUGH: Securely unlock your phone with just the touch of your finger.\nCARRIER: This phone is locked to Tracfone, which means this device can only be used on the Tracfone wireless network."
     )
 
@@ -2079,6 +2079,1478 @@ def seed_all():
             rating=1.0,
             review="WARNING: Upon receiving, I found these sheets bled their Navy Blue color onto things (after 2 extra rinse prewashes), which were then permanently stained by it. Were it not for that dealbreaking flaw, these sheets would be a 3/5 given the price and assuming you don't particularly care about the list of cons below. Personally, a year later, I regret not immediately refunding and replacing.\n\nCons: 1) NOT COLORFAST - can and will stain anything touched 2) EXTREME PILLING + threads coming out regardless of delicate washing and air drying (both immediately evident), 3) DETRITUS SUPER MAGNET - attracts fluff/hair/whatever and doesn't want to let it go in the wash (vacuuming, LOL at having to, does nothing - most of it is stuck on as though by barbs)\n\nPros: 1) PRICE - If you get non-dyed and none of the above concerns you, might be a reasonable value (quite a bit of rationalizing here - Costco currently has a microfibre set for $17), 2) SHRED RESISTANCE - somewhat more resistant to ripping/tearing than expensive cotton sheets, 3) TECHNICALLY FUNCTIONAL - they don't feel awful to touch/sleep on as far as I can tell, but neither did any other bedsheet set ive had, every one of which was superior in terms of all cons.",
             title="These will stain what they touch"
+        ),
+    ])
+
+    # https://www.amazon.com/Amazon-Basics-Freezer-Gallon-Count/dp/B093WPZF1Y/ref=sr_1_6?crid=39H0ZIRVXYJ34&keywords=amazon%2Bbasics&qid=1673131349&sprefix=amazon%2Bbasic%2Caps%2C96&sr=8-6&th=1
+
+    product = Product(
+        seller=seller,
+        title="Amazon Basics Freezer Gallon Bags, 90 Count (Previously Solimo)",
+        price="8.53",
+        description="Includes 90 freezer food bags, each holding 1 gallon\nReclosable top has a double zipper closure\nStand and Fill base with same gallon capacity\nIndividual bag dimensions: 10 9/16 inches X 3 inches X 9 1/4 inches\nBPA free\nIf you like Ziploc freezer bags, we invite you to try Amazon Basics Freezer Bags.\nRunning low? Use your Echo device or Alexa on the Amazon app to reorder by voice. Just say “Alexa, reorder Amazon Basics Freezer Gallon Bags.”"
+    )
+
+    db.session.add_all([
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71lX-GOpEoL._AC_SL1500_.jpg"),
+            preview=True,
+            position=1
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/711vlWHedGL._AC_SL1500_.jpg"),
+            preview=False,
+            position=2
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51NBFfWkfVL._AC_SL1500_.jpg"),
+            preview=False,
+            position=3
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71NfAHj5GBL._AC_SL1500_.jpg"),
+            preview=False,
+            position=4
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/410+9BqCAGL._AC_.jpg"),
+            preview=False,
+            position=5
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51ynMeTxUEL._AC_SL1500_.jpg"),
+            preview=False,
+            position=6
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71aTHolzzFL._AC_SL1500_.jpg"),
+            preview=False,
+            position=7
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=3.0,
+            review="If Amazon Basics really wants their brand to be associated with being a good “value,” rather than “cheap” and “dirty” alternative to better brands and products, they really should be focusing more on USER EXPERIENCE from product design to purchase delivery.  It’s that last one where Amazon is really noticeably failing with their freezer bags.  For want of a simple, protective wrapper for shipping, the entire first impression of this product was irrevocably tainted and lost.\n\nAmazon, please focus more on value, and less on being expediently cheap.  Being thrifty is a good thing.  Being a cheapskate that cuts corners is not.\n\nAlso, Amazon, when it comes to user experience, it’s the little details that ultimately matter more than spreadsheet management would seem to assume.\n\nAnyway, folks…\n\nIf you’re looking for an alternative to name brand freezer bags like Ziploc, Amazon Basics might be acceptable.  But, they are noticeably not the same in quality or user experience.  Similar, but definitely not the same.\n\nLike others, we cautiously decided to try the Amazon Basics freezer bags because the price was usually competitive and the reviews seemed genuinely positive for the most part.\n\nThe product quality is okay, but where the seal attaches to the bag the plastic is drawn apparently from the heat of attaching the seal to the opening of the bag.  We’ve not had any of them tear along that seam; so, hopefully, though it creates a visual point of concern, it won’t be an issue for you either.\n\nThese freezer bags look smaller, but that appears to be because they utilize an expandable gusset similar to the “stand and fill” freezer bags made by others.  If you prefer your bags to lie flat, this may become an issue.  Our solution has been to slightly under-fill the bags to get them to lie evenly flat on shelves and in drawers in the freezer.\n\nHowever, all of those relative positives being said for Amazon Basics, Ziploc Freezer Bags are noticeably a little better because they seal and unseal more easily, consistently, repeatedly, and reliably than Amazon Basics.  Ziploc freezer bags seem to make the transition from food use in the kitchen to a second life elsewhere like the garage a bit better.  Again, Ziploc’s better designed zip seal makes it more reliably recyclable and reusable.  Ziploc also designs their bags with a larger tab on one side that makes it easier and more stable to open; so, you have no worries about it being difficult to open or contents spilling out everywhere.  You can also feel and see the seal on Ziploc freezer bags zip open and closed; the seal on Amazon Basics freezer bags requires a few more passes with your fingers to make sure that they are properly and completely sealed closed well.\n\nAmazon Basics, though, almost always beats Ziploc on price, unless you buy your Ziploc freezer bags from Costco, especially when Costco has them on sale.\n\nThe huge negative in our experience in buying Amazon Basics freezer bags is that when shipping the product from the Amazon Warehouses to you, Amazon is overly miserly and cheap because rather than put the box of freezer bags in any kind of sealed packaging or simply wrapping it, Amazon actually puts a half dozen shipping labels and stickers all over the actual freezer bag box itself and tosses it from point to point to point all along its way from warehouse to truck to warehouse to delivery vehicle to the floor of your porch or dropped on your steps, no matter the weather, rain, sleet, snow, sun, or curious animals.  So, the actual freezer bag box is always covered in a layer of fine dirt and dust, and to keep the box from opening along the perforated edge that you’ll need to remove in order to open the box to extract your freezer bags, Amazon slaps its big shipping label across the entire perforated opening.  Have fun removing that and dealing with the adhesive residue.  So, as anyone who has ever removed multiple Amazon shipping labels knows, you cannot get all of the labels off, and where you can get some of the labels off, you’re left with adhesive on the box and parts of the box torn off with any labels removed.\n\nSooooo…. If you don’t mind getting a box of freezer bags that are somewhat less in quality, but generally lower in price than Ziploc freezer bags and if you don’t mind the actual box being dirty, covered in labels, and left damaged by the whole shipping ordeal, you might be okay with Amazon Basics freezer bags.\n\nAt this point, we’re probably going to wait until we run low again to see whether Costco has our preferred Ziploc freezer bags on sale again.  If not, we may actually risk buying these again and see whether we’re forced to spend a half hour cleaning the box, removing labels to get into the freezer bags box, and trying to resolve the adhesive residue, which are all apparently part of Amazon’s intended user experience.🤔🙄",
+            title="👍Acceptable Quality (mostly) 👍Good Price (usually) 👎Bad Shipping Experience"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5.0,
+            review="We've been using these for food we freeze as well as protecting/isolating things when we travel.\n\nNever had an issue with breakage or leakage when freezing food items.\n\nNever had an issue with bags breaking or leaking when used for travel, such as liquids and gels that have to be pulled out for TSA inspection.  The bags are strong enough that I've never had one fail.\n\nFor me they have performed as well as the more expensive brand name bags.",
+            title="No Problems"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5.0,
+            review="I like these bags just as well as the leading brand name bags. I get all my bags from Amazon. The sandwich bags, all size freezer bags, and sometimes the snack bags. I have never been disappointed in the quality or the price. Plus having them on subscription ensures I never run out!",
+            title="Good Price, Good Quality"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5.0,
+            review="I bought these because they seemed like a good value, but they are better than I expected!  They close easily, they are leak proof, and the bag is thicker than most baggies!  They surprised me with their strength.  I will purchase these again",
+            title="Better than I expected!"
+        ),
+
+        Review(
+            buyer=sarah,
+            product=product,
+            rating=5.0,
+            review="I had ordered these on black friday cause it was a good deal. I didn't have high expectations. When I got them they were great. They are the thick, sturdy material. I've used a bunch of them and I haven't experienced any leaks like with some other brands. I will definitely be ordering these again when I run out.",
+            title="Great purchase"
+        ),
+    ])
+
+    # https://www.amazon.com/Amazon-Basics-Laundry-Detergent-Lavender/dp/B09CLW4B8P/ref=sr_1_7?crid=39H0ZIRVXYJ34&keywords=amazon%2Bbasics&qid=1673131349&sprefix=amazon%2Bbasic%2Caps%2C96&sr=8-7&th=1
+
+    product = Product(
+        seller=seller,
+        title="Amazon Basics Laundry Detergent Pacs, Lavender Scent, 120 Count (Previously Solimo)",
+        price="15.01",
+        description="This package includes one tub of 120 laundry detergent pacs in Fresh Scent, enough for 120 medium loads.\nAmazon Basics Lavender laundry detergent pacs are premeasured for extra convenience, use 1 pac for 1 medium load.\nGives your clothes the fresh scent of lavender while delivering a great clean.\nDissolves in any water temperature and safe for both standard and high efficiency (HE) washing machines.\nSatisfaction Guarantee: We’re proud of our products. If you aren’t satisfied, we’ll refund you for any reason within a year of purchase. 1-877-485-0385.\nRunning low? Restock by asking, \"Alexa, order Amazon Basics laundry detergent pacs\" through your Alexa device."
+    )
+
+    db.session.add_all([
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71Qojt8UONL._AC_SL1500_.jpg"),
+            preview=True,
+            position=1
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/7196CxW1zpL._AC_SL1500_.jpg"),
+            preview=False,
+            position=2
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/61PaJ3luCVL._AC_SL1500_.jpg"),
+            preview=False,
+            position=3
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71jI6BaWjLL._AC_SL1500_.jpg"),
+            preview=False,
+            position=4
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71WL86MD2YL._AC_SL1500_.jpg"),
+            preview=False,
+            position=5
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81lkiWhYZLL._AC_SL1500_.jpg"),
+            preview=False,
+            position=6
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=4.0,
+            review="Ok let me just start off by saying these were delivered in perfect condition! The packs were all intact and seem to clean well. The lavender scent is not my favorite I probably would try the other scent before ordering this again. It is NOT at all flowery it is actually a very masculine scent. Which actually could be a good thing for some.  It reminds me of mens deodorant. It is not an offensive scent but it is not my favorite  But everyone’s  different you may love it!\nI like that I can order these on Amazon and they’re sealed very nicely and you get a ton for the money. I purposefully ordered these versus the traditional liquid detergent because I figured the liquid could make mess in transit. So as I said they were delivered with no mess in a very nice sealed container.\nWould order again in a different scent!!",
+            title="Excellent condition cleans well scent is Not my favorite"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5.0,
+            review="As we all know it’s no secret that the price of goods is insanely high currently. So I I stopped with the name brands and wanted to try this out. And I have to say I am NOT disappointed whatsoever. We LOVE it!! I swear it takes forever for it to run out which is great. Saving money in the long run. It’s very affordable and it’s gentle on my skin and my kids skin who typically has issues with any detergents.\nIf you’re curious about it, definitely give it a go. We won’t turn back. Now we want to try all of the Amazon basics products!",
+            title="Great bang for your buck"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=4.0,
+            review="The pods make it so easy to use. Most of the time I only need two, but extremely dirty or larger loads I can always depend on Tide. We have hard water here in Nevada, but I won't use anything else! Perfect over the years to be dependable!",
+            title="Best bang for your money!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5.0,
+            review="It passes the test of washing teenage boy clothes and leaving them smelling fresh and clean! After coming out of the dryer the lavender scent is just nice and fresh, but not overpowering. The clothes even feel cleaner than with the detergent I had been using before, like squeaky clean! Haven't had any problems with the pod not dissolving yet either, but I've only used them with warm water and in a front load washer.",
+            title="Clean Clothes That Smell Good!"
+        ),
+
+        Review(
+            buyer=sarah,
+            product=product,
+            rating=5.0,
+            review="I DO kind of wish the scent were stronger.  I’d like having the scent of Lavender coming from my fresh washed laundry.  It cleans my clothes so I’m basically happy about that.",
+            title="It does clean my clothes."
+        ),
+    ])
+
+    # https://www.amazon.com/Amazon-Basics-Liquid-Coconut-Triclosan-Free/dp/B09HHBZX91/ref=sr_1_10?crid=39H0ZIRVXYJ34&keywords=amazon%2Bbasics&qid=1673131349&sprefix=amazon%2Bbasic%2Caps%2C96&sr=8-10&th=1
+
+    product = Product(
+        seller=seller,
+        title="Amazon Basics Liquid Hand Soap Refill, Mango and Coconut Water Scent, Triclosan-Free, 56 Fluid Ounces, Pack of 2",
+        price="7.49",
+        description="Two 56-fluid ounce bottle of mango and coconut water liquid hand soap refill\nWashes away germs and bacteria, with a tropical, fruity and fresh scent\nSafer Choice Certified (Meets U.S. EPA Safer Product Standards)\nDermatologist tested; free from triclosan, phthalates, parabens and formaldehyde donors; pH balanced\nNot tested on animals. Made in the U.S.A. with U.S. and foreign components\nIf you like Dial Coconut Water & Mango Hydrating Liquid Hand Soap, we invite you to try Amazon Basics Mango and Coconut Water Liquid Hand Soap\nAlexa voice shopping enabled: to place your next order, just say, “Alexa, reorder Amazon Basics Hand Soap Refill\"\nSatisfaction Guarantee: We're proud of our products. If you aren't satisfied, we'll refund you for any reason within a year of purchase. 1-877-485-0385"
+    )
+
+    db.session.add_all([
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71gv-ig7npL._SL1500_.jpg"),
+            preview=True,
+            position=1
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/61uF3buxerL._SL1500_.jpg"),
+            preview=False,
+            position=2
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71fZUGLGaCL._SL1500_.jpg"),
+            preview=False,
+            position=3
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/719h+s72clL._SL1500_.jpg"),
+            preview=False,
+            position=4
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71xtGMRq5ML._SL1500_.jpg"),
+            preview=False,
+            position=5
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/714oDBEGlNL._SL1500_.jpg"),
+            preview=False,
+            position=6
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5.0,
+            review="I wanted to give this a try because it was cheaper than going with my usual softsoap. When it arrived i was pleased with the amount of soap i recieved compared to the price. The smell is fantastic.",
+            title="It's Soap"
+        ),
+
+        ReviewImage(
+            review=Review(
+                buyer=caitlynn,
+                product=product,
+                rating=5.0,
+                review="They are 2 big bottles with good hand soap. Go on ahead and buy it . This amazon brand is really good. And it did not spill during packaging it was actually secured.",
+                title="Worth it"
+            ),
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71fCpZ0HL8L._SL1500.jpg"),
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5.0,
+            review="i mix this with hot water to make foaming soap for my foaming dispensers.  Works great, smells good and washes hands well.",
+            title="Great Soap"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=4.0,
+            review="I use this in my main bathroom. The scent is pleasant. I got the mango &amp; coconut water scented. It washed and rinses well. I do not find it drying or moisturizing. I will buy it again.",
+            title="Smells nice and not expensive"
+        ),
+
+        Review(
+            buyer=sarah,
+            product=product,
+            rating=5.0,
+            review="This is a great deal and for the amount you receive it’s honestly a complete steal! The mango coconut scent smells so tropical and fruity. It is very bubbly and moisturizing! Overall,  would highly recommend this hand soap for anyone in the market for a tropical and high quality hand soap!",
+            title="GREAT VALUE & Smells Fresh and Fruity!"
+        ),
+    ])
+
+    # https://www.amazon.com/5-Blade-Refills-Lubrication-Precision-Cartridges/dp/B07MK1N7P6/ref=sr_1_12?crid=39H0ZIRVXYJ34&keywords=amazon%2Bbasics&qid=1673131349&sprefix=amazon%2Bbasic%2Caps%2C96&sr=8-12&th=1
+
+    product = Product(
+        seller=seller,
+        title="Amazon Basics 5-Blade Razor Refills for Men with Dual Lubrication and Precision Beard Trimmer, 12 Cartridges (Fits Amazon Basics Razor Handles only) (Previously Solimo)",
+        price="15.85",
+        description="Includes twelve Amazon Basics 5-Blade razor refill cartridges\nPackaging may vary from images shown. This was previously a Solimo product and is now a part of the Amazon Basics brand. The product is the exact same formulation, size and quality.\nDouble coated blade edge with anti-clog design\nBeard trimmer for shaving goatee, sideburns and under nose\nHypoallergenic lubricating strips with Vitamin E\nAlexa voice shopping enabled: to place your next order, just say, “Alexa, reorder Amazon Basics Razor Refills”\nIf you like Gillette Fusion ProGlide Razors, we invite you to try Amazon Basics 5-Blade Razors for Men\nSatisfaction Guarantee: We’re proud of our products. If you aren’t satisfied, we’ll refund you for any reason within a year of purchase. 1-877-485-0385"
+    )
+
+    db.session.add_all([
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71KVZFOsIpL._AC_SL1500_.jpg"),
+            preview=True,
+            position=1
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81iq2d4qY7L._AC_SL1500_.jpg"),
+            preview=False,
+            position=2
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71ZGhkvCQqL._AC_SL1500_.jpg"),
+            preview=False,
+            position=3
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/712GJfKNnkL._AC_SL1500_.jpg"),
+            preview=False,
+            position=4
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71AL+Ky-quL._AC_SL1500_.jpg"),
+            preview=False,
+            position=5
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71Hx4S2I95L._AC_SL1500_.jpg"),
+            preview=False,
+            position=6
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/711CIzoi+6L._AC_SL1500_.jpg"),
+            preview=False,
+            position=7
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71K2si8zavL._AC_SL1500_.jpg"),
+            preview=False,
+            position=8
+        ),
+
+        ReviewImage(
+            review=Review(
+                buyer=brian,
+                product=product,
+                rating=5.0,
+                review="I am stunned by all the shaving culture diatribe.  I am 47 years old and have been actively shaving for more than 3 decades.  That beautiful beard of mine is something that I maintain for about 5 months per year.  From a clean shave to 3 weeks of not shaving it is fully in, but for length.  Point is,  I grow a thick beard, fast.\n\nNow, 7 months out of the year I shave that thick, fast growing beard, along with my entire head and neck - clean.  Until a few years ago I did this every day and wore a suit as a practicing attorney (I'm now blessed with my days filled with homeschooling my kids, working heavy machinery to make pasture for a developing farm, and generally staying out of public).\n\nIn ALL of these years I barely ever thought about how \"enjoyable\" my private-\"me\"-shave time was, or how special and pampering my equipment was.  Fact is, I'm a fair-skinned white guy with thick facial hair and moderately sensitive skin.  I used the regular progression of Gillette razors and marveled at how many blades were being added to my cartridges (I'm waiting for the \"Razor Washcloth\" where you wipe your entire face, etc. with  a cloth covered in 1,000 razors that spin, wiggle, gyrate and sing Elvis songs for your most enjoyable 3 minutes per morning rush).\n\nOne day I heard about man-shaming, corporate-s'plaining from Gillette and assessed my shaving costs.  Here's my set up:  razor + Lever 2000 that I wash my entire ... me ... with.  That's it.  Lever is pennies per week, Gillette ...??? Why was I so heavily invested in this company, were there good alternatives I mused? Hence my introduction to all this panty-wasted shave-culture gibberish (stick with me to hear support for this conclusion).\n\nI nearly got completely freaked out by considering a new razor.  I imagined chunks of my tender flesh on the shower floor due to unknown shaving follies, calls to the fire department to please put out this unbearable burning, and aliens just saying \"ahhh, screw it, let's stop wasting time and 86 these puny life-forms; this guy's shaving mishaps have completely caused us to loose faith of any redemption for the bugs!\"\n\nSeriously, the discussion was nearly crippling. Don't get me wrong, I lived for years in  Chicago area group homes, etc.  with some black guys who really had to take care with their products or they'd get some bad ingrowns, etc. But these were the outliers, NOT the norm out of all the guys I've known in nearly half a century!\n\nFinally, I overcame internet-info-overload and picked this razor (Solimo 5 blade).  It arrived and I found myself comparing it closely to the Gillette - STILL due to the online discussions.  I'd say the docking mechanism on the Gillette seems stronger (although I don't normally engage in Fencing with my razor, no matter the make), and the back of the Gillett cartridge doesn't have the additional horizontal support that the Solimo does (which then catches some additional debris - but, I just don't take out my unsightly razor and show it off to guests anyway so ... meh).\n\nShaving ... IT SHAVES!  Like ... a RAZOR!!! I got a few tiny pinpoint knicks by my lip the first time or 2 because it's not identical to the Gillete I was used to, but by use 4 or so, I don't notice any big difference to shaving with my Gillette. And I've been shaving my head, neck, and face with this thing (meaning the same, 1st cartridge) for over 5 weeks now.\n\nAlso, I hang the thing in my shower.  I don't rub it on fancy pads.  I don't blow it out, fluff it, polish it, sing to it, or coddle it in anyway.  I grab this servile hunk of plastic, thrust it under the water and start unceremoniously scrubbing my many areas of skin with it in generally rough and crude fashion until I am slick and smooth as the day I was born and then rinse off, towel off and start putting out all the proverbial fires that my 4 young kids have started up while I dared take 5 minutes in the shower.\n\nSeriously, my process is: wash the body; rub Lever 2000 soap suds on head, neck and face; grab razor hanging on shower wall and stick under water; drag that thing unjudiciously this way and that way with and accross the hair grain on my head; finish head with reapeated little scrubbing actions (like rubbing adhesive off a table with your finger tip) against the hair grain to get the skin really smooth; repeat all of this with the face; judicious and sensible force and motion on my neck - come on now, I'm not a beast.\n\nAnd that's it.  And after more than 5 weeks of this I was still getting ... o.k. results with my very first Solimo cartridge. BUT, being so cheap I ended up switching out to a new one today because there's no reason not to.  The new blades didn't nick me once - so, I've adjusted my technique.  I noticed the greater efficiency with the new blade, but my gosh, seriously this has got to be number 47,953 in importance out of the top 45,000 important things in my life.\n\nSo, now that I've finished my journey down this rabbit hole, my conclusion is the Solimo is fine (as are most other shaving products, likely) and the shave-culture is a panty-waisted thing.  Just one beast's opinion.\n\nUpdate 3/3/21:  It's been a couple of years now and I'm still using the same system.  This is nuts, but I believe I've only changed the head 5 or 6 times (tops) in that time.  I did add one additional \"trick\" to what I do.  I keep a spent toothbrush in the shower and give the razor head a little back and forth scrub before I shave and once during the shave (usually when I'm finished with my head and move to my neck, then face).  Otherwise, every single thing I said above remains my experience.  My wife even converted on those sweet, smooth, soft legs of hers and I'm fine with Solimo's results there too (and, let's be honest, if I'm not going into the office, or before a judge, the smoothness of her legs is FAR more important to me than that of my noggin', neck, or mug). Thumbs up and recommendations for Solimo 2 years after switching from \"Girllete\".",
+                title="Flabbergasted - (pics of my ugly mug for shaving illustration only)"
+            ),
+            url=upload_image_to_bucket_from_url(
+                "https://images-na.ssl-images-amazon.com/images/W/WEBP_402378-T1/images/I/714r7RLkV1L._SL1500.jpg"),
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5.0,
+            review="I shave every day and have been for 30+ years. I have tried lots of different blades, electric shavers you name it and I tried it. I prefer to shave with this type of blade so the next step was to find one that performed well and didn't cost as much as a week of food. These in my opinion are the best value to be found. i just use a little bar soap and these glide and shave well. They shave close and do not irritate my skin. My skin gets irritated and red easily when using a blade especially if I use soap instead of shaving cream. These work great regardless. Even with just a little hot water sometimes for touch ups. I will buy these and only these as long as they are available and remain close to this price.",
+            title="No better value in shavng"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=4.0,
+            review="I was a subscriber to Dollar shave club, but after they decided to raise prices I walked away. I found these and thought I would give them a try. Blades are sharp but a little too big for certain areas on my face. In particular tough to shave between the bottom lip and chin area. Be very careful when attempting to use the trim side of the blade as it’s sharp, but also very rough. That thing will slice under your nose wide-open. I’m still missing some skin under my nose trying to use that. You just can’t get up under your nose with the regular blade and the trim blade is just too rough",
+            title="Good price but….."
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5.0,
+            review="I'm really impressed with the build quality and overall performance of Amazon's razor. The weight of the handle, the grip, and the overall balance feel just right, and the blades are incredibly sharp.\n\nIn a couple of months of use, the blades of the first cartridge are still sharp and haven't rusted at all.\n\nThe whole razor feels well designed and well made. It's rare to find a reasonably priced, quality product of any sort nowadays. I'm happy to say, this is one!",
+            title="Terrific razor and a very reasonable price. 100% recommended."
+        ),
+
+        Review(
+            buyer=sarah,
+            product=product,
+            rating=4.0,
+            review="These blades are pretty good. The 5 blades work as they should while being fairly gentle on the skin. The lubrication is as good as any brand, which means it's adequate, but you will get your best lubrication from your shave cream (not foam). My only complaint is with the trim blade on the back. It's either angled badly or overly exposed because it feels dangerous. I have to be extremely careful when using it. This package with all the refills is a great price and well worth it. I recommend this product.",
+            title="Great value"
+        ),
+    ])
+
+    # https://www.amazon.com/AmazonBasics-500-Watt-Ceramic-Personal-Heater/dp/B074MX8VN5/ref=sr_1_16?crid=39H0ZIRVXYJ34&keywords=amazon%2Bbasics&qid=1673131349&sprefix=amazon%2Bbasic%2Caps%2C96&sr=8-16&th=1
+
+    product = Product(
+        seller=seller,
+        title="Amazon Basics 500-Watt Ceramic Small Space Personal Mini Heater - Black",
+        price="17.99",
+        description="Make sure this fits by entering your model number.\nCompact personal space heater design that is small enough for tables or desktops\nFeaturing efficient ceramic coils that heat up in seconds\nAvailable in 4 colors to custom-match your decor\nIncludes tip-over protection for extra safety\nIdeal for small spaces, at home or at the office"
+    )
+
+    db.session.add_all([
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81XVde9RpdL._AC_SL1500_.jpg"),
+            preview=True,
+            position=1
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71F0g6EwViL._AC_SL1500_.jpg"),
+            preview=False,
+            position=2
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81Senj+OvIL._AC_SL1500_.jpg"),
+            preview=False,
+            position=3
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/41oXgnT1C9L._AC_.jpg"),
+            preview=False,
+            position=4
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81GH3x2SwML._AC_SL1500_.jpg"),
+            preview=False,
+            position=5
+        ),
+
+        ReviewImage(
+            review=Review(
+                buyer=brian,
+                product=product,
+                rating=5.0,
+                review="I consider myself to be a rather frugal and eco conscious gal.  I rarely get rid of my old clothes,  but I still wanted to look presentable.  This has helped a lot.  Do you know how those little fuzz balls start to form on sweaters and polyester tops?  This shaves them off without damaging the fabric itself.  I have tried using a razor blade before,  but I ended up cutting the fabric.  This is a much safer option.  The mesh guard on top if the blades protects your fingers and it prevents it from cutting the fabric too close.  I used it on a much loved (and very worn out) old sweater and now it looks brand new.  I have even used it on my crocheted blankets with excellent results.",
+                title="Very easy to use"
+            ),
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/716L5L0jnyL._SL1500.jpg"),
+        ),
+
+        ReviewImage(
+            review=Review(
+                buyer=caitlynn,
+                product=product,
+                rating=4.0,
+                review="For the purposes intended for marijuana reviews, you will see support images of the unboxing process\n\nPackage arrived quickly Box was inside another Box however didn't have any type of air/bubble wrap so as you can see the  Slight damage to box.  Pictures are the front, back and both sides one side including specs, accessories and tips and the other displays the features of the product.\n\nAlthough there is slight damage to the outer part of the Box, upon opening you can see the contents or rather packed within the Box and there is not in damage to any of the contents.\n\n Several pictures are shown of the product after unboxing and setting up completely even having a carrying travel bag.\n\nBefore trying it out I was careful to look over the entire product making sure the tray was completely set into place and there wasn't anything in there. Nothing was in the lunch rain but it had to be snapped in period I noticed in the front there was an adjustable cover low, mid, Hi according to your clothing.\n Turning to the side you can see where you can change your favorite shaver and add to try it of course to see if it had any charge to it  All to which it did! All to which it did! I also place a picture to show everyone how big the shaver is. It's rather large which makes me excited.\n\nPros to which I found is that the lent cabin is easy to remove, it already had a charge to try it out, easy for travel, perfect fit for your hand, easy to clean cabin\n\nCons  To which I found is That is not so easy to remove the cover to clean And I'm talking about the cover where the shaver part is not the cabbott and also while placing the shaver back into the Box it continued to come back on So I had to continue to maneuver everything around while it continued to come on Until I could get everything back in and set up perfectly how was one that came to me Until I could get everything back in and set up perfectly how was one that came to me.",
+                title="Pros and cons"
+            ),
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/61GB06fpkmL._SL1500.jpg"),
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=4.0,
+            review="Impressed with how well this works. Does a thorough job removing lint from sweaters and coats. I like that it is rechargeable, too, so I don't have to worry about batteries. The reason for 4 stars is because the head is a little fussy when taking off and on to change blades - isn't very smooth in removal and replacement. Other than that, does the job.",
+            title="Works well"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5.0,
+            review="Very robust and much better than my old fabric shaver! I love the features on this. Here is what I found using it...\n\n1. No more batteries!!! This is rechargeable! We had to constantly change out batteries on our old shaver. We even went as far as getting rechargeable batteries to save on the cost. But you STILL had to change them out, and place the old batteries back on the charger. So having this rechargeable feature is awesome!! I haven't had it run out of power yet while using it. So if it gets to that point, I'll post an update if needed.\n\n2. Large shaving surface area! This means shaving gets done faster saving you time. My old lint shaver was very small...probably not even half this size. I can do large articles of clothing in half the time it was taking me before. Love it!\n\n3. Shaving head guard is adjustable for delicate fabrics. If you have ever used a lint shaver before...you know when you have pushed too hard. You suddenly hear a grinding motor, or a loud zeeerrrrtt! Well, that's the sound of a new micro hole you just added to your shirt, pants, sweater or whatever you were shaving at the time. THIS shaver has an adjustable shaving head that acts as a depth guard to protect delicate clothing items from this happening. I LOVE this feature. What a great idea!\n\n4. The multiple cutting head makes a huge difference! Seriously, this shaver works very smoothly. For you guys out there...this is like going from a 2-stroke motor to a 4-stroke. If you've used the old shavers, you'll immediately see what I'm talking about. I also noticed that I don't have to keep going over problem areas multiple times. Usually once or twice seems to do the job.\n\nOverall, this is a great shaver. Large, easy to handle. No battery hassle. Easy to clean. Excellent fabric protection. Honestly can't think of anything negative that I noticed using it. It's like a large powerhouse buzz-saw, made to obliterate fuzz balls! Highly recommended!!",
+            title="It's like a large powerhouse buzz-saw, made to obliterate fuzz balls! But safe on delicate clothing!"
+        ),
+
+        Review(
+            buyer=sarah,
+            product=product,
+            rating=3.0,
+            review="and it's really not a room heater, more like a desk heater at the office if you don't mind the chemical burn smell for the first few hours while wondering if the headache you're getting is symptomatic of cancer.",
+            title="It has a Cancer warning taped to the cord"
+        ),
+    ])
+
+    # https://www.amazon.com/essence-Princess-Effect-Mascara-Cruelty/dp/B00T0C9XRK?ref_=Oct_d_oup_d_11058281&pd_rd_w=gdRuH&content-id=amzn1.sym.dc024851-6d2a-4fc5-b9ca-d1a1b3cfd5ff&pf_rd_p=dc024851-6d2a-4fc5-b9ca-d1a1b3cfd5ff&pf_rd_r=JHYFX9G3HG1V8RYS9QGS&pd_rd_wg=NzXPg&pd_rd_r=0b3b19bc-42dd-46f9-b7d3-258de40a695e&pd_rd_i=B00T0C9XRK&th=1
+
+    product = Product(
+        seller=seller,
+        title="essence | Lash Princess False Lash Effect Mascara | Gluten & Cruelty Free",
+        price="4.99",
+        description="If you receive this mascara UNWRAPPED, it did not come from essence cosmetics.\nNO FALSIES NEEDED! Lash Princess False Lash Mascara defines and separates lashes while achieving a bold look.\nDRAMATIC VOLUME: the conic shape fiber brush delivers dramatic volume and sculpted length WITHOUT clumps or globs.\nLASTS ALL DAY: go about your day free from flaking & fading! This mascara does not flake, fade, or wear, making it a perfect all-day, longlasting mascara.\nCRUELTY FREE: essence cosmetics is certified and acknowledged by PETA as a cruelty-free brand makeup. We do not test any of our products on animals."
+    )
+
+    db.session.add_all([
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/61K6cQhw4EL._SL1500_.jpg"),
+            preview=True,
+            position=1
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/61XM8NSHDnL._SL1500_.jpg"),
+            preview=False,
+            position=2
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/91Nz52zMe4L._SL1500_.jpg"),
+            preview=False,
+            position=3
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/61gAeGoRxdL._SL1500_.jpg"),
+            preview=False,
+            position=4
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/814iOXRhBmL._SL1500_.jpg"),
+            preview=False,
+            position=5
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81t18mMF8NL._SL1500_.jpg"),
+            preview=False,
+            position=6
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71zJPMBJsgL._SL1500_.jpg"),
+            preview=False,
+            position=7
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/714eqAWmg8L._SL1500_.jpg"),
+            preview=False,
+            position=8
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=4.0,
+            review="My eyelashes are thin so I have tried a lot of mascaras to try to add volume and length to them. I like the mascara because I could see a difference after applying two coats to my eyelashes. I have not had any issues with clumping. The mascara is easy to remove with soap.\n\nThe only issue I have with it is that it sometimes flakes off. I would still recommend it because it does make my eyelashes look thicker and the price is inexpensive.",
+            title="Good Value"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5.0,
+            review="I seriously love this mascara! I first came across it when I was scrolling Facebook and one of those ads popped up “10 Must Haves From Amazon” I clicked on the link and after seeing the 5 star rating and reading through plenty of reviews I decided to give it a try. It did not disappoint. I love how it’s only around 5 bucks and it’s cruelty free which was a huge selling factor! Goes on a little clumpy when you first get it but after some of the product in the tube is used up it goes on much more evenly.",
+            title="Best mascara ever!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=4.0,
+            review="You can’t beat the price!  Great volume and easy to remove. However, I’ve made multiple purchases of this through Amazon and some of the tubes have arrived a bit dry. Good thing it’s only $5, otherwise I’d be really p*ssed about that. Also, I recently had hair and makeup done for a wedding and this is the brand of mascara the makeup artist had in her kit. I thought that was a pretty rousing endorsement!",
+            title="Great performance for an inexpensive mascara"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=4.0,
+            review="This is a good mascara and it makes my eyelashes full and makes them stand out. The only downfall would be that it makes your eyelashes sticky and you are constantly feeling your eyelashes sticking together throughout the day. I would still recommend for the price though!",
+            title="I like it!"
+        ),
+
+        Review(
+            buyer=sarah,
+            product=product,
+            rating=5.0,
+            review="I saw this mascara recommended by an influencer &amp; thought for 5$ it wouldn’t be a big deal if it didn’t work….little did I know I would be finding my new favorite mascara! It goes on lightly but provides so much definition &amp; volume! It feels like I am wearing nothing &amp; comes off so easily. I would highly recommend!",
+            title="Favorite mascara ever!"
+        ),
+    ])
+
+    # https://www.amazon.com/Neutrogena-Cleansing-Towelettes-Waterproof-Alcohol-Free/dp/B00U2VQZDS?ref_=Oct_d_oup_d_11058281&pd_rd_w=gdRuH&content-id=amzn1.sym.dc024851-6d2a-4fc5-b9ca-d1a1b3cfd5ff&pf_rd_p=dc024851-6d2a-4fc5-b9ca-d1a1b3cfd5ff&pf_rd_r=JHYFX9G3HG1V8RYS9QGS&pd_rd_wg=NzXPg&pd_rd_r=0b3b19bc-42dd-46f9-b7d3-258de40a695e&pd_rd_i=B00U2VQZDS&th=1
+
+    product = Product(
+        seller=seller,
+        title="Neutrogena Makeup Remover Cleansing Face Wipes, Daily Cleansing Facial Towelettes to Remove Waterproof Makeup and Mascara, Alcohol-Free, Value Twin Pack, 25 Count, 2 Pack",
+        price="9.78",
+        description="Twin pack with 25-count each of ultra-soft, pre-moistened Neutrogena Makeup Remover Face Wipes with a micellar-infused triple emollient formula remove makeup and cleanse skin while leaving it feeling refreshed, soft, smooth and conditioned\nMakeup remover facial cleansing towelettes work to dissolve all traces of dirt, removes bacteria, impurities, oil and makeup on skin while also removing pollution, sweat and sunscreen, for superior cleansing and makeup removing power at your fingertips\nFacial cleansing wet wipes are ophthalmologist-, dermatologist-, and allergy-tested and gentle on the eyes. The effective formula removes up to 99% of makeup--even stubborn waterproof mascara--without tugging\nOur Clean Promise to you and the Planet. These facial cleansing wipes are made with 100% plant-based fibers, biodegrade in 35 days in home compost, and are formulated without phthalates, parabens, sulfates, alcohols, soaps, or dyes\nMakeup wipes are disposable and thoroughly cleanse skin, leaving behind no heavy residue so there's no need to rinse. Plus, they're great to use in a daily beauty or skincare routine for a refreshing self-care experience at-home"
+    )
+
+    db.session.add_all([
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71Td07yjoUL._SL1500_.jpg"),
+            preview=True,
+            position=1
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71ulKyag+VL._SL1500_.jpg"),
+            preview=False,
+            position=2
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81wzGqeNprL._SL1500_.jpg"),
+            preview=False,
+            position=3
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71vW40IjkGL._SL1500_.jpg"),
+            preview=False,
+            position=4
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/617qPy5Ds9L._SL1500_.jpg"),
+            preview=False,
+            position=5
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71M7x2EI4PL._SL1500_.jpg"),
+            preview=False,
+            position=6
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5.0,
+            review="I am a package car driver and get sweaty throughout the day while delivering packages. Every so often I'll take a moment and use one or two of these to wipe my face and clear it of oil and grime and my goodness does it work without breaking out my face.\n\nI usually break out easily from most moisturizers and all but these are great! My first time buying, I got the regular ones but this time I bought the unscented ones and can honestly say I'm happy with either or though I prefer unscented! After trying these I'm not sure I'd even trust another brand to take care of me out in the field the same way these do! Thanks Neutrogena!",
+            title="I use these A LOT"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5.0,
+            review="This is the only brand of makeup remover that actually takes off my waterproof makeup.  I have tried several other brands because using these nightly can get costly.  I do wash my face after removing makeup but I feel like they would leave my skin feeling clean even if I didn't.",
+            title="Takes off even the toughest mascara"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5.0,
+            review="I really like these makeup wipes.  I wish the package had a better reseal design.  I unfortunately opened the package and it ripped funny.  So I’ve had to improvise a way to keep the wipes fresh by using a ziploc back and packaging tape so that they don’t dry out so quickly.",
+            title="Better Package Design"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5.0,
+            review="Great wipes that leave your face and pores clean!! They were sick and got the job. Done very well! I’ll definitely buy again",
+            title="Great way to freshen up!!"
+        ),
+
+        Review(
+            buyer=sarah,
+            product=product,
+            rating=5.0,
+            review="Was unsure if I would like then....and now can't be without them!  Soft, no terrible smell and one sheet really cleans your face of all makeup.  Recomend highly!",
+            title="Best Makeup remover yet!"
+        ),
+    ])
+
+    # https://www.amazon.com/NYX-PROFESSIONAL-MAKEUP-Jumbo-Pencil/dp/B001TK4LM8?ref_=Oct_d_oup_d_11058281&pd_rd_w=gdRuH&content-id=amzn1.sym.dc024851-6d2a-4fc5-b9ca-d1a1b3cfd5ff&pf_rd_p=dc024851-6d2a-4fc5-b9ca-d1a1b3cfd5ff&pf_rd_r=JHYFX9G3HG1V8RYS9QGS&pd_rd_wg=NzXPg&pd_rd_r=0b3b19bc-42dd-46f9-b7d3-258de40a695e&pd_rd_i=B001TK4LM8&th=1
+
+    product = Product(
+        seller=seller,
+        title="NYX PROFESSIONAL MAKEUP Jumbo Eye Pencil, Eyeshadow & Eyeliner Pencil - Milk",
+        price="5.47",
+        description="Eyeliner Crayon: This blendable radiant eyeliner crayon is a total triple threat; Use your Jumbo Eyeliner Pencil as a creamy eyeshadow, eyeliner and highlighter; Apply it to your water lines, inner corners and entire eye lid for a pop of intense color\nSmooth and Versatile: This creamy eye liner pencil glides on effortlessly, no pulling, tugging or fading; Apply it as an eyeshadow, highlighter, or eyeliner and choose from a rainbow of vivid hues in multiple finishes from matte to metallic\nAll Eyes On Eye Makeup: Complete your look with our full range of eye makeup products ranging from eyeshadow palettes to false eyelashes, eyeliners, concealers, setting sprays, eyebrow makeup, eyeshadow primer and more\nCruelty Free Cosmetics: We believe animals belong in our arms, not in a lab; All of our makeup is certified and acknowledged by PETA as a cruelty free brand; We don't test any of our products on animals\nDiscover NYX Professional Makeup: Try all of our professional makeup products today from eyeshadow, eyeliner, and false lashes to liquid lipstick, lip gloss, primer, concealer, setting sprays and eyebrow makeup"
+    )
+
+    db.session.add_all([
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/31GfIf9DVXS._SL1500_SY300_QL70_FMwebp_.jpg"),
+            preview=True,
+            position=1
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/91gR5SwihTS._SL1500_.jpg"),
+            preview=False,
+            position=2
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/91lQl1hx56S._SL1500_.jpg"),
+            preview=False,
+            position=3
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81iWoT1sm1S._SL1500_.jpg"),
+            preview=False,
+            position=4
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/816RvUfc3aL._SL1500_.jpg"),
+            preview=False,
+            position=5
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51B3tBa3eEL._SL1500_.jpg"),
+            preview=False,
+            position=6
+        ),
+
+        ReviewImage(
+            review=Review(
+                buyer=brian,
+                product=product,
+                rating=5.0,
+                review="I love makeup and have so much but am no pro by any means. I saw these nyx sticks and thought they looked easy enough for me to handle and came in a variety of pretty shades to choose from. I got iced latte, preferring more neutral colors. It's got a bit of shimmer but not too much, def not matte either. It's shade is lighter than I anticipated but still very pretty. I attached photos to show how it looked on the fairest part of my body (forearm) and how I used it as a highlighter on the edges of my eye. Overall, it's got kind of a pink-ish/taupe-ish hue. It's very pretty and the price was great. I've only been wearing it for a few days so I don't know about sharpening it. I will continue to use and certainly purchase in the future",
+                title="smudge-proof, easy to use nyx shadow stick"
+            ),
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/41g8pY+ABJL._SL1500.jpg"),
+        ),
+
+        ReviewImage(
+            review=Review(
+                buyer=caitlynn,
+                product=product,
+                rating=4.0,
+                review="I bought the cottage cheese color, hoping that it would be light enough, but would show up to use on my waterline. I have very sensitive eyes so I wanted to see if this would work on the waterline for me but unfortunately it was to share to even show up. However, being used in the corner of the eye as a highlight, it’s the perfect color! so I will purchase the milk next and see if that will work for my waterline but I do recommend the cottage cheese for any type of a highlight color on the eyes or face or eyebrow. The only down part is that you have to sharpen these which I absolutely hate sharpening a pencil I wish it was just automatic .",
+                title="Great to use as a highlighter, but to share to use on my water line"
+            ),
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/610yIkQIu4L._SL1500.jpg"),
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=4.0,
+            review="I like this color but its not quite what I expected. I don’t think I realized its slightly metallic and bronzy. I was hoping for a flatter, truer brown. My bad. It glides on easily with no tugging and will stay on for the day but I did notice it lightened up and smudged a tiny bit. Overall, I like the product and will buy more colors.",
+            title="Color is a little off the photo"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=4.0,
+            review="this product i used everyday for an entire summer, but i stopped because it was frustrating that the product didn’t last long at all, and it smudged easily or like when i would sweat it just didn’t stay how i would’ve liked it to.",
+            title="cute"
+        ),
+
+        Review(
+            buyer=sarah,
+            product=product,
+            rating=4.0,
+            review="It’s good, lasted me about 3 months without sharpinging it because i only but it in my inner corner eyes. But, i wish it also came with a sharpener instead of having to buy the sharpener separately.",
+            title="Good but,"
+        ),
+    ])
+
+    # https://www.amazon.com/Neutrogena-Cleansing-Towelette-Waterproof-Individually/dp/B07GKVBQDG?ref_=Oct_d_oup_d_11058281&pd_rd_w=gdRuH&content-id=amzn1.sym.dc024851-6d2a-4fc5-b9ca-d1a1b3cfd5ff&pf_rd_p=dc024851-6d2a-4fc5-b9ca-d1a1b3cfd5ff&pf_rd_r=JHYFX9G3HG1V8RYS9QGS&pd_rd_wg=NzXPg&pd_rd_r=0b3b19bc-42dd-46f9-b7d3-258de40a695e&pd_rd_i=B07GKVBQDG&th=1
+
+    product = Product(
+        seller=seller,
+        title="Neutrogena Makeup Remover Facial Cleansing Towelette Singles, Daily Face Wipes Remove Dirt, Oil, Makeup & Waterproof Mascara, Gentle, Individually Wrapped, 100% Plant-Based Fibers, 20 ct",
+        price="6.49",
+        description="20-count of individually wrapped pre-moistened Neutrogena Makeup Remover Face Wipe Singles. Individually wrapped facial cleansing towelettes are protected so you always have a fresh and effective wipe for complete cleansing and makeup removal\nMakeup remover facial cleansing towelettes work to dissolve all traces of dirt, removes bacteria, impurities, oil and makeup on skin while also removing pollution, sweat and sunscreen, for superior cleansing and makeup removing power at your fingertips\nFacial cleansing wet wipes are ophthalmologist-, dermatologist-, and allergy-tested and gentle on the eyes. The effective formula removes up to 99% of makeup--even stubborn waterproof mascara--without tugging\nOur Clean Promise to you and the Planet. These facial cleansing wipes are made with 100% plant-based fibers, biodegrade in 35 days in home compost, and are formulated without phthalates, parabens, sulfates, alcohols, soaps, or dyes\nSingle-use wipes are disposable and thoroughly cleanse skin gently and leave behind no heavy residue, so there's no need to rinse. Plus, they're great to use in a daily beauty or skincare routine for a refreshing self-care experience anywhere"
+    )
+
+    db.session.add_all([
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71oWnakbENL._SL1500_.jpg"),
+            preview=True,
+            position=1
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71udUOn9KkL._SL1500_.jpg"),
+            preview=False,
+            position=2
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81UTWS89ZoL._SL1500_.jpg"),
+            preview=False,
+            position=3
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71RbdVHie1L._SL1500_.jpg"),
+            preview=False,
+            position=4
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71udUOn9KkL._SL1500_.jpg"),
+            preview=False,
+            position=5
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71tFReQAJ7L._SL1500_.jpg"),
+            preview=False,
+            position=6
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5.0,
+            review="Really love these for my rentals they ship one bag at first I panicked since I have 7 rentals that need this but luckily the other bags came in 9 days later I will order again love the single packs",
+            title="Always perfect"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5.0,
+            review="A lot of times when buy a package of makeup remover cloths the last few will often be dried out by the time I get to them. This package of individually wrapped makeup remover cloths is the perfect solution! And they’re so convenient for travel!",
+            title="So handy!!"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5.0,
+            review="Great to throw in suitcase while traveling! Sheets are soft on skin and does a great job at removing makeup.",
+            title="Great for traveling"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5.0,
+            review="I like using these a lot as they wipe every little makeup off my face.",
+            title="I love using these"
+        ),
+
+        Review(
+            buyer=sarah,
+            product=product,
+            rating=5.0,
+            review="Perfect for traveling and since they are individually wrapped, you only take what you need vs a full pack.",
+            title="Product as described"
+        ),
+    ])
+
+    # https://www.amazon.com/NYX-Mechanical-Eye-Pencil-White/dp/B005G9E98O?ref_=Oct_d_oup_d_11058281&pd_rd_w=gdRuH&content-id=amzn1.sym.dc024851-6d2a-4fc5-b9ca-d1a1b3cfd5ff&pf_rd_p=dc024851-6d2a-4fc5-b9ca-d1a1b3cfd5ff&pf_rd_r=JHYFX9G3HG1V8RYS9QGS&pd_rd_wg=NzXPg&pd_rd_r=0b3b19bc-42dd-46f9-b7d3-258de40a695e&pd_rd_i=B005G9E98O&th=1
+
+    product = Product(
+        seller=seller,
+        title="NYX PROFESSIONAL MAKEUP Mechanical Eyeliner Pencil, White",
+        price="4.99",
+        description="Retractable Eye Liner: A line and defined eye is just a twist away with this eyeliner pen; Intense pigment covers like a liquid eyeliner while its creamy formula holds for hours; No need to sharpen just twist up and apply for a winged out eyeliner look\nSmudge Proof and Smooth: This smudge proof eyeliner glides on effortlessly and lasts all day through heat and humidity no sad bleeding eyeliner here; Available in natural to bright shades, any eyeliner look is possible with our Retractable Eye Pencil\nAll Eyes On Eye Makeup: Complete your look with our full range of eye makeup products ranging from eyeshadow palettes to false eyelashes, eyeliners, concealers, setting sprays, eyebrow makeup, eyeshadow primer and more\nCruelty Free Cosmetics: We believe animals belong in our arms, not in a lab; All of our makeup is certified and acknowledged by PETA as a cruelty free brand; We don't test any of our products on animals\nDiscover NYX Professional Makeup: Try all of our professional makeup products today from eyeshadow, eyeliner, and false lashes to liquid lipstick, lip gloss, primer, concealer, setting sprays and eyebrow makeup"
+    )
+
+    db.session.add_all([
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/41qOUM010vL._SL1500_.jpg"),
+            preview=True,
+            position=1
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81gEnziggHL._SL1500_.jpg"),
+            preview=False,
+            position=2
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81hdmOJsiEL._SL1500_.jpg"),
+            preview=False,
+            position=3
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/61GSf0TdDUL._SL1500_.jpg"),
+            preview=False,
+            position=4
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/91f95-OPtPL._SL1500_.jpg"),
+            preview=False,
+            position=5
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51B3tBa3eEL._SL1500_.jpg"),
+            preview=False,
+            position=6
+        ),
+
+        ReviewImage(
+            review=Review(
+                buyer=brian,
+                product=product,
+                rating=5.0,
+                review="I bought as needed a BRONZE color (very hard to find)\nRead all reviews and i researched on you tube and Pinterest BEFORE purchasing\n\nthis is a click pen eyeliner so read description before purchasing.  A click pen eye liner MEANS: no sharpening and you turn the bottom of the pen to control clicking up the product.\n\nCONS…\n*click pens may not be your thing and you can’t always tell when they about to run out TILL product is done so that’s tough for re ordering.  I’d recommend if you like it to ORDER another just to have on hand.\n*color goes on pigmented and so reapplying lots means STRONGER color so be aware.\n*smudges a bit BUT for price and brand its great and just control your application and you are good\n\nPROS..\n*THE PRICE\n*for this brand its a great find and must have\n*BRONZE is a HARD COLOR to find.  I wanted a Mac teddy dupe and i found it it’s NOT as dark as macs teddy BUT its same color scheme AND way less then half the price as MACS teddy eye liner\n*love the click pens eyeliners as no sharpening needed and it doesnt waste product by over sharpening or cracking\n*so many color options in this brand\n*buildable shade strength so re applying will make it darker coloured\n*great delivery timing",
+                title="A beauty MUST HAVE and perfect MAC teddy dupe"
+            ),
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/61s8pKSpD+L._SL1500.jpg"),
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5.0,
+            review="I use to buy the urban decay 24/7 waterline eye pencil, but it was overly expensive and wasn’t pigmented as I wanted it to be and was hard to apply on my watery waterline. I tried this out and honestly didn’t expect it to be as pigmented and smooth to apply on my waterline. It had stayed on all day and for the price, you can’t just beat it! Definitely recommend this over other popular brand names.",
+            title="better than urban decay waterline eye pencil"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5.0,
+            review="Of all of the eyeliners I’ve tried, drugstore to prestige brands, this is the best! Great longevity and doesn’t smudge. My favorite is the brown…it has more color payoff than the ones with a slight shimmer.\n\nThis is way superior to NYX’s other eyeliners that need to be sharpened. This is a twist-up with a thinner pencil “lead.”",
+            title="Best eyeliner!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5.0,
+            review="Wonderful product! For longer wear I would recommend setting it with a brown eyeshadow and ofc using a good primer + setting spray. Super creamy formula too! You don’t even feel like it’s on! Great to add to a “no makeup” look to add a little something something.",
+            title="Creamy formula!"
+        ),
+
+        Review(
+            buyer=sarah,
+            product=product,
+            rating=4.0,
+            review="It’s very pigmented and creamy, and lasts a decent amount of time. I do however have to reapply after about 6 hours of wearing it.",
+            title="9/10"
+        ),
+    ])
+
+    # https://www.amazon.com/Milani-Setting-Spray-Prime-Correct/dp/B01N9KIKZA?ref_=Oct_d_oup_d_11058281&pd_rd_w=gdRuH&content-id=amzn1.sym.dc024851-6d2a-4fc5-b9ca-d1a1b3cfd5ff&pf_rd_p=dc024851-6d2a-4fc5-b9ca-d1a1b3cfd5ff&pf_rd_r=JHYFX9G3HG1V8RYS9QGS&pd_rd_wg=NzXPg&pd_rd_r=0b3b19bc-42dd-46f9-b7d3-258de40a695e&pd_rd_i=B01N9KIKZA&th=1
+
+    product = Product(
+        seller=seller,
+        title="Milani Make It Last 3-in-1 Setting Spray and Primer- Prime + Correct + Set (2.03 Fl. Oz.) Makeup Finishing Spray and Primer - Long Lasting Makeup Primer and Spray",
+        price="9.84",
+        description="PRIME + CORRECT + SET: Make It Last Prime + Correct + Set Setting Spray preps your face, reduces the appearance of imperfections and then locks in for the long haul. You can enjoy up to 16 hours without a crease or smudge in sight. Spray before or after makeup application, or wear it alone for a captivating natural finish.\nLONG-LASTING WEAR: This illuminating finishing spray and makeup primer delivers just the right dose of dewy to your complexion with a cooling, refreshing feeling, while locking in your makeup for up to 16 hours without creasing, smudging or fading!\nVEGAN, CRUELTY-FREE BEAUTY: The vegan formula primes, hydrates, and illuminates your skin. Spray under or over makeup to set your look, or wear on its own for a healthy radiance all day long.\nTIPS & TRICKS: Hold bottle 8-10 inches away from your face and spray in a zigzag formation. Do not spray directly into eyes.\nWE ARE MILANI: Born in East LA, we've always been connected to the rich diversity of our neighborhood, because it’s a place that truly embodies the melting pot of Los Angeles. We're not inspired by couture and top models. Our passion is real people, living real lives. Beauty is for everyone. No matter who you are or where you come from, we're here to fuel your self-expression with makeup for every shade, attitude, and ethnicity. No judgment. No exceptions."
+    )
+
+    db.session.add_all([
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/61ChSNnpCCL._SL1500_.jpg"),
+            preview=True,
+            position=1
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81l77fH0mfL._SL1500_.jpg"),
+            preview=False,
+            position=2
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81TlSQ2qJfL._SL1500_.jpg"),
+            preview=False,
+            position=3
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81sFEr4lV-L._SL1500_.jpg"),
+            preview=False,
+            position=4
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71b8tzbf+VL._SL1500_.jpg"),
+            preview=False,
+            position=5
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81cvxHyPyhL._SL1500_.jpg"),
+            preview=False,
+            position=6
+        ),
+
+        ReviewImage(
+            review=Review(
+                buyer=brian,
+                product=product,
+                rating=4.0,
+                review="It states it can be used as a primer.\n\nBe careful as it will dry out skin\n\nI ONLY use at the end of my makeup to hel set it\n\nI find i need two sprays\n\nThere are beauty trends and tests out there that state you can set makeup halfway through and resorts at end.\n\nSometimes i will spray after my primer,foundation and for user after i do my eye makeup.\n\nI do get a lot of compliments on my makeup that it looks flawless.\n\nI credit it to the products i use (allot are from online here)and for natural application\n\nHint…\nALWAYS strand test any beauty product you first introduce into your skin care routine.\n\nThis means wash area and try on a small amount onto hand or directly only cheek.  Wait and then see how it reacts.  Remember that some reactions dont happen right away and may take time.\n\nI have pale, sensitive, dry skin so after my strand test I found i cannot use this as a primer spray (dries out my skin and too heavy)",
+                title="A GREAT must have"
+            ),
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/61s8pKSpD+L._SL1500.jpg"),
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5.0,
+            review="I have extremely sensitive skin, but this didn't cause any issues. I have used it for a few weeks now and my skin doesn't seem to be bothered. It holds my makeup together really well. I don't find it overly dewy at all, which was my concern. At the end of the day my makeup isn't worn away as much and looks like it has a healthy glow. It also has a nice fresh scent but not like perfume, which helps the sensitive skin issues. I would buy this again.",
+            title="Works well and good for sensitive skin"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5.0,
+            review="This product is phenomenal. If you like your makeup looking smooth and your skin staying supple, this is for you. I have extremely dry and sensitive skin and I use this product throughout my makeup routine and my makeup has never stayed on so well. No dry patches, no smearing. Stays in place. I’m obsessed and will be repurchasing!",
+            title="LOVE"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5.0,
+            review="This is the only thing that keeps my makeup on actually for all day. I don't notice a different feeling on my face at all but I definitely know when I don't use it. The scent is really nice but doesn't linger and the sprayer is good just hold it pretty far from your face.",
+            title="JUST GET IT"
+        ),
+
+        Review(
+            buyer=sarah,
+            product=product,
+            rating=4.0,
+            review="Loved this! I needed a good dewy setting spray and for the price it worked amazing! Reason for loosing the star, the rubber piece inside the top popped off and it no longer worked. Only had it for less then 2 weeks but the product was great.",
+            title="Loved it but…"
+        ),
+    ])
+
+    # https://www.amazon.com/Garnier-SkinActive-Micellar-Cleansing-Waterproof/dp/B017PCGAXQ?ref_=Oct_d_oup_d_11058281&pd_rd_w=gdRuH&content-id=amzn1.sym.dc024851-6d2a-4fc5-b9ca-d1a1b3cfd5ff&pf_rd_p=dc024851-6d2a-4fc5-b9ca-d1a1b3cfd5ff&pf_rd_r=JHYFX9G3HG1V8RYS9QGS&pd_rd_wg=NzXPg&pd_rd_r=0b3b19bc-42dd-46f9-b7d3-258de40a695e&pd_rd_i=B017PCGAXQ&th=1
+
+    product = Product(
+        seller=seller,
+        title="Garnier SkinActive Micellar Water For Waterproof Makeup, Facial Cleanser & Makeup Remover, 13.5 fl. oz, 1 count (Packaging May Vary)",
+        price="6.96",
+        description="Garnier Micellar Cleansing Water for Waterproof Makeup: Use this gentle yet powerful makeup remover to remove stubborn waterproof makeup; Safe for use in the eye area, and for removing longwear lipsticks, while leaving skin clean and refreshed, never dry\nMicellar Water is effective yet gentle; It's simple, micellar cleansing water lifts away dirt, makeup, and excess oil, all in just a few swipes; No rinsing, no harsh rubbing just refreshed skin, and a face washed clean and cleared of impurities\nRemove tough makeup even the leading wipes can’t, leaves less waterproof mascara residue. Use Waterproof Micellar Cleansing Water plus Reusable Eco Pads.\nGarnier SkinActive was developed with gentle formulas and naturally derived ingredients to leave your skin looking fresh and healthy, no matter your skin type, Find the face wash, moisturizer, makeup remover, or mask for you\nCommited to making Garnier a greener beauty brand: As a leading global beauty brand, we aspire to create a positive impact by paving the way towards more sustainable beauty. Approved by Cruelty Free International under the Leaping Bunny Program."
+    )
+
+    db.session.add_all([
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71IyBz6tTrL._SL1500_.jpg"),
+            preview=True,
+            position=1
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/714Y5pJM7mL._SL1500_.jpg"),
+            preview=False,
+            position=2
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71hOAHlgqCL._SL1500_.jpg"),
+            preview=False,
+            position=3
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81O2SyqduaL._SL1500_.jpg"),
+            preview=False,
+            position=4
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81bWzL4DD3L._SL1500_.jpg"),
+            preview=False,
+            position=5
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81cSDAM0lgL._SL1500_.jpg"),
+            preview=False,
+            position=6
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=4.0,
+            review="I wanted to move away from using make-up wipes as often to remove my eye make-up so I bought this and some soft cloths.  I am impressed with this product.  I have sensitive eyes/allergies and this doesn't affect them too much when I get a little in my eyes.  I am not saying this doesn't take any effort to remove all the eye make-up but even the wipes do.  I shake the bottle, squeeze some on a soft cloth, use it on one eye, then get another part of the cloth wet with water and wipe my eye again; repeat for other eye.  If you have a lot of make-up on it may take a little back and forth of these steps, especially with the type of cloth I am using.  I need to experiment with different cloths I think.  Thinner may work better but I chose a thicker, softer cloth so my sensitive eye skin would not be aggravated.\n\nThis does seem oily although they do not say there is oil in the product.  I don't see a problem with this although if you plan to use it on your entire face and break out easily, I would test it first in an area.\n\nAn interesting discovery with this product is that it also works on other substances you may get on yourself that soap will not easily remove.  I was spray painting a bunch of items and multiple times got dark spray paint on my legs or hands.  I tried this product with a cotton ball and it removed the paint with little effort!  I was pretty impressed and it goes to show it can remove mascara if it can remove spray paint!  I plan to continue to use this product and would recommend it as long as you are aware that it does feel oily and you do need to shake it each time.",
+            title="This works!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5.0,
+            review="I sometimes wear a lot of dark eye stuff. After coming home, I like to take my makeup off right away. I did and used the for the first time. Thought to myself, where is all the makeup? My eyes felt ok but didn't look to see. Later I checked out and noticed no eye makeup on my face. I didn't have an oily or burning eyes or anything that my last one did to my eyes. I was thinking it didn't even come off. My pleasant surprise it was all off. No burning, nothing left. My eyes felt and so did my face feel clean and smooth. Perfect for me.",
+            title="Just started to us it"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5.0,
+            review="I used this on a makeup eraser brand cloth and my makeup melts off in seconds! I used to tear my eyelids apart in my teens and early 20s LOL I have learned this is the easiest and cheapest way to go.",
+            title="Best way to take off makeup"
+        ),
+
+        ReviewImage(
+            review=Review(
+                buyer=elizabeth,
+                product=product,
+                rating=5.0,
+                review="I wear waterproof mascara and liquid waterproof eyeliner. This leaves hardly any smudges. I also wear 16 hour wear lipstick that comes off so much easier now. I used to use the wipes for makeup removal but no more! This has no fragrance, great for sensitive skin, and the harsh taste of chemicals is not there unlike when using the removal wipes. Shake well and you're good to go!",
+                title="Removes so well!"
+            ),
+            url=upload_image_to_bucket_from_url(
+                "https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif"),
+        ),
+
+        Review(
+            buyer=sarah,
+            product=product,
+            rating=5.0,
+            review="Very nice for makeup removal. Just use it with some wipes and it takes off a lot!!! Very worth it and better than the name high end brands.",
+            title="Very nice for makeup removal"
+        ),
+    ])
+
+    # https://www.amazon.com/Premium-Eyelash-Eyebrow-Enhancer-VieBeauti/dp/B085WBZNFR?ref_=Oct_d_old_d_11058281_0&pd_rd_w=vmc5G&content-id=amzn1.sym.d6a81112-5cc2-4e11-9d89-e9f1e9c2eea0&pf_rd_p=d6a81112-5cc2-4e11-9d89-e9f1e9c2eea0&pf_rd_r=JHYFX9G3HG1V8RYS9QGS&pd_rd_wg=NzXPg&pd_rd_r=0b3b19bc-42dd-46f9-b7d3-258de40a695e#customerReviews
+
+    product = Product(
+        seller=seller,
+        title="VieBeauti Premium Eyelash Growth Serum and Eyebrow Enhancement Formula, Boosts Natural Lash Growth for Thicker, Fuller Lashes and Eyebrows (3ML) | Gold Packaging, 0.1 Fl. Oz.",
+        price="19.99",
+        description="LENGTHEN AND STRENGTHEN your eyelashes and brows to achieve alluring eyes naturally. Our nourishing eyelash growth serum promotes new eyelash growth and fortifies existing hairs for bold, dramatic looking eyes in as little as 2 weeks. This advanced formula eye lash growing serum provides a magical boost to thin, sparse and brittle lashes.\nPOWERFUL AMINO ACIDS in L-Isoleucine support new growth by stimulating circulation to blood vessels around follicles. This fills-in patchy eyebrows and lash lines so they look lush and healthy. Aspartic acid reinforces hair structure to make lashes and brows stronger and more voluminous.\nRICH IN NUTRIENTS to boost growth and volume, VieBeauti Eyelash Serum works wonders on the littlest of lashes. As an added bonus, arginine helps hydrate hairs to resolve brittleness and make them stronger. With fuller and more dramatic lashes, you can say goodbye to uncomfortable fake eyelashes.\nGENTLE FORMULATION is safe to use on the delicate tissues along the lash line and beneath your eyebrows. Botanically derived ingredients infuse sheen and luster without tell-tale redness and irritation. VieBeauti can be used in the mornings before your makeup, and in the evening as part of your night-time skin care regimen.\nEASY TO APPLY with its own fine-tip wand, VieBeauti Eyelash and Eyebrow Growth Serum goes on in the same way as your favorite eyeliner. Moving from the inner corner of your eye to the outer corner, simply brush-on a thin layer at the root lines to nourish follicles, promote new hair growth and strengthen existing hairs."
+    )
+
+    db.session.add_all([
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/41mFlDZNVGS._SL1500_SY300_QL70_FMwebp_.jpg"),
+            preview=True,
+            position=1
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71UBuOHyIDS._SL1500_.jpg"),
+            preview=False,
+            position=2
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81D4pilsZtS._SL1500_.jpg"),
+            preview=False,
+            position=3
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71Tyw6LY86S._SL1500_.jpg"),
+            preview=False,
+            position=4
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71814cgKLyS._SL1500_.jpg"),
+            preview=False,
+            position=5
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71+Xeevgy6S._SL1500_.jpg"),
+            preview=False,
+            position=6
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=5.0,
+            review="I had pulled out most of my lashes on my right eye with my lash curler, as my hand slipped. I tried this product and it worked they grew back and were thicker and longer than ever before. Been using it ever since! I had fine thin lashes and had to use waterproof mascara before but now any will work. Happy with this serum!!\nThanks\nGloria",
+            title="This serum is amazing!"
+        ),
+
+        Review(
+            buyer=caitlynn,
+            product=product,
+            rating=5.0,
+            review="I first saw this product in a YouTube video where the lady kept talking about how her lashes grew so up because of this product. I thought of course, she had long lashes to begin with. While mine aren't necessarily too short but they are the typical Asian thin, straight and downward pointing lashes. I can only use waterproof mascara if I want my curl to stay all day. I searched for videos that are reviewed by people who have the same type of eye lashes. I found this Chinese lady who raved about this so I thought I could give it a try. The key of using this products is diligent. I used it day and night, faithfully for months. I honestly can't tell the difference by just looking at my lashes in the mirror. But the magic happened when I put on my mascara. Just one coat, my lashes are noticeable long, they curled as I rolled my wand, even when I didn't curl them before with a curler. The most amazing thing is that now non waterproof mascara works the same as my waterproof holy grail mascara! I highly recommend this product!",
+            title="Skeptical at first but works"
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=5.0,
+            review="I just started on my third tube of Vie beauty eyelash serum. It makes my lashes so thick and long even though I'm in my 60s. It is very easy to use, the tube lasts a very long time and I haven't had any negative side effects. I also love how inexpensive it is. Great value for the money!!",
+            title="Really works!"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=5.0,
+            review="I wasn’t sure what to expect, but it was great! My lashes are really long and full. It’s a great product for an even better price! I’ve spent way more on other products that did the same thing! Highly recommended.",
+            title="Looooove it!"
+        ),
+
+        Review(
+            buyer=sarah,
+            product=product,
+            rating=5.0,
+            review="I wish I had done a before photo,  but menopause left me with stubby eyelashes, so much so, I had used falsies for years.  I have used this for about 1 month and it has given me back my lashes that I can curl !!! And it doesn't burn like others. Love it!",
+            title="The best I've used!"
+        ),
+    ])
+
+    # https://www.amazon.com/Plumping-Lasting-Hydrating-Non-sticky-Revitalizing/dp/B0BJ2KCFBD?ref_=Oct_d_onr_d_11058281&pd_rd_w=nlBgh&content-id=amzn1.sym.a8f3a30d-9e11-4355-859f-4ec616e3a77c&pf_rd_p=a8f3a30d-9e11-4355-859f-4ec616e3a77c&pf_rd_r=JHYFX9G3HG1V8RYS9QGS&pd_rd_wg=NzXPg&pd_rd_r=0b3b19bc-42dd-46f9-b7d3-258de40a695e&pd_rd_i=B0BJ2KCFBD&th=1
+
+    product = Product(
+        seller=seller,
+        title="Plumping Lip Oil, Long Lasting Hydrating Lip Gloss Tinted Lip Balm Non-sticky Revitalizing, Tinting Lip Care Oil for Dry Lip (CHERRY)",
+        price="9.99",
+        description="CHARMING LIPS: Beauty that works better for you. Get effortless, smooth application every time with the unique brush applicator. Color locks in, feels and looks fresh all day, with no transfer. You will look naturally gorgeous and attractive.\nMOISTURIZING: Sweet Cherry and Luffa Cylindrica seed oil keep lips soft and moisturized. Raspberry Fruit Extract contains antioxidants, keeping lips healthy | Botanical Oil Blend is rich with vitamins A, C & E locks in moisture & nourishes lips.\nLONG LASTING & NON-STICKY: Refreshing texture, providing lasting moisturizing power but not sticky on the lips. This lip gloss oil can make a shine and plump lips, smooth and creamy. Your lip soft with natural glossy.\nALL-IN-ONE & VERSATILE: This lip gloss tinted creates the perfect canvas of any lip look for day to night perfection. The light and elegant shades can be applied to daily makeup, while natural lip makeup can also brighten the lip color and lighten the lip lines.\nQUICK RESPONSE WITHIN 24 HRS: If you have any questions please contact us and we will spare no efforts to offer you a best solution. Why not be better and more beautiful with us? We are always here to help!"
+    )
+
+    db.session.add_all([
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/61i0ZB4J3BL._SL1500_.jpg"),
+            preview=True,
+            position=1
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51lPRmGLNpL._SL1500_.jpg"),
+            preview=False,
+            position=2
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/61gGPXBHIOL._SL1500_.jpg"),
+            preview=False,
+            position=3
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51X-g6Dwq+L._SL1500_.jpg"),
+            preview=False,
+            position=4
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/61A5iwwr9cL._SL1500_.jpg"),
+            preview=False,
+            position=5
+        ),
+
+        ProductImage(
+            product=product,
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71jlJyEN74L._SL1500_.jpg"),
+            preview=False,
+            position=6
+        ),
+
+        Review(
+            buyer=brian,
+            product=product,
+            rating=4.0,
+            review="I didn’t give it 5 stars because the applicator is a little weird to get out of it, probably because it is too big. Other than that however, this product is very nice, especially for the price. It lasts a good amount of time without having to reapply. It’s not an annoying sticky like some glosses/oils are. It smells nice, does what it’s supposed to, and it doesn’t irritate my lips. 4/5 stars !!",
+            title="Pretty Decent"
+        ),
+
+        ReviewImage(
+            review=Review(
+                buyer=caitlynn,
+                product=product,
+                rating=4.0,
+                review="See end for update!\n\nI have this in the shade “Pink.” It’s basically clear. I wish I’d ordered the red one, or the coral color!! A deep berry would be lovely, too. Overall, it’s a decent lip oil but doesn’t last very long before I have to reapply it. It’s also not as glossy as I’d hoped, but it adds a little shine. My lips feel super hydrated, at least!! The applicator is REALLY big, and doesn’t seem to get enough oil on it when I take it out of the tube. I have to dip and re-dip a few times for one application. As far as lip plumping goes, I don’t notice any difference. (Again, see update)\n\nUPDATE: ok, so I wore this today for a few hours in the evening. Before bed, I washed my face &amp; realized my lips looked gray-blue. They also felt a little burnt…almost like I’d been out in the sun too long or scalded them with hot food. I wonder if it’s from the “plumper” ingredient that didn’t do much plumping?! I have to say my lips *do* look a little more plump, but they have a weird gray appearance. It has to be related! Just a warning. I posted another pic.\n\nHope this helps! 😉",
+                title="Dior dupe (on a budget). Weird reaction later!"
+            ),
+            url=upload_image_to_bucket_from_url(
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/61ERQ2eMyDL._SL1500.jpg"),
+        ),
+
+        Review(
+            buyer=derrik,
+            product=product,
+            rating=4.0,
+            review="I have really started to like lip oil over gloss since it is not sticky.  My favorite is Pudaier Lip Oil (just $1 more), but this one compares nicely.  Since this is \"plumping\" it has peppermint - smells like candy canes and tingles a bit.  I do not detect cherry or raspberry.  The oil goes on nicely and looks good alone, or over lipstick.  I got the \"pink,\" which is basically clear.\nIt may take a couple of uses to get used to the tingly feeling, but it's not uncomfortable, just different than other lip oils.  I've used a variety of plumping lipsticks and they all feel the same.\nOverall, a good lip oil that feels good and has a good scent.\n\nReview for Plumping Lip Oil, Long Lasting Hydrating Lip Gloss Tinted Lip Balm Non-sticky Revitalizing, Tinting Lip Care Oil for Dry Lip (PINK)",
+            title="tingly feeling, good lip oil"
+        ),
+
+        Review(
+            buyer=elizabeth,
+            product=product,
+            rating=4.0,
+            review="Juicy and moisturizing lip oil. Doesn’t feel oily but not sticky like some glosses. A very subtle tint in color, very flattering. Stays on for a decent amount of time.\n\nMy only gripe with this is that the doe foot wand is so big, it’s hard to get out of the tube without knocking your neighbor out. The lip oil will fling out when I finally pull the wand out which is a bummer because this doesn’t come with a ton of product to begin with.\n\nOverall, I recommend but I suggest to the seller to look at a smaller wand or a larger tube to eliminate the issue above.",
+            title="Pretty!"
+        ),
+
+        Review(
+            buyer=sarah,
+            product=product,
+            rating=4.0,
+            review="I love this lip oil! I catch myself using it multiples times throughout the day. It has a little stickiness but it’s to be expected. I also love the big applicator. I’m definitely going to buy more colors!",
+            title="Really pretty!"
         ),
     ])
 
