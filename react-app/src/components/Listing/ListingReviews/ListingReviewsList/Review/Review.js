@@ -25,7 +25,9 @@ export default function Review({ review }) {
 
             <div className={styles.review}>{review.review}</div>
 
-            {review.review_images[0] && <img className={styles.image} alt="review" src={review.review_images[0].url} />}
+            <div className={styles.images}>
+                {review.review_images.length > 0 && review.review_images.map((image, i) => <img className={styles.image} src={image.url} alt="review" key={i} />)}
+            </div>
         </div>
     );
 }

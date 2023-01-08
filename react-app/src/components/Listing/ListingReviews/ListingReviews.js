@@ -1,18 +1,20 @@
 import styles from "./ListingReviews.module.css";
 
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getReviewsByProductId } from "../../../store/reviews";
 
 import ListingReviewsBreakdown from "./ListingReviewsBreakdown/ListingReviewsBreakdown";
 import ListingReviewsList from "./ListingReviewsList/ListingReviewsList";
-import { useEffect, useRef } from "react";
 
 export default function ListingReviews({ product, setReviewPosition }) {
     const dispatch = useDispatch();
     const ref = useRef();
 
-    if (ref.current) setReviewPosition(ref.current.offsetTop);
+    useEffect(() => {
+        if (ref.current) setReviewPosition(ref.current.offsetTop);
+    }, [ref, setReviewPosition]);
 
     useEffect(() => {
         dispatch(getReviewsByProductId(product.id));

@@ -138,7 +138,7 @@ export default function ReviewForm() {
         catch (responseBody) {
             console.log(responseBody);
         }
-        navigate(source ? source : `/listing/${productId}`);
+        navigate(source ? source : `/listing/${productId}?source=reviews`);
     }
 
     const onSubmit = (e) => {

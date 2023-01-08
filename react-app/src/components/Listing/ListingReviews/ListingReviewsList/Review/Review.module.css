@@ -48,6 +48,12 @@
     white-space: pre-wrap;
 }
 
+.images {
+    display: flex;
+    gap: 5px;
+    overflow: hidden;
+}
+
 .image {
     height: 90px;
     object-fit: scale-down;
