@@ -39,10 +39,10 @@ export default function DeliveryTab({ product }) {
         <div className={styles.delivery}>FREE delivery <span className={styles.date}>{deliveryDate}.</span> Order within <span className={styles.deadline}>10 hrs 13 mins</span></div>
         <div className={styles.address}></div>
         <div className={styles.inStock}>In Stock.</div>
-        {user.id !== product.seller_id && <Quantity quantity={quantity} setQuantity={setQuantity} />}
-        {user.id !== product.seller_id && <div className={styles.addToCart}>Add to Cart</div>}
-        {user.id !== product.seller_id && <div className={styles.buyNow} onClick={onBuyNow}>Buy Now</div>}
-        {user.id === product.seller_id && <div>You own this product. <NavLink to={`/inventory/${product.id}?source=${window.location.pathname}`}>Click here</NavLink> to edit it.</div>}
+        {user?.id !== product.seller_id && <Quantity quantity={quantity} setQuantity={setQuantity} />}
+        {user?.id !== product.seller_id && <div className={styles.addToCart}>Add to Cart</div>}
+        {user?.id !== product.seller_id && <div className={styles.buyNow} onClick={onBuyNow}>Buy Now</div>}
+        {user?.id === product.seller_id && <div>You own this product. <NavLink to={`/inventory/${product.id}?source=${window.location.pathname}`}>Click here</NavLink> to edit it.</div>}
         <div className={styles.secure}>
             <div className={styles.secureIconWrapper}>
                 <img src="/images/secure.png" alt="Secure icon" height="15px" />

@@ -2,7 +2,7 @@ import styles from "./Purchase.module.css";
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import { getProductDetails } from "../../../store/productDetails";
 import { postOrder } from "../../../store/purchases";
@@ -11,6 +11,7 @@ export default function Purchase({ purchase }) {
     const createdAt = (new Date(purchase.created_at)).toLocaleDateString('en-us', { year: "numeric", month: "long", day: "numeric" });;
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const product = useSelector(state => state.productDetails)[purchase.product_id];
 
     useEffect(() => {
@@ -71,9 +72,9 @@ export default function Purchase({ purchase }) {
                     </div>
                 </div>
                 <div>
-                    <div className={styles.reviewButton}>Write a product review</div>
+                    <div className={styles.reviewButton} onClick={() => navigate(`/reviews/${product.id}`)}>Write a product review</div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }

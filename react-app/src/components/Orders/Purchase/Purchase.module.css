@@ -60,13 +60,14 @@
     box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
     border: 1px solid #D5D9D9;
     text-align: center;
-
-    cursor: pointer;
+    color: #0F1111;
 }
 
 .reviewButton:hover {
     background-color: #F7FAFA;
     border-color: #D5D9D9;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .product {

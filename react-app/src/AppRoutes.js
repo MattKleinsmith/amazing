@@ -7,6 +7,7 @@ import RegisterForm from "./components/RegisterForm/RegisterForm";
 import Homepage from "./components/Homepage/Homepage";
 import Inventory from "./components/Inventory/Inventory";
 import ListingForm from "./components/ListingForm/ListingForm";
+import ReviewForm from "./components/ReviewForm/ReviewForm";
 import AddressForm from "./components/AddressForm/AddressForm";
 import Addresses from "./components/Addresses/Addresses";
 import Orders from "./components/Orders/Orders";
@@ -34,6 +35,7 @@ export default function AppRoutes() {
 
             <Route path="/orders" element={<Protected><Orders /></Protected>} />
             <Route path="/order-confirmation" element={<Protected><OrderConfirmation /></Protected>} />
+            <Route path="/reviews/:productId" element={<Protected><ReviewForm /></Protected>} />
         </Routes>
     );
 }
