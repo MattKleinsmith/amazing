@@ -10,9 +10,9 @@ export default function LinksBar() {
                 <NavLink className={styles.link} to="/s?k=phone">Phones</NavLink>
                 <NavLink className={styles.link} to="/s?k=basics">Amazon Basics</NavLink>
                 <NavLink className={styles.link} to="/s?k=makeup">Makeup</NavLink>
-                <a target="_blank" className={styles.link} href="https://www.linkedin.com/in/matthewkleinsmith/">LinkedIn</a>
-                <a target="_blank" className={styles.link} href="https://github.com/MattKleinsmith/">GitHub</a>
-                <a target="_blank" className={styles.link} href="https://github.com/MattKleinsmith/amazing/">Project repo</a>
+                <a rel="noreferrer" target="_blank" className={styles.link} href="https://www.linkedin.com/in/matthewkleinsmith/">LinkedIn</a>
+                <a rel="noreferrer" target="_blank" className={styles.link} href="https://github.com/MattKleinsmith/">GitHub</a>
+                <a rel="noreferrer" target="_blank" className={styles.link} href="https://github.com/MattKleinsmith/amazing/">Project repo</a>
             </div>
         </div>
     )
