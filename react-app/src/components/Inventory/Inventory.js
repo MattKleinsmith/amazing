@@ -30,7 +30,7 @@ export default function Inventory() {
                         <div>Created</div>
                         <div>Updated</div>
                     </div>
-                    <div>Price</div>
+                    <div className={styles.price}>Price</div>
                 </div>
                 <div className={styles.line} />
                 {products.map((product, i) => <InventoryItem key={i} product={product} />)}
