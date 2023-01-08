@@ -8,30 +8,35 @@ import { postReview, putReview, postReviewImage, deleteReviewImage, getReviewsBy
 import { getProductDetails } from "../../store/productDetails";
 
 export default function ReviewForm() {
-    const { productId } = useParams();
-    const product = useSelector(state => state.productDetails)[productId];
-    const source = useSearchParams()[0].get("source");
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const { productId } = useParams();
+    const source = useSearchParams()[0].get("source");
+
+    const product = useSelector(state => state.productDetails)[productId];
+
     const [review, setReview] = useState(null);
-
-
-    const imageRef = useRef();
-    const [image, setImage] = useState(null);
-    const [imageError, setImageError] = useState("");
 
     const titleField = useRef();
     const [title, setTitle] = useState(product?.title || "");
     const [titleError, setTitleError] = useState("");
 
-    const priceField = useRef();
-    const [price, setPrice] = useState(product?.price || 0);
-    const [priceError, setPriceError] = useState("");
+    const [rating, setRating] = useState(review?.rating || 0);
+    const [ratingError, setRatingError] = useState("");
 
-    const descriptionField = useRef();
-    const [description, setDescription] = useState(product?.description || "");
-    const [descriptionError, setDescriptionError] = useState("");
+    const imageRef = useRef();
+    const [image, setImage] = useState(null);
+    const [imageError, setImageError] = useState("");
 
-    const navigate = useNavigate();
+    const reviewField = useRef();
+    const [reviewText, setReviewText] = useState(review?.review || "");
+    const [reviewTextError, setReviewTextError] = useState("");
+
+    document.title = "Review Your Purchases";
+
+    const emptyStar = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMzgiIGhlaWdodD0iMzUiPjxkZWZzPjxwYXRoIGlkPSJhIiBkPSJNMTkgMGwtNS44NyAxMS41MkwwIDEzLjM3bDkuNSA4Ljk3TDcuMjYgMzUgMTkgMjkuMDIgMzAuNzUgMzVsLTIuMjQtMTIuNjYgOS41LTguOTctMTMuMTMtMS44NXoiLz48L2RlZnM+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48dXNlIGZpbGw9IiNGRkYiIHhsaW5rOmhyZWY9IiNhIi8+PHBhdGggc3Ryb2tlPSIjQTI2QTAwIiBzdHJva2Utb3BhY2l0eT0iLjc1IiBkPSJNMTkgMS4xbC01LjU0IDEwLjg4TDEuMSAxMy43Mmw4Ljk0IDguNDRMNy45MiAzNC4xIDE5IDI4LjQ2bDExLjA4IDUuNjQtMi4xMS0xMS45NCA4Ljk0LTguNDQtMTIuMzYtMS43NEwxOSAxLjF6Ii8+PC9nPjwvc3ZnPg==";
+    const star = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMzgiIGhlaWdodD0iMzUiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iYSIgeDE9IjUwJSIgeDI9IjUwJSIgeTE9IjI3LjY1JSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNGRkNFMDAiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNGRkE3MDAiLz48L2xpbmVhckdyYWRpZW50PjxwYXRoIGlkPSJiIiBkPSJNMTkgMGwtNS44NyAxMS41MkwwIDEzLjM3bDkuNSA4Ljk3TDcuMjYgMzUgMTkgMjkuMDIgMzAuNzUgMzVsLTIuMjQtMTIuNjYgOS41LTguOTctMTMuMTMtMS44NXoiLz48L2RlZnM+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48dXNlIGZpbGw9InVybCgjYSkiIHhsaW5rOmhyZWY9IiNiIi8+PHBhdGggc3Ryb2tlPSIjQTI2QTAwIiBzdHJva2Utb3BhY2l0eT0iLjc1IiBkPSJNMTkgMS4xbC01LjU0IDEwLjg4TDEuMSAxMy43Mmw4Ljk0IDguNDRMNy45MiAzNC4xIDE5IDI4LjQ2bDExLjA4IDUuNjQtMi4xMS0xMS45NCA4Ljk0LTguNDQtMTIuMzYtMS43NEwxOSAxLjF6Ii8+PC9nPjwvc3ZnPg=="
 
     useEffect(() => {
         async function fetchData() {
@@ -39,7 +44,7 @@ export default function ReviewForm() {
                 dispatch(getProductDetails(productId));
             }
             if (productId) {
-                const _review = await dispatch(getReviewsByProductIdAndUser(productId));
+                const _review = await dispatch(getReviewsByProductIdAndUser(productId)).catch(e => { });
                 setReview(_review);
             }
         }
@@ -47,16 +52,17 @@ export default function ReviewForm() {
     }, [productId, product, dispatch]);
 
     useEffect(() => {
-        setTitle(product?.title || "");
-        setPrice(product?.price || 0);
-        setDescription(product?.description || "");
-    }, [product])
+        setTitle(review?.title || "");
+        setRating(review?.rating || 0);
+        setReviewText(review?.review || "");
+    }, [review]);
 
     useEffect(() => {
         titleField.current.focus();
     }, []);
 
     const handlePreviewChange = async (e) => {
+        setImageError("");
         const file = e.target.files[0];
         if (!["image/png", "image/jpeg"].includes(file.type)) {
             setImageError("Please upload a png or jpeg image.");
@@ -65,7 +71,20 @@ export default function ReviewForm() {
         setImage(file)
         const reader = new FileReader();
         reader.onload = function (e) {
-            imageRef.current.src = e.target.result;
+            const img = document.createElement("img");
+            img.src = e.target.result;
+            img.className = styles.reviewImage;
+            img.alt = "";
+            imageRef.current.appendChild(img);
+
+            const deleteWrapper = document.createElement("div");
+            deleteWrapper.className = styles.deleteWrapper;
+            deleteWrapper.onClick = () => console.log("yo");;
+            imageRef.current.appendChild(deleteWrapper);
+
+            const deleteImg = document.createElement("div");
+            deleteImg.className = styles.delete;
+            deleteWrapper.appendChild(deleteImg);
         }
         reader.readAsDataURL(file);
 
@@ -78,26 +97,18 @@ export default function ReviewForm() {
     const onClickContinue = async () => {
         let hasErrors = false;
 
-        if (!description) {
-            setDescriptionError("Enter a description");
-            descriptionField.current.focus();
+        if (!rating) {
+            setRatingError("Please select a star rating");
             hasErrors = true;
         }
 
-        if (!price) {
-            setPriceError("Enter a price");
-            priceField.current.focus();
-            hasErrors = true;
-        }
-
-        if (price <= 0 || price > 9999) {
-            setPriceError("Price must be greater than zero and less than 10,000");
-            priceField.current.focus();
+        if (rating < 1 || rating > 5) {
+            setRatingError("Rating must be between 1 and 5");
             hasErrors = true;
         }
 
         if (!title) {
-            setTitleError("Enter a title");
+            setTitleError("Please enter your heading");
             titleField.current.focus();
             hasErrors = true;
         }
@@ -105,7 +116,7 @@ export default function ReviewForm() {
         if (hasErrors) return;
 
         try {
-            const body = { title, price, description }
+            const body = { title, rating, review: reviewText }
             const thunkAction = product ? putReview(review.id, body) : postReview(productId, body);
             const newReviewId = await dispatch(thunkAction);
             try {
@@ -133,26 +144,52 @@ export default function ReviewForm() {
             <div className={styles.wrapper}>
 
                 <form className={styles.form} onSubmit={onSubmit}>
-                    <div className={styles.heading}>{productId ? "Edit" : "Create"} review</div>
+
+                    <div className={styles.heading}>{review ? "Edit" : "Create"} Review</div>
+
                     <div className={`${styles.fieldWrapper} ${styles.imageWrapper}`}>
-                        {imageError && <div className={styles.imageError}>{imageError}</div>}
-                        <img ref={imageRef} className={styles.image} src={product?.preview_image} alt={product?.preview_image} />
-                        <label className={`${styles.fieldLabel} ${styles.imageLabel}`}>Search results image</label>
-                        <input
-                            type="file"
-                            name="image"
-                            accept="image/png, image/jpeg"
-                            onChange={handlePreviewChange}
-                            className={`${styles.imageInput}`}
-                        />
+                        <img className={styles.image} src={product?.preview_image} alt={product?.preview_image} />
+                        <div className={styles.productTitle}>{product?.title}</div>
                     </div>
-                    <div className={styles.thumbnailListWrapper}>
-                        {product?.images.map((image, i) => <img onClick={() => dispatch(deleteReviewImage(review.id, image.id))} className={styles.thumbnail} src={image.url} key={i} alt={i} />)}
-                    </div>
+
+                    <div className={styles.line} />
+
+                    <label htmlFor="listingFormTitle" className={styles.fieldLabel}>
+                        Overall rating
+                    </label>
                     <div className={styles.fieldWrapper}>
-                        <label htmlFor="listingFormTitle" className={styles.fieldLabel}>
-                            Title
-                        </label>
+                        <img onClick={() => {
+                            setRating(1);
+                            setRatingError("");
+                        }} alt="select to rate item one star" src={rating >= 1 ? star : emptyStar} />
+                        <img onClick={() => {
+                            setRating(2);
+                            setRatingError("");
+                        }} alt="select to rate item two star" src={rating >= 2 ? star : emptyStar} />
+                        <img onClick={() => {
+                            setRating(3);
+                            setRatingError("");
+                        }} alt="select to rate item three star" src={rating >= 3 ? star : emptyStar} />
+                        <img onClick={() => {
+                            setRating(4);
+                            setRatingError("");
+                        }} alt="select to rate item four star" src={rating >= 4 ? star : emptyStar} />
+                        <img onClick={() => {
+                            setRating(5);
+                            setRatingError("");
+                        }} alt="select to rate item five star" src={rating >= 5 ? star : emptyStar} />
+                    </div>
+                    {ratingError && <div className={styles.errorWrapper}>
+                        <div className={styles.errorIcon} />
+                        <div className={styles.errorText}>{ratingError}</div>
+                    </div>}
+
+                    <div className={styles.line} />
+
+                    <label htmlFor="listingFormTitle" className={styles.fieldLabel}>
+                        Add a headline
+                    </label>
+                    <div className={styles.fieldWrapper}>
                         <input
                             ref={titleField}
                             id="listingFormTitle"
@@ -171,51 +208,56 @@ export default function ReviewForm() {
                         </div>}
                     </div>
 
-                    <div className={styles.fieldWrapper}>
-                        <label htmlFor="listingFormPrice" className={styles.fieldLabel}>
-                            Price
-                        </label>
-                        <input
-                            ref={priceField}
-                            id="listingFormPrice"
-                            className={`${styles.fieldInput} ${priceError && styles.errorInput}`}
-                            type="number"
-                            autoComplete="off"
-                            value={price}
-                            onChange={(e) => {
-                                setPriceError("");
-                                setPrice(e.target.value);
-                            }}
-                        />
-                        {priceError && <div className={styles.errorWrapper}>
-                            <div className={styles.errorIcon} />
-                            <div className={styles.errorText}>{priceError}</div>
-                        </div>}
-                    </div>
+                    <div className={styles.line} />
 
-                    <div className={styles.fieldWrapper}>
-                        <label htmlFor="listingFormDescription" className={styles.fieldLabel}>
-                            Description
+                    <label className={`${styles.fieldLabel} ${styles.imageLabel}`}>Add a photo</label>
+                    <div className={styles.note}>Shoppers find images more helpful than text alone.</div>
+                    <div className={styles.images}  >
+                        <div className={styles.images} ref={imageRef}>
+
+                        </div>
+                        <label htmlFor="image" className={styles.addPhoto}>
+                            <img alt="" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjZweCIgaGVpZ2h0PSIyNnB4IiB2aWV3Qm94PSIwIDAgMjYgMjYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUwLjIgKDU1MDQ3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5TaGFwZTwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJzaHJpbmtJbWFnZUNUQS04MCIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9ImV4cGwtY29weS0yMjkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00Ny4wMDAwMDAsIC0zMjMuMDAwMDAwKSIgZmlsbD0iI0FBQjdCOCIgZmlsbC1ydWxlPSJub256ZXJvIj4KICAgICAgICAgICAgPGcgaWQ9ImFzaW5NZXRhIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgMTE5LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPGcgaWQ9ImFkZE1lZGlhIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgMTAwLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgIDxnIGlkPSJHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTcuMDAwMDAwLCAxNy4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwLTIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCA1Ny4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJTaGFwZSIgcG9pbnRzPSI0NC4zIDQxLjcgNDQuMyAzMCA0MS43IDMwIDQxLjcgNDEuNyAzMCA0MS43IDMwIDQ0LjMgNDEuNyA0NC4zIDQxLjcgNTYgNDQuMyA1NiA0NC4zIDQ0LjMgNTYgNDQuMyA1NiA0MS43Ij48L3BvbHlnb24+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==" />
                         </label>
+                    </div>
+                    {imageError && <div className={styles.imageError}>{imageError}</div>}
+                    <input
+                        type="file"
+                        name="image"
+                        id="image"
+                        accept="image/png, image/jpeg"
+                        onChange={handlePreviewChange}
+                        className={`${styles.imageInput}`}
+                        style={{ display: "none" }}
+                    />
+
+                    <div className={styles.line} />
+
+                    <label htmlFor="listingFormDescription" className={styles.fieldLabel}>
+                        Add a written review
+                    </label>
+                    <div className={styles.fieldWrapper}>
                         <textarea
-                            ref={descriptionField}
+                            ref={reviewField}
                             id="listingFormDescription"
-                            className={`${styles.fieldTextarea} ${descriptionError && styles.errorInput}`}
+                            className={`${styles.fieldTextarea} ${reviewTextError && styles.errorInput}`}
                             autoComplete="off"
-                            value={description}
+                            value={reviewText}
                             rows="10"
                             onChange={(e) => {
-                                setDescriptionError("");
-                                setDescription(e.target.value);
+                                setReviewTextError("");
+                                setReviewText(e.target.value);
                             }}
                         />
-                        {descriptionError && <div className={styles.errorWrapper}>
+                        {reviewTextError && <div className={styles.errorWrapper}>
                             <div className={styles.errorIcon} />
-                            <div className={styles.errorText}>{descriptionError}</div>
+                            <div className={styles.errorText}>{reviewTextError}</div>
                         </div>}
                     </div>
 
-                    <button type="submit" className={`${styles.continue} ${styles.noselect}`}>{productId ? "Edit" : "Create"} listing</button>
+                    <div className={styles.line} />
+
+                    <button type="submit" className={`${styles.continue} ${styles.noselect}`}>{productId ? "Edit" : "Create"} review</button>
                 </form>
             </div>
         </>

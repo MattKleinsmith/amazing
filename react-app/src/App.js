@@ -1,6 +1,6 @@
 import styles from "./App.module.css";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { restoreUser } from "./store/session";
@@ -13,11 +13,14 @@ import Modals from "./components/Modals/Modals";
 
 export default function App() {
   const dispatch = useDispatch();
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    dispatch(restoreUser());
+    dispatch(restoreUser()).then(() => setIsLoaded(true));
     dispatch(getAddresses());
   }, [dispatch]);
+
+  if (!isLoaded) return;
 
   return (
     <>
