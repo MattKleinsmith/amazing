@@ -4,6 +4,7 @@ const GET_REVIEWS = 'reviews/GET_REVIEWS';
 const GET_REVIEW = 'reviews/GET_INDIVIDUAL_REVIEW';
 const POST_REVIEW = 'reviews/POST_REVIEW';
 const DELETE_REVIEW = 'reviews/DELETE_REVIEW';
+const CLEAR_REVIEWS = 'reviews/CLEAR_REVIEWS';
 
 export const getReviewsByProductId = (productId) => async dispatch => {
     const response = await csrfFetch(`/api/products/${productId}/reviews`);
@@ -69,6 +70,10 @@ export const deleteReviewImage = (reviewId, reviewImageId) => async dispatch => 
     dispatch(getReview(reviewId));
 };
 
+export const clearReviews = () => {
+    return { type: CLEAR_REVIEWS };
+}
+
 export default function reviewsReducer(state = {}, action) {
     let newState = { ...state };
     switch (action.type) {
@@ -87,6 +92,8 @@ export default function reviewsReducer(state = {}, action) {
         case DELETE_REVIEW:
             delete newState[action.reviewId];
             return newState;
+        case CLEAR_REVIEWS:
+            return {};
         default:
             return state;
     }

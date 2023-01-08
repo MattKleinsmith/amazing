@@ -6,6 +6,7 @@ export default function ListingImages({ product }) {
     const [url, setUrl] = useState(product.images[0]?.url);
     const firstThumbnailRef = useRef();
     const [thumbnail, setThumbnail] = useState();
+    const mainImageRef = useRef();
 
     const onMouseEnter = (i, e) => {
         setUrl(product.images[i]?.url);
@@ -13,6 +14,15 @@ export default function ListingImages({ product }) {
         if (thumbnail) thumbnail.classList.remove(styles.thumbnailHover);
         e.target.classList.add(styles.thumbnailHover);
         setThumbnail(e.target);
+    };
+
+    if (mainImageRef.current) {
+        const aspectRatio = mainImageRef.current.naturalWidth / mainImageRef.current.naturalHeight;
+        if (aspectRatio >= 1.2) {
+            mainImageRef.current.classList.add(styles.scaleDown);
+        } else {
+            mainImageRef.current.classList.remove(styles.scaleDown)
+        }
     };
 
     return (
@@ -29,7 +39,7 @@ export default function ListingImages({ product }) {
             </div>
 
             <div className={styles.imageWrapper}>
-                <img className={styles.image} src={url} alt="main" />
+                <img ref={mainImageRef} className={styles.image} src={url} alt="main" />
             </div>
 
         </div>

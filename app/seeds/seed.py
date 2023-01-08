@@ -1,4 +1,4 @@
-from app.models import db, User, Product, ProductImage, Review, ReviewImage, Address
+from app.models import db, User, Product, ProductImage, Review, ReviewImage, Address, Order, Purchase
 from app.seeds.upload import upload_image_to_bucket_from_url
 
 
@@ -24,6 +24,7 @@ def seed_all():
     )
 
     db.session.add(address)
+    db.session.commit()
 
     seller = User(
         fullname="Seller",
@@ -168,6 +169,18 @@ def seed_all():
             title="The Best ultrasonic toothbrush!"
         ),
     ])
+
+    order = Order()
+    db.session.add(order)
+    db.session.add(Purchase(
+        order=order,
+        address=f"{demo.fullname}\n123 MAIN ST\nKANSAS CITY, MO 12345\nUNITED STATES",
+        buyer_id=demo.id,
+        seller_id=seller.id,
+        product_id=product.id,
+        price=product.price,
+        quantity=1
+    ))
 
     # https://www.amazon.com/AquaSonic-DUO-Whitening-Rechargeable-ToothBrushes/dp/B07HFG93GK/ref=sr_1_16?crid=234FOMCTX8NL8&keywords=electric+toothbrushes&qid=1673123804&s=hpc&sprefix=electric+toothbrushes%2Chpc%2C286&sr=1-16
 
@@ -2080,4 +2093,8 @@ def undo_seed():
     db.session.execute("TRUNCATE TABLE reviews RESTART IDENTITY CASCADE;")
     db.session.execute(
         "TRUNCATE TABLE review_images RESTART IDENTITY CASCADE;")
+    db.session.execute(
+        "TRUNCATE TABLE orders RESTART IDENTITY CASCADE;")
+    db.session.execute(
+        "TRUNCATE TABLE purchases RESTART IDENTITY CASCADE;")
     db.session.commit()

@@ -26,7 +26,11 @@
 }
 
 .ratingBarFill {
-    height: 100%;
+    height: calc(100% + 2px);
+    width: calc(0% + 1px);
+    position: relative;
+    top: -1px;
+    left: -1px;
     width: 0%;
 
     background-color: #FFA41C;
@@ -48,7 +52,7 @@
     }
 
     100% {
-        width: var(--width5, 0%);
+        width: calc(var(--width5, 0%) + 2px);
     }
 }
 

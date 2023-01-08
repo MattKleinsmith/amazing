@@ -5,6 +5,8 @@ import { useEffect, useRef } from "react";
 export default function RatingBar({ percents, rating }) {
     const ref = useRef();
 
+    console.log("percents", percents);
+
     useEffect(() => {
         const classes = {
             5: styles.ratingBarAnimate5,
@@ -17,6 +19,7 @@ export default function RatingBar({ percents, rating }) {
         function playAnimation(entries, observer) {
             entries.forEach(entry => {
                 if (entry.intersectionRatio > .2) {
+                    console.log("Setting width to", percents[rating], "for rating", rating, percents);
                     ref.current?.style.setProperty(`--width${rating}`, `${percents[rating]}%`);
                     ref.current?.classList.add(classes[rating]);
                 }

@@ -10,6 +10,7 @@ import SearchResultsItem from "./SearchResultItem/SearchResultsItem";
 // import SearchResultsFilter from "./SearchResultsFilter/SearchResultsFilter";
 import SearchResultsBar from "./SearchResultsBar/SearchResultsBar";
 import { setKeywords } from "../../store/keywords";
+import { clearReviews } from "../../store/reviews";
 
 export default function SearchResults({ showRecent }) {
     const dispatch = useDispatch();
@@ -27,10 +28,11 @@ export default function SearchResults({ showRecent }) {
     }, [dispatch, searchParams, showRecent]);
 
     useEffect(() => {
+        dispatch(clearReviews());
         const handleResize = () => setWidth(window.innerWidth);
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
-    }, [])
+    }, [dispatch])
 
     const products = useSelector(state => Object.values(showRecent ? state.products.all : state.products.filtered));
     if (showRecent) products.reverse();

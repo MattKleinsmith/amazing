@@ -52,3 +52,7 @@
     padding-right: 10px;
     padding-left: 3px;
 }
+
+.scaleDown {
+    transform: scale(0.5);
+}
