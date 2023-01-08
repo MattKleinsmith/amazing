@@ -57,7 +57,7 @@ export const deleteReview = reviewId => async dispatch => {
     dispatch({ type: DELETE_REVIEW, reviewId });
 };
 
-export const deleteReviewImage = (reviewId, reviewImageId) => async dispatch => {
+export const deleteReviewImage = (reviewImageId) => async dispatch => {
     await csrfFetch(`/api/review_images/${reviewImageId}`, { method: "DELETE" });
 };
 

@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
-import { postReview, putReview, postReviewImage, getReviewsByProductIdAndUser } from '../../store/reviews';
+import { postReview, putReview, postReviewImage, getReviewsByProductIdAndUser, deleteReviewImage } from '../../store/reviews';
 import { getProductDetails } from "../../store/productDetails";
 
 export default function ReviewForm() {
@@ -61,6 +61,30 @@ export default function ReviewForm() {
         titleField.current.focus();
     }, []);
 
+    const appendImage = (url, reviewImageId) => {
+        const img = document.createElement("img");
+        img.src = url;
+        img.className = styles.reviewImage;
+        img.alt = "";
+        imageRef.current.appendChild(img);
+
+        const deleteWrapper = document.createElement("div");
+        deleteWrapper.className = styles.deleteWrapper;
+        deleteWrapper.onclick = () => {
+            if (reviewImageId) {
+                console.log("ATTEMPTING: Delete image from database, and visually.");
+                dispatch(deleteReviewImage(reviewImageId));
+            } else {
+                console.log("TODO: Delete image from array, and visually.");
+            }
+        };
+        imageRef.current.appendChild(deleteWrapper);
+
+        const deleteImg = document.createElement("div");
+        deleteImg.className = styles.delete;
+        deleteWrapper.appendChild(deleteImg);
+    }
+
     const handlePreviewChange = async (e) => {
         setImageError("");
         const file = e.target.files[0];
@@ -71,33 +95,12 @@ export default function ReviewForm() {
         setImage(file)
         const reader = new FileReader();
         reader.onload = function (e) {
-            const img = document.createElement("img");
-            img.src = e.target.result;
-            img.className = styles.reviewImage;
-            img.alt = "";
-            imageRef.current.appendChild(img);
-
-            const deleteWrapper = document.createElement("div");
-            deleteWrapper.className = styles.deleteWrapper;
-            deleteWrapper.onclick = () => {
-                if (review) {
-                    console.log("TODO: Delete image from database, and visually.");
-                    // deleteReviewImage();
-                } else {
-                    console.log("TODO: Delete image from array, and visually.");
-                }
-            };
-            imageRef.current.appendChild(deleteWrapper);
-
-            const deleteImg = document.createElement("div");
-            deleteImg.className = styles.delete;
-            deleteWrapper.appendChild(deleteImg);
+            appendImage(e.target.result);
         }
         reader.readAsDataURL(file);
 
         if (review?.id && file) {
             await dispatch(postReviewImage(review.id, file));
-            // dispatch(getProductDetails(productId));
         }
     }
 
@@ -151,6 +154,16 @@ export default function ReviewForm() {
         e.preventDefault();
         onClickContinue();
     }
+
+    const [reviewImageUrls, setReviewImageUrls] = useState([]);
+
+    review?.review_images.forEach(reviewImage => {
+        console.log(review.review_images);
+        if (!reviewImageUrls.includes(reviewImage.url)) {
+            setReviewImageUrls(reviewImageUrls.concat([reviewImage.url]));
+            appendImage(reviewImage.url, reviewImage.id);
+        }
+    })
 
     return (
         <>
@@ -227,7 +240,6 @@ export default function ReviewForm() {
                     <div className={styles.note}>Shoppers find images more helpful than text alone.</div>
                     <div className={styles.images}  >
                         <div className={styles.images} ref={imageRef}>
-
                         </div>
                         <label htmlFor="image" className={styles.addPhoto}>
                             <img alt="" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjZweCIgaGVpZ2h0PSIyNnB4IiB2aWV3Qm94PSIwIDAgMjYgMjYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUwLjIgKDU1MDQ3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5TaGFwZTwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJzaHJpbmtJbWFnZUNUQS04MCIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9ImV4cGwtY29weS0yMjkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00Ny4wMDAwMDAsIC0zMjMuMDAwMDAwKSIgZmlsbD0iI0FBQjdCOCIgZmlsbC1ydWxlPSJub256ZXJvIj4KICAgICAgICAgICAgPGcgaWQ9ImFzaW5NZXRhIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgMTE5LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPGcgaWQ9ImFkZE1lZGlhIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgMTAwLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgIDxnIGlkPSJHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTcuMDAwMDAwLCAxNy4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwLTIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCA1Ny4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJTaGFwZSIgcG9pbnRzPSI0NC4zIDQxLjcgNDQuMyAzMCA0MS43IDMwIDQxLjcgNDEuNyAzMCA0MS43IDMwIDQ0LjMgNDEuNyA0NC4zIDQxLjcgNTYgNDQuMyA1NiA0NC4zIDQ0LjMgNTYgNDQuMyA1NiA0MS43Ij48L3BvbHlnb24+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==" />
