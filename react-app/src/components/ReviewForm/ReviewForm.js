@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
-import { postReview, putReview, postReviewImage, deleteReviewImage, getReviewsByProductIdAndUser } from '../../store/reviews';
+import { postReview, putReview, postReviewImage, getReviewsByProductIdAndUser } from '../../store/reviews';
 import { getProductDetails } from "../../store/productDetails";
 
 export default function ReviewForm() {
@@ -29,7 +29,7 @@ export default function ReviewForm() {
     const [image, setImage] = useState(null);
     const [imageError, setImageError] = useState("");
 
-    const reviewField = useRef();
+    const reviewTextField = useRef();
     const [reviewText, setReviewText] = useState(review?.review || "");
     const [reviewTextError, setReviewTextError] = useState("");
 
@@ -79,7 +79,14 @@ export default function ReviewForm() {
 
             const deleteWrapper = document.createElement("div");
             deleteWrapper.className = styles.deleteWrapper;
-            deleteWrapper.onClick = () => console.log("yo");;
+            deleteWrapper.onclick = () => {
+                if (review) {
+                    console.log("TODO: Delete image from database, and visually.");
+                    // deleteReviewImage();
+                } else {
+                    console.log("TODO: Delete image from array, and visually.");
+                }
+            };
             imageRef.current.appendChild(deleteWrapper);
 
             const deleteImg = document.createElement("div");
@@ -88,7 +95,7 @@ export default function ReviewForm() {
         }
         reader.readAsDataURL(file);
 
-        if (productId && file) {
+        if (review?.id && file) {
             await dispatch(postReviewImage(productId, file, true, 1));
             // dispatch(getProductDetails(productId));
         }
@@ -113,15 +120,21 @@ export default function ReviewForm() {
             hasErrors = true;
         }
 
+        if (!reviewText) {
+            setReviewTextError("Please enter a written review");
+            reviewTextField.current.focus();
+            hasErrors = true;
+        }
+
         if (hasErrors) return;
 
         try {
             const body = { title, rating, review: reviewText }
-            const thunkAction = product ? putReview(review.id, body) : postReview(productId, body);
+            const thunkAction = review ? putReview(review.id, body) : postReview(productId, body);
             const newReviewId = await dispatch(thunkAction);
             try {
                 if (image && newReviewId) {
-                    await dispatch(postReviewImage(newReviewId, image, true, 1));
+                    await dispatch(postReviewImage(newReviewId, image));
                 }
             }
             catch (responseBody) {
@@ -131,7 +144,7 @@ export default function ReviewForm() {
         catch (responseBody) {
             console.log(responseBody);
         }
-        navigate(source ? source : "/inventory");
+        navigate(source ? source : `/listing/${productId}`);
     }
 
     const onSubmit = (e) => {
@@ -238,7 +251,7 @@ export default function ReviewForm() {
                     </label>
                     <div className={styles.fieldWrapper}>
                         <textarea
-                            ref={reviewField}
+                            ref={reviewTextField}
                             id="listingFormDescription"
                             className={`${styles.fieldTextarea} ${reviewTextError && styles.errorInput}`}
                             autoComplete="off"
@@ -257,7 +270,7 @@ export default function ReviewForm() {
 
                     <div className={styles.line} />
 
-                    <button type="submit" className={`${styles.continue} ${styles.noselect}`}>{productId ? "Edit" : "Create"} review</button>
+                    <button type="submit" className={`${styles.continue} ${styles.noselect}`}>{review ? "Edit" : "Create"} review</button>
                 </form>
             </div>
         </>

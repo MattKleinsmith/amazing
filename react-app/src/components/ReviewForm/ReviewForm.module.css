@@ -114,6 +114,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .delete {
@@ -124,8 +125,7 @@
     background-position: -297px -5px;
     align-self: center;
     vertical-align: baseline;
-    z-index: 3;
-    cursor: pointer;
+    z-index: 4;
 }
 
 .fieldInput:focus {
