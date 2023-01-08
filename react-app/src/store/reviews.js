@@ -18,12 +18,6 @@ export const getReviewsByProductIdAndUser = (productId) => async dispatch => {
     return review;
 };
 
-export const getReview = (reviewId) => async dispatch => {
-    const response = await csrfFetch(`/api/reviews/${reviewId}`);
-    const review = await response.json();
-    return review;
-};
-
 export const postReview = (productId, body) => async dispatch => {
     const response = await csrfFetch(`/api/products/${productId}/reviews`, {
         method: "POST",
@@ -39,7 +33,6 @@ export const putReview = (reviewId, body) => async dispatch => {
         method: "PUT",
         body: JSON.stringify(body)
     });
-    dispatch(getReview(reviewId));
 };
 
 export const postReviewImage = (reviewId, image) => async dispatch => {
@@ -57,7 +50,6 @@ export const postReviewImage = (reviewId, image) => async dispatch => {
         console.log(errors);
         throw errors;
     }
-    dispatch(getReview(reviewId));
 };
 
 export const deleteReview = reviewId => async dispatch => {
@@ -67,7 +59,6 @@ export const deleteReview = reviewId => async dispatch => {
 
 export const deleteReviewImage = (reviewId, reviewImageId) => async dispatch => {
     await csrfFetch(`/api/review_images/${reviewImageId}`, { method: "DELETE" });
-    dispatch(getReview(reviewId));
 };
 
 export const clearReviews = () => {
