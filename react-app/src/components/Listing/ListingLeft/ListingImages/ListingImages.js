@@ -6,7 +6,7 @@ export default function ListingImages({ product }) {
     const [url, setUrl] = useState(product.images[0]?.url);
     const firstThumbnailRef = useRef();
     const [thumbnail, setThumbnail] = useState();
-    const mainImageRef = useRef();
+    const [shouldScaleDown, setShouldScaleDown] = useState(true);
 
     const onMouseEnter = (i, e) => {
         setUrl(product.images[i]?.url);
@@ -16,14 +16,16 @@ export default function ListingImages({ product }) {
         setThumbnail(e.target);
     };
 
-    if (mainImageRef.current) {
-        const aspectRatio = mainImageRef.current.naturalWidth / mainImageRef.current.naturalHeight;
-        if (aspectRatio >= 1.2) {
-            mainImageRef.current.classList.add(styles.scaleDown);
-        } else {
-            mainImageRef.current.classList.remove(styles.scaleDown)
-        }
+    const getDimensions = (url, cb) => {
+        const img = new Image();
+        img.onload = () => cb(img);
+        img.src = url;
     };
+
+    getDimensions(url, img => {
+        const aspectRatio = img.naturalWidth / img.naturalHeight;
+        setShouldScaleDown(aspectRatio >= 1.2);
+    })
 
     return (
         <div className={styles.wrapper}>
@@ -39,7 +41,7 @@ export default function ListingImages({ product }) {
             </div>
 
             <div className={styles.imageWrapper}>
-                <img ref={mainImageRef} className={styles.image} src={url} alt="main" />
+                <img className={`${styles.image} ${shouldScaleDown && styles.scaleDown}`} src={url} alt="main" />
             </div>
 
         </div>
