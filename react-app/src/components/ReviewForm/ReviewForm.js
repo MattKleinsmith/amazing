@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
-import { postReview, putReview, postReviewImage, getReviewsByProductIdAndUser, deleteReviewImage } from '../../store/reviews';
+import { postReview, putReview, postReviewImage, getReviewsByProductIdAndUser, deleteReviewImage, deleteReview } from '../../store/reviews';
 import { getProductDetails } from "../../store/productDetails";
 
 export default function ReviewForm() {
@@ -156,13 +156,21 @@ export default function ReviewForm() {
         setReview(_review);
     }
 
+    const onDeleteReview = () => {
+        dispatch(deleteReview(review.id));
+        navigate("/orders");
+    }
+
     return (
         <>
             <div className={styles.wrapper}>
 
                 <form className={styles.form} onSubmit={onSubmit}>
 
-                    <div className={styles.heading}>{review ? "Edit" : "Create"} Review</div>
+                    <div className={styles.heading}>
+                        {review ? "Edit" : "Create"} Review
+                        {review && <button type="button" className={`${styles.deleteReview} ${styles.noselect}`} onClick={onDeleteReview}>Delete</button>}
+                    </div>
 
                     <div className={`${styles.fieldWrapper} ${styles.imageWrapper}`}>
                         <img className={styles.image} src={product?.preview_image} alt={product?.preview_image} />

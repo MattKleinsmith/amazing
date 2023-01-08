@@ -28,6 +28,8 @@
     line-height: 32px;
     margin-bottom: 15px;
     color: #0F1111;
+    display: flex;
+    justify-content: space-between;
 }
 
 .fieldWrapper {
@@ -273,4 +275,37 @@
     width: 100%;
     height: 1px;
     background-color: #d5d9d9;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.deleteReview {
+    width: 80px;
+    padding: 5px 6px;
+    margin-top: 2px;
+    margin-bottom: 28px;
+
+    border: 1px solid #a88734;
+    border-radius: 3px;
+    border-color: #f20000;
+
+    background: linear-gradient(0deg, rgb(238, 53, 53) 0%, rgb(244, 137, 137) 100%);
+
+    color: #111111;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+
+    cursor: pointer;
+
+    align-self: flex-end;
+}
+
+.deleteReview:hover {
+    border-color: #ff6b6b;
+    background: red;
+    color: white;
 }
