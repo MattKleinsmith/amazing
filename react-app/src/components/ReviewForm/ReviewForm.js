@@ -1,6 +1,6 @@
 import styles from './ReviewForm.module.css';
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
@@ -57,11 +57,7 @@ export default function ReviewForm() {
         setReviewText(review?.review || "");
     }, [review]);
 
-    useEffect(() => {
-        titleField.current.focus();
-    }, []);
-
-    const appendImage = (url, reviewImageId) => {
+    const appendImage = (url) => {
         const img = document.createElement("img");
         img.src = url;
         img.className = styles.reviewImage;
@@ -71,12 +67,7 @@ export default function ReviewForm() {
         const deleteWrapper = document.createElement("div");
         deleteWrapper.className = styles.deleteWrapper;
         deleteWrapper.onclick = () => {
-            if (reviewImageId) {
-                console.log("ATTEMPTING: Delete image from database, and visually.");
-                dispatch(deleteReviewImage(reviewImageId));
-            } else {
-                console.log("TODO: Delete image from array, and visually.");
-            }
+            console.log("TODO: Delete image from array, and visually.");
         };
         imageRef.current.appendChild(deleteWrapper);
 
@@ -155,15 +146,11 @@ export default function ReviewForm() {
         onClickContinue();
     }
 
-    const [reviewImageUrls, setReviewImageUrls] = useState([]);
-
-    review?.review_images.forEach(reviewImage => {
-        console.log(review.review_images);
-        if (!reviewImageUrls.includes(reviewImage.url)) {
-            setReviewImageUrls(reviewImageUrls.concat([reviewImage.url]));
-            appendImage(reviewImage.url, reviewImage.id);
-        }
-    })
+    const onImageDelete = async (reviewImageId) => {
+        await dispatch(deleteReviewImage(reviewImageId));
+        const _review = await dispatch(getReviewsByProductIdAndUser(productId)).catch(e => { });
+        setReview(_review);
+    }
 
     return (
         <>
@@ -238,8 +225,16 @@ export default function ReviewForm() {
 
                     <label className={`${styles.fieldLabel} ${styles.imageLabel}`}>Add a photo</label>
                     <div className={styles.note}>Shoppers find images more helpful than text alone.</div>
-                    <div className={styles.images}  >
+                    <div className={styles.images}>
                         <div className={styles.images} ref={imageRef}>
+                            {review && review.review_images.map((img, i) =>
+                                <Fragment key={i}>
+                                    <img src={img.url} alt="" className={styles.reviewImage} />
+                                    <div onClick={() => onImageDelete(img.id)} className={styles.deleteWrapper} >
+                                        <div className={styles.delete} />
+                                    </div>
+                                </Fragment>
+                            )}
                         </div>
                         <label htmlFor="image" className={styles.addPhoto}>
                             <img alt="" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjZweCIgaGVpZ2h0PSIyNnB4IiB2aWV3Qm94PSIwIDAgMjYgMjYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUwLjIgKDU1MDQ3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5TaGFwZTwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJzaHJpbmtJbWFnZUNUQS04MCIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9ImV4cGwtY29weS0yMjkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00Ny4wMDAwMDAsIC0zMjMuMDAwMDAwKSIgZmlsbD0iI0FBQjdCOCIgZmlsbC1ydWxlPSJub256ZXJvIj4KICAgICAgICAgICAgPGcgaWQ9ImFzaW5NZXRhIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgMTE5LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPGcgaWQ9ImFkZE1lZGlhIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgMTAwLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgIDxnIGlkPSJHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTcuMDAwMDAwLCAxNy4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwLTIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCA1Ny4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJTaGFwZSIgcG9pbnRzPSI0NC4zIDQxLjcgNDQuMyAzMCA0MS43IDMwIDQxLjcgNDEuNyAzMCA0MS43IDMwIDQ0LjMgNDEuNyA0NC4zIDQxLjcgNTYgNDQuMyA1NiA0NC4zIDQ0LjMgNTYgNDQuMyA1NiA0MS43Ij48L3BvbHlnb24+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==" />
