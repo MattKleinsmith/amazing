@@ -28,7 +28,6 @@ export default function Listing() {
     document.title = `Amazing : ${product.title}`;
 
     return (
-
         <div className={styles.wrapper}>
             <div className={styles.top}>
                 <ListingLeft product={product} />
