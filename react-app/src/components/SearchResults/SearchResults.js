@@ -21,9 +21,9 @@ export default function SearchResults({ showRecent, isHomepage }) {
 
     useEffect(() => {
         if (showRecent) {
-            dispatch(getProducts())
+            dispatch(getProducts());
         } else {
-            dispatch(getProductsByKeywords(searchParams.get("k")))
+            dispatch(getProductsByKeywords(searchParams.get("k")));
         }
     }, [dispatch, searchParams, showRecent]);
 
@@ -34,8 +34,8 @@ export default function SearchResults({ showRecent, isHomepage }) {
         return () => window.removeEventListener('resize', handleResize);
     }, [dispatch])
 
-    const products = useSelector(state => Object.values(showRecent ? state.products.all : state.products.filtered));
-    if (showRecent) products.reverse();
+    let products = useSelector(state => Object.values(showRecent ? state.products.all : state.products.filtered));
+    if (showRecent) products = products.reverse().slice(0, 12);
 
     let numCols;
     if (width >= 1320) numCols = 4

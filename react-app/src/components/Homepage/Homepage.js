@@ -1,19 +1,27 @@
 import styles from "./Homepage.module.css";
 
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import SearchResults from "../SearchResults/SearchResults";
 import Card from "./Card/Card";
 import CardSolo from "./CardSolo/CardSolo";
+import { useEffect } from "react";
+import { getProductsForHomepage } from "../../store/products";
 
 export default function Homepage() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const products = useSelector(state => state.products);
     const { phone, makeup, basics } = products.homepage;
     const allProducts = Object.values(products.all);
     const lastProduct = allProducts[allProducts.length - 1];
+
+
+    useEffect(() => {
+        dispatch(getProductsForHomepage());
+    }, [dispatch])
 
     return <div className={styles.wrapper}>
         <img className={styles.banner} src="/images/landing.png" alt="sale" onClick={() => navigate("/s?k=phone")} />
