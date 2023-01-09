@@ -8,6 +8,8 @@ import { useEffect } from 'react';
 
 export default function SignInForm() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const source = useSearchParams()[0].get("source");
 
     const [isLoaded, setIsLoaded] = useState(false);
@@ -28,7 +30,7 @@ export default function SignInForm() {
     const [terms1, setTerms1] = useState("");
     const [terms2, setTerms2] = useState("");
 
-    const navigate = useNavigate();
+    document.title = "Amazing Sign-in"
 
     useEffect(() => {
         setIsLoaded(true);

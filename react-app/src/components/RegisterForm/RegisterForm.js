@@ -8,6 +8,7 @@ import * as sessionActions from "../../store/session";
 
 export default function RegisterForm() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [isLoaded, setIsLoaded] = useState(false);
     const user = useSelector(state => state.session.user);
@@ -35,7 +36,7 @@ export default function RegisterForm() {
     const [terms1, setTerms1] = useState("");
     const [terms2, setTerms2] = useState("");
 
-    const navigate = useNavigate();
+    document.title = "Amazing Registration";
 
     useEffect(() => {
         setIsLoaded(true);

@@ -34,6 +34,8 @@ export default function Orders() {
         if (page > 1) setPage(page - 1);
     }
 
+    document.title = "Your Orders";
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.content}>
