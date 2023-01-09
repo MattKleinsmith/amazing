@@ -1,0 +1,37 @@
+.wrapper {
+    display: flex;
+    cursor: pointer;
+    gap: 3px;
+    align-self: center;
+    margin-bottom: 7px;
+    margin-left: 19px;
+    margin-right: -1px;
+}
+
+.icon {
+    background-image: url("../../../../public/images/header-logo.png");
+    background-position: -71px -378px;
+    width: 15px;
+    height: 18px;
+
+    align-self: flex-end;
+}
+
+.textWrapper {
+    margin-bottom: -1px;
+}
+
+.name {
+    color: #cccccc;
+    font-size: 12px;
+    line-height: 14px;
+    height: 14px;
+}
+
+.address {
+    width: 150px;
+    color: white;
+    line-height: 15px;
+    font-size: 14px;
+    font-weight: 700;
+}

@@ -5,10 +5,7 @@
 
 .form {
     display: flex;
-    width: calc(100vw - 550px);
-
-    height: 100%;
-
+    width: calc(100vw - 700px);
     margin: 4px;
 }
 

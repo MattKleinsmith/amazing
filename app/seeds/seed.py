@@ -18,7 +18,7 @@ def seed_all():
         address="123 Main St",
         city="Kansas City",
         state="MO",
-        zipcode="12345",
+        zipcode="64118",
         region="United States",
         phone="1231231231"
     )
@@ -174,7 +174,7 @@ def seed_all():
     db.session.add(order)
     db.session.add(Purchase(
         order=order,
-        address=f"{demo.fullname}\n123 MAIN ST\nKANSAS CITY, MO 12345\nUNITED STATES",
+        address=f"{demo.fullname}\n123 MAIN ST\nKANSAS CITY, MO 64118\nUNITED STATES",
         buyer_id=demo.id,
         seller_id=seller.id,
         product_id=product.id,
