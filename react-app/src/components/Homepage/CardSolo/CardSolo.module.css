@@ -33,6 +33,10 @@
     width: 300px;
 }
 
+.tile:hover {
+    text-decoration: none;
+}
+
 .image {
     height: 300px;
     width: 100%;

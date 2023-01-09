@@ -11,8 +11,12 @@ import AppRoutes from "./AppRoutes";
 import Footer from "./components/Footer/Footer";
 import Modals from "./components/Modals/Modals";
 
+import { useLocation } from "react-router";
+
 export default function App() {
   const dispatch = useDispatch();
+  const location = useLocation();
+
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -25,7 +29,7 @@ export default function App() {
   return (
     <>
       <div className={styles.pageContainer}>
-        <div className={styles.contentWrapper}>
+        <div className={location.pathname === "/" ? styles.contentWrapperHomepage : styles.contentWrapper}>
           <Header />
           <AppRoutes />
         </div>

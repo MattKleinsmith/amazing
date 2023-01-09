@@ -8,6 +8,8 @@ import Address from "./Address/Address";
 export default function Addresses() {
     const addresses = useSelector(state => Object.values(state.addresses));
 
+    document.title = "Your Addresses"
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.content}>

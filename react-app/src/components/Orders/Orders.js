@@ -5,7 +5,6 @@ import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 import { getPurchases } from "../../store/purchases"
-import { setShouldClearSearchBar } from "../../store/searchbar"
 
 import Purchase from "./Purchase/Purchase";
 import { useState } from "react";
@@ -35,6 +34,8 @@ export default function Orders() {
         if (page > 1) setPage(page - 1);
     }
 
+    document.title = "Your Orders";
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.content}>
@@ -51,7 +52,7 @@ export default function Orders() {
                 {purchases.length === 0 &&
                     <div className={styles.emptyWrapper}>
                         <div>You have no orders.</div>
-                        <NavLink to="/" className={styles.continue} onClick={() => dispatch(setShouldClearSearchBar(true))}>Continue shopping</NavLink>
+                        <NavLink to="/" className={styles.continue}>Continue shopping</NavLink>
                     </div>
                 }
 

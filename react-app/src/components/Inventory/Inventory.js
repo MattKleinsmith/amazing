@@ -9,11 +9,16 @@ import InventoryItem from "./InventoryItem/InventoryItem";
 import { NavLink } from "react-router-dom";
 
 export default function Inventory() {
-    const products = useSelector(state => state.productsCurrent);
     const dispatch = useDispatch();
+
+    const products = useSelector(state => state.productsCurrent);
+
     useEffect(() => {
         dispatch(getProductsCurrent());
     }, [dispatch]);
+
+    document.title = "Your Product Listings"
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.bar}>
