@@ -26,10 +26,10 @@ export default function Homepage() {
     return <div className={styles.wrapper}>
         <img className={styles.banner} src="/images/landing.png" alt="sale" onClick={() => navigate("/s?k=phone")} />
         <div className={styles.cards}>
-            <Card products={phone} heading={"Phones"} />
-            <Card products={makeup} heading={"Makeup"} />
-            <CardSolo product={lastProduct} heading={"Newest product"} />
-            <Card products={basics} heading={"Amazing Basics"} />
+            <Card products={phone} heading={"Phones"} url="/s?k=phones" />
+            <Card products={makeup} heading={"Makeup"} url="/s?k=makeup" />
+            <CardSolo product={lastProduct} heading={"Newest product"} url={`/listing/${lastProduct.id}`} />
+            <Card products={basics} heading={"Amazing Basics"} url="/s?k=basics" />
         </div>
         <div className={styles.filler} />
         <SearchResults showRecent={true} isHomepage={true} />

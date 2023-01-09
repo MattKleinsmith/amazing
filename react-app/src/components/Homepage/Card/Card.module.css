@@ -18,9 +18,17 @@
     font-size: 21px;
     line-height: 1.3em;
     font-weight: 700;
-    color: #0F1111;
 
     margin-bottom: 15px;
+}
+
+.headingLink {
+    color: #0F1111;
+}
+
+.headingLink:hover {
+    color: #0F1111;
+    text-decoration: none;
 }
 
 
@@ -32,6 +40,10 @@
 
 .tile {
     width: 150px;
+}
+
+.tile:hover {
+    text-decoration: none;
 }
 
 .image {
