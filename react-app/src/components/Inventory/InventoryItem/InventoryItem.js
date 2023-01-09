@@ -18,7 +18,7 @@ export default function InventoryItem({ product }) {
         <div className={styles.wrapper}>
             <NavLink to={`/listing/${product.id}`}><img className={styles.image} src={product.preview_image} alt={product.title} /></NavLink>
             <NavLink to={`/listing/${product.id}`} className={styles.title}>{product.title}</NavLink>
-            <div>
+            <div className={styles.time}>
                 <div>{createdAt}</div>
                 <div>{updatedAt}</div>
             </div>

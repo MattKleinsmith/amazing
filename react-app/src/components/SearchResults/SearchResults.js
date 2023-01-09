@@ -47,11 +47,6 @@ export default function SearchResults({ showRecent, isHomepage }) {
     const products1 = products.slice(0, numCols);
     const products2 = products.slice(numCols);
 
-    // const renderCount = useRef(1);
-    // renderCount.current += 1;
-    // console.log(renderCount.current);
-    // if (renderCount.current < 4) return;
-
     if (!isLoaded) return;
 
     return (
