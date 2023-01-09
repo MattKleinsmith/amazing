@@ -1,6 +1,9 @@
 .wrapper {
     display: flex;
     cursor: pointer;
+    margin-right: -30px;
+    margin-top: 5px;
+    margin-left: 10px;
 }
 
 .logo {
@@ -12,7 +15,7 @@
     top: 23px;
     right: 44px;
 
-    background-image: url(https://m.media-amazon.com/images/G/01/gno/sprites/nav-sprite-global-1x-hm-dsk-reorg._CB405937547_.png);
+    background-image: url("../../../../public/images/header-logo.png");
     background-position: -160px -10px;
     width: 45px;
     height: 17px;
