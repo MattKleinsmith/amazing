@@ -1,15 +1,30 @@
 import styles from "./PickupTab.module.css";
 
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
 import Quantity from "../Quantity/Quantity";
+import { setBuyModal } from "../../../../store/ui";
 
 export default function PickupTab({ product }) {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [quantity, setQuantity] = useState(1);
+    const addresses = useSelector(state => Object.values(state.addresses));
 
     let deliveryDate = new Date();
     deliveryDate.setDate(deliveryDate.getDate() + 2);
     deliveryDate = deliveryDate.toLocaleDateString('en-us', { weekday: "long", month: "long", day: "numeric" });
+
+    const onBuyNow = async () => {
+        if (addresses.length === 0) {
+            navigate(`/addresses/add?productId=${product.id}&quantity=${quantity}`);
+        }
+        else {
+            dispatch(setBuyModal(true, product.id, quantity));
+        }
+    }
 
     return (<div className={styles.wrapper}>
         <div className={styles.price}>${parseFloat(product.price).toFixed(2)}</div>
@@ -21,7 +36,7 @@ export default function PickupTab({ product }) {
         </div>
         <div className={styles.inStock}>In Stock.</div>
         <Quantity quantity={quantity} setQuantity={setQuantity} />
-        <div className={styles.buyNow}>Buy Now</div>
+        <div className={styles.buyNow} onClick={onBuyNow}>Buy Now</div>
         <div className={styles.details}>
             <div>
                 <div className={styles.detailsLabel}>Ships from</div><div className={styles.detailsText}>Amazing</div>

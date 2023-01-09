@@ -7,10 +7,12 @@ import RegisterForm from "./components/RegisterForm/RegisterForm";
 import Homepage from "./components/Homepage/Homepage";
 import Inventory from "./components/Inventory/Inventory";
 import ListingForm from "./components/ListingForm/ListingForm";
+import ReviewForm from "./components/ReviewForm/ReviewForm";
 import AddressForm from "./components/AddressForm/AddressForm";
 import Addresses from "./components/Addresses/Addresses";
 import Orders from "./components/Orders/Orders";
 import OrderConfirmation from "./components/OrderConfirmation/OrderConfirmation";
+import Protected from "./components/Protected";
 
 export default function AppRoutes() {
     return (
@@ -23,16 +25,17 @@ export default function AppRoutes() {
             <Route path="/signin" element={<SignInForm />} />
             <Route path="/register" element={<RegisterForm />} />
 
-            <Route path="/inventory" element={<Inventory />} />
-            <Route path="/inventory/add" element={<ListingForm />} />
-            <Route path="/inventory/:productId" element={<ListingForm />} />
+            <Route path="/inventory" element={<Protected><Inventory /></Protected>} />
+            <Route path="/inventory/add" element={<Protected><ListingForm /></Protected>} />
+            <Route path="/inventory/:productId" element={<Protected><ListingForm /></Protected>} />
 
-            <Route path="/addresses" element={<Addresses />} />
-            <Route path="/addresses/add" element={<AddressForm />} />
-            <Route path="/addresses/:addressId" element={<AddressForm />} />
+            <Route path="/addresses" element={<Protected><Addresses /></Protected>} />
+            <Route path="/addresses/add" element={<Protected><AddressForm /></Protected>} />
+            <Route path="/addresses/:addressId" element={<Protected><AddressForm /></Protected>} />
 
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/order-confirmation" element={<OrderConfirmation />} />
+            <Route path="/orders" element={<Protected><Orders /></Protected>} />
+            <Route path="/order-confirmation" element={<Protected><OrderConfirmation /></Protected>} />
+            <Route path="/reviews/:productId" element={<Protected><ReviewForm /></Protected>} />
         </Routes>
     );
 }

@@ -1,0 +1,61 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.profile {
+    display: flex;
+    gap: 10px;
+}
+
+.profileImage {
+    height: 30px;
+    width: 30px;
+}
+
+.name {
+    color: #0F1111;
+    font-size: 13px;
+    line-height: 19px;
+    align-self: center;
+}
+
+.rating {
+    display: flex;
+    gap: 10px;
+}
+
+.title {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+    color: #0F1111;
+}
+
+.date {
+    margin-top: -5px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #565959;
+}
+
+.review {
+    font-size: 14px;
+    line-height: 20px;
+    color: #0F1111;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.images {
+    display: flex;
+    gap: 5px;
+    overflow: hidden;
+}
+
+.image {
+    height: 90px;
+    object-fit: scale-down;
+    align-self: flex-start;
+}

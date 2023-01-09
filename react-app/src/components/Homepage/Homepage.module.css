@@ -1,0 +1,27 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e3e6e6;
+    z-index: -20;
+}
+
+.cards {
+    width: 1500px;
+    display: flex;
+    gap: 20px;
+
+    margin-top: 250px;
+    margin-left: 40px;
+}
+
+.banner {
+    position: absolute;
+    height: 600px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.filler {
+    height: 50px;
+}

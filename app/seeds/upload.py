@@ -6,6 +6,11 @@ import uuid
 from dotenv import load_dotenv
 load_dotenv()
 
+
+def allowed_file(filename): return '.' in filename and filename.rsplit(
+    '.', 1)[1].lower() in set(['png', 'jpg', 'jpeg'])
+
+
 BUCKET_NAME = os.environ.get("S3_BUCKET")
 S3_LOCATION = f"https://{BUCKET_NAME}.s3.amazonaws.com/"
 

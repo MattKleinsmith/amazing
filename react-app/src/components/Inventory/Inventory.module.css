@@ -29,7 +29,7 @@
 }
 
 .date {
-    width: 180px;
+    width: 163px;
 }
 
 .line {
@@ -42,6 +42,7 @@
 .emptyWrapper {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 15px;
     margin-top: 10px;
 }

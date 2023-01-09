@@ -3,9 +3,9 @@ from flask_login import login_required, current_user
 from sqlalchemy.exc import IntegrityError
 from werkzeug.utils import secure_filename
 
-from app.models import db, Product, ProductImage
-from app.forms import ProductForm, validation_errors_formatter
-from app.seeds.upload import upload_image_to_bucket
+from app.models import db, Product, ProductImage, Review
+from app.forms import ProductForm, ReviewForm, validation_errors_formatter
+from app.seeds.upload import upload_image_to_bucket, allowed_file
 
 bp = Blueprint("products", __name__, url_prefix="/products")
 
@@ -92,10 +92,6 @@ def delete_product(product_id):
         }}, 500
 
 
-def allowed_file(filename): return '.' in filename and filename.rsplit(
-    '.', 1)[1].lower() in set(['png', 'jpg', 'jpeg'])
-
-
 @bp.route("<int:product_id>/images", methods=['POST'])
 @login_required
 def post_image_by_product_id(product_id):
@@ -134,3 +130,41 @@ def post_image_by_product_id(product_id):
                 "image": str(e)
             }
         }, 500
+
+
+@bp.route("<int:product_id>/reviews",  methods=["POST"])
+@login_required
+def post_review(product_id):
+    product = Product.query.get(product_id)
+    form = ReviewForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if (form.validate_on_submit()):
+        review = Review(
+            product=product,
+            buyer=current_user,
+            title=form.title.data,
+            rating=form.rating.data,
+            review=form.review.data
+        )
+        db.session.add(review)
+        db.session.commit()
+        return review.to_dict(), 201
+    return {'errors': validation_errors_formatter(form, form.errors)}, 400
+
+
+@bp.route("<int:product_id>/reviews",  methods=["GET"])
+def get_reviews_for_product(product_id):
+    product = Product.query.get(product_id)
+    if (not product):
+        return f"Product with id {product_id} not found", 404
+    return [review.to_dict() for review in Review.query.filter(Review.product == product)]
+
+
+@bp.route("<int:product_id>/reviews/current",  methods=["GET"])
+def get_review_for_product_by_current_user(product_id):
+    product = Product.query.get(product_id)
+    if (not product):
+        return f"Product with id {product_id} not found", 404
+    review = Review.query.filter(
+        Review.product == product, Review.buyer == current_user).first()
+    return review.to_dict() if review else ({"error": f"Review for this product not found for this user"}, 404)

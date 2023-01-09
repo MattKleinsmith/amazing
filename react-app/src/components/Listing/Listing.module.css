@@ -1,5 +1,16 @@
 .wrapper {
     display: flex;
+    flex-direction: column;
+}
+
+.top {
+    display: flex;
+    justify-content: center;
+    margin: 60px 0px;
+}
+
+.reviews {
+    display: flex;
     justify-content: center;
     margin: 60px 0px;
 }

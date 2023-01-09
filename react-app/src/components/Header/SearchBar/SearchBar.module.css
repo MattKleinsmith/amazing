@@ -1,81 +1,52 @@
 .wrapper {
     display: flex;
-    flex-direction: column;
-
-    width: 100%;
-
-    background-color: #f3f3f3;
-
-    margin-left: 10px;
-    margin-right: 30px;
-
-    background-color: transparent;
-}
-
-.content {
-    display: flex;
-    justify-content: space-between;
-
-    width: 100%;
-    height: 100%;
-
-    margin-left: 10px;
-    margin-right: 30px;
-
-    border-radius: 5px;
-
-    background-color: #f3f3f3;
+    margin-top: -3px;
 }
 
 .form {
-    width: 95%;
-    height: 100%;
+    display: flex;
+    width: calc(100vw - 775px);
+    margin: 4px;
+}
+
+.formFocus {
+    border-radius: 4px;
+    box-shadow: 0 0 0 2px #f90, 0 0 0 3px rgb(255 153 0 / 50%);
 }
 
 .searchBar {
     width: 100%;
-    height: 100%;
-
-    text-indent: 20px;
-    font-size: 16px;
-
     padding-top: 10px;
     padding-bottom: 9px;
 
-    border-radius: 5px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
+    background-color: white;
+    text-indent: 15px;
+    font-size: 16px;
+
     border: 0;
     outline: 0;
-    background-color: #f3f3f3;
-}
 
-.searchBar:focus {
-    border-radius: 5px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    border: 3px solid orange;
-    background-color: white;
-    margin-top: -3px;
-    margin-left: -3px;
+    border-radius: 4px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .iconWrapperBase {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top-right-radius: 19px;
-    border-bottom-right-radius: 19px;
-    width: 60px;
+
+    width: 45px;
+
+    background-color: #febd69;
+
+    border-radius: 4px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 .icon {
     font-size: 19px;
-    color: #222222;
+    color: #333333;
     cursor: pointer;
-}
-
-.iconActive {
-    font-size: 19px;
-    color: white;
 }

@@ -1,0 +1,81 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 34%;
+}
+
+.heading {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    color: #0F1111;
+}
+
+.summary {
+    display: flex;
+    gap: 10px;
+}
+
+.summaryText {
+    color: #0F1111;
+    font-size: 18px;
+    line-height: 24px;
+    text-rendering: optimizeLegibility;
+}
+
+.count {
+    color: #565959;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.breakdownItem {
+    margin-top: 10px;
+    display: flex;
+    gap: 15px;
+}
+
+.starText {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+}
+
+.percentText {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: right;
+}
+
+.ratingBar {
+    width: 185px;
+
+    background-color: #f0f2f2;
+    border: 1px solid #e3e6e6;
+    border-radius: 4px;
+}
+
+.ratingBarFill {
+    height: 100%;
+
+    background-color: #FFA41C;
+    box-shadow: inset -2px 0 0 -1px #f5961d, inset 0 0 0 1px #de7921;
+
+    border-radius: 4px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    animation: animateWidth .5s ease-in;
+    animation-fill-mode: forwards;
+}
+
+@keyframes animateWidth {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: var(--width, 0%);
+    }
+}

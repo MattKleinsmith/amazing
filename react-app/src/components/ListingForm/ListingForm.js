@@ -2,7 +2,7 @@ import styles from './ListingForm.module.css';
 
 import { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
 import { postProduct, putProduct, postProductImage, deleteProductImage } from '../../store/products';
 import { getProductDetails } from '../../store/productDetails';
@@ -10,6 +10,7 @@ import { getProductDetails } from '../../store/productDetails';
 export default function ListingForm() {
     const { productId } = useParams();
     const product = useSelector(state => state.productDetails)[productId];
+    const source = useSearchParams()[0].get("source");
     const dispatch = useDispatch();
 
     const imageRef = useRef();
@@ -111,7 +112,7 @@ export default function ListingForm() {
             catch (responseBody) {
                 console.log(responseBody);
             }
-            navigate("/inventory");
+            navigate(source ? source : "/inventory");
         }
         else {
             setImageError("Please upload an image for the product listing.");

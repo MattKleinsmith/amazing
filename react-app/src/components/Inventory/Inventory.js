@@ -17,7 +17,7 @@ export default function Inventory() {
     return (
         <div className={styles.wrapper}>
             <div className={styles.bar}>
-                <div className={styles.heading}>Manage product listings</div>
+                {products.length !== 0 && <div className={styles.heading}>Manage product listings</div>}
                 {products.length !== 0 && <div className={styles.addProductWrapper}>
                     <NavLink to="/inventory/add"><button className={styles.addProduct}>Add product</button></NavLink>
                 </div>}
@@ -30,14 +30,14 @@ export default function Inventory() {
                         <div>Created</div>
                         <div>Updated</div>
                     </div>
-                    <div>Price</div>
+                    <div className={styles.price}>Price</div>
                 </div>
                 <div className={styles.line} />
                 {products.map((product, i) => <InventoryItem key={i} product={product} />)}
             </div>}
             {products.length === 0 &&
                 <div className={styles.emptyWrapper}>
-                    <div>You have no product listings.</div>
+                    <div className={styles.heading}>You have no product listings.</div>
                     <div className={styles.addProductWrapperEmpty}>
                         <NavLink to="/inventory/add"><button className={styles.addProduct}>Add product</button></NavLink>
                     </div>

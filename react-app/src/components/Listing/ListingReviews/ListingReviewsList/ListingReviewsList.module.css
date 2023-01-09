@@ -1,0 +1,34 @@
+.wrapper {
+    width: 66%;
+}
+
+.heading {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: #0F1111;
+    margin-bottom: 8px;
+}
+
+.reviewsHeading {
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+
+.reviewImages {
+    display: flex;
+    gap: 5px;
+}
+
+.image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 700px;
+}

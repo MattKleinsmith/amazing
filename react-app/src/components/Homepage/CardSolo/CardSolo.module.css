@@ -1,0 +1,52 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+
+    width: 350px;
+    height: 420px;
+
+    background-color: white;
+    z-index: 3;
+}
+
+.content {
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.heading {
+    font-size: 21px;
+    line-height: 1.3em;
+    font-weight: 700;
+    color: #0F1111;
+
+    margin-bottom: 15px;
+}
+
+
+.grid {
+    display: flex;
+}
+
+
+.tile {
+    width: 300px;
+}
+
+.image {
+    height: 300px;
+    width: 100%;
+    object-fit: scale-down;
+}
+
+.title {
+    width: 100%;
+
+    font-size: 13px;
+    line-height: 1.3em;
+    color: #0F1111;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

@@ -37,6 +37,7 @@ class Review(db.Model):
             "buyer_id": self.buyer_id,
             "product_id": self.product_id,
 
+            "title": self.title,
             "rating": self.rating,
             "review": self.review,
 
