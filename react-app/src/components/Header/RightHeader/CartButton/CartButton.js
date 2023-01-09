@@ -5,7 +5,7 @@ export default function CartButton() {
         <div className={styles.cartButton} >
             <div className={styles.quantity}>0</div>
             <div className={styles.row}>
-                <img src={"/images/cart.png"} alt={"cart"} />
+                <div className={styles.cart} />
                 <div className={styles.label}>Cart</div>
             </div>
         </div>
