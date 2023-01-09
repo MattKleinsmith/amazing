@@ -7,7 +7,6 @@ import productDetailsReducer from "./productDetails";
 import productsCurrentReducer from "./productsCurrent";
 import addressesReducer from "./addresses";
 import purchasesReducer from "./purchases";
-import searchbarReducer from "./searchbar";
 import reviewsReducer from "./reviews";
 
 const rootReducer = combineReducers({
@@ -18,7 +17,6 @@ const rootReducer = combineReducers({
     productsCurrent: productsCurrentReducer,
     addresses: addressesReducer,
     purchases: purchasesReducer,
-    searchbar: searchbarReducer,
     reviews: reviewsReducer,
 });
 
