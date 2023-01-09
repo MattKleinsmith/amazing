@@ -29,34 +29,43 @@ It was built using this stack:
 
 The most common user flow is this:
 
-A user lands on the homepage, uses the search bar, sees a list of products, inspects a product, adds it to their cart, registers for an account, adds a physical address, orders the product, and eventually leaves a review.
+A user lands on the homepage, uses the search bar, sees a list of products, inspects a product, attempts to order it, registers for an account, adds a physical address, orders the product, and eventually leaves a review.
 
 The following are screenshots of this user flow:
 
-#### A user lands on the homepage
+### A user lands on the homepage
 
-#### Uses the search bar and sees a list of products
+<img src="https://user-images.githubusercontent.com/8968171/211279474-f68244fc-92b4-443d-91c1-ec872cc917b7.png" width="500px">
 
-#### Inspects a product
+### Uses the search bar
 
-#### Adds it to their cart
+<img src="https://user-images.githubusercontent.com/8968171/211279619-cf7401a7-e081-4d24-be41-aec39c8e3ebe.png" width="500px">
 
-#### Registers for an account
+### Inspects a product
 
-#### Adds a physical address
+<img src="https://user-images.githubusercontent.com/8968171/211279690-7407c1f6-4644-432b-8a49-47c29eefe060.png" width="500px">
 
-#### Purchases the product
+### Attempts to order it, registers for an account
 
-#### Eventually, leaves a review
+<img src="https://user-images.githubusercontent.com/8968171/211280268-48f9b166-80c3-47ba-b9bf-3a43a2e4c45c.png" height="500px">
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+### Adds a physical address
 
-### Getting started
+<img src="https://user-images.githubusercontent.com/8968171/211280456-a088aa3d-6f25-4391-b563-e77a0f0bc390.png" height="500px">
 
-1. Paste this command into a terminal to spin up a docker container of the app:
-```
+### Orders the product
 
-```
+<img src="https://user-images.githubusercontent.com/8968171/211280512-0860df3e-32a5-4ad0-bd25-4b28dc2729c1.png" width="500px">
+
+<img src="https://user-images.githubusercontent.com/8968171/211280709-cacc3d50-c70e-4f6b-a875-b01b7bfdcda4.png" width="600px">
+
+<img src="https://user-images.githubusercontent.com/8968171/211280782-942ef236-73de-4049-885e-b019399721e0.png" width="750px">
+
+### Eventually, leaves a review
+
+<img src="https://user-images.githubusercontent.com/8968171/211280951-89a3e0d9-c869-4ff2-9c5a-3722a10e1478.png" height="500px">
+
+<img src="https://user-images.githubusercontent.com/8968171/211281042-d71718f1-772d-431f-8b50-d8cccd50166d.png" height="200px">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
