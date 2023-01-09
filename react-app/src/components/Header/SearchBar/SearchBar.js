@@ -1,23 +1,31 @@
 import styles from "./SearchBar.module.css";
 
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { useSearchParams } from "react-router-dom";
 
-import { setKeywords } from "../../../store/keywords";
+import { setShouldClearSearchBar } from "../../../store/searchbar";
 
 export default function SearchBar() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const searchParams = useSearchParams()[0];
-    const keywords = useSelector(state => state.keywords);
+    const shouldClearSearchBar = useSelector(state => state.searchBar);
 
-    const newKeywords = searchParams.get('k');
+    const searchParams = useSearchParams()[0];
+    const keywordsFromUrl = searchParams.get('k');
+    const [keywords, setKeywords] = useState(keywordsFromUrl ? keywordsFromUrl : "");
+
+    const formRef = useRef();
+    const searchButtonRef = useRef();
+
     useEffect(() => {
-        dispatch(setKeywords(newKeywords));
-    }, [newKeywords, dispatch]);
+        if (shouldClearSearchBar) {
+            setKeywords("");
+            dispatch(setShouldClearSearchBar(false));
+        }
+    }, [shouldClearSearchBar, dispatch]);
 
     const handleSearch = async (e) => {
         if (e) e.preventDefault();
@@ -26,23 +34,31 @@ export default function SearchBar() {
         } else {
             navigate("/");
         }
+        formRef.current.classList.remove(styles.formFocus);
     }
+
+    document.addEventListener("click", (e) => {
+        if (!formRef.current) return;
+        if (e.composedPath().includes(formRef.current) && !e.composedPath().includes(searchButtonRef.current))
+            formRef.current.classList.add(styles.formFocus);
+        else
+            formRef.current.classList.remove(styles.formFocus);
+    });
 
     return (
         <div className={styles.wrapper}>
-            <div className={styles.content}>
-                <form onSubmit={handleSearch} className={styles.form}>
-                    <input
-                        type="text"
-                        className={styles.searchBar}
-                        value={keywords ? keywords : ""}
-                        onChange={(e) => dispatch(setKeywords(e.target.value))}
-                    />
-                </form>
-                <div onClick={handleSearch} className={`${styles.iconWrapperBase}`}>
+            <form ref={formRef} onSubmit={handleSearch} className={styles.form}>
+                <input
+                    type="text"
+                    spellCheck="false"
+                    className={styles.searchBar}
+                    value={keywords}
+                    onChange={e => setKeywords(e.target.value)}
+                />
+                <div ref={searchButtonRef} onClick={handleSearch} className={`${styles.iconWrapperBase}`}>
                     <i className={`fa-solid fa-magnifying-glass ${styles.icon}`} />
                 </div>
-            </div>
+            </form>
         </div>
     )
 }

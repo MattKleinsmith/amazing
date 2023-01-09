@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 import { getPurchases } from "../../store/purchases"
-import { setKeywords } from "../../store/keywords"
+import { setShouldClearSearchBar } from "../../store/searchbar"
 
 import Purchase from "./Purchase/Purchase";
 import { useState } from "react";
@@ -51,7 +51,7 @@ export default function Orders() {
                 {purchases.length === 0 &&
                     <div className={styles.emptyWrapper}>
                         <div>You have no orders.</div>
-                        <NavLink to="/" className={styles.continue} onClick={() => dispatch(setKeywords(""))}>Continue shopping</NavLink>
+                        <NavLink to="/" className={styles.continue} onClick={() => dispatch(setShouldClearSearchBar(""))}>Continue shopping</NavLink>
                     </div>
                 }
 

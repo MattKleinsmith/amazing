@@ -9,7 +9,7 @@ import { getProducts, getProductsByKeywords } from "../../store/products";
 import SearchResultsItem from "./SearchResultItem/SearchResultsItem";
 // import SearchResultsFilter from "./SearchResultsFilter/SearchResultsFilter";
 import SearchResultsBar from "./SearchResultsBar/SearchResultsBar";
-import { setKeywords } from "../../store/keywords";
+import { setShouldClearSearchBar } from "../../store/searchbar";
 import { clearReviews } from "../../store/reviews";
 
 export default function SearchResults({ showRecent }) {
@@ -65,7 +65,7 @@ export default function SearchResults({ showRecent }) {
                 {products1.length === 0 &&
                     <div className={styles.emptyResults}>
                         <div>No products found.</div>
-                        <NavLink to="/" className={styles.continue} onClick={() => dispatch(setKeywords(""))}>Continue shopping</NavLink>
+                        <NavLink to="/" className={styles.continue} onClick={() => dispatch(setShouldClearSearchBar(""))}>Continue shopping</NavLink>
                     </div>
                 }
             </div>
