@@ -2,7 +2,7 @@ import styles from "./SearchBar.module.css";
 
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { useSearchParams } from "react-router-dom";
 
 import { setShouldClearSearchBar } from "../../../store/searchbar";
@@ -10,6 +10,7 @@ import { setShouldClearSearchBar } from "../../../store/searchbar";
 export default function SearchBar() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const location = useLocation();
 
     const shouldClearSearchBar = useSelector(state => state.searchbar);
 
@@ -21,8 +22,8 @@ export default function SearchBar() {
     const searchButtonRef = useRef();
 
     useEffect(() => {
-        setKeywords(keywordsFromUrl);
-    }, [keywordsFromUrl]);
+        setKeywords(keywordsFromUrl ? keywordsFromUrl : "");
+    }, [location, keywordsFromUrl]);
 
     useEffect(() => {
         if (shouldClearSearchBar) {
