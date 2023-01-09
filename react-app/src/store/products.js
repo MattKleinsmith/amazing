@@ -7,16 +7,11 @@ const GET_PRODUCTS = 'products/GET_PRODUCTS';
 const ADD_PRODUCT = 'products/ADD_PRODUCT';
 const DELETE_PRODUCT = 'products/DELETE_PRODUCT';
 const FILL_HOMEPAGE = 'products/FILL_HOMEPAGE';
-const CLEAR_FILTERED = 'products/CLEAR_FILTERED';
 
 export const getProducts = () => async dispatch => {
     const response = await csrfFetch('/api/products');
     const products = await response.json();
     dispatch({ type: GET_PRODUCTS, products });
-};
-
-export const clearFilteredProducts = () => async dispatch => {
-    dispatch({ type: CLEAR_FILTERED });
 };
 
 export const getProductsByKeywords = keywords => async dispatch => {
@@ -122,9 +117,6 @@ export default function productsReducer(state = { all: {}, filtered: {}, homepag
         case DELETE_PRODUCT:
             delete newState.all[action.productId];
             delete newState.filtered[action.productId];
-            return newState;
-        case CLEAR_FILTERED:
-            newState.filtered = {};
             return newState;
         default:
             return state;
