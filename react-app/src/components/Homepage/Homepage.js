@@ -28,7 +28,7 @@ export default function Homepage() {
         <div className={styles.cards}>
             <Card products={phone} heading={"Phones"} url="/s?k=phones" />
             <Card products={makeup} heading={"Makeup"} url="/s?k=makeup" />
-            <CardSolo product={lastProduct} heading={"Newest product"} url={`/listing/${lastProduct.id}`} />
+            <CardSolo product={lastProduct} heading={"Newest product"} url={`/listing/${lastProduct?.id}`} />
             <Card products={basics} heading={"Amazing Basics"} url="/s?k=basics" />
         </div>
         <div className={styles.filler} />

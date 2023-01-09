@@ -8,7 +8,7 @@ export default function CardSolo({ product, heading }) {
             <div className={styles.content}>
                 <div className={styles.heading}>{heading}</div>
                 <div className={styles.grid}>
-                    <NavLink to={`/listing/${product.id}`} className={styles.tile}>
+                    <NavLink to={`/listing/${product?.id}`} className={styles.tile}>
                         <img className={styles.image} alt="" src={product?.preview_image} />
                         <div className={styles.title}>{product?.title}</div>
                     </NavLink>
