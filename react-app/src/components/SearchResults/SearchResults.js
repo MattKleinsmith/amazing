@@ -65,7 +65,7 @@ export default function SearchResults({ showRecent }) {
                 {products1.length === 0 &&
                     <div className={styles.emptyResults}>
                         <div>No products found.</div>
-                        <NavLink to="/" className={styles.continue} onClick={() => dispatch(setShouldClearSearchBar(""))}>Continue shopping</NavLink>
+                        <NavLink to="/" className={styles.continue} onClick={() => dispatch(setShouldClearSearchBar(true))}>Continue shopping</NavLink>
                     </div>
                 }
             </div>

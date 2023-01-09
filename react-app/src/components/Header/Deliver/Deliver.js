@@ -10,7 +10,7 @@ export default function Deliver() {
     const address = useSelector(state => Object.values(state.addresses)[0]);
 
     return (
-        <NavLink className={styles.wrapper} to="/addresses" style={{ textDecoration: 'none' }} onClick={() => dispatch(setShouldClearSearchBar(""))}>
+        <NavLink className={styles.wrapper} to="/addresses" style={{ textDecoration: 'none' }} onClick={() => dispatch(setShouldClearSearchBar(true))}>
             <div className={styles.icon} />
             <div className={styles.textWrapper}>
                 <div className={styles.name}>{user ? `Deliver to ${user.fullname.split(" ")[0]}` : "Hello"}</div>

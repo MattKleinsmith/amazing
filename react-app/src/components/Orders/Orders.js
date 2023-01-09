@@ -51,7 +51,7 @@ export default function Orders() {
                 {purchases.length === 0 &&
                     <div className={styles.emptyWrapper}>
                         <div>You have no orders.</div>
-                        <NavLink to="/" className={styles.continue} onClick={() => dispatch(setShouldClearSearchBar(""))}>Continue shopping</NavLink>
+                        <NavLink to="/" className={styles.continue} onClick={() => dispatch(setShouldClearSearchBar(true))}>Continue shopping</NavLink>
                     </div>
                 }
 

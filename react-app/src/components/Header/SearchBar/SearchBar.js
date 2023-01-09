@@ -11,7 +11,7 @@ export default function SearchBar() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const shouldClearSearchBar = useSelector(state => state.searchBar);
+    const shouldClearSearchBar = useSelector(state => state.searchbar);
 
     const searchParams = useSearchParams()[0];
     const keywordsFromUrl = searchParams.get('k');

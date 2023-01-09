@@ -50,7 +50,7 @@ export default function OrderConfirmation() {
                     </div>
                 </div>
             </div>
-            <NavLink to="/" className={styles.continue} onClick={() => dispatch(setShouldClearSearchBar(""))}>Continue shopping</NavLink>
+            <NavLink to="/" className={styles.continue} onClick={() => dispatch(setShouldClearSearchBar(true))}>Continue shopping</NavLink>
         </div>
     );
 }
