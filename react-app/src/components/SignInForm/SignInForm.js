@@ -10,7 +10,9 @@ export default function SignInForm() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const source = useSearchParams()[0].get("source");
+    let source = useSearchParams()[0].get("source");
+    source = window.location.search;
+
 
     const [isLoaded, setIsLoaded] = useState(false);
     const user = useSelector(state => state.session.user);
@@ -204,7 +206,8 @@ export default function SignInForm() {
                         <div className={styles.new}>New to Amazing?</div>
                     </div>
                     <div className={styles.create} onClick={() => {
-                        navigate("/register");
+                        console.log("SignInForm - source", source);
+                        navigate(`/register${source && `?source=${source}`}`);
                     }}>Create your Amazing account</div>
                 </div>}
 

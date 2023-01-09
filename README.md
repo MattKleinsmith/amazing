@@ -29,7 +29,7 @@ It was built using this stack:
 
 The most common user flow is this:
 
-A user lands on the homepage, uses the search bar, sees a list of products, inspects a product, adds it to their cart, registers for an account, adds a physical address, orders the product, and eventually leaves a review.
+A user lands on the homepage, uses the search bar, sees a list of products, inspects a product, attempts to order it, registers for an account, adds a physical address, orders the product, and eventually leaves a review.
 
 The following are screenshots of this user flow:
 

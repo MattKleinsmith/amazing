@@ -2,13 +2,17 @@ import styles from './Register.module.css';
 
 import { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, useSearchParams } from 'react-router-dom';
 
 import * as sessionActions from "../../store/session";
 
 export default function RegisterForm() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    let source = useSearchParams()[0].get("source");
+    const sourceParts = window.location.search.split("?source=");
+    source = sourceParts[sourceParts.length - 1];
 
     const [isLoaded, setIsLoaded] = useState(false);
     const user = useSelector(state => state.session.user);
@@ -86,7 +90,7 @@ export default function RegisterForm() {
 
         try {
             await dispatch(sessionActions.register({ fullname: name, email, password }));
-            navigate("/");
+            navigate(source ? source : "/");
         }
         catch (responseBody) {
             const backendErrors = Object.entries(responseBody.errors)
