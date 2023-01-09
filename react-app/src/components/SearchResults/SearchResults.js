@@ -15,15 +15,20 @@ export default function SearchResults({ showRecent, isHomepage }) {
     const dispatch = useDispatch();
     const searchParams = useSearchParams()[0];
     const [width, setWidth] = useState(window.innerWidth);
+    const [isLoaded, setIsLoaded] = useState(false);
 
     document.title = showRecent ? "Amazing. Spend less. Smile more." : `Amazing : ${searchParams.get("k")}`;
 
     useEffect(() => {
-        if (showRecent) {
-            dispatch(getProducts());
-        } else {
-            dispatch(getProductsByKeywords(searchParams.get("k")));
+        async function fetchData() {
+            if (showRecent) {
+                await dispatch(getProducts());
+            } else {
+                await dispatch(getProductsByKeywords(searchParams.get("k")));
+            }
+            setIsLoaded(true);
         }
+        fetchData();
     }, [dispatch, searchParams, showRecent]);
 
     useEffect(() => {
@@ -41,6 +46,13 @@ export default function SearchResults({ showRecent, isHomepage }) {
     else if (width >= 820) numCols = 3
     const products1 = products.slice(0, numCols);
     const products2 = products.slice(numCols);
+
+    // const renderCount = useRef(1);
+    // renderCount.current += 1;
+    // console.log(renderCount.current);
+    // if (renderCount.current < 4) return;
+
+    if (!isLoaded) return;
 
     return (
         <div className={styles.superWrapper}>
