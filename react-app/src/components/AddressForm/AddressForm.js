@@ -27,9 +27,9 @@ export default function AddressForm() {
     const [addressValue, setAddressValue] = useState(address?.address || "");
     const [addressValueError, setAddressValueError] = useState("");
 
-    const buildingNumberField = useRef();
-    const [buildingNumber, setBuildingNumber] = useState(address?.buildingNumber || "");
-    const [buildingNumberError, setBuildingNumberError] = useState("");
+    const buildingField = useRef();
+    const [building, setBuildingNumber] = useState(address?.building || "");
+    const [buildingError, setBuildingNumberError] = useState("");
 
     const cityField = useRef();
     const [city, setCity] = useState(address?.city || "");
@@ -113,7 +113,7 @@ export default function AddressForm() {
 
         let shouldNavigate = true;
         try {
-            const body = { region, fullname, address: addressValue, city, state, zipcode, phone }
+            const body = { region, fullname, address: addressValue, city, state, zipcode, phone, building }
             const productThunkAction = address ? putAddress(addressId, body) : postAddress(body);
             await dispatch(productThunkAction);
             if (productId) {
@@ -206,11 +206,11 @@ export default function AddressForm() {
                             <div className={styles.errorText}>{addressValueError}</div>
                         </div>}
                         <input
-                            ref={buildingNumberField}
-                            className={`${styles.fieldInput} ${buildingNumberError && styles.errorInput}`}
+                            ref={buildingField}
+                            className={`${styles.fieldInput} ${buildingError && styles.errorInput}`}
                             type="text"
                             autoComplete="off"
-                            value={buildingNumber}
+                            value={building}
                             placeholder="Apartment, suite, unit, building, floor, etc."
                             onChange={(e) => {
                                 setBuildingNumberError("");
