@@ -18,7 +18,6 @@ export default function Homepage() {
     const allProducts = Object.values(products.all);
     const lastProduct = allProducts[allProducts.length - 1];
 
-
     useEffect(() => {
         dispatch(getProductsForHomepage());
     }, [dispatch])
