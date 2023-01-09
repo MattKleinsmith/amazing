@@ -21,6 +21,10 @@ export default function SearchBar() {
     const searchButtonRef = useRef();
 
     useEffect(() => {
+        setKeywords(keywordsFromUrl);
+    }, [keywordsFromUrl]);
+
+    useEffect(() => {
         if (shouldClearSearchBar) {
             setKeywords("");
             dispatch(setShouldClearSearchBar(false));
