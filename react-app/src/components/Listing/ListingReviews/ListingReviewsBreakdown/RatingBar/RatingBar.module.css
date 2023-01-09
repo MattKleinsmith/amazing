@@ -41,6 +41,11 @@
     border-bottom-right-radius: 0;
 }
 
+.curveEnd {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
 .ratingBarAnimate5 {
     animation: animateWidth5 0.5s ease;
     animation-fill-mode: forwards;
@@ -52,7 +57,7 @@
     }
 
     100% {
-        width: calc(var(--width5, 0%) + 2px);
+        width: calc(var(--width5, 0%));
     }
 }
 

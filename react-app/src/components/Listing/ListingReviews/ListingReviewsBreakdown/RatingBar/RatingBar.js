@@ -5,6 +5,8 @@ import { useEffect, useRef } from "react";
 export default function RatingBar({ percents, rating }) {
     const ref = useRef();
 
+    console.log("percents[rating]", percents[rating], rating);
+
     useEffect(() => {
         const classes = {
             5: styles.ratingBarAnimate5,
@@ -17,8 +19,11 @@ export default function RatingBar({ percents, rating }) {
         function playAnimation(entries, observer) {
             entries.forEach(entry => {
                 if (entry.intersectionRatio > .2) {
-                    ref.current?.style.setProperty(`--width${rating}`, `${percents[rating]}%`);
+                    ref.current?.style.setProperty(`--width${rating}`, `calc(${percents[rating]}% + ${percents[rating] === 100 ? 2 : 0}px)`);
                     ref.current?.classList.add(classes[rating]);
+
+                    if (percents[rating] === 100) ref.current?.classList.add(styles.curveEnd);
+                    else ref.current?.classList.remove(styles.curveEnd);
                 }
             });
         }
