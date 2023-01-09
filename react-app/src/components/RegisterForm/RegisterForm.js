@@ -19,12 +19,10 @@ export default function RegisterForm() {
     const emailField = useRef();
     const [email, setEmail] = useState("");
     const [emailError, setEmailError] = useState("");
-    const [showEmailField, setShowEmailField] = useState(true);
 
     const passwordField = useRef();
     const [password, setPassword] = useState("");
     const [passwordError, setPasswordError] = useState("");
-    const [showPasswordField, setShowPasswordField] = useState(false);
     const [showPasswordWarning, setShowPasswordWarning] = useState(true);
 
     const passwordRepeatField = useRef();
@@ -45,11 +43,8 @@ export default function RegisterForm() {
 
     useEffect(() => {
         if (!isLoaded) return;
-        if (showEmailField)
-            emailField.current.focus();
-        else
-            passwordField.current.focus();
-    }, [showEmailField, showPasswordField, isLoaded]);
+        nameField.current.focus();
+    }, [isLoaded]);
 
     const onClickContinue = async () => {
         let hasErrors = false;
@@ -102,12 +97,6 @@ export default function RegisterForm() {
         }
     }
 
-    const onClickChange = () => {
-        setPasswordError("");
-        setShowPasswordField(false);
-        setShowEmailField(true);
-    }
-
     const validateEmail = (email) => {
         const emailPattern = /\S+@\S+\.\S+/;
         return emailPattern.test(email);
@@ -157,7 +146,7 @@ export default function RegisterForm() {
                 <form className={styles.form} onSubmit={onSubmit}>
                     <div className={styles.title}>Create account</div>
 
-                    {showEmailField && <div className={styles.fieldWrapper}>
+                    <div className={styles.fieldWrapper}>
                         <label htmlFor="signUpName" className={styles.fieldLabel}>
                             Your name
                         </label>
@@ -178,9 +167,9 @@ export default function RegisterForm() {
                             <div className={styles.errorIcon} />
                             <div className={styles.errorText}>{nameError}</div>
                         </div>}
-                    </div>}
+                    </div>
 
-                    {showEmailField && <div className={styles.fieldWrapper}>
+                    <div className={styles.fieldWrapper}>
                         <label htmlFor="signUpEmail" className={styles.fieldLabel}>
                             Email
                         </label>
@@ -200,15 +189,9 @@ export default function RegisterForm() {
                             <div className={styles.errorIcon} />
                             <div className={styles.errorText}>{emailError}</div>
                         </div>}
-                    </div>}
-
-                    {showPasswordField && <div className={styles.email}>
-                        <div>{email}</div>
-                        <div className={styles.changeEmail} onClick={onClickChange}>Change</div>
                     </div>
-                    }
 
-                    {showEmailField && <div className={styles.fieldWrapper}>
+                    <div className={styles.fieldWrapper}>
                         <label htmlFor="signUpPassword" className={styles.fieldLabel}>
                             Password
                         </label>
@@ -235,9 +218,9 @@ export default function RegisterForm() {
                             <div className={styles.warningIcon} />
                             <div className={styles.warningText}>Passwords must be at least 6 characters.</div>
                         </div>}
-                    </div>}
+                    </div>
 
-                    {showEmailField && <div className={styles.fieldWrapper}>
+                    <div className={styles.fieldWrapper}>
                         <label htmlFor="signUpRepeatPassword" className={styles.fieldLabel}>
                             Re-enter password
                         </label>
@@ -253,7 +236,7 @@ export default function RegisterForm() {
                             <div className={styles.errorIcon} />
                             <div className={styles.errorText}>{passwordRepeatError}</div>
                         </div>}
-                    </div>}
+                    </div>
 
                     <button className={`${styles.continue} ${styles.noselect}`} type="submit">{email ? "Verify email" : "Continue"}</button>
 
