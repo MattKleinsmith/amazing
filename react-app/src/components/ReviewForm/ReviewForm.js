@@ -22,7 +22,7 @@ export default function ReviewForm() {
     const [reviewImageFiles, setReviewImageFiles] = useState({});
 
     const titleField = useRef();
-    const [title, setTitle] = useState(product?.title || "");
+    const [title, setTitle] = useState(review?.title || "");
     const [titleError, setTitleError] = useState("");
 
     const [rating, setRating] = useState(review?.rating || 0);
@@ -55,11 +55,12 @@ export default function ReviewForm() {
     }, [productId, product, dispatch]);
 
     useEffect(() => {
-        setTitle(review?.title || "");
-        setRating(review?.rating || 0);
-        setReviewText(review?.review || "");
+        setTitle(title || review?.title || "");
+        setRating(rating || review?.rating || 0);
+        setReviewText(reviewText || review?.review || "");
         setReviewImageFiles({});
         setReviewImageUrls(new Set());
+        // eslint-disable-next-line
     }, [review]);
 
     const handleImageChange = async (e) => {
