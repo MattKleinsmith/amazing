@@ -1750,7 +1750,7 @@ def seed_all():
 
     product = Product(
         seller=seller,
-        title="Amazon Basics 20 Pack AA High-Performance Alkaline Batteries, 10-Year Shelf Life, Easy to Open Value Pack",
+        title="Amazing Basics 20 Pack AA High-Performance Alkaline Batteries, 10-Year Shelf Life, Easy to Open Value Pack",
         price="9.89",
         description="IN THE BOX: 20-pack of 1.5 volt AA alkaline batteries for reliable performance across a wide range of devices\nDEVICE COMPATIBLE: Ideal battery for game controllers, toys, flashlights, digital cameras, clocks, and more\nDESIGNED TO LAST: 10-year leak-free shelf life; store for emergencies or use right away\nEASY USE & STORAGE: Ships in Certified Frustration-Free Packaging; easy to open and store extras for later use\nSINGLE USE: These batteries are NOT rechargeable; for rechargeable options, check out Amazon Basics rechargeable batteries"
     )
@@ -1862,7 +1862,7 @@ def seed_all():
 
     product = Product(
         seller=seller,
-        title="Amazon Basics microSDXC Memory Card with Full Size Adapter, A2, U3, Read Speed up to 100 MB/s, 128 GB",
+        title="Amazing Basics microSDXC Memory Card with Full Size Adapter, A2, U3, Read Speed up to 100 MB/s, 128 GB",
         price="14.59",
         description="Make sure this fits by entering your model number.\nWIDE COMPATIBILITY: Compatible with smartphones, tablets, cameras, GoPro/action cameras, laptops, desktop computers, DSLRs, drones, Nintendo Switch/other portable consoles and much more. Includes SD adapter. Note: Please refer to compatible devices list (keep update) in below Product guides for more detail.\nHIGH QUALITY STORAGE: Perfect for high resolution photos, for recording and storing Full HD/4K videos and any other data type\nULTRA FAST: Read speed up to 100mb/s. Write speed up to 60mb/s (varies according to memory size). UHS, U3, Class 10 and A2 speed classes for an optimal smartphone experience\nLASTING RELIABILITY: Shockproof, IPX6 waterproof, temperature-proof (-10° to 80°), X-Ray-proof and magnetic-proof\nNote: Actual storage capacity shown by a device's OS may be less than the capacity indicated on the product label due to different measurement standards. The available storage capacity is higher than 116GB.\nRead and write speeds are based on internal tests conducted under controlled conditions. Actual speeds may vary depending on device used, interface, conditions of use, and other factors\nNote: Please note that we are changing the product's printing and packaging; both 2 versions are the same. (Old version does not show the A2 logo, but its performance is A2 level.)\nNote: Check whether your device is compatible with the MicroSD capacity, for example, if the device only supports a maximum capacity of 64GB, it may not recognize 128GB MicroSDs above"
     )
@@ -1970,7 +1970,7 @@ def seed_all():
 
     product = Product(
         seller=seller,
-        title="Amazon Basics Lightweight Super Soft Easy Care Microfiber Bed Sheet Set with 14-Inch Deep Pockets - Twin, Navy Blue",
+        title="Amazing Basics Lightweight Super Soft Easy Care Microfiber Bed Sheet Set with 14-Inch Deep Pockets - Twin, Navy Blue",
         price="14.91",
         description="Make sure this fits by entering your model number.\n100% Polyester Microfiber\nImported\nTwin bed sheet set includes (1) 66 x 96-inch flat sheet, (1) 38 x 74 x 14-inch fitted sheet, and (1) 20 x 30-inch Standard pillowcase\nAll-around elastic on 14-inch fitted sheet allows for snug, secure fit of most mattress sizes up to a 16-inch mattress depth\nSuper soft and durable polyester microfiber (85 GSM) fabric offers all-season comfort and resists wrinkles and fading\nEasy care bedding; machine wash warm with no bleach and tumble dry low\nMade in an OEKO-TEX Standard 100 factory, an independent certification system that ensures textiles meet high safety and environmental standards"
     )
@@ -2086,7 +2086,7 @@ def seed_all():
 
     product = Product(
         seller=seller,
-        title="Amazon Basics Freezer Gallon Bags, 90 Count (Previously Solimo)",
+        title="Amazing Basics Freezer Gallon Bags, 90 Count (Previously Solimo)",
         price="8.53",
         description="Includes 90 freezer food bags, each holding 1 gallon\nReclosable top has a double zipper closure\nStand and Fill base with same gallon capacity\nIndividual bag dimensions: 10 9/16 inches X 3 inches X 9 1/4 inches\nBPA free\nIf you like Ziploc freezer bags, we invite you to try Amazon Basics Freezer Bags.\nRunning low? Use your Echo device or Alexa on the Amazon app to reorder by voice. Just say “Alexa, reorder Amazon Basics Freezer Gallon Bags.”"
     )
@@ -2194,7 +2194,7 @@ def seed_all():
 
     product = Product(
         seller=seller,
-        title="Amazon Basics Laundry Detergent Pacs, Lavender Scent, 120 Count (Previously Solimo)",
+        title="Amazing Basics Laundry Detergent Pacs, Lavender Scent, 120 Count (Previously Solimo)",
         price="15.01",
         description="This package includes one tub of 120 laundry detergent pacs in Fresh Scent, enough for 120 medium loads.\nAmazon Basics Lavender laundry detergent pacs are premeasured for extra convenience, use 1 pac for 1 medium load.\nGives your clothes the fresh scent of lavender while delivering a great clean.\nDissolves in any water temperature and safe for both standard and high efficiency (HE) washing machines.\nSatisfaction Guarantee: We’re proud of our products. If you aren’t satisfied, we’ll refund you for any reason within a year of purchase. 1-877-485-0385.\nRunning low? Restock by asking, \"Alexa, order Amazon Basics laundry detergent pacs\" through your Alexa device."
     )
@@ -2294,7 +2294,7 @@ def seed_all():
 
     product = Product(
         seller=seller,
-        title="Amazon Basics Liquid Hand Soap Refill, Mango and Coconut Water Scent, Triclosan-Free, 56 Fluid Ounces, Pack of 2",
+        title="Amazing Basics Liquid Hand Soap Refill, Mango and Coconut Water Scent, Triclosan-Free, 56 Fluid Ounces, Pack of 2",
         price="7.49",
         description="Two 56-fluid ounce bottle of mango and coconut water liquid hand soap refill\nWashes away germs and bacteria, with a tropical, fruity and fresh scent\nSafer Choice Certified (Meets U.S. EPA Safer Product Standards)\nDermatologist tested; free from triclosan, phthalates, parabens and formaldehyde donors; pH balanced\nNot tested on animals. Made in the U.S.A. with U.S. and foreign components\nIf you like Dial Coconut Water & Mango Hydrating Liquid Hand Soap, we invite you to try Amazon Basics Mango and Coconut Water Liquid Hand Soap\nAlexa voice shopping enabled: to place your next order, just say, “Alexa, reorder Amazon Basics Hand Soap Refill\"\nSatisfaction Guarantee: We're proud of our products. If you aren't satisfied, we'll refund you for any reason within a year of purchase. 1-877-485-0385"
     )
@@ -2398,7 +2398,7 @@ def seed_all():
 
     product = Product(
         seller=seller,
-        title="Amazon Basics 5-Blade Razor Refills for Men with Dual Lubrication and Precision Beard Trimmer, 12 Cartridges (Fits Amazon Basics Razor Handles only) (Previously Solimo)",
+        title="Amazing Basics 5-Blade Razor Refills for Men with Dual Lubrication and Precision Beard Trimmer, 12 Cartridges (Fits Amazon Basics Razor Handles only) (Previously Solimo)",
         price="15.85",
         description="Includes twelve Amazon Basics 5-Blade razor refill cartridges\nPackaging may vary from images shown. This was previously a Solimo product and is now a part of the Amazon Basics brand. The product is the exact same formulation, size and quality.\nDouble coated blade edge with anti-clog design\nBeard trimmer for shaving goatee, sideburns and under nose\nHypoallergenic lubricating strips with Vitamin E\nAlexa voice shopping enabled: to place your next order, just say, “Alexa, reorder Amazon Basics Razor Refills”\nIf you like Gillette Fusion ProGlide Razors, we invite you to try Amazon Basics 5-Blade Razors for Men\nSatisfaction Guarantee: We’re proud of our products. If you aren’t satisfied, we’ll refund you for any reason within a year of purchase. 1-877-485-0385"
     )
@@ -2518,7 +2518,7 @@ def seed_all():
 
     product = Product(
         seller=seller,
-        title="Amazon Basics 500-Watt Ceramic Small Space Personal Mini Heater - Black",
+        title="Amazing Basics 500-Watt Ceramic Small Space Personal Mini Heater - Black",
         price="17.99",
         description="Make sure this fits by entering your model number.\nCompact personal space heater design that is small enough for tables or desktops\nFeaturing efficient ceramic coils that heat up in seconds\nAvailable in 4 colors to custom-match your decor\nIncludes tip-over protection for extra safety\nIdeal for small spaces, at home or at the office"
     )

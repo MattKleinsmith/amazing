@@ -6,6 +6,7 @@ const GET_PRODUCT = 'products/GET_INDIVIDUAL_PRODUCT';
 const GET_PRODUCTS = 'products/GET_PRODUCTS';
 const ADD_PRODUCT = 'products/ADD_PRODUCT';
 const DELETE_PRODUCT = 'products/DELETE_PRODUCT';
+const FILL_HOMEPAGE = 'products/FILL_HOMEPAGE';
 
 export const getProducts = () => async dispatch => {
     const response = await csrfFetch('/api/products');
@@ -17,6 +18,13 @@ export const getProductsByKeywords = keywords => async dispatch => {
     const response = await csrfFetch(`/api/products?k=${keywords}`);
     const products = await response.json();
     dispatch({ type: GET_PRODUCTS, products });
+};
+
+export const getProductsForHomepage = () => async dispatch => {
+    const phone = await (await csrfFetch('/api/products?k=phone')).json();
+    const makeup = await (await csrfFetch('/api/products?k=makeup')).json();
+    const basics = await (await csrfFetch('/api/products?k=basics')).json();
+    dispatch({ type: FILL_HOMEPAGE, phone, makeup, basics });
 };
 
 export const getProduct = (productId) => async dispatch => {
@@ -78,7 +86,7 @@ export const deleteProductImage = (productId, productImageId) => async dispatch 
     dispatch(getProductDetails(productId));
 };
 
-export default function productsReducer(state = { all: {}, filtered: {} }, action) {
+export default function productsReducer(state = { all: {}, filtered: {}, homepage: { phone: {}, makeup: {}, basics: {} } }, action) {
     const newState = { ...state };
     switch (action.type) {
         case GET_PRODUCTS:
@@ -86,6 +94,18 @@ export default function productsReducer(state = { all: {}, filtered: {} }, actio
             for (const product of action.products) {
                 newState.all[product.id] = product;
                 newState.filtered[product.id] = product;
+            }
+            return newState;
+        case FILL_HOMEPAGE:
+            newState.homepage = { phone: {}, makeup: {}, basics: {} };
+            for (const product of action.phone) {
+                newState.homepage.phone[product.id] = product;
+            }
+            for (const product of action.makeup) {
+                newState.homepage.makeup[product.id] = product;
+            }
+            for (const product of action.basics) {
+                newState.homepage.basics[product.id] = product;
             }
             return newState;
         case ADD_PRODUCT:

@@ -12,7 +12,7 @@ import SearchResultsBar from "./SearchResultsBar/SearchResultsBar";
 import { setShouldClearSearchBar } from "../../store/searchbar";
 import { clearReviews } from "../../store/reviews";
 
-export default function SearchResults({ showRecent }) {
+export default function SearchResults({ showRecent, isHomepage }) {
     const dispatch = useDispatch();
     const searchParams = useSearchParams()[0];
     const [width, setWidth] = useState(window.innerWidth);
@@ -45,7 +45,7 @@ export default function SearchResults({ showRecent }) {
 
     return (
         <div className={styles.superWrapper}>
-            <SearchResultsBar products={products} keywords={showRecent ? "recent" : searchParams.get("k")} showRecent={showRecent} />
+            {!isHomepage && <SearchResultsBar products={products} keywords={showRecent ? "recent" : searchParams.get("k")} showRecent={showRecent} />}
             <div className={styles.wrapper}>
                 {/* <SearchResultsFilter /> */}
                 {products1.length > 0 && <div className={styles.results}>

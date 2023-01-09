@@ -17,7 +17,7 @@ export default function ListingReviewsBreakdown({ product, reviews }) {
     return (
         <div className={styles.wrapper}>
             <div className={styles.heading}>Customer reviews</div>
-            <div className={styles.summary}><StarsBig rating={product.avg_rating} /> <span className={styles.summaryText}>{product.avg_rating} out of 5</span></div>
+            <div className={styles.summary}><StarsBig rating={product.avg_rating} /> <span className={styles.summaryText}>{parseFloat(product.avg_rating).toFixed(1)} out of 5</span></div>
             <div className={styles.count}>{product.num_ratings} global rating{product.num_ratings === 1 ? "" : "s"}</div>
             <RatingBar percents={percents} rating={5} />
             <RatingBar percents={percents} rating={4} />
