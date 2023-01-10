@@ -2844,7 +2844,7 @@ def seed_all():
         ProductImage(
             product=product,
             url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/31GfIf9DVXS._SL1500_SY300_QL70_FMwebp_.jpg"),
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/31GfIf9DVXS._SL1500_.jpg"),
             preview=True,
             position=1
         ),
@@ -3364,7 +3364,7 @@ def seed_all():
         ProductImage(
             product=product,
             url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/41mFlDZNVGS._SL1500_SY300_QL70_FMwebp_.jpg"),
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/41mFlDZNVGS._SL1500_.jpg"),
             preview=True,
             position=1
         ),
