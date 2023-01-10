@@ -22,9 +22,10 @@ It was built using this stack:
 <br/>
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Python](https://img.shields.io/badge/python⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀-376c99?style=for-the-badge&logo=python&logoColor=f7d34b)
+![AWS](https://img.shields.io/badge/AWS_CLOUDFRONT-%23232f3e.svg?style=for-the-badge&logo=amazonaws&logoColor=ec912d)
 <br/>
 ![AWS](https://img.shields.io/badge/AMAZON_LINUX_2_(EC2_instance)⠀⠀⠀-%23232f3e.svg?style=for-the-badge&logo=amazonaws&logoColor=ec912d)
-![AWS](https://img.shields.io/badge/AWS_S3⠀⠀⠀⠀⠀-%23232f3e.svg?style=for-the-badge&logo=amazonaws&logoColor=ec912d)
+![AWS](https://img.shields.io/badge/AWS_S3⠀⠀⠀⠀⠀⠀⠀⠀⠀-%23232f3e.svg?style=for-the-badge&logo=amazonaws&logoColor=ec912d)
 
 ## Features
 
