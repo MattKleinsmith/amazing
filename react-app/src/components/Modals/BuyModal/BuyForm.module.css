@@ -38,7 +38,7 @@
 .close {
     background-image: url("../../../../public/images/x-icon.png");
     opacity: .64;
-    width: 20px;
+    min-width: 15px;
     height: 9px;
     background-position: -297px -5px;
 
