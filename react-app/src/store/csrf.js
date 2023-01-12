@@ -13,7 +13,7 @@ export async function csrfFetch(url, options = {}) {
 
     if (res.status >= 400) {
         const errors = await res.json();
-        console.log(errors);
+        console.log(errors.errors);
         throw errors;
     }
 

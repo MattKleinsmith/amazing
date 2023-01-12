@@ -15,7 +15,6 @@ export const restoreUser = () => async dispatch => {
         await dispatch(setUser(user))
         return response;
     } catch (errorResponse) {
-        console.log("Couldn't restore user");
     }
 };
 

@@ -17,7 +17,10 @@ export default function DeliveryTab({ product }) {
     const user = useSelector(state => state.session.user);
 
     const onBuyNow = async () => {
-        if (addresses.length === 0) {
+        if (!user) {
+            navigate(`/signin?productId=${product.id}&quantity=${quantity}`);
+        }
+        else if (addresses.length === 0) {
             navigate(`/addresses/add?productId=${product.id}&quantity=${quantity}`);
         }
         else {

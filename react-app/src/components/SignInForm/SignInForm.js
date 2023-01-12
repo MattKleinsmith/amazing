@@ -5,17 +5,20 @@ import * as sessionActions from "../../store/session";
 import { NavLink, useNavigate, useSearchParams } from 'react-router-dom';
 import { useRef } from 'react';
 import { useEffect } from 'react';
+import { setBuyModal } from '../../store/ui';
 
 export default function SignInForm() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    let source = useSearchParams()[0].get("source");
-    source = window.location.search;
-
+    const searchParams = useSearchParams()[0];
+    const productId = searchParams.get("productId");
+    const quantity = searchParams.get("quantity");
+    const source = searchParams.get("source");
 
     const [isLoaded, setIsLoaded] = useState(false);
     const user = useSelector(state => state.session.user);
+    const addresses = useSelector(state => state.addresses);
 
     const emailField = useRef();
     const [email, setEmail] = useState("");
@@ -75,7 +78,18 @@ export default function SignInForm() {
 
         try {
             await dispatch(sessionActions.signIn({ email, password }));
-            navigate(source ? source : "/");
+            if (productId) {
+                if (addresses.length > 0) {
+                    navigate(`/listing/${productId}`);
+                    dispatch(setBuyModal(true, productId, quantity));
+                }
+                else {
+                    navigate(`/addresses/add?productId=${productId}&quantity=${quantity}`);
+                }
+            }
+            else {
+                navigate(source ? source : "/");
+            }
         }
         catch (responseBody) {
             const backendErrors = Object.entries(responseBody.errors)
@@ -206,8 +220,12 @@ export default function SignInForm() {
                         <div className={styles.new}>New to Amazing?</div>
                     </div>
                     <div className={styles.create} onClick={() => {
-                        console.log("SignInForm - source", source);
-                        navigate(`/register${source && `?source=${source}`}`);
+                        if (productId) {
+                            navigate(`/register?productId=${productId}&quantity=${quantity}`);
+                        }
+                        else {
+                            navigate(`/register`);
+                        }
                     }}>Create your Amazing account</div>
                 </div>}
 

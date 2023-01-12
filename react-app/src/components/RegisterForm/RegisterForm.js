@@ -10,7 +10,11 @@ export default function RegisterForm() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    let source = useSearchParams()[0].get("source");
+    const searchParams = useSearchParams()[0];
+    const productId = searchParams.get('productId');
+    const quantity = searchParams.get('quantity');
+
+    let source = searchParams.get("source");
     const sourceParts = window.location.search.split("?source=");
     source = sourceParts[sourceParts.length - 1];
 
@@ -90,7 +94,12 @@ export default function RegisterForm() {
 
         try {
             await dispatch(sessionActions.register({ fullname: name, email, password }));
-            navigate(source ? source : "/");
+            if (productId) {
+                navigate(`/addresses/add?productId=${productId}&quantity=${quantity}`);
+            }
+            else {
+                navigate(source ? source : "/");
+            }
         }
         catch (responseBody) {
             const backendErrors = Object.entries(responseBody.errors)

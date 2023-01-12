@@ -21,7 +21,7 @@ export default function App() {
 
   useEffect(() => {
     dispatch(restoreUser()).then(() => setIsLoaded(true));
-    dispatch(getAddresses());
+    dispatch(getAddresses()).catch(e => { });
   }, [dispatch]);
 
   if (!isLoaded) return;
