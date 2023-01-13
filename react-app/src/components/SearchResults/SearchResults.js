@@ -22,14 +22,14 @@ export default function SearchResults({ showRecent, isHomepage }) {
     useEffect(() => {
         async function fetchData() {
             if (showRecent) {
-                await dispatch(getProducts());
+                await dispatch(getProducts(isHomepage ? 12 : 0));
             } else {
                 await dispatch(getProductsByKeywords(searchParams.get("k")));
             }
             setIsLoaded(true);
         }
         fetchData();
-    }, [dispatch, searchParams, showRecent]);
+    }, [dispatch, searchParams, showRecent, isHomepage]);
 
     useEffect(() => {
         dispatch(clearReviews());
