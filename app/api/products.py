@@ -15,7 +15,7 @@ def get_products():
     terms = request.args.get("k")
     size = request.args.get("size")
     size = size if size else 24  # Default size
-    reverse = bool(request.args.get("reverse"))
+    reverse = request.args.get("reverse")
     if terms:
         terms = terms.split("+")
         products = []
