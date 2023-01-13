@@ -15,15 +15,18 @@ def get_products():
     terms = request.args.get("k")
     size = request.args.get("size")
     size = size if size else 24  # Default size
+    reverse = bool(request.args.get("reverse"))
     if terms:
         terms = terms.split("+")
         products = []
         for term in terms:
-            products = Product.query.filter(Product.title.match(term)).all()
+            products = Product.query.filter(
+                Product.title.match(term)).order_by(Product.id.desc() if reverse else Product.id.asc()).limit(size).all()
+            size = int(size) - len(products)
             products += Product.query.filter(
-                Product.description.match(term)).all()
+                Product.description.match(term)).order_by(Product.id.desc() if reverse else Product.id.asc()).limit(size).all()
         return [product.to_dict_search_results() for product in set(products)]
-    return [product.to_dict_search_results() for product in Product.query.limit(size)]
+    return [product.to_dict_search_results() for product in Product.query.order_by(Product.id.desc() if reverse else Product.id.asc()).limit(size)]
 
 
 @bp.route("/current",  methods=["GET"])

@@ -22,7 +22,7 @@ export default function SearchResults({ showRecent, isHomepage }) {
     useEffect(() => {
         async function fetchData() {
             if (showRecent) {
-                await dispatch(getProducts(isHomepage ? 12 : 0));
+                await dispatch(getProducts(isHomepage ? 12 : 0, isHomepage));
             } else {
                 await dispatch(getProductsByKeywords(searchParams.get("k")));
             }

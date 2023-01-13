@@ -8,8 +8,8 @@ const ADD_PRODUCT = 'products/ADD_PRODUCT';
 const DELETE_PRODUCT = 'products/DELETE_PRODUCT';
 const FILL_HOMEPAGE = 'products/FILL_HOMEPAGE';
 
-export const getProducts = (size = 0) => async dispatch => {
-    const response = await csrfFetch(`/api/products?size=${size}`);
+export const getProducts = (size = 0, reverse = false) => async dispatch => {
+    const response = await csrfFetch(`/api/products?size=${size}&reverse=${reverse}`);
     const products = await response.json();
     dispatch({ type: GET_PRODUCTS, products });
 };
