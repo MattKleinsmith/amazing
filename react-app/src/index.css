@@ -1,19 +1,19 @@
 @font-face {
     font-family: "Amazon Ember";
     font-weight: 400;
-    src: url('~/public/fonts/AmazonEmber_Rg.ttf');
+    src: url('https://d1irxr40exwge2.cloudfront.net/AmazonEmber_Rg.ttf');
 }
 
 @font-face {
     font-family: "Amazon Ember";
     font-weight: 500;
-    src: url('~/public/fonts/Amazon-Ember-Medium.ttf');
+    src: url('https://d1irxr40exwge2.cloudfront.net/Amazon-Ember-Medium.ttf');
 }
 
 @font-face {
     font-family: "Amazon Ember";
     font-weight: 700;
-    src: url('~/public/fonts/AmazonEmber_Bd.ttf');
+    src: url('https://d1irxr40exwge2.cloudfront.net/AmazonEmber_Bd.ttf');
 }
 
 * {
@@ -35,7 +35,7 @@ a:hover {
 }
 
 .prime {
-    background-image: url("../public/images/labels.png");
+    background-image: url("https://d1irxr40exwge2.cloudfront.net/labels.png");
     background-repeat: no-repeat;
 
     width: 53px;

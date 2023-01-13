@@ -48,7 +48,7 @@ export default function DeliveryTab({ product }) {
         {user?.id === product.seller_id && <div>You own this product. <NavLink to={`/inventory/${product.id}?source=${window.location.pathname}`}>Click here</NavLink> to edit it.</div>}
         <div className={styles.secure}>
             <div className={styles.secureIconWrapper}>
-                <img src="/images/secure.png" alt="Secure icon" height="15px" />
+                <img src="https://d1irxr40exwge2.cloudfront.net/secure.png" alt="Secure icon" height="15px" />
             </div>
             <div className={styles.secureText}>
                 Secure transaction

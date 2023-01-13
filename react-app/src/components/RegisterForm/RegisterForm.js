@@ -124,7 +124,7 @@ export default function RegisterForm() {
     if (!isLoaded) {
         return <div className={styles.wrapper} >
             <NavLink className={styles.logo} to="/" style={{ textDecoration: 'none' }}>
-                <img src="/images/logo_black.png" alt="logo_black" />
+                <img src="https://d1irxr40exwge2.cloudfront.net/logo_black.png" alt="logo_black" />
             </NavLink>
         </div>
     }
@@ -132,7 +132,7 @@ export default function RegisterForm() {
     if (user) {
         return <div className={styles.wrapper} >
             <NavLink className={styles.logo} to="/" style={{ textDecoration: 'none' }}>
-                <img src="/images/logo_black.png" alt="logo_black" />
+                <img src="https://d1irxr40exwge2.cloudfront.net/logo_black.png" alt="logo_black" />
             </NavLink>
             <div>
                 You are already logged in.
@@ -145,7 +145,7 @@ export default function RegisterForm() {
             <div className={styles.wrapper}>
 
                 <NavLink className={styles.logo} to="/" style={{ textDecoration: 'none' }}>
-                    <img src="/images/logo_black.png" alt="logo_black" />
+                    <img src="https://d1irxr40exwge2.cloudfront.net/logo_black.png" alt="logo_black" />
                 </NavLink>
 
                 {bigError && <div className={styles.problemWrapper}>

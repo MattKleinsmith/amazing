@@ -3,7 +3,7 @@
 }
 
 .stars {
-    background-image: url("../../../public/images/stars.png");
+    background-image: url("https://d1irxr40exwge2.cloudfront.net/stars.png");
     background-repeat: no-repeat;
     align-self: center;
     height: 18px;
