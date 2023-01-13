@@ -21,10 +21,12 @@ export const getProductsByKeywords = keywords => async dispatch => {
 };
 
 export const getProductsForHomepage = () => async dispatch => {
-    const phone = await (await csrfFetch('/api/products?k=phone')).json();
-    const makeup = await (await csrfFetch('/api/products?k=makeup')).json();
-    const basics = await (await csrfFetch('/api/products?k=basics')).json();
-    dispatch({ type: FILL_HOMEPAGE, phone, makeup, basics });
+    let phone = csrfFetch('/api/products?k=phone');
+    let makeup = csrfFetch('/api/products?k=makeup');
+    let basics = csrfFetch('/api/products?k=basics');
+    const values = await Promise.all([phone, makeup, basics]);
+    const data = await Promise.all(values.map(response => response.json()));
+    dispatch({ type: FILL_HOMEPAGE, phone: data[0], makeup: data[1], basics: data[2] });
 };
 
 export const getProduct = (productId) => async dispatch => {
