@@ -24,6 +24,7 @@ export const getAddresses = () => async dispatch => {
     const response = await csrfFetch('/api/addresses/current');
     const addresses = await response.json();
     dispatch({ type: GET_ADDRESSES, addresses });
+    return addresses;
 };
 
 export const putAddress = (addressId, body) => async dispatch => {

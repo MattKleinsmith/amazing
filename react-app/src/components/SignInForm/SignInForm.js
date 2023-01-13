@@ -6,6 +6,7 @@ import { NavLink, useNavigate, useSearchParams } from 'react-router-dom';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 import { setBuyModal } from '../../store/ui';
+import { getAddresses } from '../../store/addresses';
 
 export default function SignInForm() {
     const dispatch = useDispatch();
@@ -18,7 +19,6 @@ export default function SignInForm() {
 
     const [isLoaded, setIsLoaded] = useState(false);
     const user = useSelector(state => state.session.user);
-    const addresses = useSelector(state => state.addresses);
 
     const emailField = useRef();
     const [email, setEmail] = useState("");
@@ -79,6 +79,7 @@ export default function SignInForm() {
         try {
             await dispatch(sessionActions.signIn({ email, password }));
             if (productId) {
+                const addresses = await dispatch(getAddresses());
                 if (addresses.length > 0) {
                     navigate(`/listing/${productId}`);
                     dispatch(setBuyModal(true, productId, quantity));
@@ -95,7 +96,7 @@ export default function SignInForm() {
             const backendErrors = Object.entries(responseBody.errors)
                 .map(([errorField, errorMessage]) => `${errorField}: ${errorMessage}`);
             if (backendErrors.includes("Credentials: Email and password did not match")) {
-                setBigError("Your password is incorrect");
+                setBigError("Email and password did not match");
             }
         }
     }
