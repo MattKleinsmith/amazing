@@ -102,7 +102,7 @@ def delete_product(product_id):
 def post_image_by_product_id(product_id):
     try:
         file = request.files['image']
-        filename = secure_filename(file.filename)
+        filename = secure_filename(file.filename)  # "Big Cat.jpg" -> "Big_Cat.jpg" or "../cat.jpg" -> "cat.jpg"
         if not allowed_file(filename):
             return {
                 "errors": {
@@ -117,11 +117,13 @@ def post_image_by_product_id(product_id):
             position=request.form['position'] if request.form['position'] else None
         )
         if request.form['preview'] == 'true':
+            # There can only be one previous image.
             preview_images = ProductImage.query.filter(
                 ProductImage.preview == 't', ProductImage.product_id == product_id).all()
             for img in preview_images:
                 if (img.position):
                     img.preview = False
+                    # Move old preview image to the end of the list of images
                     img.position = ProductImage.query.filter(
                         ProductImage.product_id == product_id, ProductImage.position > 0).count() + 1
                 else:
