@@ -170,12 +170,13 @@ def seed_all():
         ),
     ])
 
-    order = Order()
+    order = Order(
+        address=f"{demo.fullname}\n123 MAIN ST\nKANSAS CITY, MO 64118\nUNITED STATES",
+        buyer_id=demo.id
+    )
     db.session.add(order)
     db.session.add(Purchase(
         order=order,
-        address=f"{demo.fullname}\n123 MAIN ST\nKANSAS CITY, MO 64118\nUNITED STATES",
-        buyer_id=demo.id,
         seller_id=seller.id,
         product_id=product.id,
         price=product.price,

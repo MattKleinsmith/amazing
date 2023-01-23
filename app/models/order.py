@@ -15,4 +15,4 @@ class Order(db.Model):
                       ForeignKey('users.id', name='fk_order_buyer_id', ondelete='CASCADE'),
                       nullable=False)
 
-    purchases = relationship("Purchases", back_populates="order")
+    purchases = relationship("Purchase", back_populates="order")
