@@ -15,6 +15,13 @@ def post_cart_item():
     form = CartItemForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if (form.validate_on_submit()):
+        cart_item = CartItem.query.filter(CartItem.product_id == form.product_id.data,
+                                    CartItem.user_id == current_user.id).first()
+        if (cart_item):
+            cart_item.quantity += form.quantity.data
+            db.session.commit()
+            return cart_item.to_dict(), 200
+
         cart_item = CartItem(
             user_id=current_user.id,
             product_id=form.product_id.data,
@@ -29,19 +36,20 @@ def post_cart_item():
 @login_required
 def get_cart_items():
     """READ"""
-    return CartItem.query.filter(CartItem.user_id == current_user.id)
+    cart_items = CartItem.query.filter(CartItem.user_id == current_user.id)
+    return [cart_item.to_dict() for cart_item in cart_items]
 
 @bp.route("",  methods=["PUT"])
 @login_required
 def put_cart_item():
     """UPDATE"""
-    cart_item = CartItem.query.filter(CartItem.product_id == form.product_id.data,
-                                   CartItem.user_id == current_user.id).first()
-    if (not cart_item):
-        return "404", 404
-    form = CartItem()
+    form = CartItemForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
+        cart_item = CartItem.query.filter(CartItem.product_id == form.product_id.data,
+                                CartItem.user_id == current_user.id).first()
+        if (not cart_item):
+            return "404", 404
         cart_item.quantity = form.quantity.data
         db.session.commit()
         return cart_item.to_dict()
@@ -60,6 +68,21 @@ def delete_cart_item(product_id):
             db.session.commit()
             return {"message": f"Deleted cart item with product id {product_id}"}
         return "404", 404
+    except IntegrityError as e:
+        return {"errors": {
+            "server": "Server failed to delete"
+        }}, 500
+
+@bp.route("",  methods=["DELETE"])
+@login_required
+def clear_cart():
+    """DELETE"""
+    try:
+        cart_items = CartItem.query.filter(CartItem.user_id == current_user.id)
+        for cart_item in cart_items:
+            db.session.delete(cart_item)
+        db.session.commit()
+        return {"message": f"Deleted cart items of current user: {current_user.id}"}
     except IntegrityError as e:
         return {"errors": {
             "server": "Server failed to delete"

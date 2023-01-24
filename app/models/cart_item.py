@@ -1,5 +1,5 @@
 from .db import db
-from sqlalchemy.schema import Column, ForeignKey
+from sqlalchemy.schema import Column, ForeignKey, UniqueConstraint
 from sqlalchemy.types import Integer
 
 class CartItem(db.Model):
@@ -14,6 +14,8 @@ class CartItem(db.Model):
                       ForeignKey('products.id', name='fk_cart_item_product_id', ondelete='CASCADE'),
                       nullable=False)
     quantity = Column(Integer)
+
+    __table_args__ = (UniqueConstraint('user_id', 'product_id', name='unique_user_id_product_id_cart_item'), )
 
     def to_dict(self):
         return {
