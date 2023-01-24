@@ -34,7 +34,7 @@ export default function Order({ order }) {
             </div>
 
             <div>
-                {order.purchases.map((purchase, i) => <Purchase key={i} purchase={purchase} isLast={i === order.purchases.length - 1} />)}
+                {order.purchases.map((purchase, i) => <Purchase key={i} purchase={purchase} isLast={i === order.purchases.length - 1} address={order.address} />)}
             </div>
         </div>
     );

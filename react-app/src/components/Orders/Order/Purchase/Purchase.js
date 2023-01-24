@@ -7,7 +7,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { getProductDetails } from "../../../../store/productDetails";
 import { postOrder } from "../../../../store/orders";
 
-export default function Purchase({ purchase, isLast }) {
+export default function Purchase({ purchase, isLast, address }) {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const product = useSelector(state => state.productDetails)[purchase.product_id];
@@ -19,7 +19,6 @@ export default function Purchase({ purchase, isLast }) {
     if (!product) return;
 
     const onBuyAgain = async () => {
-        const address = purchase.address;
         const cart = { [product.id]: 1 };
         try {
             const orderId = await dispatch(postOrder({ address, cart }));
