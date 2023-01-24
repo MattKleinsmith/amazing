@@ -8,7 +8,6 @@ import { getProductDetails } from "../../store/productDetails";
 
 export default function OrderConfirmation() {
     const order = useSelector(state => state.orders)[0];
-    const purchase = order.purchases[0]
     const addressParts = order.address.split('\n');
 
     const dispatch = useDispatch();
@@ -22,7 +21,7 @@ export default function OrderConfirmation() {
 
     useEffect(() => {
         order.purchases.forEach(purchase => dispatch(getProductDetails(purchase.product_id)));
-    }, [dispatch, purchase]);
+    }, [dispatch, order.purchases]);
 
     return (
         <div className={styles.outerWrapper}>
