@@ -27,11 +27,8 @@ class Purchase(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
-            "order_id": self.order_id,
             "seller_id": self.seller_id,
             "product_id": self.product_id,
             "price": self.price,
             "quantity": self.quantity,
-            "address": self.order.address,
-            "created_at": self.order.created_at
         }

@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
-import { getPurchases } from "../../store/purchases"
+import { getOrders } from "../../store/orders"
 
-import Purchase from "./Purchase/Purchase";
+import Order from "./Order/Order";
 import { useState } from "react";
 import { useLocation } from "react-router";
 
@@ -15,19 +15,19 @@ export default function Orders() {
     const size = 10;
     const min = (page - 1) * size;
     const max = min + size;
-    const allPurchases = useSelector(state => state.purchases);
-    const purchases = allPurchases.slice(min, max);
+    const allOrders = useSelector(state => state.orders);
+    const orders = allOrders.slice(min, max);
 
     useLocation();
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getPurchases());
+        dispatch(getOrders());
     }, [dispatch]);
 
     const incrementPage = () => {
-        if (page * 10 < allPurchases.length) setPage(page + 1);
+        if (page * 10 < allOrders.length) setPage(page + 1);
     }
 
     const decrementPage = () => {
@@ -47,18 +47,18 @@ export default function Orders() {
                 </div>
 
                 <div className={styles.purchases}>
-                    {purchases.map((purchase, i) => <Purchase key={i} purchase={purchase} />)}
+                    {orders.map((order, i) => <Order key={i} order={order} />)}
                 </div>
-                {purchases.length === 0 &&
+                {orders.length === 0 &&
                     <div className={styles.emptyWrapper}>
                         <div>You have no orders.</div>
                         <NavLink to="/" className={styles.continue}>Continue shopping</NavLink>
                     </div>
                 }
 
-                {allPurchases.length > size && <div className={styles.paginationBar}>
+                {allOrders.length > size && <div className={styles.paginationBar}>
                     <div className={`${styles.paginationButton} ${page <= 1 && styles.disabled} ${styles.noselect}`} onClick={decrementPage}>←Previous</div>
-                    <div className={`${styles.paginationButton} ${page * 10 >= allPurchases.length && styles.disabled} ${styles.noselect}`} onClick={incrementPage}>Next→</div>
+                    <div className={`${styles.paginationButton} ${page * 10 >= allOrders.length && styles.disabled} ${styles.noselect}`} onClick={incrementPage}>Next→</div>
                 </div>}
             </div>
         </div>

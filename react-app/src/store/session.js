@@ -1,5 +1,5 @@
 import { csrfFetch } from './csrf';
-import { clearPurchases, getPurchases } from './purchases';
+import { clearOrders, getOrders } from './orders';
 import { clearAddresses, getAddresses } from './addresses';
 
 const SET_USER = 'session/setUser';
@@ -28,7 +28,7 @@ export const signIn = credentials => async dispatch => {
     const user = await response.json();
     await dispatch(setUser(user));
     await dispatch(getAddresses());
-    await dispatch(getPurchases());
+    await dispatch(getOrders());
     return user;
 };
 
@@ -36,7 +36,7 @@ export const signOut = () => async (dispatch) => {
     await csrfFetch('/api/session', { method: 'DELETE', });
     await dispatch(setUser(null));
     await dispatch(clearAddresses());
-    await dispatch(clearPurchases());
+    await dispatch(clearOrders());
 };
 
 export const register = body => async (dispatch) => {
