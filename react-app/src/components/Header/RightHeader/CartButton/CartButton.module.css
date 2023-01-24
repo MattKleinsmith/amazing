@@ -48,3 +48,14 @@
     font-weight: 700;
     color: #f08804;
 }
+
+.largeQuantity {
+    position: absolute;
+    margin-left: 15px;
+    margin-top: -2px;
+
+    font-size: 15px;
+    line-height: 16px;
+    font-weight: 700;
+    color: #f08804;
+}
