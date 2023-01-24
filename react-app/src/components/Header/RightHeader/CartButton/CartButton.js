@@ -1,13 +1,14 @@
+import { NavLink } from "react-router-dom";
 import styles from "./CartButton.module.css";
 
 export default function CartButton() {
     return (
-        <div className={styles.cartButton} >
+        <NavLink to="/cart" className={styles.wrapper}>
             <div className={styles.quantity}>0</div>
             <div className={styles.row}>
                 <div className={styles.cart} />
                 <div className={styles.label}>Cart</div>
             </div>
-        </div>
+        </NavLink>
     );
 }

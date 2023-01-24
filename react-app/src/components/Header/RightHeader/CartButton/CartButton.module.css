@@ -1,9 +1,21 @@
-.cartButton {
-    /* cursor: pointer; */
-    cursor: not-allowed;
-    font-size: 20px;
-    margin: 0px 10px;
-    margin-top: 5px;
+.wrapper {
+    width: 90px;
+    padding-left: 9px;
+    padding-right: 5px;
+    padding-top: 8px;
+    padding-bottom: 9px;
+    margin-top: -5px;
+
+    border: 1px solid transparent;
+    border-radius: 2px;
+    color: white;
+
+    cursor: pointer;
+}
+
+.wrapper:hover {
+    border: 1px solid white;
+    text-decoration: none;
 }
 
 .cart {
