@@ -45,13 +45,14 @@ def post_order():
     if current_user.id in seller_ids:
         return {"errors": {"error": "Seller can't order their own products"}}, 401
 
-    order = Order()
+    order = Order(
+        buyer_id=current_user.id,
+        address=body["address"],
+    )
 
     purchases = [Purchase(order=order,
-                          buyer_id=current_user.id,
                           seller_id=products_by_id[product_id].seller_id,
                           product_id=product_id,
-                          address=body["address"],
                           price=products_by_id[product_id].price,
                           quantity=quantity)
                  for product_id, quantity in cart.items()]

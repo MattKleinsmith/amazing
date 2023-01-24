@@ -7,8 +7,9 @@ import { useEffect } from "react";
 import { getProductDetails } from "../../store/productDetails";
 
 export default function OrderConfirmation() {
-    const purchase = useSelector(state => state.purchases)[0];
-    const addressParts = purchase.address.split('\n');
+    const order = useSelector(state => state.orders)[0];
+    const purchase = order.purchases[0]
+    const addressParts = order.address.split('\n');
 
     const dispatch = useDispatch();
     const product = useSelector(state => state.productDetails)[purchase.product_id];
