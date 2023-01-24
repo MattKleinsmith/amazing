@@ -7,3 +7,4 @@ from .review_image import ReviewImage
 from .address import Address
 from .order import Order
 from .purchase import Purchase
+from .cart_item import CartItem
