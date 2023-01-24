@@ -62,6 +62,7 @@ class ReviewForm(FlaskForm):
     submit = SubmitField()
 
 class CartItemForm(FlaskForm):
+    product_id = IntegerField("product_id", validators=[DataRequired()])
     quantity = IntegerField("Quantity", validators=[
         DataRequired(), NumberRange(min=1, max=20)])
     submit = SubmitField()
