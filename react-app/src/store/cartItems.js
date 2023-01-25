@@ -17,7 +17,6 @@ export const postCartItem = (product_id, quantity) => async dispatch => {
 };
 
 export const getCartItems = () => async dispatch => {
-    console.log("getCartItems");
     const response = await csrfFetch(`/api/cart_items`);
     const cartItems = await response.json();
     dispatch({ type: GET_CART_ITEMS, cartItems });

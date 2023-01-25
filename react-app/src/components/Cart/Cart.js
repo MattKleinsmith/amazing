@@ -27,12 +27,18 @@ export default function Cart() {
             </div>
         </div>;
 
+    console.log(productIds);
+
+    const numItems = productIds.reduce((sum, productId) => sum += cartItems[productId], 0);
+    const subtotal = productIds.reduce((sum, productId) => sum += productDetails[productId]?.price * cartItems[productId], 0);
+
     return <div className={styles.wrapper}>
         <div className={styles.content}>
             <div className={styles.heading}>Shopping Cart</div>
             <div className={styles.priceLabel}>Price</div>
-            <div className={styles.line}></div>
+            <div className={styles.line} />
             {productIds.map((productId, i) => <CartItem key={i} product={productDetails[productId]} quantity={cartItems[productId]} />)}
+            <div className={styles.subtotal}><span className={styles.subtotalLabel}>Subtotal ({numItems} item{numItems > 1 && "s"}):</span> ${parseFloat(subtotal).toFixed(2)}</div>
         </div>
     </div>;
 }
