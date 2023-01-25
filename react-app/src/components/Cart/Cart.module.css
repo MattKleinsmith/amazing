@@ -5,6 +5,8 @@
 }
 
 .content {
+    display: flex;
+    flex-direction: column;
     background-color: white;
     width: 80vw;
     padding: 20px;
@@ -15,6 +17,12 @@
     font-size: 28px;
     line-height: 36px;
 }
+
+.continue {
+    margin-top: 15px;
+    color: #007185;
+}
+
 
 .priceLabel {
     color: #565959;

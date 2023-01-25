@@ -82,3 +82,20 @@
     background-color: #dddddd;
     margin: 25px 0px;
 }
+
+.deleted {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #0F1111;
+}
+
+.deletedLink {
+    display: inline-block;
+    color: #007185;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
