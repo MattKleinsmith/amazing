@@ -18,6 +18,10 @@ export default function Cart() {
     }, [dispatch, cartItems]);
 
     return <div className={styles.wrapper}>
-        {productIds.map((productId, i) => <CartItem key={i} product={productDetails[productId]} quantity={cartItems[productId]} />)}
+        <div className={styles.content}>
+            <div className={styles.heading}>Shopping Cart</div>
+            <div className={styles.line}></div>
+            {productIds.map((productId, i) => <CartItem key={i} product={productDetails[productId]} quantity={cartItems[productId]} />)}
+        </div>
     </div>;
 }
