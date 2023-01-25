@@ -7,10 +7,10 @@ const DELETE_CART_ITEM = 'cartItem/DELETE_CART_ITEM';
 const CLEAR_CART = 'cartItem/CLEAR_CART';
 
 
-export const postCartItem = body => async dispatch => {
+export const postCartItem = (product_id, quantity) => async dispatch => {
     const response = await csrfFetch('/api/cart_items', {
         method: "POST",
-        body: JSON.stringify(body)
+        body: JSON.stringify({ product_id, quantity })
     });
     const cartItem = await response.json();
     dispatch({ type: POST_CART_ITEM, cartItem });

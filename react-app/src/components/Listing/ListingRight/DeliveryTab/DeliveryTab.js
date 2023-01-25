@@ -8,6 +8,7 @@ import Price from "../../../Price/Price";
 import Quantity from "../Quantity/Quantity";
 import { setBuyModal } from "../../../../store/ui"
 import { NavLink } from "react-router-dom";
+import { postCartItem } from "../../../../store/cartItems";
 
 export default function DeliveryTab({ product }) {
     const [quantity, setQuantity] = useState(1);
@@ -16,15 +17,24 @@ export default function DeliveryTab({ product }) {
     const addresses = useSelector(state => Object.values(state.addresses));
     const user = useSelector(state => state.session.user);
 
-    const onBuyNow = async () => {
+    const onBuyNow = () => {
         if (!user) {
-            navigate(`/signin?productId=${product.id}&quantity=${quantity}`);
+            navigate(`/signin?productId=${product.id}&quantity=${quantity}&buyNow=true`);
         }
         else if (addresses.length === 0) {
             navigate(`/addresses/add?productId=${product.id}&quantity=${quantity}`);
         }
         else {
             dispatch(setBuyModal(true, product.id, quantity));
+        }
+    }
+
+    const onAddToCart = () => {
+        if (!user) {
+            navigate(`/signin?productId=${product.id}&quantity=${quantity}&buyNow=false`);
+        }
+        else {
+            dispatch(postCartItem(product.id, quantity));
         }
     }
 
@@ -43,8 +53,8 @@ export default function DeliveryTab({ product }) {
         <div className={styles.address}></div>
         <div className={styles.inStock}>In Stock.</div>
         {user?.id !== product.seller_id && <Quantity quantity={quantity} setQuantity={setQuantity} />}
-        {/* {user?.id !== product.seller_id && <div className={styles.addToCart}>Add to Cart</div>} */}
-        {user?.id !== product.seller_id && <div className={styles.buyNow} onClick={onBuyNow}>Buy Now</div>}
+        {user?.id !== product.seller_id && <div className={`${styles.addToCart} noselect`} onClick={onAddToCart}>Add to Cart</div>}
+        {user?.id !== product.seller_id && <div className={`${styles.buyNow} noselect`} onClick={onBuyNow}>Buy Now</div>}
         {user?.id === product.seller_id && <div>You own this product. <NavLink to={`/inventory/${product.id}?source=${window.location.pathname}`}>Click here</NavLink> to edit it.</div>}
         <div className={styles.secure}>
             <div className={styles.secureIconWrapper}>

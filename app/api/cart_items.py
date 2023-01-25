@@ -19,6 +19,7 @@ def post_cart_item():
                                     CartItem.user_id == current_user.id).first()
         if (cart_item):
             cart_item.quantity += form.quantity.data
+            cart_item.quantity = min(cart_item.quantity, 20)
             db.session.commit()
             return cart_item.to_dict(), 200
 
