@@ -23,10 +23,10 @@ export const getCartItems = () => async dispatch => {
     dispatch({ type: GET_CART_ITEMS, cartItems });
 };
 
-export const putCartItem = (body) => async dispatch => {
+export const putCartItem = (product_id, quantity) => async dispatch => {
     const response = await csrfFetch(`/api/cart_items`, {
         method: "PUT",
-        body: JSON.stringify(body)
+        body: JSON.stringify({ product_id, quantity })
     });
     const cartItem = await response.json();
     dispatch({ type: PUT_CART_ITEM, cartItem });
