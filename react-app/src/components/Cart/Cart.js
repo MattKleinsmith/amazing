@@ -20,6 +20,7 @@ export default function Cart() {
     return <div className={styles.wrapper}>
         <div className={styles.content}>
             <div className={styles.heading}>Shopping Cart</div>
+            <div className={styles.priceLabel}>Price</div>
             <div className={styles.line}></div>
             {productIds.map((productId, i) => <CartItem key={i} product={productDetails[productId]} quantity={cartItems[productId]} />)}
         </div>

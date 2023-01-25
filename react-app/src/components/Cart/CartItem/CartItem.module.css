@@ -1,6 +1,12 @@
 .wrapper {
     display: flex;
+    justify-content: space-between;
     margin: 20px 0px;
+}
+
+.left {
+    display: flex;
+    gap: 10px;
 }
 
 .image {
@@ -8,11 +14,17 @@
     width: 180px;
 }
 
-.line {
-    height: 1px;
-    width: 100%;
-    background-color: #dddddd;
-    margin: 25px 0px;
+.title {
+    width: 60vw;
+    line-height: 1.3em;
+    word-break: normal;
+    color: #0F1111;
+    font-size: 18px;
+}
+
+.title:hover {
+    text-decoration: none;
+    color: #0F1111;
 }
 
 .price {
@@ -23,4 +35,11 @@
     line-height: 24px;
     font-weight: 700;
     text-align: end;
+}
+
+.line {
+    height: 1px;
+    width: 100%;
+    background-color: #dddddd;
+    margin: 25px 0px;
 }
