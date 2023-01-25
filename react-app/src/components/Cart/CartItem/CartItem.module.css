@@ -1,0 +1,26 @@
+.wrapper {
+    display: flex;
+    margin: 20px 0px;
+}
+
+.image {
+    height: 180px;
+    width: 180px;
+}
+
+.line {
+    height: 1px;
+    width: 100%;
+    background-color: #dddddd;
+    margin: 25px 0px;
+}
+
+.price {
+    color: #0F1111;
+    text-rendering: optimizeLegibility;
+    white-space: nowrap;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+    text-align: end;
+}
