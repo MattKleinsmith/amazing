@@ -15,6 +15,7 @@ export default function CartItem({ product, quantity }) {
                         <div className={styles.title}><NavLink className={styles.title} to={`/listing/${product.id}`} >{product.title}</NavLink></div>
                         <div className={styles.inStock}>In Stock</div>
                         <div className={styles.shippedFrom}>Shipped from: {product.seller.fullname}</div>
+                        <div className={styles.shippedFrom}>Gift options not available.</div>
                         <div className={styles.row}>
                             <Quantity productId={product.id} quantity={quantity} />
                             <div className={styles.verticalBar} />

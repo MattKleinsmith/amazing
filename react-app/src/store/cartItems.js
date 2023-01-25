@@ -38,8 +38,8 @@ export const deleteCartItem = productId => async dispatch => {
 };
 
 export const clearCart = () => async dispatch => {
-    await csrfFetch(`/api/cart_items`, { method: "DELETE" });
     dispatch({ type: CLEAR_CART });
+    await csrfFetch(`/api/cart_items`, { method: "DELETE" });
 };
 
 export default function cartItemReducer(state = {}, action) {

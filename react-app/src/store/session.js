@@ -1,6 +1,7 @@
 import { csrfFetch } from './csrf';
 import { clearOrders, getOrders } from './orders';
 import { clearAddresses, getAddresses } from './addresses';
+import { clearCart, getCartItems } from './cartItems';
 
 const SET_USER = 'session/setUser';
 
@@ -27,8 +28,9 @@ export const signIn = credentials => async dispatch => {
 
     const user = await response.json();
     await dispatch(setUser(user));
-    await dispatch(getAddresses());
-    await dispatch(getOrders());
+    dispatch(getAddresses());
+    dispatch(getOrders());
+    dispatch(getCartItems());
     return user;
 };
 
@@ -37,6 +39,7 @@ export const signOut = () => async (dispatch) => {
     await dispatch(setUser(null));
     await dispatch(clearAddresses());
     await dispatch(clearOrders());
+    await dispatch(clearCart());
 };
 
 export const register = body => async (dispatch) => {
