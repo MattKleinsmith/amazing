@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
-import CartItem from "./CartItem/CartItem";
 import { getProductDetails } from "../../store/productDetails";
 import { postOrder } from "../../store/orders";
+import CheckoutItem from "./CheckoutItem/CheckoutItem";
 
 export default function Checkout() {
     const dispatch = useDispatch();
@@ -52,6 +52,13 @@ export default function Checkout() {
     const numItems = productIds.reduce((sum, productId) => sum += cartItems[productId], 0);
     const subtotal = productIds.reduce((sum, productId) => sum += productDetails[productId]?.price * cartItems[productId], 0);
 
+    let deliveryDate = new Date();
+    deliveryDate.setDate(deliveryDate.getDate() + 2);
+    let nextDeliveryDate = new Date(deliveryDate);
+    nextDeliveryDate.setDate(nextDeliveryDate.getDate() + 1);
+    deliveryDate = deliveryDate.toLocaleDateString('en-us', { weekday: "long", month: "short", day: "numeric" });
+    nextDeliveryDate = nextDeliveryDate.toLocaleDateString('en-us', { weekday: "long", month: "short", day: "numeric" });
+
     return <>
         <div className={styles.headerWrapper}>
             <div className={styles.header}>
@@ -92,7 +99,7 @@ export default function Checkout() {
                                     <div className={styles.earn}>Earns 5% back</div>
                                 </div>
                             </div>
-                            <div>Billing address: Same as shipping address.</div>
+                            <div className={styles.billing}>Billing address: Same as shipping address.</div>
                         </div>
                     </div>
 
@@ -100,10 +107,21 @@ export default function Checkout() {
 
                     <div className={styles.step}>
                         <div className={`${styles.stepHeader} ${styles.stepNumber}`}>3</div>
-                        <div className={`${styles.stepHeader} ${styles.lastStepTitle}`}>
-                            Review items and shipping</div>
-                        <div className={`${styles.stepBody}`}>
-                            {productIds.map((productId, i) => <div key={i}>{productId}</div>)}
+                        <div className={styles.items}>
+                            <div className={`${styles.stepHeader} ${styles.lastStepTitle}`} >Review items and shipping</div>
+                            <div className={`${styles.flex}`}>
+                                <div>
+                                    {productIds.map((productId, i) => <CheckoutItem key={i} product={productDetails[productId]} quantity={cartItems[productId]} />)}
+                                </div>
+                                <div>
+                                    <div className={styles.choose}>Choose your Prime delivery option:</div>
+                                    <input name="delivery" type="radio" value="HTML" id="delivery_0" />
+                                    <label className={styles.date} htmlFor="delivery_0"> {deliveryDate}</label>
+                                    <br />
+                                    <input name="delivery" type="radio" value="HTML" id="delivery_1" />
+                                    <label className={styles.date} htmlFor="delivery_1"> {nextDeliveryDate}</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

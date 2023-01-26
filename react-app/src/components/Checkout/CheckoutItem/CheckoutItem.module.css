@@ -10,17 +10,19 @@
 }
 
 .image {
-    height: 180px;
-    width: 180px;
+    height: 90px;
+    width: 90px;
     object-fit: scale-down;
 }
 
 .title {
-    width: 50vw;
-    line-height: 1.3em;
+    width: 255px;
+
     word-break: normal;
     color: #0F1111;
-    font-size: 18px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
 }
 
 .title:hover {
