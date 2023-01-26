@@ -62,13 +62,53 @@ export default function Checkout() {
                 </div>
             </div>
         </div>
+
         <div className={styles.wrapperWrapper}>
+
             <div className={styles.wrapper}>
+
                 <div className={styles.content}>
-                    <div className={styles.line} />
-                    {productIds.map((productId, i) => <CartItem key={i} product={productDetails[productId]} quantity={cartItems[productId]} />)}
-                    <div className={`${styles.subtotal} ${styles.mtNegative}`}><span className={styles.subtotalLabel}>Subtotal ({numItems} item{numItems > 1 && "s"}):</span> ${parseFloat(subtotal).toFixed(2)}</div>
+                    <div className={styles.step}>
+                        <div className={`${styles.stepHeader} ${styles.stepNumber}`}>1</div>
+                        <div className={`${styles.stepHeader} ${styles.stepTitle}`}>Shipping address</div>
+                        <div className={`${styles.stepBody}`}>
+                            <div>Matthew Kleinsmith</div>
+                            <div>5525 N TRACY AVE</div>
+                            <div>KANSAS CITY, MO 64118-5335</div>
+                        </div>
+                        <div className={`${styles.changeLink}`}>Change</div>
+                    </div>
+
+                    <div className={`${styles.line}`} />
+
+                    <div className={styles.step}>
+                        <div className={`${styles.stepHeader} ${styles.stepNumber}`}>2</div>
+                        <div className={`${styles.stepHeader} ${styles.stepTitle}`}>Payment method</div>
+                        <div className={`${styles.stepBody}`}>
+                            <div className={`${styles.creditCard}`}>
+                                <img src="https://ducksybucket.s3.amazonaws.com/AmazonPrimeRewardsCardArt._CB485937007_.png" alt="credit card" />
+                                <div>
+                                    <div>Amazing Prime Rewards Visa Signature Card <span className={styles.endingIn}>ending in DEMO</span></div>
+                                    <div className={styles.earn}>Earns 5% back</div>
+                                </div>
+                            </div>
+                            <div>Billing address: Same as shipping address.</div>
+                        </div>
+                    </div>
+
+                    <div className={`${styles.line}`} />
+
+                    <div className={styles.step}>
+                        <div className={`${styles.stepHeader} ${styles.stepNumber}`}>3</div>
+                        <div className={`${styles.stepHeader} ${styles.lastStepTitle}`}>
+                            Review items and shipping</div>
+                        <div className={`${styles.stepBody}`}>
+                            {productIds.map((productId, i) => <div key={i}>{productId}</div>)}
+                        </div>
+                    </div>
+
                 </div>
+
                 <div className={styles.subtotalPane}>
                     <div className={styles.subtotal}><span className={styles.subtotalLabel}>Subtotal ({numItems} item{numItems > 1 && "s"}):</span> ${parseFloat(subtotal).toFixed(2)}</div>
                     <div className={`${styles.proceed} noselect`} onClick={onPlaceOrder}>Place your order</div>
@@ -76,8 +116,9 @@ export default function Checkout() {
                     {showTerms1 && <div className={styles.jokeTerms}>There are no terms, I was just kidding.</div>}
                     {showTerms2 && <div className={styles.jokeTerms2}>Verily, there are no terms.</div>}
                 </div>
+
             </div>
+
         </div>
-    </>
-        ;
+    </>;
 }

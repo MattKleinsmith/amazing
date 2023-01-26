@@ -3,6 +3,68 @@
     justify-content: center;
 }
 
+.changeLink {
+    color: #007185;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.changeLink:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #C7511F;
+}
+
+.creditCard {
+    display: flex;
+    gap: 10px;
+
+    color: #0F1111;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.creditCard>img {
+    object-fit: none;
+    align-self: flex-start;
+}
+
+.endingIn {
+    color: #565959;
+    font-weight: 400;
+}
+
+.earn {
+    font-weight: 400;
+}
+
+.step {
+    display: flex;
+}
+
+.stepNumber {
+    width: 40px;
+}
+
+.stepTitle {
+    width: 200px;
+}
+
+.stepBody {
+    width: 500px;
+    color: #333333;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.stepHeader {
+    color: #0F1111;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+}
 
 .wrapper {
     display: flex;
@@ -63,23 +125,6 @@
     color: #111111;
 }
 
-.content {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    width: 80vw;
-    padding: 20px;
-}
-
-.subtotalPane {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    padding: 20px;
-
-    height: 125px;
-}
-
 .checkout {
     font-weight: 400;
     font-size: 28px;
@@ -98,45 +143,21 @@
     color: #007185;
 }
 
-.headingLink:hover {
+.checkoutLink:hover {
     color: #007185;
     text-decoration: none;
-}
-
-.continue {
-    margin-top: 15px;
-    color: #007185;
-}
-
-
-.priceLabel {
-    color: #565959;
-    text-align: right;
-    font-size: 14px;
-    line-height: 20px;
 }
 
 .line {
     height: 1px;
     width: 100%;
-    background-color: #dddddd;
-    margin-bottom: 25px;
+    background-color: #bbbfbf;
+
+    margin: 15px 0px;
 }
 
 .mtNegative {
     margin-top: -20px;
-}
-
-.subtotal {
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 24px;
-    text-align: right;
-    text-rendering: optimizeLegibility;
-}
-
-.subtotalLabel {
-    font-weight: 400;
 }
 
 .proceed {
