@@ -1,0 +1,102 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+}
+
+.left {
+    display: flex;
+    gap: 10px;
+}
+
+.image {
+    height: 180px;
+    width: 180px;
+    object-fit: scale-down;
+}
+
+.title {
+    width: 50vw;
+    line-height: 1.3em;
+    word-break: normal;
+    color: #0F1111;
+    font-size: 18px;
+}
+
+.title:hover {
+    text-decoration: none;
+    color: #0F1111;
+}
+
+.inStock {
+    color: #007600;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 9px;
+}
+
+.shippedFrom {
+    color: #565959;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 5px;
+}
+
+.verticalBar {
+    text-rendering: optimizeLegibility;
+    background-color: #dddddd;
+    width: 1px;
+    height: 15px;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.delete {
+    color: #007185;
+    font-size: 12px;
+    /* align-self: flex-end; */
+}
+
+.delete:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.price {
+    color: #0F1111;
+    text-rendering: optimizeLegibility;
+    white-space: nowrap;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+    text-align: end;
+}
+
+.line {
+    height: 1px;
+    width: 100%;
+    background-color: #dddddd;
+    margin: 25px 0px;
+}
+
+.deleted {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #0F1111;
+}
+
+.deletedLink {
+    display: inline-block;
+    color: #007185;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

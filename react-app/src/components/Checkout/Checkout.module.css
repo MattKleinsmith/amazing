@@ -1,0 +1,109 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.terms {
+    font-size: 12px;
+    color: #111111;
+}
+
+.jokeTerms {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #111111;
+}
+
+.jokeTerms2 {
+    margin-top: 15px;
+    margin-bottom: -10px;
+    font-size: 12px;
+    color: #111111;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 80vw;
+    padding: 20px;
+}
+
+.subtotalPane {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+
+    height: 125px;
+}
+
+.heading {
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 36px;
+}
+
+.continue {
+    margin-top: 15px;
+    color: #007185;
+}
+
+
+.priceLabel {
+    color: #565959;
+    text-align: right;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.line {
+    height: 1px;
+    width: 100%;
+    background-color: #dddddd;
+    margin-bottom: 25px;
+}
+
+.mtNegative {
+    margin-top: -20px;
+}
+
+.subtotal {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: right;
+    text-rendering: optimizeLegibility;
+}
+
+.subtotalLabel {
+    font-weight: 400;
+}
+
+.proceed {
+    background: #FFD814;
+    border: 1px solid #FCD200;
+    cursor: pointer;
+
+    font-size: 13px;
+    line-height: 29px;
+    color: #0F1111;
+    padding: 0 10px 0 11px;
+    text-align: center;
+    border-radius: 7px;
+
+    margin-top: 20px;
+}
+
+.proceed:hover {
+    background: #F7CA00;
+    border-color: #F2C200;
+}
+
+.proceed:active {
+    background: #F0B800;
+    border-color: #008296;
+    box-shadow: 0 0 0 3px #c8f3fa, inset 0 0 0 2px #ffffff;
+}

@@ -1,0 +1,33 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+
+    width: 80px;
+    height: 30px;
+    min-width: 0.7%;
+    margin-right: 6px;
+    padding-left: 4px;
+
+    border: 1px solid #D5D9D9;
+    border-radius: 8px;
+
+    color: #0F1111;
+    background: #F0F2F2;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 90%);
+
+    text-align: left;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 20px;
+
+    outline: 0;
+    cursor: pointer;
+}
+
+.wrapper:hover {
+    background-color: #e3e6e6;
+}
+
+.wrapper:focus {
+    background: #F0F2F2;
+}
