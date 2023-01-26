@@ -52,20 +52,32 @@ export default function Checkout() {
     const numItems = productIds.reduce((sum, productId) => sum += cartItems[productId], 0);
     const subtotal = productIds.reduce((sum, productId) => sum += productDetails[productId]?.price * cartItems[productId], 0);
 
-    return <div className={styles.wrapper}>
-        <div className={styles.content}>
-            <div className={styles.heading}>Shopping Cart</div>
-            <div className={styles.priceLabel}>Price</div>
-            <div className={styles.line} />
-            {productIds.map((productId, i) => <CartItem key={i} product={productDetails[productId]} quantity={cartItems[productId]} />)}
-            <div className={`${styles.subtotal} ${styles.mtNegative}`}><span className={styles.subtotalLabel}>Subtotal ({numItems} item{numItems > 1 && "s"}):</span> ${parseFloat(subtotal).toFixed(2)}</div>
+    return <>
+        <div className={styles.headerWrapper}>
+            <div className={styles.header}>
+                <NavLink className={styles.logo}><img src="https://d1irxr40exwge2.cloudfront.net/logo_black.png" alt="logo_black" /></NavLink>
+                <div className={styles.checkout}>Checkout <span className={styles.checkoutItem}>(<NavLink to="/cart" className={styles.checkoutLink}>{numItems} item{numItems > 1 && "s"}</NavLink>)</span></div>
+                <div className={styles.secureIconWrapper}>
+                    <img src="https://d1irxr40exwge2.cloudfront.net/secure.png" alt="Secure icon" height="20px" />
+                </div>
+            </div>
         </div>
-        <div className={styles.subtotalPane}>
-            <div className={styles.subtotal}><span className={styles.subtotalLabel}>Subtotal ({numItems} item{numItems > 1 && "s"}):</span> ${parseFloat(subtotal).toFixed(2)}</div>
-            <div className={`${styles.proceed} noselect`} onClick={onPlaceOrder}>Place your order</div>
-            <div className={styles.terms}>By continuing, you agree to Amazing's <NavLink onClick={() => setShowTerms1(true)}>You Must Hire Me Conditions</NavLink> and <NavLink onClick={() => setShowTerms2(true)}> Just Kidding Notice</NavLink>.</div>
-            {showTerms1 && <div className={styles.jokeTerms}>There are no terms, I was just kidding.</div>}
-            {showTerms2 && <div className={styles.jokeTerms2}>Verily, there are no terms.</div>}
+        <div className={styles.wrapperWrapper}>
+            <div className={styles.wrapper}>
+                <div className={styles.content}>
+                    <div className={styles.line} />
+                    {productIds.map((productId, i) => <CartItem key={i} product={productDetails[productId]} quantity={cartItems[productId]} />)}
+                    <div className={`${styles.subtotal} ${styles.mtNegative}`}><span className={styles.subtotalLabel}>Subtotal ({numItems} item{numItems > 1 && "s"}):</span> ${parseFloat(subtotal).toFixed(2)}</div>
+                </div>
+                <div className={styles.subtotalPane}>
+                    <div className={styles.subtotal}><span className={styles.subtotalLabel}>Subtotal ({numItems} item{numItems > 1 && "s"}):</span> ${parseFloat(subtotal).toFixed(2)}</div>
+                    <div className={`${styles.proceed} noselect`} onClick={onPlaceOrder}>Place your order</div>
+                    <div className={styles.terms}>By continuing, you agree to Amazing's <NavLink onClick={() => setShowTerms1(true)}>You Must Hire Me Conditions</NavLink> and <NavLink onClick={() => setShowTerms2(true)}> Just Kidding Notice</NavLink>.</div>
+                    {showTerms1 && <div className={styles.jokeTerms}>There are no terms, I was just kidding.</div>}
+                    {showTerms2 && <div className={styles.jokeTerms2}>Verily, there are no terms.</div>}
+                </div>
+            </div>
         </div>
-    </div>;
+    </>
+        ;
 }
