@@ -27,7 +27,9 @@ export default function Cart() {
             </div>
         </div>;
 
-    console.log(productIds);
+    const onProceed = () => {
+
+    };
 
     const numItems = productIds.reduce((sum, productId) => sum += cartItems[productId], 0);
     const subtotal = productIds.reduce((sum, productId) => sum += productDetails[productId]?.price * cartItems[productId], 0);
@@ -38,7 +40,11 @@ export default function Cart() {
             <div className={styles.priceLabel}>Price</div>
             <div className={styles.line} />
             {productIds.map((productId, i) => <CartItem key={i} product={productDetails[productId]} quantity={cartItems[productId]} />)}
+            <div className={`${styles.subtotal} ${styles.mtNegative}`}><span className={styles.subtotalLabel}>Subtotal ({numItems} item{numItems > 1 && "s"}):</span> ${parseFloat(subtotal).toFixed(2)}</div>
+        </div>
+        <div className={styles.subtotalPane}>
             <div className={styles.subtotal}><span className={styles.subtotalLabel}>Subtotal ({numItems} item{numItems > 1 && "s"}):</span> ${parseFloat(subtotal).toFixed(2)}</div>
+            <div className={`${styles.proceed} noselect`} onClick={onProceed}>Proceeed to checkout</div>
         </div>
     </div>;
 }
