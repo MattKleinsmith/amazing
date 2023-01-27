@@ -16,6 +16,9 @@ export default function Checkout() {
     const [showTerms1, setShowTerms1] = useState(false);
     const [showTerms2, setShowTerms2] = useState(false);
 
+    const [showTerms1_2, setShowTerms1_2] = useState(false);
+    const [showTerms2_2, setShowTerms2_2] = useState(false);
+
     const cartItems = useSelector(state => state.cartItems);
     const productDetails = useSelector(state => state.productDetails);
     const addresses = useSelector(state => Object.values(state.addresses));
@@ -51,6 +54,9 @@ export default function Checkout() {
 
     const numItems = productIds.reduce((sum, productId) => sum += cartItems[productId], 0);
     const subtotal = productIds.reduce((sum, productId) => sum += productDetails[productId]?.price * cartItems[productId], 0);
+    const taxRate = 0.08687954888;
+    const taxes = subtotal * taxRate;
+    const total = subtotal + taxes;
 
     let deliveryDate = new Date();
     deliveryDate.setDate(deliveryDate.getDate() + 2);
@@ -81,7 +87,7 @@ export default function Checkout() {
                         <div className={`${styles.stepHeader} ${styles.stepTitle}`}>Shipping address</div>
                         <div className={`${styles.stepBody}`}>
                             <div>Matthew Kleinsmith</div>
-                            <div>5525 N TRACY AVE</div>
+                            <div>5634 N EULER AVE</div>
                             <div>KANSAS CITY, MO 64118-5335</div>
                         </div>
                         <div className={`${styles.changeLink}`}>Change</div>
@@ -108,7 +114,7 @@ export default function Checkout() {
 
                     <div className={styles.step}>
                         <div className={`${styles.stepHeader} ${styles.stepNumber}`}>3</div>
-                        <div >
+                        <div>
                             <div className={`${styles.stepHeader} ${styles.lastStepTitle}`}>Review items and shipping</div>
                             <div className={`${styles.items}`}>
                                 <div>
@@ -124,7 +130,7 @@ export default function Checkout() {
 
                                     <div>
                                         <div className={styles.choose}>Choose your Prime delivery option:</div>
-                                        <input name="delivery" type="radio" id="delivery_0" />
+                                        <input name="delivery" type="radio" id="delivery_0" checked />
                                         <label htmlFor="delivery_0">
                                             <span className={styles.date}>{deliveryDate}</span>
                                             <div className={styles.free}>FREE <span className={styles.prime}>Prime Delivery</span></div>
@@ -137,17 +143,61 @@ export default function Checkout() {
                                     </div>
                                 </div>
                             </div>
+                            <div className={`${styles.items} ${styles.orderBottom}`}>
+                                <div className={`${styles.proceed} noselect  ${styles.bottomPlace}`} onClick={onPlaceOrder}>Place your order</div>
+                                <div>
+                                    <div className={styles.totalBottom}>Order total: ${parseFloat(total).toFixed(2)}</div>
+                                    <div className={styles.terms}>By placing your order, you agree to Amazing's <NavLink onClick={() => setShowTerms1_2(true)} className={styles.link}>You Must Hire Me Conditions</NavLink> and <NavLink onClick={() => setShowTerms2_2(true)} className={styles.link}> Just Kidding Notice</NavLink>.</div>
+                                    {showTerms1_2 && <div className={styles.jokeTerms}>There are no terms, I was just kidding.</div>}
+                                    {showTerms2_2 && <div className={styles.jokeTerms2}>Verily, there are no terms.</div>}
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                 </div>
 
-                <div className={styles.subtotalPane}>
-                    <div className={styles.subtotal}><span className={styles.subtotalLabel}>Subtotal ({numItems} item{numItems > 1 && "s"}):</span> ${parseFloat(subtotal).toFixed(2)}</div>
-                    <div className={`${styles.proceed} noselect`} onClick={onPlaceOrder}>Place your order</div>
-                    <div className={styles.terms}>By continuing, you agree to Amazing's <NavLink onClick={() => setShowTerms1(true)}>You Must Hire Me Conditions</NavLink> and <NavLink onClick={() => setShowTerms2(true)}> Just Kidding Notice</NavLink>.</div>
-                    {showTerms1 && <div className={styles.jokeTerms}>There are no terms, I was just kidding.</div>}
-                    {showTerms2 && <div className={styles.jokeTerms2}>Verily, there are no terms.</div>}
+                <div>
+                    <div className={styles.subtotalPane}>
+                        <div className={`${styles.proceed} noselect`} onClick={onPlaceOrder}>Place your order</div>
+                        <div className={styles.terms}>By placing your order, you agree to Amazing's <NavLink onClick={() => setShowTerms1(true)} className={styles.link}>You Must Hire Me Conditions</NavLink> and <NavLink onClick={() => setShowTerms2(true)} className={styles.link}> Just Kidding Notice</NavLink>.</div>
+                        {showTerms1 && <div className={styles.jokeTerms}>There are no terms, I was just kidding.</div>}
+                        {showTerms2 && <div className={styles.jokeTerms2}>Verily, there are no terms.</div>}
+                        <div className={styles.line2} />
+
+                        <div className={`${styles.stepHeader} ${styles.orderSummaryHeading}`}>Order Summary</div>
+
+                        <div className={styles.row}>
+                            <div>Item{numItems > 1 && "s"} ({numItems}):</div>
+                            <div>${parseFloat(subtotal).toFixed(2)}</div>
+                        </div>
+
+                        <div className={styles.row}>
+                            <div>Shipping & handling:</div>
+                            <div>$0.00</div>
+                        </div>
+
+                        <div className={styles.row}>
+                            <div />
+                            <div className={styles.line3} />
+                        </div>
+
+                        <div className={styles.row}>
+                            <div>Total before tax:</div>
+                            <div>${parseFloat(subtotal).toFixed(2)}</div>
+                        </div>
+
+                        <div className={styles.row}>
+                            <div>Estimated tax to be collected:</div>
+                            <div>${parseFloat(taxes).toFixed(2)}</div>
+                        </div>
+
+                        <div className={styles.line2} />
+                        <div className={styles.totalBottom2}>
+                            <div>Order total:</div>
+                            <div>${parseFloat(total).toFixed(2)}</div>
+                        </div>
+                    </div>
                 </div>
 
             </div>

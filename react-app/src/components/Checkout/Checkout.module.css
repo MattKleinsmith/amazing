@@ -125,11 +125,24 @@
     width: 1150px;
 }
 
+.subtotalPane {
+    width: 290px;
+
+    border: 1px #D5D9D9 solid;
+    border-radius: 8px;
+    padding: 15px 20px;
+}
+
 .items {
     border: 1px #D5D9D9 solid;
     border-radius: 8px;
     padding: 15px;
     margin-top: 10px;
+}
+
+.orderBottom {
+    display: flex;
+    gap: 20px;
 }
 
 .logo {
@@ -166,7 +179,8 @@
 
 .terms {
     font-size: 12px;
-    color: #111111;
+    line-height: 16px;
+    color: #565959;
 }
 
 .jokeTerms {
@@ -180,6 +194,43 @@
     margin-bottom: -10px;
     font-size: 12px;
     color: #111111;
+}
+
+.line {
+    height: 1px;
+    width: 100%;
+    background-color: #bbbfbf;
+
+    margin: 15px 0px;
+}
+
+.line2 {
+    height: 1px;
+    width: 100%;
+    background-color: #bbbfbf;
+
+    margin: 10px 0px;
+}
+
+.line3 {
+    height: 1px;
+    width: 70px;
+    background-color: #bbbfbf;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 5px;
+
+    font-size: 12px;
+    line-height: 14px;
+    color: #0F1111;
+}
+
+.orderSummaryHeading {
+    margin-bottom: 15px;
 }
 
 .checkout {
@@ -205,12 +256,12 @@
     text-decoration: none;
 }
 
-.line {
-    height: 1px;
-    width: 100%;
-    background-color: #bbbfbf;
+.link {
+    color: #007185;
+}
 
-    margin: 15px 0px;
+.link:hover {
+    color: #C7511F;
 }
 
 .billing {
@@ -223,6 +274,8 @@
 }
 
 .proceed {
+    height: 35px;
+
     background: #FFD814;
     border: 1px solid #FCD200;
     cursor: pointer;
@@ -230,11 +283,17 @@
     font-size: 13px;
     line-height: 29px;
     color: #0F1111;
-    padding: 0 10px 0 11px;
     text-align: center;
     border-radius: 7px;
 
-    margin-top: 20px;
+    padding: 2px 10px 0 11px;
+    margin-bottom: 10px;
+}
+
+.bottomPlace {
+    margin-top: 0px;
+    padding: 2px 10px 0 11px;
+    /* margin-top: 10px; */
 }
 
 .proceed:hover {
@@ -246,4 +305,23 @@
     background: #F0B800;
     border-color: #008296;
     box-shadow: 0 0 0 3px #c8f3fa, inset 0 0 0 2px #ffffff;
+}
+
+.totalBottom {
+    color: #B12704;
+    text-rendering: optimizeLegibility;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+}
+
+.totalBottom2 {
+    display: flex;
+    justify-content: space-between;
+
+    color: #B12704;
+    text-rendering: optimizeLegibility;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
 }
