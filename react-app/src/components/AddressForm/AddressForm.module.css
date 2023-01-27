@@ -5,6 +5,12 @@
     padding-top: 35px;
 }
 
+.wrapperModal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .form {
     width: 500px;
     border: 1px solid #ddd;

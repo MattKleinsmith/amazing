@@ -1,6 +1,5 @@
 import styles from "./Checkout.module.css";
 
-
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -10,6 +9,7 @@ import { postOrder } from "../../store/orders";
 
 import CheckoutItem from "./CheckoutItem/CheckoutItem";
 import AddressSelector from "./AddressSelector/AddressSelector";
+import { setAddressModal } from "../../store/ui";
 
 export default function Checkout() {
     const dispatch = useDispatch();
@@ -43,7 +43,7 @@ export default function Checkout() {
 
     const onPlaceOrder = async () => {
         if (addresses.length === 0) {
-            // Display Add Address modal
+            onAddAddress();
         }
         else {
             try {
@@ -55,6 +55,10 @@ export default function Checkout() {
             }
         }
     };
+
+    const onAddAddress = () => {
+        dispatch(setAddressModal(true));
+    }
 
     const numItems = productIds.reduce((sum, productId) => sum += cartItems[productId], 0);
     const subtotal = productIds.reduce((sum, productId) => sum += productDetails[productId]?.price * cartItems[productId], 0);
@@ -113,12 +117,18 @@ export default function Checkout() {
                                 <div className={`${styles.stepHeader} ${styles.stepNumber}`}>1</div>
                                 <div className={`${styles.stepHeader} ${styles.stepTitle}`}>Shipping address</div>
 
-                                <div className={`${styles.stepBody}`}>
-                                    <div>{addresses[addressIdx].fullname}</div>
-                                    <div>{addresses[addressIdx].address.toUpperCase()}</div>
-                                    <div>{addresses[addressIdx].city.toUpperCase()}, {addresses[addressIdx].state.toUpperCase()} {addresses[addressIdx].zipcode.toUpperCase()}</div>
-                                </div>
-                                <div className={`${styles.changeLink}`} onClick={() => setShowAddressSelector(true)}>Change</div>
+                                {addresses.length > 0 ?
+                                    <>
+                                        <div className={`${styles.stepBody}`}>
+                                            <div>{addresses[addressIdx].fullname}</div>
+                                            <div>{addresses[addressIdx].address.toUpperCase()}</div>
+                                            <div>{addresses[addressIdx].city.toUpperCase()}, {addresses[addressIdx].state.toUpperCase()} {addresses[addressIdx].zipcode.toUpperCase()}</div>
+                                        </div>
+                                        <div className={`${styles.changeLink}`} onClick={() => setShowAddressSelector(true)}>Change</div>
+                                    </>
+                                    :
+                                    <div className={`${styles.addAddress}`}>Add an address</div>
+                                }
                             </div>
                         </>
                     }
@@ -174,7 +184,7 @@ export default function Checkout() {
                                 </div>
                             </div>
                             <div className={`${styles.items} ${styles.orderBottom}`}>
-                                <div className={`${styles.proceed} noselect  ${styles.bottomPlace}`} onClick={onPlaceOrder}>Place your order</div>
+                                <div className={`${styles.proceed} noselect  ${styles.bottomPlace}`} onClick={onPlaceOrder}>{addresses.length > 0 ? "Place your order" : "Add an address"}</div>
                                 <div>
                                     <div className={styles.totalBottom}>Order total: ${parseFloat(total).toFixed(2)}</div>
                                     <div className={styles.terms}>By placing your order, you agree to Amazing's <NavLink onClick={() => setShowTerms1_2(true)} className={styles.link}>You Must Hire Me Conditions</NavLink> and <NavLink onClick={() => setShowTerms2_2(true)} className={styles.link}> Just Kidding Notice</NavLink>.</div>
@@ -189,7 +199,7 @@ export default function Checkout() {
 
                 <div>
                     <div className={styles.subtotalPane}>
-                        <div className={`${styles.proceed} noselect`} onClick={onPlaceOrder}>Place your order</div>
+                        <div className={`${styles.proceed} noselect`} onClick={onPlaceOrder}>{addresses.length > 0 ? "Place your order" : "Add an address"}</div>
                         <div className={styles.terms}>By placing your order, you agree to Amazing's <NavLink onClick={() => setShowTerms1(true)} className={styles.link}>You Must Hire Me Conditions</NavLink> and <NavLink onClick={() => setShowTerms2(true)} className={styles.link}> Just Kidding Notice</NavLink>.</div>
                         {showTerms1 && <div className={styles.jokeTerms}>There are no terms, I was just kidding.</div>}
                         {showTerms2 && <div className={styles.jokeTerms2}>Verily, there are no terms.</div>}
