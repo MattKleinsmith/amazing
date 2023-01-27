@@ -6,20 +6,18 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 import { getProductDetails } from "../../store/productDetails";
 import { postOrder } from "../../store/orders";
-
-import CheckoutItem from "./CheckoutItem/CheckoutItem";
-import AddressSelector from "./AddressSelector/AddressSelector";
 import { setAddressModal } from "../../store/ui";
 import { clearCart } from "../../store/cartItems";
+
+import AddressSelector from "./AddressSelector/AddressSelector";
 import OrderSummary from "./OrderSummary/OrderSummary";
 import BottomSummary from "./BottomSummary/BottomSummary";
+import CheckoutItemList from "./CheckoutItemList/CheckoutItemList";
 
 export default function Checkout() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const [showTerms1_2, setShowTerms1_2] = useState(false);
-    const [showTerms2_2, setShowTerms2_2] = useState(false);
     const [addressIdx, setAddressIdx] = useState(0);
     const [showAddressSelector, setShowAddressSelector] = useState(false);
 
@@ -157,34 +155,10 @@ export default function Checkout() {
                     <div className={styles.step}>
                         <div className={`${styles.stepHeader} ${styles.stepNumber}`}>3</div>
                         <div>
+
                             <div className={`${styles.stepHeader} ${styles.lastStepTitle}`}>Review items and shipping</div>
-                            <div className={`${styles.items}`}>
-                                <div>
-                                    <span className={styles.bigDelivery}>Delivery: {deliveryDateBig}</span> <span className={styles.if}>If you order in the next 2 hours and 29 minutes
-                                    </span>
-                                    <div className={`${styles.if} ${styles.shippedFrom}`}>Items shipped from Amazing.com</div>
-                                </div>
 
-                                <div className={`${styles.flex}`}>
-                                    <div>
-                                        {productIds.map((productId, i) => <CheckoutItem key={i} product={productDetails[productId]} quantity={cartItems[productId]} />)}
-                                    </div>
-
-                                    <div>
-                                        <div className={styles.choose}>Choose your Prime delivery option:</div>
-                                        <input name="delivery" type="radio" id="delivery_0" defaultChecked={true} readOnly />
-                                        <label htmlFor="delivery_0">
-                                            <span className={styles.date}>{deliveryDate}</span>
-                                            <div className={styles.free}>FREE <span className={styles.prime}>Prime Delivery</span></div>
-                                        </label>
-                                        <input name="delivery" type="radio" id="delivery_1" />
-                                        <label htmlFor="delivery_1">
-                                            <span className={styles.date}>{nextDeliveryDate}</span>
-                                            <div className={styles.free}>FREE <span className={styles.prime}>Prime Delivery</span></div>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
+                            <CheckoutItemList productDetails={productDetails} cartItems={cartItems} deliveryDateBig={deliveryDateBig} deliveryDate={deliveryDate} productIds={productIds} nextDeliveryDate={nextDeliveryDate} />
 
                             <BottomSummary addresses={addresses} onPlaceOrder={onPlaceOrder} total={total} />
 

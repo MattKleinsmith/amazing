@@ -1,7 +1,7 @@
 import styles from "./Quantity.module.css";
 
 import { useDispatch } from "react-redux";
-import { putCartItem } from "../../../../store/cartItems";
+import { putCartItem } from "../../../../../store/cartItems";
 
 export default function Quantity({ productId, quantity, isSmall = false }) {
     const dispatch = useDispatch();
