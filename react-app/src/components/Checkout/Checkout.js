@@ -56,6 +56,7 @@ export default function Checkout() {
     deliveryDate.setDate(deliveryDate.getDate() + 2);
     let nextDeliveryDate = new Date(deliveryDate);
     nextDeliveryDate.setDate(nextDeliveryDate.getDate() + 1);
+    const deliveryDateBig = deliveryDate.toLocaleDateString('en-us', { month: "short", day: "numeric", year: "numeric" });
     deliveryDate = deliveryDate.toLocaleDateString('en-us', { weekday: "long", month: "short", day: "numeric" });
     nextDeliveryDate = nextDeliveryDate.toLocaleDateString('en-us', { weekday: "long", month: "short", day: "numeric" });
 
@@ -107,19 +108,33 @@ export default function Checkout() {
 
                     <div className={styles.step}>
                         <div className={`${styles.stepHeader} ${styles.stepNumber}`}>3</div>
-                        <div className={styles.items}>
-                            <div className={`${styles.stepHeader} ${styles.lastStepTitle}`} >Review items and shipping</div>
-                            <div className={`${styles.flex}`}>
+                        <div >
+                            <div className={`${styles.stepHeader} ${styles.lastStepTitle}`}>Review items and shipping</div>
+                            <div className={`${styles.items}`}>
                                 <div>
-                                    {productIds.map((productId, i) => <CheckoutItem key={i} product={productDetails[productId]} quantity={cartItems[productId]} />)}
+                                    <span className={styles.bigDelivery}>Delivery: {deliveryDateBig}</span> <span className={styles.if}>If you order in the next 2 hours and 29 minutes
+                                    </span>
+                                    <div className={`${styles.if} ${styles.shippedFrom}`}>Items shipped from Amazon.com</div>
                                 </div>
-                                <div>
-                                    <div className={styles.choose}>Choose your Prime delivery option:</div>
-                                    <input name="delivery" type="radio" value="HTML" id="delivery_0" />
-                                    <label className={styles.date} htmlFor="delivery_0"> {deliveryDate}</label>
-                                    <br />
-                                    <input name="delivery" type="radio" value="HTML" id="delivery_1" />
-                                    <label className={styles.date} htmlFor="delivery_1"> {nextDeliveryDate}</label>
+
+                                <div className={`${styles.flex}`}>
+                                    <div>
+                                        {productIds.map((productId, i) => <CheckoutItem key={i} product={productDetails[productId]} quantity={cartItems[productId]} />)}
+                                    </div>
+
+                                    <div>
+                                        <div className={styles.choose}>Choose your Prime delivery option:</div>
+                                        <input name="delivery" type="radio" id="delivery_0" />
+                                        <label htmlFor="delivery_0">
+                                            <span className={styles.date}>{deliveryDate}</span>
+                                            <div className={styles.free}>FREE <span className={styles.prime}>Prime Delivery</span></div>
+                                        </label>
+                                        <input name="delivery" type="radio" id="delivery_1" />
+                                        <label htmlFor="delivery_1">
+                                            <span className={styles.date}>{nextDeliveryDate}</span>
+                                            <div className={styles.free}>FREE <span className={styles.prime}>Prime Delivery</span></div>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
