@@ -40,7 +40,9 @@
     color: #565959;
     font-size: 12px;
     line-height: 16px;
+
     margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 .verticalBar {
@@ -48,13 +50,6 @@
     background-color: #dddddd;
     width: 1px;
     height: 15px;
-}
-
-.row {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-    align-items: center;
 }
 
 .delete {
@@ -68,14 +63,27 @@
     text-decoration: underline;
 }
 
+.row {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-top: 0px;
+    margin-bottom: -10px;
+}
+
 .price {
-    color: #0F1111;
-    text-rendering: optimizeLegibility;
-    white-space: nowrap;
-    font-size: 18px;
-    line-height: 24px;
+    color: #B12704;
     font-weight: 700;
-    text-align: end;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.primeIcon {
+    background-image: url("https://d1irxr40exwge2.cloudfront.net/labels.png");
+    width: 53px;
+    height: 15px;
+    background-position: -185px -182px;
+    margin-top: -5px;
 }
 
 .line {

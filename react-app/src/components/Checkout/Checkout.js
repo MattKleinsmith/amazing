@@ -114,7 +114,7 @@ export default function Checkout() {
                                 <div>
                                     <span className={styles.bigDelivery}>Delivery: {deliveryDateBig}</span> <span className={styles.if}>If you order in the next 2 hours and 29 minutes
                                     </span>
-                                    <div className={`${styles.if} ${styles.shippedFrom}`}>Items shipped from Amazon.com</div>
+                                    <div className={`${styles.if} ${styles.shippedFrom}`}>Items shipped from Amazing.com</div>
                                 </div>
 
                                 <div className={`${styles.flex}`}>

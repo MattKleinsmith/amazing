@@ -3,12 +3,12 @@ import styles from "./Quantity.module.css";
 import { useDispatch } from "react-redux";
 import { putCartItem } from "../../../../store/cartItems";
 
-export default function Quantity({ productId, quantity }) {
+export default function Quantity({ productId, quantity, isSmall = false }) {
     const dispatch = useDispatch();
 
     return (<>
         <select
-            className={styles.wrapper}
+            className={isSmall ? styles.smallWrapper : styles.wrapper}
             value={quantity}
             onChange={(e) => dispatch(putCartItem(productId, e.target.value))}
         >
