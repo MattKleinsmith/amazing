@@ -7,6 +7,8 @@
     color: #007185;
     font-size: 14px;
     line-height: 20px;
+
+    display: flex;
 }
 
 .changeLink:hover {
@@ -43,6 +45,11 @@
     display: flex;
 }
 
+.stepAddressChange {
+    display: flex;
+    justify-content: space-between;
+}
+
 .stepNumber {
     width: 40px;
 }
@@ -51,11 +58,31 @@
     width: 200px;
 }
 
+.close {
+    background-image: url("https://d1irxr40exwge2.cloudfront.net/x-icon.png");
+    opacity: .64;
+    background-position: -297px -5px;
+
+    min-width: 15px;
+    height: 12px;
+
+    margin-left: 10px;
+
+    cursor: pointer;
+
+    align-self: center;
+}
+
+
 .stepBody {
     width: 500px;
     color: #333333;
     font-size: 14px;
     line-height: 20px;
+}
+
+.simpleFlex {
+    display: flex;
 }
 
 .flex {
@@ -114,6 +141,20 @@
     font-weight: 700;
     font-size: 18px;
     line-height: 24px;
+}
+
+.orange {
+    color: #c45500;
+}
+
+.chooseAddressTitle {
+    width: 250px;
+}
+
+.addressSelectorTitleWrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .wrapper {

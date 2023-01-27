@@ -7,7 +7,9 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 import { getProductDetails } from "../../store/productDetails";
 import { postOrder } from "../../store/orders";
+
 import CheckoutItem from "./CheckoutItem/CheckoutItem";
+import AddressSelector from "./AddressSelector/AddressSelector";
 
 export default function Checkout() {
     const dispatch = useDispatch();
@@ -15,9 +17,10 @@ export default function Checkout() {
 
     const [showTerms1, setShowTerms1] = useState(false);
     const [showTerms2, setShowTerms2] = useState(false);
-
     const [showTerms1_2, setShowTerms1_2] = useState(false);
     const [showTerms2_2, setShowTerms2_2] = useState(false);
+    const [addressIdx, setAddressIdx] = useState(0);
+    const [showAddressSelector, setShowAddressSelector] = useState(false);
 
     const cartItems = useSelector(state => state.cartItems);
     const productDetails = useSelector(state => state.productDetails);
@@ -44,7 +47,8 @@ export default function Checkout() {
         }
         else {
             try {
-                await dispatch(postOrder({ address: addresses[0], cartItems }));
+                const address = `${addresses[addressIdx].fullname}\n${addresses[addressIdx].address.toUpperCase()}\n${addresses[addressIdx].city.toUpperCase()}, ${addresses[addressIdx].state.toUpperCase()} ${addresses[addressIdx].zipcode.toUpperCase()}\n${addresses[addressIdx].region}`;
+                await dispatch(postOrder({ address, cartItems }));
                 navigate("/order-confirmation");
             } catch (e) {
                 console.log("Order failed:", e);
@@ -69,7 +73,7 @@ export default function Checkout() {
     return <>
         <div className={styles.headerWrapper}>
             <div className={styles.header}>
-                <NavLink className={styles.logo}><img src="https://d1irxr40exwge2.cloudfront.net/logo_black.png" alt="logo_black" /></NavLink>
+                <NavLink to="/" className={styles.logo}><img src="https://d1irxr40exwge2.cloudfront.net/logo_black.png" alt="logo_black" /></NavLink>
                 <div className={styles.checkout}>Checkout <span className={styles.checkoutItem}>(<NavLink to="/cart" className={styles.checkoutLink}>{numItems} item{numItems > 1 && "s"}</NavLink>)</span></div>
                 <div className={styles.secureIconWrapper}>
                     <img src="https://d1irxr40exwge2.cloudfront.net/secure.png" alt="Secure icon" height="20px" />
@@ -82,16 +86,42 @@ export default function Checkout() {
             <div className={styles.wrapper}>
 
                 <div className={styles.content}>
-                    <div className={styles.step}>
-                        <div className={`${styles.stepHeader} ${styles.stepNumber}`}>1</div>
-                        <div className={`${styles.stepHeader} ${styles.stepTitle}`}>Shipping address</div>
-                        <div className={`${styles.stepBody}`}>
-                            <div>Matthew Kleinsmith</div>
-                            <div>5634 N EULER AVE</div>
-                            <div>KANSAS CITY, MO 64118-5335</div>
-                        </div>
-                        <div className={`${styles.changeLink}`}>Change</div>
-                    </div>
+
+                    {showAddressSelector ?
+                        <>
+                            <div>
+                                <div className={styles.step}>
+                                    <div className={`${styles.stepHeader} ${styles.stepNumber} ${styles.orange}`}>1</div>
+
+                                    <div className={styles.addressSelectorTitleWrapper}>
+                                        <div className={`${styles.stepHeader} ${styles.stepTitle} ${styles.orange} ${styles.chooseAddressTitle}`}>Choose a shipping address</div>
+                                        <div className={styles.simpleFlex}>
+                                            <div className={`${styles.changeLink}`} onClick={() => setShowAddressSelector(false)}>Close</div>
+                                            <div className={styles.close} onClick={() => setShowAddressSelector(false)} />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <AddressSelector addressIdx={addressIdx} setAddressIdx={setAddressIdx} addresses={addresses} />
+                                </div>
+                            </div>
+                        </>
+                        :
+                        <>
+                            <div className={styles.step}>
+                                <div className={`${styles.stepHeader} ${styles.stepNumber}`}>1</div>
+                                <div className={`${styles.stepHeader} ${styles.stepTitle}`}>Shipping address</div>
+
+                                <div className={`${styles.stepBody}`}>
+                                    <div>{addresses[addressIdx].fullname}</div>
+                                    <div>{addresses[addressIdx].address.toUpperCase()}</div>
+                                    <div>{addresses[addressIdx].city.toUpperCase()}, {addresses[addressIdx].state.toUpperCase()} {addresses[addressIdx].zipcode.toUpperCase()}</div>
+                                </div>
+                                <div className={`${styles.changeLink}`} onClick={() => setShowAddressSelector(true)}>Change</div>
+                            </div>
+                        </>
+                    }
 
                     <div className={`${styles.line}`} />
 
@@ -130,7 +160,7 @@ export default function Checkout() {
 
                                     <div>
                                         <div className={styles.choose}>Choose your Prime delivery option:</div>
-                                        <input name="delivery" type="radio" id="delivery_0" checked />
+                                        <input name="delivery" type="radio" id="delivery_0" defaultChecked={true} readOnly />
                                         <label htmlFor="delivery_0">
                                             <span className={styles.date}>{deliveryDate}</span>
                                             <div className={styles.free}>FREE <span className={styles.prime}>Prime Delivery</span></div>
