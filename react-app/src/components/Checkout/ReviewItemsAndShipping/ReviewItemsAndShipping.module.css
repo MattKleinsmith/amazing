@@ -1,0 +1,14 @@
+.step {
+    display: flex;
+}
+
+.stepHeader {
+    color: #0F1111;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.stepNumber {
+    width: 40px;
+}

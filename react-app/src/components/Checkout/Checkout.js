@@ -11,8 +11,7 @@ import { clearCart } from "../../store/cartItems";
 
 import AddressSelector from "./AddressSelector/AddressSelector";
 import OrderSummary from "./OrderSummary/OrderSummary";
-import BottomSummary from "./BottomSummary/BottomSummary";
-import CheckoutItemList from "./CheckoutItemList/CheckoutItemList";
+import ReviewItemsAndShipping from "./ReviewItemsAndShipping/ReviewItemsAndShipping";
 
 export default function Checkout() {
     const dispatch = useDispatch();
@@ -65,14 +64,6 @@ export default function Checkout() {
     const taxRate = 0.08687954888;
     const taxes = subtotal * taxRate;
     const total = subtotal + taxes;
-
-    let deliveryDate = new Date();
-    deliveryDate.setDate(deliveryDate.getDate() + 2);
-    let nextDeliveryDate = new Date(deliveryDate);
-    nextDeliveryDate.setDate(nextDeliveryDate.getDate() + 1);
-    const deliveryDateBig = deliveryDate.toLocaleDateString('en-us', { month: "short", day: "numeric", year: "numeric" });
-    deliveryDate = deliveryDate.toLocaleDateString('en-us', { weekday: "long", month: "short", day: "numeric" });
-    nextDeliveryDate = nextDeliveryDate.toLocaleDateString('en-us', { weekday: "long", month: "short", day: "numeric" });
 
     return <>
         <div className={styles.headerWrapper}>
@@ -152,18 +143,7 @@ export default function Checkout() {
 
                     <div className={`${styles.line}`} />
 
-                    <div className={styles.step}>
-                        <div className={`${styles.stepHeader} ${styles.stepNumber}`}>3</div>
-                        <div>
-
-                            <div className={`${styles.stepHeader} ${styles.lastStepTitle}`}>Review items and shipping</div>
-
-                            <CheckoutItemList productDetails={productDetails} cartItems={cartItems} deliveryDateBig={deliveryDateBig} deliveryDate={deliveryDate} productIds={productIds} nextDeliveryDate={nextDeliveryDate} />
-
-                            <BottomSummary addresses={addresses} onPlaceOrder={onPlaceOrder} total={total} />
-
-                        </div>
-                    </div>
+                    <ReviewItemsAndShipping addresses={addresses} onPlaceOrder={onPlaceOrder} total={total} productDetails={productDetails} cartItems={cartItems} productIds={productIds} />
 
                 </div>
 
