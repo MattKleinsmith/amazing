@@ -364,14 +364,3 @@
     line-height: 24px;
     font-weight: 700;
 }
-
-.totalBottom2 {
-    display: flex;
-    justify-content: space-between;
-
-    color: #B12704;
-    text-rendering: optimizeLegibility;
-    font-size: 18px;
-    line-height: 24px;
-    font-weight: 700;
-}
