@@ -12,6 +12,7 @@ import AddressSelector from "./AddressSelector/AddressSelector";
 import { setAddressModal } from "../../store/ui";
 import { clearCart } from "../../store/cartItems";
 import OrderSummary from "./OrderSummary/OrderSummary";
+import BottomSummary from "./BottomSummary/BottomSummary";
 
 export default function Checkout() {
     const dispatch = useDispatch();
@@ -184,15 +185,9 @@ export default function Checkout() {
                                     </div>
                                 </div>
                             </div>
-                            <div className={`${styles.items} ${styles.orderBottom}`}>
-                                <div className={`${styles.proceed} noselect  ${styles.bottomPlace}`} onClick={onPlaceOrder}>{addresses.length > 0 ? "Place your order" : "Add an address"}</div>
-                                <div>
-                                    <div className={styles.totalBottom}>Order total: ${parseFloat(total).toFixed(2)}</div>
-                                    <div className={styles.terms}>By placing your order, you agree to Amazing's <NavLink onClick={() => setShowTerms1_2(true)} className={styles.link}>You Must Hire Me Conditions</NavLink> and <NavLink onClick={() => setShowTerms2_2(true)} className={styles.link}> Just Kidding Notice</NavLink>.</div>
-                                    {showTerms1_2 && <div className={styles.jokeTerms}>There are no terms, I was just kidding.</div>}
-                                    {showTerms2_2 && <div className={styles.jokeTerms2}>Verily, there are no terms.</div>}
-                                </div>
-                            </div>
+
+                            <BottomSummary addresses={addresses} onPlaceOrder={onPlaceOrder} total={total} />
+
                         </div>
                     </div>
 
