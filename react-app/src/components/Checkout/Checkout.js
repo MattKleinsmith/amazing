@@ -48,7 +48,7 @@ export default function Checkout() {
         else {
             try {
                 const address = `${addresses[addressIdx].fullname}\n${addresses[addressIdx].address.toUpperCase()}\n${addresses[addressIdx].city.toUpperCase()}, ${addresses[addressIdx].state.toUpperCase()} ${addresses[addressIdx].zipcode.toUpperCase()}\n${addresses[addressIdx].region}`;
-                await dispatch(postOrder({ address, cartItems }));
+                await dispatch(postOrder({ address, cart: cartItems }));
                 navigate("/order-confirmation");
             } catch (e) {
                 console.log("Order failed:", e);
