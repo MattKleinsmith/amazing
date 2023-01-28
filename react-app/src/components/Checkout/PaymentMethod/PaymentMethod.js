@@ -1,8 +1,5 @@
 import styles from "./PaymentMethod.module.css";
 
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
-
 export default function PaymentMethod() {
     return <div className={styles.step}>
         <div className={`${styles.stepHeader} ${styles.stepNumber}`}>2</div>
