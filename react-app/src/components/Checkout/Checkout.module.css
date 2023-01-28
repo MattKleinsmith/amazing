@@ -11,6 +11,12 @@
     display: flex;
 }
 
+.changeLink:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #C7511F;
+}
+
 .addAddress {
     color: #007185;
     font-size: 15px;
@@ -21,11 +27,6 @@
     margin-top: 5px;
 }
 
-.changeLink:hover {
-    text-decoration: underline;
-    cursor: pointer;
-    color: #C7511F;
-}
 
 .creditCard {
     display: flex;

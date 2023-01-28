@@ -1,0 +1,82 @@
+.step {
+    display: flex;
+}
+
+.stepBody {
+    width: 500px;
+    color: #333333;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.stepAddressChange {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stepNumber {
+    width: 40px;
+}
+
+.stepTitle {
+    width: 200px;
+}
+
+.stepHeader {
+    color: #0F1111;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.orange {
+    color: #c45500;
+}
+
+.chooseAddressTitle {
+    width: 250px;
+}
+
+.addressSelectorTitleWrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.changeLink {
+    color: #007185;
+    font-size: 14px;
+    line-height: 20px;
+
+    display: flex;
+}
+
+.changeLink:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #C7511F;
+}
+
+.addAddress {
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.simpleFlex {
+    display: flex;
+}
+
+.close {
+    background-image: url("https://d1irxr40exwge2.cloudfront.net/x-icon.png");
+    opacity: .64;
+    background-position: -297px -5px;
+
+    min-width: 15px;
+    height: 12px;
+
+    margin-left: 10px;
+
+    cursor: pointer;
+
+    align-self: center;
+}

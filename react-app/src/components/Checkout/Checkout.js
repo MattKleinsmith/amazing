@@ -9,10 +9,10 @@ import { postOrder } from "../../store/orders";
 import { setAddressModal } from "../../store/ui";
 import { clearCart } from "../../store/cartItems";
 
-import AddressSelector from "./AddressSelector/AddressSelector";
 import OrderSummary from "./OrderSummary/OrderSummary";
 import ReviewItemsAndShipping from "./ReviewItemsAndShipping/ReviewItemsAndShipping";
 import PaymentMethod from "./PaymentMethod/PaymentMethod";
+import ShippingAddress from "./ShippingAddress/ShippingAddress";
 
 export default function Checkout() {
     const dispatch = useDispatch();
@@ -83,47 +83,7 @@ export default function Checkout() {
 
                 <div className={styles.content}>
 
-                    {showAddressSelector ?
-                        <>
-                            <div>
-                                <div className={styles.step}>
-                                    <div className={`${styles.stepHeader} ${styles.stepNumber} ${styles.orange}`}>1</div>
-
-                                    <div className={styles.addressSelectorTitleWrapper}>
-                                        <div className={`${styles.stepHeader} ${styles.stepTitle} ${styles.orange} ${styles.chooseAddressTitle}`}>Choose a shipping address</div>
-                                        <div className={styles.simpleFlex}>
-                                            <div className={`${styles.changeLink}`} onClick={() => setShowAddressSelector(false)}>Close</div>
-                                            <div className={styles.close} onClick={() => setShowAddressSelector(false)} />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <AddressSelector addressIdx={addressIdx} setAddressIdx={setAddressIdx} addresses={addresses} />
-                                </div>
-                            </div>
-                        </>
-                        :
-                        <>
-                            <div className={styles.step}>
-                                <div className={`${styles.stepHeader} ${styles.stepNumber}`}>1</div>
-                                <div className={`${styles.stepHeader} ${styles.stepTitle}`}>Shipping address</div>
-
-                                {addresses.length > 0 ?
-                                    <>
-                                        <div className={`${styles.stepBody}`}>
-                                            <div>{addresses[addressIdx].fullname}</div>
-                                            <div>{addresses[addressIdx].address.toUpperCase()}</div>
-                                            <div>{addresses[addressIdx].city.toUpperCase()}, {addresses[addressIdx].state.toUpperCase()} {addresses[addressIdx].zipcode.toUpperCase()}</div>
-                                        </div>
-                                        <div className={`${styles.changeLink}`} onClick={() => setShowAddressSelector(true)}>Change</div>
-                                    </>
-                                    :
-                                    <div className={`${styles.addAddress}`}>Add an address</div>
-                                }
-                            </div>
-                        </>
-                    }
+                    <ShippingAddress showAddressSelector={showAddressSelector} setShowAddressSelector={setShowAddressSelector} addresses={addresses} addressIdx={addressIdx} setAddressIdx={setAddressIdx} onAddAddress={onAddAddress} />
 
                     <div className={`${styles.line}`} />
 
