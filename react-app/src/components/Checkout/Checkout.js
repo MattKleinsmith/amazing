@@ -14,6 +14,7 @@ import ReviewItemsAndShipping from "./ReviewItemsAndShipping/ReviewItemsAndShipp
 import PaymentMethod from "./PaymentMethod/PaymentMethod";
 import ShippingAddress from "./ShippingAddress/ShippingAddress";
 import Header from "./Header/Header";
+import Line from "./Line/Line";
 
 export default function Checkout() {
     const dispatch = useDispatch();
@@ -73,9 +74,9 @@ export default function Checkout() {
             <div className={styles.wrapper}>
                 <div className={styles.content}>
                     <ShippingAddress showAddressSelector={showAddressSelector} setShowAddressSelector={setShowAddressSelector} addresses={addresses} addressIdx={addressIdx} setAddressIdx={setAddressIdx} onAddAddress={onAddAddress} />
-                    <div className={`${styles.line}`} />
+                    <Line />
                     <PaymentMethod />
-                    <div className={`${styles.line}`} />
+                    <Line />
                     <ReviewItemsAndShipping addresses={addresses} onPlaceOrder={onPlaceOrder} total={total} productDetails={productDetails} cartItems={cartItems} productIds={productIds} />
                 </div>
                 <OrderSummary addresses={addresses} onPlaceOrder={onPlaceOrder} numItems={numItems} subtotal={subtotal} taxes={taxes} total={total} />
