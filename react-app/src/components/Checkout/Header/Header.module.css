@@ -1,0 +1,49 @@
+.headerWrapper {
+    display: flex;
+    justify-content: center;
+
+    border-color: #DDD;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    background-image: url(https://images-na.ssl-images-amazon.com/images/G/31/common/sprites/tspc-header-bkg.png);
+    height: 60px;
+    background-position-y: -13px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 1150px;
+    margin-top: 20px;
+}
+
+.logo {
+    margin-top: -5px;
+}
+
+.checkout {
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 36px;
+    color: #0F1111;
+
+    margin-top: -10px;
+}
+
+.checkoutLink {
+    color: #007185;
+}
+
+.checkoutLink:hover {
+    color: #007185;
+    text-decoration: none;
+}
+
+.secureIconWrapper {
+    display: inline-flex;
+    align-items: center;
+    width: 125px;
+
+    margin-top: -15px;
+    padding-left: 5px;
+}
