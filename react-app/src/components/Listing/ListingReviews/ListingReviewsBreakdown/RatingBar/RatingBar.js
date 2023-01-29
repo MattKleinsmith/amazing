@@ -5,8 +5,6 @@ import { useEffect, useRef } from "react";
 export default function RatingBar({ percents, rating }) {
     const ref = useRef();
 
-    console.log("percents[rating]", percents[rating], rating);
-
     useEffect(() => {
         const classes = {
             5: styles.ratingBarAnimate5,

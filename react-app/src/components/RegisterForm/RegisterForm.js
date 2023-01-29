@@ -2,13 +2,21 @@ import styles from './Register.module.css';
 
 import { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, useSearchParams } from 'react-router-dom';
 
 import * as sessionActions from "../../store/session";
 
 export default function RegisterForm() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const searchParams = useSearchParams()[0];
+    const productId = searchParams.get('productId');
+    const quantity = searchParams.get('quantity');
+
+    let source = searchParams.get("source");
+    const sourceParts = window.location.search.split("?source=");
+    source = sourceParts[sourceParts.length - 1];
 
     const [isLoaded, setIsLoaded] = useState(false);
     const user = useSelector(state => state.session.user);
@@ -86,7 +94,12 @@ export default function RegisterForm() {
 
         try {
             await dispatch(sessionActions.register({ fullname: name, email, password }));
-            navigate("/");
+            if (productId) {
+                navigate(`/addresses/add?productId=${productId}&quantity=${quantity}`);
+            }
+            else {
+                navigate(source ? source : "/");
+            }
         }
         catch (responseBody) {
             const backendErrors = Object.entries(responseBody.errors)
@@ -111,7 +124,7 @@ export default function RegisterForm() {
     if (!isLoaded) {
         return <div className={styles.wrapper} >
             <NavLink className={styles.logo} to="/" style={{ textDecoration: 'none' }}>
-                <img src="/images/logo_black.png" alt="logo_black" />
+                <img src="https://d1irxr40exwge2.cloudfront.net/logo_black.png" alt="logo_black" />
             </NavLink>
         </div>
     }
@@ -119,7 +132,7 @@ export default function RegisterForm() {
     if (user) {
         return <div className={styles.wrapper} >
             <NavLink className={styles.logo} to="/" style={{ textDecoration: 'none' }}>
-                <img src="/images/logo_black.png" alt="logo_black" />
+                <img src="https://d1irxr40exwge2.cloudfront.net/logo_black.png" alt="logo_black" />
             </NavLink>
             <div>
                 You are already logged in.
@@ -132,7 +145,7 @@ export default function RegisterForm() {
             <div className={styles.wrapper}>
 
                 <NavLink className={styles.logo} to="/" style={{ textDecoration: 'none' }}>
-                    <img src="/images/logo_black.png" alt="logo_black" />
+                    <img src="https://d1irxr40exwge2.cloudfront.net/logo_black.png" alt="logo_black" />
                 </NavLink>
 
                 {bigError && <div className={styles.problemWrapper}>

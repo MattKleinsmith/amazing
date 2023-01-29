@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms.fields import StringField, SubmitField, EmailField, PasswordField, FloatField, TextAreaField
-from wtforms.validators import DataRequired, Email, NumberRange, Length, ValidationError
+from wtforms.fields import StringField, SubmitField, EmailField, PasswordField, FloatField, TextAreaField, IntegerField
+from wtforms.validators import DataRequired, Email, NumberRange, Length
 
 
 def validation_errors_formatter(form, validation_errors):
@@ -59,4 +59,10 @@ class ReviewForm(FlaskForm):
     rating = FloatField("Rating", validators=[
         DataRequired(), NumberRange(min=1, max=5)])
     review = TextAreaField("Review", validators=[Length(max=25000)])
+    submit = SubmitField()
+
+class CartItemForm(FlaskForm):
+    product_id = IntegerField("product_id", validators=[DataRequired()])
+    quantity = IntegerField("Quantity", validators=[
+        DataRequired(), NumberRange(min=1, max=20)])
     submit = SubmitField()

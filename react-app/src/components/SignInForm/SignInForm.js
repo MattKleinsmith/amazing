@@ -5,12 +5,17 @@ import * as sessionActions from "../../store/session";
 import { NavLink, useNavigate, useSearchParams } from 'react-router-dom';
 import { useRef } from 'react';
 import { useEffect } from 'react';
+import { setBuyModal } from '../../store/ui';
+import { getAddresses } from '../../store/addresses';
 
 export default function SignInForm() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const source = useSearchParams()[0].get("source");
+    const searchParams = useSearchParams()[0];
+    const productId = searchParams.get("productId");
+    const quantity = searchParams.get("quantity");
+    const source = searchParams.get("source");
 
     const [isLoaded, setIsLoaded] = useState(false);
     const user = useSelector(state => state.session.user);
@@ -73,13 +78,25 @@ export default function SignInForm() {
 
         try {
             await dispatch(sessionActions.signIn({ email, password }));
-            navigate(source ? source : "/");
+            if (productId) {
+                const addresses = await dispatch(getAddresses());
+                if (addresses.length > 0) {
+                    navigate(`/listing/${productId}`);
+                    dispatch(setBuyModal(true, productId, quantity));
+                }
+                else {
+                    navigate(`/addresses/add?productId=${productId}&quantity=${quantity}`);
+                }
+            }
+            else {
+                navigate(source ? source : "/");
+            }
         }
         catch (responseBody) {
             const backendErrors = Object.entries(responseBody.errors)
                 .map(([errorField, errorMessage]) => `${errorField}: ${errorMessage}`);
             if (backendErrors.includes("Credentials: Email and password did not match")) {
-                setBigError("Your password is incorrect");
+                setBigError("Email and password did not match");
             }
         }
     }
@@ -104,14 +121,14 @@ export default function SignInForm() {
     if (!isLoaded) {
         return <>
             <NavLink className={styles.logo} to="/" style={{ textDecoration: 'none' }}>
-                <img src="/images/logo_black.png" alt="logo_black" />
+                <img src="https://d1irxr40exwge2.cloudfront.net/logo_black.png" alt="logo_black" />
             </NavLink></>
     }
 
     if (user) {
         return <div className={styles.wrapper} >
             <NavLink className={styles.logo} to="/" style={{ textDecoration: 'none' }}>
-                <img src="/images/logo_black.png" alt="logo_black" />
+                <img src="https://d1irxr40exwge2.cloudfront.net/logo_black.png" alt="logo_black" />
             </NavLink>
             <div>
                 You are already logged in.
@@ -124,7 +141,7 @@ export default function SignInForm() {
             <div className={styles.wrapper} >
 
                 <NavLink className={styles.logo} to="/" style={{ textDecoration: 'none' }}>
-                    <img src="/images/logo_black.png" alt="logo_black" />
+                    <img src="https://d1irxr40exwge2.cloudfront.net/logo_black.png" alt="logo_black" />
                 </NavLink>
 
                 {bigError && <div className={styles.problemWrapper}>
@@ -204,7 +221,12 @@ export default function SignInForm() {
                         <div className={styles.new}>New to Amazing?</div>
                     </div>
                     <div className={styles.create} onClick={() => {
-                        navigate("/register");
+                        if (productId) {
+                            navigate(`/register?productId=${productId}&quantity=${quantity}`);
+                        }
+                        else {
+                            navigate(`/register`);
+                        }
                     }}>Create your Amazing account</div>
                 </div>}
 

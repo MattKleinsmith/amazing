@@ -1,0 +1,111 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left {
+    display: flex;
+    gap: 10px;
+}
+
+.image {
+    height: 90px;
+    width: 90px;
+    object-fit: scale-down;
+}
+
+.title {
+    width: 255px;
+
+    word-break: normal;
+    color: #0F1111;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+}
+
+.title:hover {
+    text-decoration: none;
+    color: #0F1111;
+}
+
+.inStock {
+    color: #007600;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 9px;
+}
+
+.shippedFrom {
+    color: #565959;
+    font-size: 12px;
+    line-height: 16px;
+
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.verticalBar {
+    text-rendering: optimizeLegibility;
+    background-color: #dddddd;
+    width: 1px;
+    height: 15px;
+}
+
+.delete {
+    color: #007185;
+    font-size: 12px;
+    /* align-self: flex-end; */
+}
+
+.delete:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.row {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-top: 0px;
+    margin-bottom: -10px;
+}
+
+.price {
+    color: #B12704;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.primeIcon {
+    background-image: url("https://d1irxr40exwge2.cloudfront.net/labels.png");
+    width: 53px;
+    height: 15px;
+    background-position: -185px -182px;
+    margin-top: -5px;
+}
+
+.line {
+    height: 1px;
+    width: 100%;
+    background-color: #dddddd;
+    margin: 25px 0px;
+}
+
+.deleted {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #0F1111;
+}
+
+.deletedLink {
+    display: inline-block;
+    color: #007185;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

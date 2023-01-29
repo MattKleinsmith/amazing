@@ -7,21 +7,21 @@ import { useEffect } from "react";
 import { getProductDetails } from "../../store/productDetails";
 
 export default function OrderConfirmation() {
-    const purchase = useSelector(state => state.purchases)[0];
-    const addressParts = purchase.address.split('\n');
+    const order = useSelector(state => state.orders)[0];
+    const addressParts = order.address.split('\n');
 
     const dispatch = useDispatch();
-    const product = useSelector(state => state.productDetails)[purchase.product_id];
+    const products = useSelector(state => state.productDetails);
+    const images = []
+    order.purchases.forEach(purchase => images.push(products[purchase.product_id].preview_image))
 
     let deliveryDate = new Date();
     deliveryDate.setDate(deliveryDate.getDate() + 2);
     deliveryDate = deliveryDate.toLocaleDateString('en-us', { weekday: "long", month: "short", day: "numeric" });
 
     useEffect(() => {
-        dispatch(getProductDetails(purchase.product_id));
-    }, [dispatch, purchase]);
-
-    if (!product) return;
+        order.purchases.forEach(purchase => dispatch(getProductDetails(purchase.product_id)));
+    }, [dispatch, order.purchases]);
 
     return (
         <div className={styles.outerWrapper}>
@@ -44,7 +44,9 @@ export default function OrderConfirmation() {
                                 <div className={styles.date}>{deliveryDate}</div>
                                 <div>Estimated delivery</div>
                             </div>
-                            <img className={styles.image} src={product.preview_image} alt="preview" />
+                            <div>
+                                {images.map((url, i) => <img className={styles.image} src={url} alt={"preview" + i} key={i} />)}
+                            </div>
                         </div>
                     </div>
                 </div>

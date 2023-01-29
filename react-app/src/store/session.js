@@ -1,6 +1,7 @@
 import { csrfFetch } from './csrf';
-import { clearPurchases, getPurchases } from './purchases';
+import { clearOrders, getOrders } from './orders';
 import { clearAddresses, getAddresses } from './addresses';
+import { clearCart, getCartItems } from './cartItems';
 
 const SET_USER = 'session/setUser';
 
@@ -15,7 +16,6 @@ export const restoreUser = () => async dispatch => {
         await dispatch(setUser(user))
         return response;
     } catch (errorResponse) {
-        console.log("Couldn't restore user");
     }
 };
 
@@ -28,8 +28,9 @@ export const signIn = credentials => async dispatch => {
 
     const user = await response.json();
     await dispatch(setUser(user));
-    await dispatch(getAddresses());
-    await dispatch(getPurchases());
+    dispatch(getAddresses());
+    dispatch(getOrders());
+    dispatch(getCartItems());
     return user;
 };
 
@@ -37,7 +38,8 @@ export const signOut = () => async (dispatch) => {
     await csrfFetch('/api/session', { method: 'DELETE', });
     await dispatch(setUser(null));
     await dispatch(clearAddresses());
-    await dispatch(clearPurchases());
+    await dispatch(clearOrders());
+    await dispatch(clearCart());
 };
 
 export const register = body => async (dispatch) => {

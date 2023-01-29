@@ -11,7 +11,7 @@ import Language from './Language/Language';
 
 export default function Header() {
     const location = useLocation();
-    const excludedPaths = ["signin", "register"];
+    const excludedPaths = ["signin", "register", "checkout"];
     if (excludedPaths.some(path => location.pathname.includes(path)))
         return;
 

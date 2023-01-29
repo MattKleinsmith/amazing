@@ -29,7 +29,7 @@
 }
 
 .problemIcon {
-    background-image: url("../../../public/images/atlas.png");
+    background-image: url("https://d1irxr40exwge2.cloudfront.net/atlas.png");
     background-repeat: no-repeat;
 
     background-position: -283px -35px;
@@ -137,7 +137,7 @@
 }
 
 .errorIcon {
-    background-image: url("../../../public/images/atlas.png");
+    background-image: url("https://d1irxr40exwge2.cloudfront.net/atlas.png");
     background-repeat: no-repeat;
     align-self: center;
 
@@ -155,7 +155,7 @@
 }
 
 .warningIcon {
-    background-image: url("../../../public/images/atlas.png");
+    background-image: url("https://d1irxr40exwge2.cloudfront.net/atlas.png");
     background-repeat: no-repeat;
     align-self: center;
 
@@ -240,7 +240,7 @@
 }
 
 .rightArrow {
-    background-image: url("../../../public/images/atlas.png");
+    background-image: url("https://d1irxr40exwge2.cloudfront.net/atlas.png");
     background-repeat: no-repeat;
     align-self: center;
 
@@ -255,7 +255,7 @@
 }
 
 .rightArrowLink {
-    background-image: url("../../../public/images/atlas.png");
+    background-image: url("https://d1irxr40exwge2.cloudfront.net/atlas.png");
     background-repeat: no-repeat;
     align-self: center;
 

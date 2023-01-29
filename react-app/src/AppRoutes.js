@@ -13,6 +13,8 @@ import Addresses from "./components/Addresses/Addresses";
 import Orders from "./components/Orders/Orders";
 import OrderConfirmation from "./components/OrderConfirmation/OrderConfirmation";
 import Protected from "./components/Protected";
+import Cart from "./components/Cart/Cart";
+import Checkout from "./components/Checkout/Checkout";
 
 export default function AppRoutes() {
     return (
@@ -36,6 +38,9 @@ export default function AppRoutes() {
             <Route path="/orders" element={<Protected><Orders /></Protected>} />
             <Route path="/order-confirmation" element={<Protected><OrderConfirmation /></Protected>} />
             <Route path="/reviews/:productId" element={<Protected><ReviewForm /></Protected>} />
+
+            <Route path="/cart" element={<Protected><Cart /></Protected>} />
+            <Route path="/checkout" element={<Protected><Checkout /></Protected>} />
         </Routes>
     );
 }

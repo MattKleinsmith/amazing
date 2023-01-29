@@ -12,13 +12,17 @@ export default function PickupTab({ product }) {
     const navigate = useNavigate();
     const [quantity, setQuantity] = useState(1);
     const addresses = useSelector(state => Object.values(state.addresses));
+    const user = useSelector(state => state.session.user);
 
     let deliveryDate = new Date();
     deliveryDate.setDate(deliveryDate.getDate() + 2);
     deliveryDate = deliveryDate.toLocaleDateString('en-us', { weekday: "long", month: "long", day: "numeric" });
 
     const onBuyNow = async () => {
-        if (addresses.length === 0) {
+        if (!user) {
+            navigate(`/signin?productId=${product.id}&quantity=${quantity}`);
+        }
+        else if (addresses.length === 0) {
             navigate(`/addresses/add?productId=${product.id}&quantity=${quantity}`);
         }
         else {

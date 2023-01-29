@@ -1,0 +1,54 @@
+.step {
+    display: flex;
+}
+
+.stepHeader {
+    color: #0F1111;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.stepNumber {
+    width: 40px;
+}
+
+.stepTitle {
+    width: 200px;
+}
+
+.stepBody {
+    width: 500px;
+    color: #333333;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.creditCard {
+    display: flex;
+    gap: 10px;
+
+    color: #0F1111;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.creditCard>img {
+    object-fit: none;
+    align-self: flex-start;
+}
+
+.endingIn {
+    color: #565959;
+    font-weight: 400;
+}
+
+.earn {
+    font-weight: 400;
+}
+
+.billing {
+    margin-top: 15px;
+    color: #0F1111;
+}

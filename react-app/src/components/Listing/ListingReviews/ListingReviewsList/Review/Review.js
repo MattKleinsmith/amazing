@@ -10,7 +10,7 @@ export default function Review({ review }) {
         <div className={styles.wrapper}>
 
             <div className={styles.profile}>
-                <img className={styles.profileImage} src="/images/profile.jpg" alt="profile" />
+                <img className={styles.profileImage} src="https://d1irxr40exwge2.cloudfront.net/profile.jpg" alt="profile" />
                 <div className={styles.name}>{review.buyer.fullname}</div>
             </div>
 

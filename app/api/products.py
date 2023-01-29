@@ -13,15 +13,20 @@ bp = Blueprint("products", __name__, url_prefix="/products")
 @bp.route("",  methods=["GET"])
 def get_products():
     terms = request.args.get("k")
+    size = request.args.get("size")
+    size = size if size else 24  # Default size
+    reverse = request.args.get("reverse")
     if terms:
         terms = terms.split("+")
         products = []
         for term in terms:
-            products = Product.query.filter(Product.title.match(term)).all()
+            products = Product.query.filter(
+                Product.title.match(term)).order_by(Product.id.desc() if reverse else Product.id.asc()).limit(size).all()
+            size = int(size) - len(products)
             products += Product.query.filter(
-                Product.description.match(term)).all()
+                Product.description.match(term)).order_by(Product.id.desc() if reverse else Product.id.asc()).limit(size).all()
         return [product.to_dict_search_results() for product in set(products)]
-    return [product.to_dict_search_results() for product in Product.query]
+    return [product.to_dict_search_results() for product in Product.query.order_by(Product.id.desc() if reverse else Product.id.asc()).limit(size)]
 
 
 @bp.route("/current",  methods=["GET"])
@@ -97,7 +102,7 @@ def delete_product(product_id):
 def post_image_by_product_id(product_id):
     try:
         file = request.files['image']
-        filename = secure_filename(file.filename)
+        filename = secure_filename(file.filename)  # "Big Cat.jpg" -> "Big_Cat.jpg" or "../cat.jpg" -> "cat.jpg"
         if not allowed_file(filename):
             return {
                 "errors": {
@@ -112,11 +117,13 @@ def post_image_by_product_id(product_id):
             position=request.form['position'] if request.form['position'] else None
         )
         if request.form['preview'] == 'true':
+            # There can only be one previous image.
             preview_images = ProductImage.query.filter(
                 ProductImage.preview == 't', ProductImage.product_id == product_id).all()
             for img in preview_images:
                 if (img.position):
                     img.preview = False
+                    # Move old preview image to the end of the list of images
                     img.position = ProductImage.query.filter(
                         ProductImage.product_id == product_id, ProductImage.position > 0).count() + 1
                 else:

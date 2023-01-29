@@ -35,7 +35,7 @@
 }
 
 .checkmark {
-    background-image: url("../../../public/images/stars.png");
+    background-image: url("https://d1irxr40exwge2.cloudfront.net/stars.png");
     height: 18px;
     width: 18px;
     background-position: -84px -138px;
@@ -71,6 +71,7 @@
 .image {
     height: 60px;
     width: 60px;
+    object-fit: scale-down;
 }
 
 .continue {

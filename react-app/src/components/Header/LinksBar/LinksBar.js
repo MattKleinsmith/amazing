@@ -13,6 +13,7 @@ export default function LinksBar() {
                 <a rel="noreferrer" target="_blank" className={styles.link} href="https://www.linkedin.com/in/matthewkleinsmith/">LinkedIn</a>
                 <a rel="noreferrer" target="_blank" className={styles.link} href="https://github.com/MattKleinsmith/">GitHub</a>
                 <a rel="noreferrer" target="_blank" className={styles.link} href="https://github.com/MattKleinsmith/amazing/">Project repo</a>
+                <a rel="noreferrer" target="_blank" className={styles.link} href="mailto:mwksmith@gmail.com">Email</a>
             </div>
         </div>
     )

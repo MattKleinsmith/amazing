@@ -50,7 +50,7 @@ export default function AccountButton() {
                 <div className={styles.row1}>Hello, {user ? user.fullname.split(" ")[0] : "sign in"}</div>
                 <div className={styles.row2}>
                     <div className={styles.row2row1}>Account & Lists</div>
-                    <img src={"/images/nav-arrow.png"} alt="▼" />
+                    <img src={"https://d1irxr40exwge2.cloudfront.net/nav-arrow.png"} alt="▼" />
                 </div>
             </NavLink>
             {showMenu && <AccountDropdown delay={TIMEOUT_DELAY} setShowMenu={setShowMenu} />}

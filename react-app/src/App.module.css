@@ -3,6 +3,10 @@
     min-height: 100vh;
 }
 
+.cartContainer {
+    background-color: #eaeded;
+}
+
 .contentWrapperHomepage {
     padding-bottom: 180px;
     background-color: #e3e6e6;

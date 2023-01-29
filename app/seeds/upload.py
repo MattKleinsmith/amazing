@@ -13,6 +13,7 @@ def allowed_file(filename): return '.' in filename and filename.rsplit(
 
 BUCKET_NAME = os.environ.get("S3_BUCKET")
 S3_LOCATION = f"https://{BUCKET_NAME}.s3.amazonaws.com/"
+CLOUDFRONT_LOCATION = "https://d1irxr40exwge2.cloudfront.net/"
 
 s3 = boto3.client(
     "s3",
@@ -24,7 +25,7 @@ s3 = boto3.client(
 def upload_image_to_bucket(image, image_name, acl="public-read"):
     print(f"upload_image_to_bucket: Uploading {image_name}", "-"*50)
     image_name = str(uuid.uuid1()) + "-" + image_name
-    bucket_url = f"{S3_LOCATION}{image_name}"
+    bucket_url = f"{CLOUDFRONT_LOCATION}{image_name}"
     try:
         s3.upload_fileobj(
             image,
@@ -43,7 +44,7 @@ def upload_image_to_bucket(image, image_name, acl="public-read"):
 
 def upload_image_to_bucket_from_url(url, acl="public-read"):
     image_name = secure_filename(os.path.basename(url))
-    bucket_url = f"{S3_LOCATION}{image_name}"
+    bucket_url = f"{CLOUDFRONT_LOCATION}{image_name}"
 
     # Don't bother the third party if we already have the image
     try:

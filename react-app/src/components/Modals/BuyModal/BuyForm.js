@@ -2,7 +2,7 @@ import styles from './BuyForm.module.css';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 import { setBuyModal } from "../../../store/ui";
-import { postOrder } from '../../../store/purchases';
+import { postOrder } from '../../../store/orders';
 
 export default function BuyForm() {
     const dispatch = useDispatch();

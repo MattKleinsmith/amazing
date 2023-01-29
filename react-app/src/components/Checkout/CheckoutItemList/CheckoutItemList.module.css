@@ -1,0 +1,58 @@
+.items {
+    border: 1px #D5D9D9 solid;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+.bigDelivery {
+    color: #007600;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+}
+
+
+.if {
+    color: #565959;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.shippedFrom {
+    margin-bottom: 10px;
+}
+
+.flex {
+    display: flex;
+    gap: 20px;
+}
+
+
+.choose {
+    color: #0F1111;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+}
+
+.date {
+    color: #007600;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+
+    margin-left: 6px;
+}
+
+.free {
+    margin-left: 20px;
+    color: #0F1111;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.prime {
+    color: #565959;
+}

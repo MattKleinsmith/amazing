@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
 import { getAddresses, postAddress, putAddress } from '../../store/addresses';
-import { setBuyModal } from '../../store/ui';
+import { setAddressModal, setBuyModal } from '../../store/ui';
 
-export default function AddressForm() {
+export default function AddressForm({ isModal = false }) {
     const { addressId } = useParams();
     const searchParams = useSearchParams()[0];
     const productId = searchParams.get('productId');
@@ -121,6 +121,10 @@ export default function AddressForm() {
                 navigate(`/listing/${productId}`);
                 shouldNavigate = false;
             }
+            else if (isModal) {
+                dispatch(setAddressModal(false));
+                shouldNavigate = false;
+            }
         }
         catch (responseBody) {
             console.log(responseBody);
@@ -135,8 +139,8 @@ export default function AddressForm() {
 
     return (
         <>
-            <div className={styles.wrapper}>
-                <div className={styles.navInfo}>Your Account {">"} <NavLink to="/addresses" className={styles.yourAddresses}>Your Addresses</NavLink> {">"} <span className={styles.youAreHere}>{addressId ? "Edit" : "New"} Address</span></div>
+            <div className={isModal ? styles.wrapperModal : styles.wrapper}>
+                {!isModal && <div className={styles.navInfo}>Your Account {">"} <NavLink to="/addresses" className={styles.yourAddresses}>Your Addresses</NavLink> {">"} <span className={styles.youAreHere}>{addressId ? "Edit" : "New"} Address</span></div>}
                 <form className={styles.form} onSubmit={onSubmit}>
                     <div className={styles.heading}>{addressId ? "Edit your" : "Add a new"} address</div>
 

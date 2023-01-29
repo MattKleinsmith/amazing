@@ -36,9 +36,9 @@
 }
 
 .close {
-    background-image: url("../../../../public/images/x-icon.png");
+    background-image: url("https://d1irxr40exwge2.cloudfront.net/x-icon.png");
     opacity: .64;
-    width: 20px;
+    min-width: 15px;
     height: 9px;
     background-position: -297px -5px;
 

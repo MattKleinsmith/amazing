@@ -69,14 +69,14 @@ export default function ListingForm() {
     const onClickContinue = async () => {
         let hasErrors = false;
 
-        if (!description) {
-            setDescriptionError("Enter a description");
+        if (description.trim().length < 10) {
+            setDescriptionError("Please enter a description that's a least 10 characters long.");
             descriptionField.current.focus();
             hasErrors = true;
         }
 
         if (!price) {
-            setPriceError("Enter a price");
+            setPriceError("Please enter a price.");
             priceField.current.focus();
             hasErrors = true;
         }
@@ -88,7 +88,7 @@ export default function ListingForm() {
         }
 
         if (!title) {
-            setTitleError("Enter a title");
+            setTitleError("Please enter a title.");
             titleField.current.focus();
             hasErrors = true;
         }
@@ -97,7 +97,7 @@ export default function ListingForm() {
 
         if (image || product?.preview_image) {
             try {
-                const body = { title, price, description }
+                const body = { title, price, description: description.trim() }
                 const productThunkAction = product ? putProduct(productId, body) : postProduct(body);
                 const newProductId = await dispatch(productThunkAction);
                 try {
@@ -115,7 +115,7 @@ export default function ListingForm() {
             navigate(source ? source : "/inventory");
         }
         else {
-            setImageError("Please upload an image for the product listing.");
+            setImageError("Please upload a png or jpeg image for the product listing.");
         }
     }
 

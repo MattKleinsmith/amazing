@@ -23,7 +23,7 @@ export default function Homepage() {
     }, [dispatch])
 
     return <div className={styles.wrapper}>
-        <img className={styles.banner} src="/images/landing.png" alt="sale" onClick={() => navigate("/s?k=phone")} />
+        <img className={styles.banner} src="https://d1irxr40exwge2.cloudfront.net/landing.png" alt="sale" onClick={() => navigate("/s?k=phone")} />
         <div className={styles.cards}>
             <Card products={phone} heading={"Phones"} url="/s?k=phones" />
             <Card products={makeup} heading={"Makeup"} url="/s?k=makeup" />

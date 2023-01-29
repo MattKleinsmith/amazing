@@ -170,12 +170,13 @@ def seed_all():
         ),
     ])
 
-    order = Order()
+    order = Order(
+        address=f"{demo.fullname}\n123 MAIN ST\nKANSAS CITY, MO 64118\nUNITED STATES",
+        buyer_id=demo.id
+    )
     db.session.add(order)
     db.session.add(Purchase(
         order=order,
-        address=f"{demo.fullname}\n123 MAIN ST\nKANSAS CITY, MO 64118\nUNITED STATES",
-        buyer_id=demo.id,
         seller_id=seller.id,
         product_id=product.id,
         price=product.price,
@@ -184,12 +185,36 @@ def seed_all():
 
     # https://www.amazon.com/AquaSonic-DUO-Whitening-Rechargeable-ToothBrushes/dp/B07HFG93GK/ref=sr_1_16?crid=234FOMCTX8NL8&keywords=electric+toothbrushes&qid=1673123804&s=hpc&sprefix=electric+toothbrushes%2Chpc%2C286&sr=1-16
 
-    product = Product(
+    product2 = Product(
         seller=seller,
         title="Aquasonic Duo - Dual Handle Ultra Whitening 40,000 VPM Wireless Charging Electric ToothBrushes - 3 Modes with Smart Timers - 10 Dupont Brush Heads & 2 Travel Cases Included",
         price="49.95",
         description="Complete Oral Care for 2 – AquaSonic Duo provides complete oral care in one simple countertop setup. Duo features 2 modern smart toothbrushes with the latest oral care technologies including 40,000 vibration per minute motors, true wireless charging, 3 unique modes including modes for whitening teeth and gum health, 30-day battery life, in sleek midnight black and optic white brush handles. Duo Series comes with 12 additional accessories including 10 DuPont brush heads and 2 travel cases.\nModern Technology For A Healthier Smile - Each Duo toothbrush bring your oral health routine into modern times with its built in enhanced features. Super fast wireless charging, 3 distinct brushing modes and a smart vibrating notification timer are some of the enhanced features built in to the sleek and ergonomic waterproof black and white satin handles.\nConvenient Modern Home & Travel Set-Up – Duo is perfect for couples, kids or anyone in between. A simple dual wireless charging dock takes up a few inches of countertop space while adding a sleek modern element to your bathroom. Duo’s 30 day battery life means it’s also perfect for travel – simply put your duo in its included travel case and take it on the go while leaving the charger at home.\nAll The Extras; Already Included - Every DUO set comes with 10 brush heads engineered by world famous DuPont; a world leader in quality & materials science. Also included are 2 convenient color coded custom hard shell travel case made of BPA Free plastic with space for two brush heads. No need to buy expensive brush head refills or extra accessories. It’s already in the box.\nWhat's Included - 1 Midnight Black Smart Toothbrush, 1 Optic White Smart Toothbrush, 1 Dual Wireless Charging Dock, 2 Travel Cases, 10 DuPont Brush Heads, Support & Warranty Manuals."
     )
+    db.session.add(product)
+    db.session.add(product2)
+    db.session.commit()
+
+    order = Order(
+        address=f"{demo.fullname}\n123 MAIN ST\nKANSAS CITY, MO 64118\nUNITED STATES",
+        buyer_id=demo.id
+    )
+    db.session.add(order)
+    db.session.add(Purchase(
+        order=order,
+        seller_id=seller.id,
+        product_id=product.id,
+        price=product.price,
+        quantity=1
+    ))
+    db.session.add(Purchase(
+        order=order,
+        seller_id=seller.id,
+        product_id=product2.id,
+        price=product2.price,
+        quantity=1
+    ))
+    product = product2
 
     db.session.add_all([
 
@@ -2844,7 +2869,7 @@ def seed_all():
         ProductImage(
             product=product,
             url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/31GfIf9DVXS._SL1500_SY300_QL70_FMwebp_.jpg"),
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/31GfIf9DVXS._SL1500_.jpg"),
             preview=True,
             position=1
         ),
@@ -3364,7 +3389,7 @@ def seed_all():
         ProductImage(
             product=product,
             url=upload_image_to_bucket_from_url(
-                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/41mFlDZNVGS._SL1500_SY300_QL70_FMwebp_.jpg"),
+                "https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/41mFlDZNVGS._SL1500_.jpg"),
             preview=True,
             position=1
         ),

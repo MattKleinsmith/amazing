@@ -2,16 +2,17 @@ import styles from "./App.module.css";
 
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { useLocation } from "react-router";
 
 import { restoreUser } from "./store/session";
 import { getAddresses } from "./store/addresses";
+import { getCartItems } from "./store/cartItems";
 
 import Header from "./components/Header/Header";
 import AppRoutes from "./AppRoutes";
 import Footer from "./components/Footer/Footer";
 import Modals from "./components/Modals/Modals";
 
-import { useLocation } from "react-router";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -21,14 +22,15 @@ export default function App() {
 
   useEffect(() => {
     dispatch(restoreUser()).then(() => setIsLoaded(true));
-    dispatch(getAddresses());
+    dispatch(getAddresses()).catch(e => { });
+    dispatch(getCartItems());
   }, [dispatch]);
 
   if (!isLoaded) return;
 
   return (
     <>
-      <div className={styles.pageContainer}>
+      <div className={`${styles.pageContainer} ${location.pathname === "/cart" && styles.cartContainer}`}>
         <div className={location.pathname === "/" ? styles.contentWrapperHomepage : styles.contentWrapper}>
           <Header />
           <AppRoutes />
