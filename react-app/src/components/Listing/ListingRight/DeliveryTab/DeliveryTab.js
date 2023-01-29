@@ -29,12 +29,13 @@ export default function DeliveryTab({ product }) {
         }
     }
 
-    const onAddToCart = () => {
+    const onAddToCart = async () => {
         if (!user) {
-            navigate(`/signin?productId=${product.id}&quantity=${quantity}&buyNow=false`);
+            navigate(`/signin?productId=${product.id}&quantity=${quantity}&cart=true`);
         }
         else {
-            dispatch(postCartItem(product.id, quantity));
+            await dispatch(postCartItem(product.id, quantity));
+            navigate(`/cart-confirmation?productId=${product.id}&quantity=${quantity}`);
         }
     }
 

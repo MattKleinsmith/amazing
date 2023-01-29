@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 
 import Quantity from "../Quantity/Quantity";
 import { setBuyModal } from "../../../../store/ui";
+import { postCartItem } from "../../../../store/cartItems";
 
 export default function PickupTab({ product }) {
     const dispatch = useDispatch();
@@ -17,6 +18,16 @@ export default function PickupTab({ product }) {
     let deliveryDate = new Date();
     deliveryDate.setDate(deliveryDate.getDate() + 2);
     deliveryDate = deliveryDate.toLocaleDateString('en-us', { weekday: "long", month: "long", day: "numeric" });
+
+    const onAddToCart = async () => {
+        if (!user) {
+            navigate(`/signin?productId=${product.id}&quantity=${quantity}&cart=true`);
+        }
+        else {
+            await dispatch(postCartItem(product.id, quantity));
+            navigate(`/cart-confirmation?productId=${product.id}&quantity=${quantity}`);
+        }
+    }
 
     const onBuyNow = async () => {
         if (!user) {
@@ -40,7 +51,8 @@ export default function PickupTab({ product }) {
         </div>
         <div className={styles.inStock}>In Stock.</div>
         <Quantity quantity={quantity} setQuantity={setQuantity} />
-        <div className={styles.buyNow} onClick={onBuyNow}>Buy Now</div>
+        {user?.id !== product.seller_id && <div className={`${styles.addToCart} noselect`} onClick={onAddToCart}>Add to Cart</div>}
+        {user?.id !== product.seller_id && <div className={`${styles.buyNow} noselect`} onClick={onBuyNow}>Buy Now</div>}
         <div className={styles.details}>
             <div>
                 <div className={styles.detailsLabel}>Ships from</div><div className={styles.detailsText}>Amazing</div>

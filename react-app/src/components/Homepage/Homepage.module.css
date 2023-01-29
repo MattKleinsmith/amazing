@@ -6,18 +6,37 @@
     z-index: -20;
 }
 
-.cards {
-    width: 1500px;
-    display: flex;
-    gap: 20px;
+@media screen and (min-width: 1500px) {
+    .cards {
+        width: 1500px;
+        display: flex;
+        gap: 20px;
 
-    margin-top: 250px;
-    margin-left: 40px;
+        margin-top: 250px;
+        margin-left: 40px;
+    }
 }
+
+@media screen and (max-width: 1499px) {
+    .cards {
+        width: 1000px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        margin-top: 250px;
+        margin-left: 40px;
+    }
+}
+
 
 .banner {
     position: absolute;
     height: 600px;
+    /* width: 100%; */
+    max-width: 98.7vw;
+    object-fit: cover;
     cursor: pointer;
     z-index: 1;
 }

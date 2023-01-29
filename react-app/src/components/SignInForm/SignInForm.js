@@ -7,6 +7,7 @@ import { useRef } from 'react';
 import { useEffect } from 'react';
 import { setBuyModal } from '../../store/ui';
 import { getAddresses } from '../../store/addresses';
+import { postCartItem } from '../../store/cartItems';
 
 export default function SignInForm() {
     const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export default function SignInForm() {
     const productId = searchParams.get("productId");
     const quantity = searchParams.get("quantity");
     const source = searchParams.get("source");
+    const cart = searchParams.get("cart");
 
     const [isLoaded, setIsLoaded] = useState(false);
     const user = useSelector(state => state.session.user);
@@ -80,7 +82,11 @@ export default function SignInForm() {
             await dispatch(sessionActions.signIn({ email, password }));
             if (productId) {
                 const addresses = await dispatch(getAddresses());
-                if (addresses.length > 0) {
+                if (cart) {
+                    await dispatch(postCartItem(productId, quantity));
+                    navigate(`/cart-confirmation?productId=${productId}&quantity=${quantity}`);
+                }
+                else if (addresses.length > 0) {
                     navigate(`/listing/${productId}`);
                     dispatch(setBuyModal(true, productId, quantity));
                 }
@@ -131,7 +137,7 @@ export default function SignInForm() {
                 <img src="https://d1irxr40exwge2.cloudfront.net/logo_black.png" alt="logo_black" />
             </NavLink>
             <div>
-                You are already logged in.
+                Logged in as: {user.fullname}
             </div>
         </div>
     }

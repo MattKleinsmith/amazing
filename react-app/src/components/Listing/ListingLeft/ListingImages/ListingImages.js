@@ -7,6 +7,7 @@ export default function ListingImages({ product }) {
     const firstThumbnailRef = useRef();
     const [thumbnail, setThumbnail] = useState();
     const [shouldScaleDown, setShouldScaleDown] = useState(true);
+    const [isTallImage, setIsTallImage] = useState(false);
 
     const onMouseEnter = (i, e) => {
         setUrl(product.images[i]?.url);
@@ -25,6 +26,7 @@ export default function ListingImages({ product }) {
     getDimensions(url, img => {
         const aspectRatio = img.naturalWidth / img.naturalHeight;
         setShouldScaleDown(aspectRatio >= 1.2);
+        setIsTallImage(aspectRatio <= 0.50)
     })
 
     return (
@@ -41,7 +43,7 @@ export default function ListingImages({ product }) {
             </div>
 
             <div className={styles.imageWrapper}>
-                <img className={`${styles.image} ${shouldScaleDown && styles.scaleDown}`} src={url} alt="main" />
+                <img className={`${styles.image} ${shouldScaleDown && styles.scaleDown} ${isTallImage && styles.imageLong}`} src={url} alt="main" />
             </div>
 
         </div>
