@@ -1,0 +1,58 @@
+.wrapper {
+    display: flex;
+    padding: 15px 20px;
+    gap: 20px;
+}
+
+.left {
+    flex-grow: 1;
+}
+
+.leftContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background-color: white;
+}
+
+.leftHeading {
+    display: flex;
+    gap: 10px;
+}
+
+.leftImage {
+    width: 100px;
+    height: 100px;
+    object-fit: scale-down;
+    margin: 20px;
+}
+
+.checkmark {
+    background-image: url("https://d1irxr40exwge2.cloudfront.net/stars.png");
+    height: 18px;
+    width: 18px;
+    background-position: -84px -138px;
+    align-self: center;
+}
+
+.leftHeadingText {
+    color: #0F1111;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+
+.leftColumn {
+    width: 400px;
+}
+
+.productTitle {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.right {
+    background-color: white;
+    width: 300px;
+}

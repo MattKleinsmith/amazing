@@ -25,7 +25,7 @@ export default function PickupTab({ product }) {
         }
         else {
             await dispatch(postCartItem(product.id, quantity));
-            navigate(`/cart-confirmation?productId=${product.id}&quantity=${quantity}`);
+            navigate(`/cart-confirmation?productId=${product.id}`);
         }
     }
 

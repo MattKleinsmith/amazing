@@ -15,6 +15,7 @@ import OrderConfirmation from "./components/OrderConfirmation/OrderConfirmation"
 import Protected from "./components/Protected";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
+import AddToCartConfirmation from "./components/AddToCartConfirmation/AddToCartConfirmation";
 
 export default function AppRoutes() {
     return (
@@ -39,6 +40,7 @@ export default function AppRoutes() {
             <Route path="/order-confirmation" element={<Protected><OrderConfirmation /></Protected>} />
             <Route path="/reviews/:productId" element={<Protected><ReviewForm /></Protected>} />
 
+            <Route path="/cart-confirmation" element={<Protected><AddToCartConfirmation /></Protected>} />
             <Route path="/cart" element={<Protected><Cart /></Protected>} />
             <Route path="/checkout" element={<Protected><Checkout /></Protected>} />
         </Routes>
