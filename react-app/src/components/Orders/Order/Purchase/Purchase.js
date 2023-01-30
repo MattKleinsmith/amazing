@@ -5,12 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 
 import { getProductDetails } from "../../../../store/productDetails";
-import { postOrder } from "../../../../store/orders";
+import { setBuyModal } from "../../../../store/ui";
 
-export default function Purchase({ purchase, isLast, address }) {
+export default function Purchase({ purchase, isLast }) {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const product = useSelector(state => state.productDetails)[purchase.product_id];
+    const addresses = useSelector(state => Object.values(state.addresses));
 
     useEffect(() => {
         dispatch(getProductDetails(purchase.product_id));
@@ -19,15 +20,13 @@ export default function Purchase({ purchase, isLast, address }) {
     if (!product) return;
 
     const onBuyAgain = async () => {
-        const cart = { [product.id]: 1 };
-        try {
-            const orderId = await dispatch(postOrder({ address, cart }));
-            console.log("onBuyNow succeeded. Order id:", orderId, address);
-        } catch (e) {
-            console.log("onBuyNow failed:", e);
+        if (addresses.length === 0) {
+            navigate(`/addresses/add?productId=${product.id}&quantity=${1}`);
+        }
+        else {
+            dispatch(setBuyModal(true, product.id, 1));
         }
     }
-
 
     return (
         <>
