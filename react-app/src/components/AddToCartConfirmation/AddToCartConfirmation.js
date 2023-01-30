@@ -11,11 +11,18 @@ export default function AddToCartConfirmation() {
     const dispatch = useDispatch();
     const searchParams = useSearchParams()[0];
     const productId = searchParams.get('productId');
-    const product = useSelector(state => state.productDetails)[productId];
+    const productDetails = useSelector(state => state.productDetails);
+    const product = productDetails[productId];
+    const cartItems = useSelector(state => state.cartItems);
+    const productIds = Object.keys(cartItems);
+    const subtotal = productIds.reduce((sum, productId) => sum += productDetails[productId]?.price * cartItems[productId], 0);
+    const numItems = productIds.reduce((sum, productId) => sum += cartItems[productId], 0);
 
     useEffect(() => {
         dispatch(getProductDetails(productId));
-    }, [dispatch, productId]);
+        productIds.forEach(productId => dispatch(getProductDetails(productId)))
+        // eslint-disable-next-line
+    }, [dispatch, productId, cartItems]);
 
     return <div className={styles.wrapper}>
 
@@ -27,7 +34,7 @@ export default function AddToCartConfirmation() {
                         <div className={styles.checkmark} />
                         <div className={styles.leftHeadingText}>Added to Cart</div>
                     </div>
-                    <div className={styles.productTitle}>{product?.title}</div>
+                    <Link to={`/listing/${productId}`} style={{ textDecoration: "none" }}><div className={styles.productTitle}>{product?.title}</div></Link>
                 </div>
             </div>
         </div>
@@ -37,12 +44,12 @@ export default function AddToCartConfirmation() {
                 <div className={styles.rightHeadingText}>Cart Subtotal:</div>
                 <div className={styles.subtotalWrapper}>
                     <span className={styles.dollarSign}>$</span>
-                    <span className={styles.dollars}>{89}</span>
-                    <span className={styles.cents}>{49}</span>
+                    <span className={styles.dollars}>{~~subtotal}</span>
+                    <span className={styles.cents}>{(subtotal % 1 * 100).toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false })}</span>
                 </div>
             </div>
-            <div className={styles.proceed}>Proceed to checkout {123}</div>
-            <div className={styles.goToCart}>Go to Cart</div>
+            <Link to={`/checkout`} style={{ textDecoration: "none" }}><div className={`${styles.proceed} noselect`}>Proceed to checkout ({numItems} item{numItems > 1 && "s"})</div></Link>
+            <Link to={`/cart`} style={{ textDecoration: "none" }}><div className={`${styles.goToCart} noselect`}>Go to Cart</div></Link>
         </div>
 
     </div>;
