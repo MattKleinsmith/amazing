@@ -42,6 +42,7 @@ export default function Purchase({ purchase, isLast }) {
                     <div className={styles.status}>Not yet shipped</div>
                     <div className={styles.product}>
                         <NavLink to={`/listing/${product.id}`}><img className={styles.previewImage} src={product.preview_image} alt={purchase.order_id} /></NavLink>
+                        {purchase.quantity > 1 && <div className={styles.quantity}>{purchase.quantity}</div>}
                         <div>
                             <NavLink to={`/listing/${product.id}`} className={styles.title}>{product.title}</NavLink>
                             <div className={styles.buttonsRow}>

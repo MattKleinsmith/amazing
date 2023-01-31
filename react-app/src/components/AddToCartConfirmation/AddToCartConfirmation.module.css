@@ -33,6 +33,23 @@
     object-fit: scale-down;
 }
 
+.quantity {
+    padding: 0 6px;
+
+    position: absolute;
+    margin-top: -40px;
+    margin-left: 100px;
+    z-index: 4;
+
+    border: 1px solid #cccccc;
+    background-color: white;
+    border-radius: 10px;
+    height: 20px;
+    line-height: 20px;
+    min-width: 20px;
+    font-size: .8em;
+}
+
 .checkmark {
     background-image: url("https://d1irxr40exwge2.cloudfront.net/stars.png");
     height: 18px;

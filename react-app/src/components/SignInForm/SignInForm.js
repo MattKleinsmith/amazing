@@ -84,7 +84,7 @@ export default function SignInForm() {
                 const addresses = await dispatch(getAddresses());
                 if (cart) {
                     await dispatch(postCartItem(productId, quantity));
-                    navigate(`/cart-confirmation?productId=${productId}`);
+                    navigate(`/cart-confirmation?productId=${productId}&quantity=${quantity}`);
                 }
                 else if (addresses.length > 0) {
                     navigate(`/listing/${productId}`);

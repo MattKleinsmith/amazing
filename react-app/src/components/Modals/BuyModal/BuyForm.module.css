@@ -65,6 +65,7 @@
 .image {
     height: 60px;
     width: 60px;
+    object-fit: scale-down;
 }
 
 .arriving {

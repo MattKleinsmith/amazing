@@ -11,6 +11,7 @@ export default function AddToCartConfirmation() {
     const dispatch = useDispatch();
     const searchParams = useSearchParams()[0];
     const productId = searchParams.get('productId');
+    const quantity = searchParams.get('quantity');
     const productDetails = useSelector(state => state.productDetails);
     const product = productDetails[productId];
     const cartItems = useSelector(state => state.cartItems);
@@ -28,7 +29,9 @@ export default function AddToCartConfirmation() {
 
         <div className={styles.left}>
             <div className={styles.leftContent}>
-                <Link to={`/listing/${productId}`}><img src={product?.preview_image} className={styles.leftImage} alt="product" /></Link>
+                <Link to={`/listing/${productId}`} style={{ textDecoration: "none", color: "#0F1111" }}><img src={product?.preview_image} className={styles.leftImage} alt="product" />
+                    {quantity > 1 && <div className={styles.quantity}>{quantity}</div>}</Link>
+
                 <div className={styles.leftColumn}>
                     <div className={styles.leftHeading}>
                         <div className={styles.checkmark} />
