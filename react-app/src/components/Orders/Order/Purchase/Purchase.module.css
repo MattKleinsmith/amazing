@@ -85,6 +85,24 @@
     height: 100px;
     width: 100px;
     object-fit: scale-down;
+    margin-bottom: 5px;
+}
+
+.quantity {
+    padding: 0 6px;
+
+    position: absolute;
+    margin-top: 90px;
+    margin-left: 80px;
+    z-index: 4;
+
+    border: 1px solid #cccccc;
+    background-color: white;
+    border-radius: 10px;
+    height: 20px;
+    line-height: 20px;
+    min-width: 20px;
+    font-size: .8em;
 }
 
 .title {

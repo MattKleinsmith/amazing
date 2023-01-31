@@ -1,33 +1,39 @@
 import styles from "./Purchase.module.css";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 
 import { getProductDetails } from "../../../../store/productDetails";
-import { postOrder } from "../../../../store/orders";
+import { setBuyModal } from "../../../../store/ui";
+import { getReviewsByProductIdAndUser } from "../../../../store/reviews";
 
-export default function Purchase({ purchase, isLast, address }) {
+export default function Purchase({ purchase, isLast }) {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const product = useSelector(state => state.productDetails)[purchase.product_id];
+    const addresses = useSelector(state => Object.values(state.addresses));
+    const [review, setReview] = useState(null);
 
     useEffect(() => {
         dispatch(getProductDetails(purchase.product_id));
+
+        (async () => {
+            const review = await dispatch(getReviewsByProductIdAndUser(purchase.product_id))
+            setReview(review);
+        })();
     }, [dispatch, purchase]);
 
     if (!product) return;
 
     const onBuyAgain = async () => {
-        const cart = { [product.id]: 1 };
-        try {
-            const orderId = await dispatch(postOrder({ address, cart }));
-            console.log("onBuyNow succeeded. Order id:", orderId, address);
-        } catch (e) {
-            console.log("onBuyNow failed:", e);
+        if (addresses.length === 0) {
+            navigate(`/addresses/add?productId=${product.id}&quantity=${1}`);
+        }
+        else {
+            dispatch(setBuyModal(true, product.id, 1));
         }
     }
-
 
     return (
         <>
@@ -36,6 +42,7 @@ export default function Purchase({ purchase, isLast, address }) {
                     <div className={styles.status}>Not yet shipped</div>
                     <div className={styles.product}>
                         <NavLink to={`/listing/${product.id}`}><img className={styles.previewImage} src={product.preview_image} alt={purchase.order_id} /></NavLink>
+                        {purchase.quantity > 1 && <div className={styles.quantity}>{purchase.quantity}</div>}
                         <div>
                             <NavLink to={`/listing/${product.id}`} className={styles.title}>{product.title}</NavLink>
                             <div className={styles.buttonsRow}>
@@ -49,7 +56,7 @@ export default function Purchase({ purchase, isLast, address }) {
                     </div>
                 </div>
                 <div>
-                    <div className={styles.reviewButton} onClick={() => navigate(`/reviews/${product.id}`)}>Write a product review</div>
+                    <div className={styles.reviewButton} onClick={() => navigate(`/reviews/${product.id}`)}>{review ? "Edit" : "Write"} a product review</div>
                 </div>
             </div>
             {!isLast && <div className={styles.line} />}

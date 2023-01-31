@@ -1,0 +1,157 @@
+.wrapper {
+    padding: 15px 20px;
+    gap: 20px;
+
+    display: flex;
+    color: #0F1111;
+}
+
+.left {
+    flex-grow: 1;
+    background-color: white;
+}
+
+.leftContent {
+    gap: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leftHeading {
+    gap: 10px;
+
+    display: flex;
+}
+
+.leftImage {
+    margin: 20px;
+    width: 100px;
+    height: 100px;
+
+    object-fit: scale-down;
+}
+
+.quantity {
+    padding: 0 6px;
+
+    position: absolute;
+    margin-top: -40px;
+    margin-left: 100px;
+    z-index: 4;
+
+    border: 1px solid #cccccc;
+    background-color: white;
+    border-radius: 10px;
+    height: 20px;
+    line-height: 20px;
+    min-width: 20px;
+    font-size: .8em;
+}
+
+.checkmark {
+    background-image: url("https://d1irxr40exwge2.cloudfront.net/stars.png");
+    height: 18px;
+    width: 18px;
+    background-position: -84px -138px;
+    align-self: center;
+}
+
+.leftHeadingText {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+
+.leftColumn {
+    width: 400px;
+}
+
+.productTitle {
+    margin-top: 10px;
+
+    font-size: 14px;
+    color: #0F1111;
+}
+
+.right {
+    padding: 20px;
+
+    background-color: white;
+    width: 300px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rightHeading {
+    display: flex;
+    gap: 10px;
+}
+
+.dollarSign {
+    font-size: 12px;
+    top: -0.5em;
+    position: relative;
+}
+
+.dollars {
+    font-size: 21px;
+    color: #0F1111;
+}
+
+.cents {
+    font-size: 12px;
+    top: -0.5em;
+    position: relative;
+}
+
+.rightHeadingText {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+    text-rendering: optimizeLegibility;
+}
+
+.proceed {
+    background: #FFD814;
+    border: 1px solid #FCD200;
+    cursor: pointer;
+
+    font-size: 13px;
+    line-height: 29px;
+    color: #0F1111;
+    padding: 0 10px 0 11px;
+    text-align: center;
+    border-radius: 7px;
+}
+
+.proceed:hover {
+    background: #F7CA00;
+    border-color: #F2C200;
+}
+
+.proceed:active {
+    background: #F0B800;
+    border-color: #008296;
+    box-shadow: 0 0 0 3px #c8f3fa, inset 0 0 0 2px #ffffff;
+}
+
+.goToCart {
+    font-size: 13px;
+    line-height: 29px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+    border: 1px solid #D5D9D9;
+    text-align: center;
+    color: #0F1111;
+}
+
+.goToCart:hover {
+    background-color: #F7FAFA;
+    border-color: #D5D9D9;
+    text-decoration: none;
+    cursor: pointer;
+}

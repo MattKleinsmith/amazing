@@ -3,7 +3,6 @@ import Purchase from "./Purchase/Purchase";
 
 
 export default function Order({ order }) {
-    console.log("order", order);
     const createdAt = (new Date(order.created_at)).toLocaleDateString('en-us', { year: "numeric", month: "long", day: "numeric" });;
     const total = order.purchases.reduce((total, purchase) => total += purchase.price * purchase.quantity, 0)
 

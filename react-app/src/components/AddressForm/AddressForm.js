@@ -12,7 +12,8 @@ export default function AddressForm({ isModal = false }) {
     const searchParams = useSearchParams()[0];
     const productId = searchParams.get('productId');
     const quantity = searchParams.get('quantity');
-    const address = useSelector(state => state.addresses)[addressId];
+    const addressIdParam = searchParams.get('addressId');
+    const address = useSelector(state => state.addresses)[addressId || addressIdParam];
     const dispatch = useDispatch();
 
     const regionField = useRef();
@@ -50,10 +51,10 @@ export default function AddressForm({ isModal = false }) {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (addressId && !address) {
+        if ((addressId || addressIdParam) && !address) {
             dispatch(getAddresses());
         }
-    }, [addressId, address, dispatch]);
+    }, [addressId, addressIdParam, address, dispatch]);
 
     useEffect(() => {
         setRegion(address?.region || "");
@@ -114,7 +115,7 @@ export default function AddressForm({ isModal = false }) {
         let shouldNavigate = true;
         try {
             const body = { region, fullname, address: addressValue, city, state, zipcode, phone, building }
-            const productThunkAction = address ? putAddress(addressId, body) : postAddress(body);
+            const productThunkAction = address ? putAddress(addressId || addressIdParam, body) : postAddress(body);
             await dispatch(productThunkAction);
             if (productId) {
                 dispatch(setBuyModal(true, productId, quantity));
@@ -140,9 +141,9 @@ export default function AddressForm({ isModal = false }) {
     return (
         <>
             <div className={isModal ? styles.wrapperModal : styles.wrapper}>
-                {!isModal && <div className={styles.navInfo}>Your Account {">"} <NavLink to="/addresses" className={styles.yourAddresses}>Your Addresses</NavLink> {">"} <span className={styles.youAreHere}>{addressId ? "Edit" : "New"} Address</span></div>}
+                {!isModal && <div className={styles.navInfo}>Your Account {">"} <NavLink to="/addresses" className={styles.yourAddresses}>Your Addresses</NavLink> {">"} <span className={styles.youAreHere}>{address ? "Edit" : "New"} Address</span></div>}
                 <form className={styles.form} onSubmit={onSubmit}>
-                    <div className={styles.heading}>{addressId ? "Edit your" : "Add a new"} address</div>
+                    <div className={styles.heading}>{address ? "Edit your" : "Add a new"} address</div>
 
                     <div className={styles.fieldWrapper}>
                         <label htmlFor="addressFormRegion" className={styles.fieldLabel}>
@@ -312,7 +313,7 @@ export default function AddressForm({ isModal = false }) {
                         </div>}
                     </div>
 
-                    <button type="submit" className={`${styles.continue} ${styles.noselect}`}>{addressId ? "Edit" : "Add"} address</button>
+                    <button type="submit" className={`${styles.continue} ${styles.noselect}`}>{address ? "Edit" : "Add"} address</button>
                 </form>
             </div>
         </>

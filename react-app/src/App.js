@@ -30,7 +30,7 @@ export default function App() {
 
   return (
     <>
-      <div className={`${styles.pageContainer} ${location.pathname === "/cart" && styles.cartContainer}`}>
+      <div className={`${styles.pageContainer} ${location.pathname === "/cart" && styles.cartContainer} ${location.pathname === "/cart-confirmation" && styles.cartConfirmation}`}>
         <div className={location.pathname === "/" ? styles.contentWrapperHomepage : styles.contentWrapper}>
           <Header />
           <AppRoutes />
