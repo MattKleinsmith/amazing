@@ -20,7 +20,8 @@ export default function Purchase({ purchase, isLast }) {
 
         (async () => {
             const review = await dispatch(getReviewsByProductIdAndUser(purchase.product_id))
-            setReview(review);
+            if (!("error" in review))
+                setReview(review);
         })();
     }, [dispatch, purchase]);
 
@@ -56,7 +57,7 @@ export default function Purchase({ purchase, isLast }) {
                     </div>
                 </div>
                 <div>
-                    <div className={styles.reviewButton} onClick={() => navigate(`/reviews/${product.id}`)}>{review ? "Edit" : "Write"} a product review</div>
+                    <div className={styles.reviewButton} onClick={() => navigate(`/reviews/${product.id}`)}>{review ? "Edit" : "Write a"} product review</div>
                 </div>
             </div>
             {!isLast && <div className={styles.line} />}
