@@ -9,6 +9,7 @@ import { getOrders } from "../../store/orders"
 import Order from "./Order/Order";
 import { useState } from "react";
 import { useLocation } from "react-router";
+import { getProductsDetails } from "../../store/productDetails";
 
 export default function Orders() {
     const [page, setPage] = useState(1);
@@ -17,13 +18,21 @@ export default function Orders() {
     const max = min + size;
     const allOrders = useSelector(state => state.orders);
     const orders = allOrders.slice(min, max);
+    const productDetails = useSelector(state => state.productDetails);
 
     useLocation();
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getOrders());
+        async function fetchData() {
+            const orders = await dispatch(getOrders());
+            const productIds = [];
+            orders.forEach(order => order.purchases.forEach(purchase => productIds.push(purchase.product_id)));
+            if (productIds.length > 0)
+                dispatch(getProductsDetails(productIds));
+        }
+        fetchData();
     }, [dispatch]);
 
     const incrementPage = () => {
@@ -47,7 +56,7 @@ export default function Orders() {
                 </div>
 
                 <div className={styles.purchases}>
-                    {orders.map((order, i) => <Order key={i} order={order} />)}
+                    {orders.map((order, i) => <Order key={i} order={order} productDetails={productDetails} />)}
                 </div>
                 {orders.length === 0 &&
                     <div className={styles.emptyWrapper}>
