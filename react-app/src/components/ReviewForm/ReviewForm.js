@@ -47,8 +47,9 @@ export default function ReviewForm() {
                 dispatch(getProductDetails(productId));
             }
             if (productId) {
-                const _review = await dispatch(getReviewsByProductIdAndUser(productId)).catch(e => { });
-                setReview(_review);
+                const review = await dispatch(getReviewsByProductIdAndUser(productId)).catch(e => { });
+                if (!("error" in review))
+                    setReview(review);
             }
         }
         fetchData();
