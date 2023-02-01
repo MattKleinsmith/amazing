@@ -19,7 +19,7 @@ def get_products():
     reverse = request.args.get("reverse")
     if product_ids:
         products = Product.query.filter(Product.id.in_(product_ids))
-        return [product.to_dict_search_results() for product in products]
+        return check_if_user_has_reviewed_products(products)
     elif terms:
         terms = terms.split("+")
         products = []
@@ -34,6 +34,18 @@ def get_products():
         products = Product.query.order_by(Product.id.desc() if reverse else Product.id.asc()).limit(size)
         return [product.to_dict_search_results() for product in products]
 
+
+
+def check_if_user_has_reviewed_products(products):
+    if current_user.is_anonymous:
+        return {"error": "Must be logged in to use the product_ids query parameter."}, 400
+    results = []
+    for product in products:
+        review = Review.query.filter(Review.product == product, Review.buyer == current_user).first()
+        product = product.to_dict_search_results()
+        product["is_reviewed_by_current_user"] = True if review else False
+        results.append(product)
+    return results
 
 @bp.route("/current",  methods=["GET"])
 @login_required
