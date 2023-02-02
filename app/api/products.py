@@ -12,13 +12,13 @@ bp = Blueprint("products", __name__, url_prefix="/products")
 
 @bp.route("",  methods=["GET"])
 def get_products():
-    product_ids = request.args.get("product_ids").split(',')
+    product_ids = request.args.get("product_ids")
     terms = request.args.get("k")
     size = request.args.get("size")
     size = size if size else 24  # Default size
     reverse = request.args.get("reverse")
     if product_ids:
-        products = Product.query.filter(Product.id.in_(product_ids))
+        products = Product.query.filter(Product.id.in_(product_ids.split(',')))
         return check_if_user_has_reviewed_products(products)
     elif terms:
         terms = terms.split("+")
@@ -33,7 +33,6 @@ def get_products():
     else:
         products = Product.query.order_by(Product.id.desc() if reverse else Product.id.asc()).limit(size)
         return [product.to_dict_search_results() for product in products]
-
 
 
 def check_if_user_has_reviewed_products(products):
