@@ -42,6 +42,7 @@ class Product(db.Model):
         avg_rating = sum(
             [review.rating for review in self.reviews]) / len(self.reviews) if len(self.reviews) > 0 else None
         num_ratings = len(self.reviews)
+
         return {
             "id": self.id,
 

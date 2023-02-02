@@ -21,6 +21,7 @@ export const getOrders = () => async dispatch => {
     const response = await csrfFetch('/api/orders/current');
     const orders = await response.json();
     dispatch({ type: GET_ORDERS, orders });
+    return orders;
 };
 
 export default function ordersReducer(state = [], action) {

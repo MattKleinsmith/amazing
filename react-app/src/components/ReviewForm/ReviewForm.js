@@ -17,6 +17,7 @@ export default function ReviewForm() {
     const product = useSelector(state => state.productDetails)[productId];
 
     const [review, setReview] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
 
     const [reviewImageUrls, setReviewImageUrls] = useState(new Set());
     const [reviewImageFiles, setReviewImageFiles] = useState({});
@@ -50,6 +51,7 @@ export default function ReviewForm() {
                 const review = await dispatch(getReviewsByProductIdAndUser(productId)).catch(e => { });
                 if (!("error" in review))
                     setReview(review);
+                setIsLoaded(true);
             }
         }
         fetchData();
@@ -166,6 +168,8 @@ export default function ReviewForm() {
         dispatch(deleteReview(review.id));
         navigate("/orders");
     }
+
+    if (!isLoaded) return <h1>Loading...</h1>;
 
     return (
         <>

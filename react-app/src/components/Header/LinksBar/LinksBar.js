@@ -14,6 +14,7 @@ export default function LinksBar() {
                 <a rel="noreferrer" target="_blank" className={styles.link} href="https://github.com/MattKleinsmith/">GitHub</a>
                 <a rel="noreferrer" target="_blank" className={styles.link} href="https://github.com/MattKleinsmith/amazing/">Project repo</a>
                 <a rel="noreferrer" target="_blank" className={styles.link} href="mailto:mwksmith@gmail.com">Email</a>
+                <a rel="noreferrer" target="_blank" className={styles.link} href="https://mattkleinsmith.github.io/">Portfolio</a>
             </div>
         </div>
     )

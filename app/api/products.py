@@ -12,11 +12,15 @@ bp = Blueprint("products", __name__, url_prefix="/products")
 
 @bp.route("",  methods=["GET"])
 def get_products():
+    product_ids = request.args.get("product_ids").split(',')
     terms = request.args.get("k")
     size = request.args.get("size")
     size = size if size else 24  # Default size
     reverse = request.args.get("reverse")
-    if terms:
+    if product_ids:
+        products = Product.query.filter(Product.id.in_(product_ids))
+        return check_if_user_has_reviewed_products(products)
+    elif terms:
         terms = terms.split("+")
         products = []
         for term in terms:
@@ -26,8 +30,22 @@ def get_products():
             products += Product.query.filter(
                 Product.description.match(term)).order_by(Product.id.desc() if reverse else Product.id.asc()).limit(size).all()
         return [product.to_dict_search_results() for product in set(products)]
-    return [product.to_dict_search_results() for product in Product.query.order_by(Product.id.desc() if reverse else Product.id.asc()).limit(size)]
+    else:
+        products = Product.query.order_by(Product.id.desc() if reverse else Product.id.asc()).limit(size)
+        return [product.to_dict_search_results() for product in products]
 
+
+
+def check_if_user_has_reviewed_products(products):
+    if current_user.is_anonymous:
+        return {"error": "Must be logged in to use the product_ids query parameter."}, 400
+    results = []
+    for product in products:
+        review = Review.query.filter(Review.product == product, Review.buyer == current_user).first()
+        product = product.to_dict_search_results()
+        product["is_reviewed_by_current_user"] = True if review else False
+        results.append(product)
+    return results
 
 @bp.route("/current",  methods=["GET"])
 @login_required

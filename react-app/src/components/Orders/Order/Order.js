@@ -2,15 +2,11 @@ import styles from "./Order.module.css";
 import Purchase from "./Purchase/Purchase";
 
 
-export default function Order({ order }) {
+export default function Order({ order, productDetails }) {
     const createdAt = (new Date(order.created_at)).toLocaleDateString('en-us', { year: "numeric", month: "long", day: "numeric" });;
     const total = order.purchases.reduce((total, purchase) => total += purchase.price * purchase.quantity, 0)
 
     return (
-        // <div>
-        //     Order component
-        //     {order.map((product, i) => <div key={i}>{product.product_id}</div>)}
-        // </div>
         <div className={styles.wrapper}>
             <div className={styles.top}>
                 <div className={styles.topLeft}>
@@ -33,7 +29,7 @@ export default function Order({ order }) {
             </div>
 
             <div>
-                {order.purchases.map((purchase, i) => <Purchase key={i} purchase={purchase} isLast={i === order.purchases.length - 1} address={order.address} />)}
+                {order.purchases.map((purchase, i) => <Purchase key={i} purchase={purchase} isLast={i === order.purchases.length - 1} address={order.address} productDetails={productDetails} />)}
             </div>
         </div>
     );

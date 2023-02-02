@@ -1,29 +1,15 @@
 import styles from "./Purchase.module.css";
 
-import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 
-import { getProductDetails } from "../../../../store/productDetails";
 import { setBuyModal } from "../../../../store/ui";
-import { getReviewsByProductIdAndUser } from "../../../../store/reviews";
 
-export default function Purchase({ purchase, isLast }) {
+export default function Purchase({ purchase, isLast, productDetails }) {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const product = useSelector(state => state.productDetails)[purchase.product_id];
+    const product = productDetails[purchase.product_id];
     const addresses = useSelector(state => Object.values(state.addresses));
-    const [review, setReview] = useState(null);
-
-    useEffect(() => {
-        dispatch(getProductDetails(purchase.product_id));
-
-        (async () => {
-            const review = await dispatch(getReviewsByProductIdAndUser(purchase.product_id))
-            if (!("error" in review))
-                setReview(review);
-        })();
-    }, [dispatch, purchase]);
 
     if (!product) return;
 
@@ -57,7 +43,7 @@ export default function Purchase({ purchase, isLast }) {
                     </div>
                 </div>
                 <div>
-                    <div className={styles.reviewButton} onClick={() => navigate(`/reviews/${product.id}`)}>{review ? "Edit" : "Write a"} product review</div>
+                    <div className={styles.reviewButton} onClick={() => navigate(`/reviews/${product.id}`)}>{product.is_reviewed_by_current_user ? "Edit" : "Write a"} product review</div>
                 </div>
             </div>
             {!isLast && <div className={styles.line} />}
