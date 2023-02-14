@@ -8,6 +8,9 @@ from .models import db, User
 from .seeds import seed_commands
 from .config import Config
 from . import api
+from .schema import schema
+
+from flask_graphql import GraphQLView
 
 app = Flask(__name__, static_folder='../react-app/build', static_url_path='/')
 app.cli.add_command(seed_commands)
@@ -19,6 +22,10 @@ Migrate(app, db, render_as_batch=True)
 
 login = LoginManager(app)
 login.login_view = "api.session.unauthorized"
+
+app.add_url_rule(
+    "/graphql", view_func=GraphQLView.as_view("graphql", schema=schema, graphiql=True)
+)
 
 
 @login.user_loader

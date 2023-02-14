@@ -42,3 +42,8 @@ urllib3==1.26.13
 werkzeug==2.2.2
 wtforms[email]==3.0.1
 zipp==3.11.0
+
+# GraphQL
+flask-graphql==2.0.1
+graphene==2.1.8
+graphene-sqlalchemy==2.3.0
