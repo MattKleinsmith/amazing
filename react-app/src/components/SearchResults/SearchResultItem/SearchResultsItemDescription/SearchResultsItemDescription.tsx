@@ -6,9 +6,9 @@ import Stars from '../../../Stars/Stars'
 import Price from "../../../Price/Price";
 
 export default function SearchResultsItemDescription({ product }) {
-    let deliveryDate = new Date();
-    deliveryDate.setDate(deliveryDate.getDate() + 2);
-    deliveryDate = deliveryDate.toLocaleDateString('en-us', { weekday: "short", month: "short", day: "numeric" });
+    const recentDate = new Date();
+    recentDate.setDate(recentDate.getDate() + 2);
+    const deliveryDate = recentDate.toLocaleDateString('en-us', { weekday: "short", month: "short", day: "numeric" });
     return (
         <div className={styles.wrapper}>
             <NavLink to={`/listing/${product.id}`} style={{ textDecoration: 'none' }} className={styles.title}>
