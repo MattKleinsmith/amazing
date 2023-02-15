@@ -1,7 +1,9 @@
 import styles from "./Price.module.css";
 
 export default function Price({ product }) {
-    const price = parseFloat(product.price).toFixed(2);
+    // const priceData = product.price
+    const priceData = 0
+    const price = parseFloat(priceData).toFixed(2);
     const [wholePrice, fractionPrice] = price.split(".");
     return (<div className={styles.wrapper}>
         <div className={styles.symbol}>$</div>
