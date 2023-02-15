@@ -1,0 +1,91 @@
+schema {
+  query: Query
+}
+
+scalar DateTime
+
+interface Node {
+  id: ID!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type Product implements Node {
+  id: ID!
+  sellerId: Int!
+  title: String!
+  price: Float!
+  description: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  seller: User
+}
+
+type ProductConnection {
+  pageInfo: PageInfo!
+  edges: [ProductEdge]!
+}
+
+type ProductEdge {
+  node: Product
+  cursor: String!
+}
+
+enum ProductSortEnum {
+  ID_ASC
+  ID_DESC
+  SELLER_ID_ASC
+  SELLER_ID_DESC
+  TITLE_ASC
+  TITLE_DESC
+  PRICE_ASC
+  PRICE_DESC
+  DESCRIPTION_ASC
+  DESCRIPTION_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+}
+
+type Query {
+  allProducts(sort: [ProductSortEnum] = [ID_ASC], before: String, after: String, first: Int, last: Int): ProductConnection
+  allUsers(sort: [UserSortEnum] = [ID_ASC], before: String, after: String, first: Int, last: Int): UserConnection
+}
+
+type User implements Node {
+  id: ID!
+  fullname: String!
+  email: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  products(before: String, after: String, first: Int, last: Int): ProductConnection
+}
+
+type UserConnection {
+  pageInfo: PageInfo!
+  edges: [UserEdge]!
+}
+
+type UserEdge {
+  node: User
+  cursor: String!
+}
+
+enum UserSortEnum {
+  ID_ASC
+  ID_DESC
+  FULLNAME_ASC
+  FULLNAME_DESC
+  EMAIL_ASC
+  EMAIL_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+}

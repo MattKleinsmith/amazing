@@ -1,3 +1,4 @@
+from graphql.utils import schema_printer
 import os
 from flask import Flask, request, redirect
 from flask_cors import CORS
@@ -22,6 +23,12 @@ Migrate(app, db, render_as_batch=True)
 
 login = LoginManager(app)
 login.login_view = "api.session.unauthorized"
+
+
+my_schema_str = schema_printer.print_schema(schema)
+fp = open("schema.graphql", "w")
+fp.write(my_schema_str)
+fp.close()
 
 app.add_url_rule(
     "/graphql", view_func=GraphQLView.as_view("graphql", schema=schema, graphiql=True)
